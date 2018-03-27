@@ -12,7 +12,11 @@ public class ersteMap {
         this.laenge = laenge;
         MapGroesse = mapGroesse;
 
-        int x = 1;
+
+        /**
+         * 10x10 Matrix 100 Felder mit Zahlen von 0-100
+         */
+        int x = 0;
         for (int i = 0; i < breite; i++) {
             for (int j = 0; j < laenge; j++) {
                 mapGroesse[i][j] = x;
