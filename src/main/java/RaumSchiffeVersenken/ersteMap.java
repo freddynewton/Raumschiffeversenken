@@ -2,8 +2,8 @@ package RaumSchiffeVersenken;
 
 public class ersteMap {
 
-    int breite = 9;
-    int laenge = 9;
+    int breite = 10;
+    int laenge = 10;
     int[][] MapGroesse = new int[breite][laenge];
 
 
@@ -12,14 +12,22 @@ public class ersteMap {
         this.laenge = laenge;
         MapGroesse = mapGroesse;
 
+        int x = 1;
         for (int i = 0; i < breite; i++) {
-            for (int x = 0; x < laenge; x++) {
-                MapGroesse[i][x] = i + x;
+            for (int j = 0; j < laenge; j++) {
+                mapGroesse[i][j] = x;
+                x++;
             }
         }
 
 
+        /**
+         for (int i = 0; i < breite; i++) {
+         for (int j = 0; x < laenge; x++) {
+         MapGroesse[i][j] = i * x;
+         }
+         }
+         */
+
     }
-
-
 }
