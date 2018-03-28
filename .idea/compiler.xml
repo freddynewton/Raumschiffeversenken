@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="dehdmstuttgart" />
+        <module name="RaumSchiffeSeZwei" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="dehdmstuttgart" target="1.8" />
+      <module name="RaumSchiffeSeZwei" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
