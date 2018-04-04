@@ -1,14 +1,29 @@
 package RaumSchiffeVersenken;
 
+import java.util.Arrays;
+
 public class SpielSystemMain {
     public static void main(String[] args) {
-        Feld FeldOhneZellen = new Feld(10, 10);
 
-        for (int i = 0; i < 100; i++) {
+
+        int[][] mapMitZelle = new int[10][10];
+
+        //Arrays.fill(mapMitZelle, 0);
+
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                mapMitZelle[i][j] = 0;
+            }
+
         }
-        Zelle Z1 = new Zelle(0);
 
-        System.out.println(Z1.getStatus());
+        for (int j = 0; j < 10; j++) {
+            for (int i = 0; i < 10; i++) {
+                System.out.print(mapMitZelle[j][i]);
+            }
+            System.out.println();
+        }
+
 
 
 
