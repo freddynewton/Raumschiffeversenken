@@ -1,9 +1,16 @@
 package RaumSchiffeVersenken;
 
 public class Zelle {
-    private boolean raumschiff = false;
     private int Status = 0;
-
+/**
+ * 0 = Wasser
+ * 1 = MissTreffer
+ * 2 = Schiff
+ * 3 = Treffer
+ *
+ * Schiff setzen auf eine Zelle ist +2
+ * und Angriff ist +1
+ */
 
     /**
      * @return Den Status
@@ -12,18 +19,9 @@ public class Zelle {
         return Status;
     }
 
-    public Zelle(boolean raumschiff, int status) {
-        this.raumschiff = raumschiff;
+
+    public Zelle(int status) {
         this.Status = status;
-    }
-
-
-    public boolean isRaumschiff() {
-        return raumschiff;
-    }
-
-    public void setRaumschiff(boolean raumschiff) {
-        this.raumschiff = raumschiff;
     }
 
     public void setStatus(int status) {

@@ -17,9 +17,10 @@ public class Feld {
         this.laenge = yAchse;
         int[][] mapGroesse = new int[xAchse][yAchse];
 
+
         int IDverweiser = 0;
-        for (int x = 0; x < xAchse; x++) {
-            for (int y = 0; y < yAchse; y++) {
+        for (int y = 0; y < yAchse; y++) {
+            for (int x = 0; x < xAchse; x++) {
                 mapGroesse[x][y] = IDverweiser;
                 IDverweiser++;
             }
