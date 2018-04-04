@@ -2,9 +2,9 @@ package RaumSchiffeVersenken;
 
 public class Feld {
 
-    int breite = 10;
-    int laenge = 10;
-
+    int xAchse;
+    int yAchse;
+    int[][] mapGroesse;
 
     /**
      * 10x10 Matrix 100 Felder mit Zahlen von 0-100
@@ -13,21 +13,26 @@ public class Feld {
      * @param yAchse
      */
     public Feld(int xAchse, int yAchse) {
-        this.breite = xAchse;
-        this.laenge = yAchse;
-        int[][] mapGroesse = new int[xAchse][yAchse];
+        this.xAchse = xAchse;
+        this.yAchse = yAchse;
+        this.mapGroesse = new int[xAchse][yAchse];
 
 
-        int IDverweiser = 0;
         for (int y = 0; y < yAchse; y++) {
             for (int x = 0; x < xAchse; x++) {
-                mapGroesse[x][y] = IDverweiser;
-                IDverweiser++;
+                mapGroesse[x][y] = 0;
             }
         }
-
-
     }
 
-
+    @Override
+    public String toString() {
+        for (int j = 0; j < 10; j++) {
+            for (int i = 0; i < 10; i++) {
+                System.out.print(mapGroesse[j][i]);
+            }
+            System.out.println();
+        }
+        return "";
+    }
 }
