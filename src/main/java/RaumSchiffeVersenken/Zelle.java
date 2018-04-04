@@ -12,6 +12,21 @@ public class Zelle {
         return Status;
     }
 
+    public Zelle(boolean raumschiff, int status) {
+        this.raumschiff = raumschiff;
+        this.Status = status;
+    }
 
 
+    public boolean isRaumschiff() {
+        return raumschiff;
+    }
+
+    public void setRaumschiff(boolean raumschiff) {
+        this.raumschiff = raumschiff;
+    }
+
+    public void setStatus(int status) {
+        Status = status;
+    }
 }

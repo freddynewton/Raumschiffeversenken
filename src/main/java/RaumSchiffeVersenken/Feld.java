@@ -4,26 +4,24 @@ public class Feld {
 
     int breite = 10;
     int laenge = 10;
-    int[][] MapGroesse = new int[breite][laenge];
+
 
     /**
      * 10x10 Matrix 100 Felder mit Zahlen von 0-100
      *
-     * @param breite
-     * @param laenge
-     * @param mapGroesse besteht aus breite * laenge
+     * @param xAchse
+     * @param yAchse
      */
-    public Feld(int breite, int laenge, int[][] mapGroesse) {
-        this.breite = breite;
-        this.laenge = laenge;
-        MapGroesse = mapGroesse;
+    public Feld(int xAchse, int yAchse) {
+        this.breite = xAchse;
+        this.laenge = yAchse;
+        int[][] mapGroesse = new int[xAchse][yAchse];
 
-
-        int x = 0;
-        for (int i = 0; i < breite; i++) {
-            for (int j = 0; j < laenge; j++) {
-                mapGroesse[i][j] = x;
-                x++;
+        int IDverweiser = 0;
+        for (int x = 0; x < xAchse; x++) {
+            for (int y = 0; y < yAchse; y++) {
+                mapGroesse[x][y] = IDverweiser;
+                IDverweiser++;
             }
         }
     }
