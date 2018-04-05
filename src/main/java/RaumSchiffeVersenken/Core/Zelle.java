@@ -1,4 +1,4 @@
-package RaumSchiffeVersenken;
+package RaumSchiffeVersenken.Core;
 
 public class Zelle {
     private int Status = 0;

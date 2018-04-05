@@ -1,7 +1,7 @@
-package RaumSchiffeVersenken;
+package RaumSchiffeVersenken.Core;
 
 
-public class RaumSchiff {
+public class RaumSchiffFactory {
     public int laenge;
     public int Model;
     public int xKoordinaten;
@@ -10,14 +10,14 @@ public class RaumSchiff {
     /**
      * @param laenge       Das beschreibt mit dem Model die Größe und dementsprechend dann
      *                     auch das Model.
-     * @param model        1 = Jäger
-     *                     2 = Frigatte
-     *                     4 = Zerstörer
-     *                     5 = Kreuzer
+     * @param model        1 = Jäger 4x
+     *                     2 = Frigatte 3x
+     *                     4 = Zerstörer 2x
+     *                     5 = Kreuzer 1x
      * @param xKoordinaten
      * @param yKoordinaten
      */
-    public RaumSchiff(int laenge, int model, int xKoordinaten, int yKoordinaten) {
+    public RaumSchiffFactory(int laenge, int model, int xKoordinaten, int yKoordinaten) {
         this.laenge = laenge;
         this.Model = model;
         this.xKoordinaten = xKoordinaten;
@@ -25,11 +25,13 @@ public class RaumSchiff {
     }
 /*
    Beispiel wie man ein Schiff erstellt mit dem Constructor
-
-    RaumSchiff zerstörer = new RaumSchiff(4,4, 3, 10);
+    RaumSchiffFactory zerstörer = new RaumSchiffFactory(4,4, 3, 10);
      */
+public int indexAuswählen() {
+    return 2;
+}
 
-
+    //-------------------------------------------------------------------------------
     public int getLaenge() {
         return laenge;
     }

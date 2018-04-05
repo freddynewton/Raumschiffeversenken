@@ -1,4 +1,4 @@
-package RaumSchiffeVersenken;
+package RaumSchiffeVersenken.Core;
 
 public class Feld {
 
@@ -7,7 +7,7 @@ public class Feld {
     int[][] mapGroesse;
 
     /**
-     * 10x10 Matrix 100 Felder mit Zahlen von 0-100
+     * 10x10 Matrix 100 Felder mit Zahlen von 0-99 mit 0 gefüllt
      *
      * @param xAchse
      * @param yAchse
