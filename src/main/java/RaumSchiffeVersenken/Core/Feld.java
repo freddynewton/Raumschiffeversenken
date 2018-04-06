@@ -43,6 +43,11 @@ public class Feld {
 
             if (yAchseBeschuss < 10 && yAchseBeschuss >= 0 && xAchseBeschuss < 10 && xAchseBeschuss >= 0) {
                 schießen(xAchseBeschuss, yAchseBeschuss);
+
+            } else {
+                System.out.println("Bitte nur zwischen 0-9 jeweils in der X-Achse und Y-Achse");
+
+
             }
         } catch (Exception e) {
             System.out.println("Bitte nur zwischen 0-9 jeweils in der X-Achse und Y-Achse");
