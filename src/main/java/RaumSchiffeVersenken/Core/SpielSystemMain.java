@@ -5,8 +5,13 @@ public class SpielSystemMain {
         Feld Feld1 = new Feld(10, 10);
         System.out.println(Feld1.toString());
 
-        Feld1.zielen();
-        System.out.println(Feld1.toString());
+
+        for (int i = 0; i < 99; i++) {
+            Feld1.zielenZumSchiessen();
+            System.out.println("\n");
+            System.out.println(Feld1.toString());
+
+        }
 
 
 
