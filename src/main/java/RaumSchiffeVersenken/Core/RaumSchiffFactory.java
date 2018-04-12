@@ -3,23 +3,23 @@ package RaumSchiffeVersenken.Core;
 
 public class RaumSchiffFactory {
     public int laenge;
-    public int Model;
+    public int LebensPunkte;
     public int xKoordinaten;
     public int yKoordinaten;
 
     /**
-     * @param laenge       Das beschreibt mit dem Model die Größe und dementsprechend dann
-     *                     auch das Model.
-     * @param model        1 = Jäger 4x
+     * @param laenge       Das beschreibt mit dem LebensPunkte die Größe und dementsprechend dann
+     *                     auch das LebensPunkte.
+     * @param lebensPunkte        1 = Jäger 4x
      *                     2 = Frigatte 3x
      *                     4 = Zerstörer 2x
      *                     5 = Kreuzer 1x
      * @param xKoordinaten
      * @param yKoordinaten
      */
-    public RaumSchiffFactory(int laenge, int model, int xKoordinaten, int yKoordinaten) {
+    public RaumSchiffFactory(int laenge, int lebensPunkte, int xKoordinaten, int yKoordinaten) {
         this.laenge = laenge;
-        this.Model = model;
+        this.LebensPunkte = lebensPunkte;
         this.xKoordinaten = xKoordinaten;
         this.yKoordinaten = yKoordinaten;
     }
@@ -32,20 +32,18 @@ public int indexAuswählen() {
 }
 
     //-------------------------------------------------------------------------------
-    public int getLaenge() {
-        return laenge;
-    }
+    public int getLaenge() { return laenge; }
 
     public void setLaenge(int laenge) {
         this.laenge = laenge;
     }
 
-    public int getModel() {
-        return Model;
+    public int getLebensPunkte() {
+        return LebensPunkte;
     }
 
-    public void setModel(int model) {
-        Model = model;
+    public void setLebensPunkte(int lebensPunkte) {
+        LebensPunkte = lebensPunkte;
     }
 
     public int getxKoordinaten() {
