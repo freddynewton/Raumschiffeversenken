@@ -24,7 +24,7 @@ public class SpielSystemMain {
         */
 
 
-        // zweites Feld
+        // zweites Feld bla bla
         Feld Feld2 = new Feld(10, 10);
 
         Feld2.zielenZumSchiessen();
