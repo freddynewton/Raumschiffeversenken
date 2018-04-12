@@ -16,13 +16,20 @@ public class SpielSystemMain {
         System.out.println("\n");
         System.out.println(Feld1.toString());
 
-        for (int i = 0; i < 99; i++) {
+       /*for (int i = 0; i < 99; i++) {
             Feld1.zielenZumSchiessen();
             System.out.println("\n");
             System.out.println(Feld1.toString());
         }
+        */
 
 
+        // zweites Feld
+        Feld Feld2 = new Feld(10, 10);
 
+        Feld2.zielenZumSchiessen();
+
+        System.out.println("\n");
+        System.out.println(Feld2.toString());
     }
 }
