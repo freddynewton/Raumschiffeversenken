@@ -10,25 +10,6 @@ public class Feld {
     public int xAchseBeschuss;
     public int yAchseBeschuss;
 
-
-    RaumSchiffFactory Jäger1 = new RaumSchiffFactory(1, 1, xAchseBeschuss, yAchseBeschuss);
-    RaumSchiffFactory Jäger2 = new RaumSchiffFactory(1, 1, xAchseBeschuss, yAchseBeschuss);
-    RaumSchiffFactory Jäger3 = new RaumSchiffFactory(1, 1, xAchseBeschuss, yAchseBeschuss);
-    RaumSchiffFactory Jäger4 = new RaumSchiffFactory(1, 1, xAchseBeschuss, yAchseBeschuss);
-
-    RaumSchiffFactory Frigatte1 = new RaumSchiffFactory(2, 2, xAchseBeschuss, yAchseBeschuss);
-    RaumSchiffFactory Frigatte2 = new RaumSchiffFactory(2, 2, xAchseBeschuss, yAchseBeschuss);
-    RaumSchiffFactory Frigatte3 = new RaumSchiffFactory(2, 2, xAchseBeschuss, yAchseBeschuss);
-
-    RaumSchiffFactory Zerstörer1 = new RaumSchiffFactory(4, 4, xAchseBeschuss, yAchseBeschuss);
-    RaumSchiffFactory Zerstörer2 = new RaumSchiffFactory(4, 4, xAchseBeschuss, yAchseBeschuss);
-
-    RaumSchiffFactory Kreuzer1 = new RaumSchiffFactory(5, 5, xAchseBeschuss, yAchseBeschuss);
-
-
-
-
-
     /**
      * 10x10 Matrix 100 Felder mit Zahlen von 0-99 mit 0 gefüllt
      *
@@ -72,10 +53,6 @@ public class Feld {
         }
     }
 
-    /**
-     * @param yAchseBeschuss
-     * @param xAchseBeschuss
-     */
     public void schießen(int yAchseBeschuss, int xAchseBeschuss) {
         this.xAchseBeschuss = xAchseBeschuss;
         this.yAchseBeschuss = yAchseBeschuss;
@@ -100,11 +77,7 @@ public class Feld {
 
     //---------------------------------------------------------------------------------------------------------------------
 
-
-
     public void zielenZumSchiffeSetzen() {
-
-
         try {
             System.out.println("Bitte den gewünschten X-Achsenwert eingeben: ");
             Scanner scanx = new Scanner(System.in);
@@ -126,11 +99,6 @@ public class Feld {
         }
     }
 
-    /**
-     *
-     * @param yAchseBeschuss
-     * @param xAchseBeschuss
-     */
     public void schiffSetzen(int yAchseBeschuss, int xAchseBeschuss) {
         this.xAchseBeschuss = xAchseBeschuss;
         this.yAchseBeschuss = yAchseBeschuss;
@@ -153,12 +121,11 @@ public class Feld {
 
     }
 
-
     @Override
     public String toString() {
         for (int j = 0; j < 10; j++) {
             for (int i = 0; i < 10; i++) {
-                System.out.print(mapGroesse[j][i] + " ");
+                System.out.print(mapGroesse[j][i]);
             }
             System.out.println();
         }
