@@ -14,19 +14,19 @@ public interface RaumSchiff {
 
     public int getLaenge();
 
-    public void setLaenge();
+    public void setLaenge(int laenge);
 
     public int getLebensPunkte();
 
-    public void setLebensPunkte();
+    public void setLebensPunkte(int lebensPunkte);
 
     public int getxKoordinaten();
 
-    public void setxKoordinaten();
+    public void setxKoordinaten(int xKoordinaten);
 
     public int getyKoordinaten();
 
-    public void setyKoordinaten();
+    public void setyKoordinaten(int yKoordinaten);
 
     public void zielenZumSchiffeSetzen();
 

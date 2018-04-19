@@ -2,7 +2,7 @@ package RaumSchiffeVersenken.Core.SchiffsArten;
 
 import RaumSchiffeVersenken.Interface.RaumSchiff;
 
-abstract public class Fregatte implements RaumSchiff {
+public class Fregatte implements RaumSchiff {
 
     private int laenge = 2;
     private int LebensPunkte = 2;
@@ -10,31 +10,53 @@ abstract public class Fregatte implements RaumSchiff {
     private int yKoordinaten;
 
 
+    @Override
     public int getLaenge() {
         return laenge;
     }
 
+    @Override
     public void setLaenge(int laenge) {
         this.laenge = laenge;
     }
 
+    @Override
     public int getLebensPunkte() {
         return LebensPunkte;
     }
 
-    public void setLebensPunkte(int LebensPunkte) {
+    @Override
+    public void setLebensPunkte(int lebensPunkte) {
         this.LebensPunkte = LebensPunkte;
     }
 
+    @Override
+    public int getxKoordinaten() {
+        return xKoordinaten;
+    }
+
+    @Override
     public void setxKoordinaten(int xKoordinaten) {
         this.xKoordinaten = xKoordinaten;
     }
 
+    @Override
+    public int getyKoordinaten() {
+        return yKoordinaten;
+    }
+
+    @Override
     public void setyKoordinaten(int yKoordinaten) {
         this.yKoordinaten = yKoordinaten;
     }
 
-    //public void zielenZumSchiffeSetzen();
+    @Override
+    public void zielenZumSchiffeSetzen() {
 
-    //public void schiffSetzen();
+    }
+
+    @Override
+    public void schiffSetzen() {
+
+    }
 }
