@@ -8,7 +8,12 @@ import RaumSchiffeVersenken.Interface.RaumSchiff;
 
 public class SchiffFactory {
 
+    /**
+     * @param kriterium
+     * @return je nach Kriterium ein Schiff
+     */
     public static RaumSchiff getRaumschiff(String kriterium) {
+
 
         if (kriterium.equals("1")) {
             return new Jaeger() {
