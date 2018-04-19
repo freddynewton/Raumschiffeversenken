@@ -7,7 +7,7 @@ public class SpielSystemMain {
         Feld Feld1 = new Feld(10, 10);
 
         System.out.println(Feld1.toString());
-        System.out.println("Test");
+
 
         // Jäger erstellen 1 Lebenspunkt
         RaumSchiff Jaeger1 = SchiffFactory.getRaumschiff("1");
