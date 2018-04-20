@@ -1,7 +1,10 @@
 package RaumSchiffeVersenken.Core;
 
 import java.util.Scanner;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
+import com.sun.xml.internal.bind.v2.TODO;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -12,6 +15,8 @@ public class Feld {
     int[][] mapGroesse;
     public int xAchseBeschuss;
     public int yAchseBeschuss;
+
+    Lock lock = new ReentrantLock();
 
     private static final Logger log = LogManager.getLogger(Feld.class);
 
@@ -35,7 +40,7 @@ public class Feld {
     }
 
     //--------------------------------------------------------------------------------------------------------------------
-
+    // TODO: 20.04.2018 Lock und finally hinzufügen bei allen Methoden
     public void zielenZumSchiessen() {
 
         try {
@@ -136,6 +141,10 @@ public class Feld {
                     "\n");
             zielenZumSchiffeSetzen();
         }
+
+        // TODO: 20.04.2018 Methode entwickeln um die Schiffe mit ihrer Länge zu setzen
+
+
 
     }
 

@@ -4,10 +4,12 @@ import RaumSchiffeVersenken.Interface.RaumSchiff;
 
 public class SpielSystemMain {
     public static void main(String[] args) {
+
+        // Spieler 1 Spielfeld erstellt
         Feld Feld1 = new Feld(10, 10);
 
-        System.out.println(Feld1.toString());
-
+        //Spieler 2 Spielfeld erstellt
+        Feld Feld2 = new Feld(10, 10);
 
         // Jäger erstellen 1 Lebenspunkt
         RaumSchiff Jaeger1 = SchiffFactory.getRaumschiff("1");
@@ -22,7 +24,9 @@ public class SpielSystemMain {
         RaumSchiff Zerstörer1 = SchiffFactory.getRaumschiff("5");
 
 
+        System.out.println(Feld1.toString());
 
+        // TODO: 20.04.2018 Versuchen die 2. Map zu zeigen mit einem Fog of War
 
 
 
@@ -35,7 +39,6 @@ public class SpielSystemMain {
         }
         */
         // zweites Feld bla bla
-        Feld Feld2 = new Feld(10, 10);
 
         Feld2.zielenZumSchiessen();
 
