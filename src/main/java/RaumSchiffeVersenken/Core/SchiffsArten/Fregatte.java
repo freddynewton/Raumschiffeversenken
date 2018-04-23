@@ -4,11 +4,10 @@ import RaumSchiffeVersenken.Interface.RaumSchiff;
 
 public class Fregatte implements RaumSchiff {
 
-    private int laenge = 2;
-    private int LebensPunkte = 2;
+    private int laenge = 4;
+    private int LebensPunkte = 4;
     private int xKoordinaten;
     private int yKoordinaten;
-
 
     @Override
     public int getLaenge() {
@@ -26,7 +25,7 @@ public class Fregatte implements RaumSchiff {
     }
 
     @Override
-    public void setLebensPunkte(int lebensPunkte) {
+    public void setLebensPunkte(int LebensPunkte) {
         this.LebensPunkte = LebensPunkte;
     }
 

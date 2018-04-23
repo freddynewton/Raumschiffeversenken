@@ -1,6 +1,5 @@
 package RaumSchiffeVersenken.Core.SchiffsArten;
 
-
 import RaumSchiffeVersenken.Interface.RaumSchiff;
 
 public class Jaeger implements RaumSchiff {
@@ -26,7 +25,7 @@ public class Jaeger implements RaumSchiff {
     }
 
     @Override
-    public void setLebensPunkte(int lebensPunkte) {
+    public void setLebensPunkte(int LebensPunkte) {
         this.LebensPunkte = LebensPunkte;
     }
 

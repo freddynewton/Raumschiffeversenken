@@ -1,9 +1,9 @@
 package RaumSchiffeVersenken.Core;
 
-import RaumSchiffeVersenken.Core.SchiffsArten.Fregatte;
+import RaumSchiffeVersenken.Core.SchiffsArten.Bomber;
 import RaumSchiffeVersenken.Core.SchiffsArten.Jaeger;
-import RaumSchiffeVersenken.Core.SchiffsArten.Kreuzer;
 import RaumSchiffeVersenken.Core.SchiffsArten.Zerstoerer;
+import RaumSchiffeVersenken.Core.SchiffsArten.Fregatte;
 import RaumSchiffeVersenken.Interface.RaumSchiff;
 
 public class SchiffFactory {
@@ -20,15 +20,15 @@ public class SchiffFactory {
             };
 
         } else if (kriterium.equals("2")) {
-            return new Fregatte() {
+            return new Bomber() {
             };
 
         } else if (kriterium.equals("4")) {
-            return new Zerstoerer() {
+            return new Fregatte() {
             };
 
         } else if (kriterium.equals("5")) {
-            return new Kreuzer() {
+            return new Zerstoerer() {
             };
         }
 

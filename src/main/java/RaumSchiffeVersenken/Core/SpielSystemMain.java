@@ -11,23 +11,22 @@ public class SpielSystemMain {
         //Spieler 2 Spielfeld erstellt
         Feld Feld2 = new Feld(10, 10);
 
-        // Jäger erstellen 1 Lebenspunkt
+        // Jaeger erstellen 1 Lebenspunkt
         RaumSchiff Jaeger1 = SchiffFactory.getRaumschiff("1");
 
-        // Fregatte Erstellen 2 Lebenspunkte
-        RaumSchiff Fregatte1 = SchiffFactory.getRaumschiff("2");
+        // Bomber Erstellen 2 Lebenspunkte
+        RaumSchiff Bomber1 = SchiffFactory.getRaumschiff("2");
 
-        // Kreuzer erstellen 4 Lebenspunkte
-        RaumSchiff Kreuzer1 = SchiffFactory.getRaumschiff("4");
+        // Fregatte erstellen 4 Lebenspunkte
+        RaumSchiff Fregatte1 = SchiffFactory.getRaumschiff("4");
 
-        // Zerstörer erstellen 5 Lebenspunkte
-        RaumSchiff Zerstörer1 = SchiffFactory.getRaumschiff("5");
+        // Zerstoerer erstellen 5 Lebenspunkte
+        RaumSchiff Zerstoerer1 = SchiffFactory.getRaumschiff("5");
 
 
         System.out.println(Feld1.toString());
 
         // TODO: 20.04.2018 Versuchen die 2. Map zu zeigen mit einem Fog of War
-
 
 
 
