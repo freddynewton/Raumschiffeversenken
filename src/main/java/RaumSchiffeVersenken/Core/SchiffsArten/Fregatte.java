@@ -25,9 +25,7 @@ public class Fregatte implements RaumSchiff {
     }
 
     @Override
-    public void setLebensPunkte(int LebensPunkte) {
-        this.LebensPunkte = LebensPunkte;
-    }
+    public void setLebensPunkte(int LebensPunkte) { this.LebensPunkte = LebensPunkte; }
 
     @Override
     public int getxKoordinaten() {
