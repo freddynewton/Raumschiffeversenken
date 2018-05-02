@@ -13,7 +13,7 @@ public class SpielSystemMain extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/FXML/sample.fxml"));
-        primaryStage.setTitle("Raumschiffe versenken");
+        primaryStage.setTitle("Raumschiffeversenken");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
     }
