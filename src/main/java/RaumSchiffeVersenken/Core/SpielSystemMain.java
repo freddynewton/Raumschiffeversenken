@@ -23,9 +23,11 @@ public class SpielSystemMain extends Application {
 
         // Spieler 1 Spielfeld erstellt
         Feld Feld1 = new Feld(10, 10);
+        Feld Feld1_1 = Feld1;
 
         //Spieler 2 Spielfeld erstellt
         Feld Feld2 = new Feld(10, 10);
+        Feld Feld2_1 = Feld2;
 
         // Jaeger erstellen 1 Lebenspunkt
         RaumSchiff Jaeger1 = SchiffFactory.getRaumschiff("1");
@@ -45,13 +47,16 @@ public class SpielSystemMain extends Application {
         System.out.println(Feld1.toString());
 
         Feld1.zielenZumSchiffeSetzen(Zerstoerer1.getLaenge());
-
         System.out.println(Feld1.toString());
 
-
-
-
+        Feld1.zielenZumSchiessen();
         System.out.println(Feld1.toString());
+        System.out.println("\n jetzt kommt das Feld mit Kriegsnebel: \n\n");
+        Feld1_1.Kriegsnebel();
+        Feld1_1.toString();
+
+
+
 
         // TODO: 20.04.2018 Versuchen die 2. Map zu zeigen mit einem Fog of War
 

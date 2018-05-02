@@ -163,10 +163,21 @@ public class Feld {
                     "\n");
             zielenZumSchiffeSetzen(SchiffsLänge);
         }
-
-        // TODO: 20.04.2018 Methode entwickeln um die Schiffe mit ihrer Länge zu setzen
     }
 
+    // ----------------------------------------------------------------------------------------------
+
+    public void Kriegsnebel() {
+        this.mapGroesse = mapGroesse;
+
+        for (int j = 0; j < 10; j++) {
+            for (int i = 0; i < 10; i++) {
+                if (mapGroesse[j][i] == 5) {
+                    mapGroesse[j][i] = 0;
+                }
+            }
+        }
+    }
 
     @Override
     public String toString() {
