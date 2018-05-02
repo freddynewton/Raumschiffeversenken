@@ -34,7 +34,6 @@ public class SpielSystemMain {
             Feld1.zielenZumSchiessen();
             System.out.println("\n");
             System.out.println(Feld1.toString());
-
         }
         */
         // zweites Feld bla bla

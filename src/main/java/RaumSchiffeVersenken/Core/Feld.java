@@ -4,7 +4,6 @@ import java.util.Scanner;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-import com.sun.xml.internal.bind.v2.TODO;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -15,6 +14,8 @@ public class Feld {
     int[][] mapGroesse;
     public int xAchseBeschuss;
     public int yAchseBeschuss;
+    public int SchiffsRichtung;
+    // 1 für x Achse und 2 für y Achse
 
     Lock lock = new ReentrantLock();
 
@@ -96,6 +97,14 @@ public class Feld {
 
     public void zielenZumSchiffeSetzen() {
         try {
+            log.info("Bitte geben sie ein in welcher Richtung sie das Schiff haben möchten\n" +
+                    "1 für die xAchse entlang\n" +
+                    "2 für die yAchse entlang\n" +
+                    "Hier:  ");
+            Scanner scanr = new Scanner(System.in);
+            String scanrString = scanr.nextLine();
+            SchiffsRichtung = Integer.parseInt(scanrString);
+
             log.info("Bitte den gewünschten X-Achsenwert eingeben: ");
             Scanner scanx = new Scanner(System.in);
             String scanxString = scanx.nextLine();
@@ -107,21 +116,22 @@ public class Feld {
             yAchseBeschuss = Integer.parseInt(scanyString);
 
             if (yAchseBeschuss < 10 && yAchseBeschuss >= 0 && xAchseBeschuss < 10 && xAchseBeschuss >= 0) {
-                schiffSetzen(xAchseBeschuss, yAchseBeschuss);
+                schiffSetzen(xAchseBeschuss, yAchseBeschuss, SchiffsRichtung);
             } else {
-                log.info("Bitte nur zwischen 0-9 jeweils in der X-Achse und Y-Achse");
+                log.info("Bitte nur zwischen 0-9 jeweils in der X-Achse und Y-Achse und Bei der Schiffsrichtung nur 1 & 2");
                 zielenZumSchiffeSetzen();
             }
         } catch (Exception ex1) {
-            log.error("Bitte nur zwischen 0-9 jeweils in der X-Achse und Y-Achse", ex1);
-            System.out.println("Bitte nur zwischen 0-9 jeweils in der X-Achse und Y-Achse");
+            log.error("Bitte nur zwischen 0-9 jeweils in der X-Achse und Y-Achse und Bei der Schiffsrichtung nur 1 & 2", ex1);
+            System.out.println("Bitte nur zwischen 0-9 jeweils in der X-Achse und Y-Achse und Bei der Schiffsrichtung nur 1 & 2");
             zielenZumSchiffeSetzen();
         }
     }
 
-    public void schiffSetzen(int yAchseBeschuss, int xAchseBeschuss) {
+    public void schiffSetzen(int yAchseBeschuss, int xAchseBeschuss, int SchiffsRichtung) {
         this.xAchseBeschuss = xAchseBeschuss;
         this.yAchseBeschuss = yAchseBeschuss;
+        this.SchiffsRichtung = SchiffsRichtung;
 
         try {
             if (mapGroesse[xAchseBeschuss][yAchseBeschuss] == 0 || mapGroesse[xAchseBeschuss][yAchseBeschuss] != 5) {
@@ -145,8 +155,11 @@ public class Feld {
         // TODO: 20.04.2018 Methode entwickeln um die Schiffe mit ihrer Länge zu setzen
 
 
-
     }
+
+
+
+
 
     @Override
     public String toString() {
