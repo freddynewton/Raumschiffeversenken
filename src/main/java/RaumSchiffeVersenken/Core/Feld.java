@@ -16,6 +16,7 @@ public class Feld {
     public int yAchseBeschuss;
     public int SchiffsRichtung;
     // 1 für x Achse und 2 für y Achse
+    public int SchiffsLänge;
 
     Lock lock = new ReentrantLock();
 
@@ -153,8 +154,6 @@ public class Feld {
         }
 
         // TODO: 20.04.2018 Methode entwickeln um die Schiffe mit ihrer Länge zu setzen
-
-
     }
 
 
