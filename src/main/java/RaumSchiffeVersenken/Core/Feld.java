@@ -96,7 +96,9 @@ public class Feld {
 
     //---------------------------------------------------------------------------------------------------------------------
 
-    public void zielenZumSchiffeSetzen() {
+    public void zielenZumSchiffeSetzen(int SchiffsLänge) {
+        this.SchiffsLänge = SchiffsLänge;
+
         try {
             log.info("Bitte geben sie ein in welcher Richtung sie das Schiff haben möchten\n" +
                     "1 für die xAchse entlang\n" +
@@ -117,31 +119,40 @@ public class Feld {
             yAchseBeschuss = Integer.parseInt(scanyString);
 
             if (yAchseBeschuss < 10 && yAchseBeschuss >= 0 && xAchseBeschuss < 10 && xAchseBeschuss >= 0) {
-                schiffSetzen(xAchseBeschuss, yAchseBeschuss, SchiffsRichtung);
+                schiffSetzen(xAchseBeschuss, yAchseBeschuss, SchiffsRichtung, SchiffsLänge);
             } else {
                 log.info("Bitte nur zwischen 0-9 jeweils in der X-Achse und Y-Achse und Bei der Schiffsrichtung nur 1 & 2");
-                zielenZumSchiffeSetzen();
+                zielenZumSchiffeSetzen(SchiffsLänge);
             }
         } catch (Exception ex1) {
             log.error("Bitte nur zwischen 0-9 jeweils in der X-Achse und Y-Achse und Bei der Schiffsrichtung nur 1 & 2", ex1);
             System.out.println("Bitte nur zwischen 0-9 jeweils in der X-Achse und Y-Achse und Bei der Schiffsrichtung nur 1 & 2");
-            zielenZumSchiffeSetzen();
+            zielenZumSchiffeSetzen(SchiffsLänge);
         }
     }
 
-    public void schiffSetzen(int yAchseBeschuss, int xAchseBeschuss, int SchiffsRichtung) {
+    public void schiffSetzen(int yAchseBeschuss, int xAchseBeschuss, int SchiffsRichtung, int SchiffsLänge) {
         this.xAchseBeschuss = xAchseBeschuss;
         this.yAchseBeschuss = yAchseBeschuss;
         this.SchiffsRichtung = SchiffsRichtung;
+        this.SchiffsLänge = SchiffsLänge;
 
         try {
-            if (mapGroesse[xAchseBeschuss][yAchseBeschuss] == 0 || mapGroesse[xAchseBeschuss][yAchseBeschuss] != 5) {
-                mapGroesse[xAchseBeschuss][yAchseBeschuss] += 5;
+            if ((mapGroesse[xAchseBeschuss][yAchseBeschuss] == 0 || mapGroesse[xAchseBeschuss][yAchseBeschuss] != 5) &&
+                    SchiffsRichtung == 1) {
+                for (int i = 0; i < SchiffsLänge; i++) {
+                    mapGroesse[xAchseBeschuss + i][yAchseBeschuss] += 5;
+                }
+            } else if ((mapGroesse[xAchseBeschuss][yAchseBeschuss] == 0 || mapGroesse[xAchseBeschuss][yAchseBeschuss] != 5) &&
+                    SchiffsRichtung == 2) {
+                for (int i = 0; i < SchiffsLänge; i++) {
+                    mapGroesse[xAchseBeschuss][yAchseBeschuss + i] += 5;
+                }
             } else {
                 log.info("Bitte eine andere Zelle wählen da hier schon ein Schiff steht\n" +
                         "------------------------------------------------------------------\n" +
                         "\n");
-                zielenZumSchiffeSetzen();
+                zielenZumSchiffeSetzen(SchiffsLänge);
             }
         } catch (Exception ex2) {
             log.error("Bitte eine andere Zelle wählen da hier schon ein Schiff steht\n" +
@@ -150,14 +161,11 @@ public class Feld {
             System.out.println("Bitte eine andere Zelle wählen da hier schon ein Schiff steht\n" +
                     "------------------------------------------------------------------\n" +
                     "\n");
-            zielenZumSchiffeSetzen();
+            zielenZumSchiffeSetzen(SchiffsLänge);
         }
 
         // TODO: 20.04.2018 Methode entwickeln um die Schiffe mit ihrer Länge zu setzen
     }
-
-
-
 
 
     @Override

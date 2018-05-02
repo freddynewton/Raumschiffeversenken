@@ -5,6 +5,7 @@ import RaumSchiffeVersenken.Interface.RaumSchiff;
 public class SpielSystemMain {
     public static void main(String[] args) {
 
+
         // Spieler 1 Spielfeld erstellt
         Feld Feld1 = new Feld(10, 10);
 
@@ -22,6 +23,17 @@ public class SpielSystemMain {
 
         // Zerstoerer erstellen 5 Lebenspunkte
         RaumSchiff Zerstoerer1 = SchiffFactory.getRaumschiff("5");
+
+        System.out.println(Feld1.toString());
+
+        Feld1.zielenZumSchiffeSetzen(Jaeger1.getLaenge());
+        System.out.println(Feld1.toString());
+
+        Feld1.zielenZumSchiffeSetzen(Zerstoerer1.getLaenge());
+
+        System.out.println(Feld1.toString());
+
+
 
 
         System.out.println(Feld1.toString());
