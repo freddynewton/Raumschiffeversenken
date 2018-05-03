@@ -1,11 +1,15 @@
 package RaumSchiffeVersenken.Core;
 
+
+import RaumSchiffeVersenken.Core.SchiffsArten.Jaeger;
 import RaumSchiffeVersenken.Interface.RaumSchiff;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.util.*;
 
 import static javafx.application.Application.launch;
 
@@ -29,31 +33,61 @@ public class SpielSystemMain extends Application {
         Feld Feld2 = new Feld(10, 10);
         Feld Feld2_1 = Feld2;
 
-        // Jaeger erstellen 1 Lebenspunkt
-        RaumSchiff Jaeger1 = SchiffFactory.getRaumschiff("1");
 
-        // Bomber Erstellen 2 Lebenspunkte
-        RaumSchiff Bomber1 = SchiffFactory.getRaumschiff("2");
+        HashMap<Integer, RaumSchiff> HashHangar = new HashMap<>();
 
-        // Fregatte erstellen 4 Lebenspunkte
-        RaumSchiff Fregatte1 = SchiffFactory.getRaumschiff("4");
+        // Jaeger erstellen mit 1 Lebenspunkt
+        HashHangar.put(1, Objects.requireNonNull(SchiffFactory.getRaumschiff("1")));
+        HashHangar.put(2, Objects.requireNonNull(SchiffFactory.getRaumschiff("1")));
+        HashHangar.put(3, Objects.requireNonNull(SchiffFactory.getRaumschiff("1")));
+        HashHangar.put(4, Objects.requireNonNull(SchiffFactory.getRaumschiff("1")));
+        HashHangar.put(5, Objects.requireNonNull(SchiffFactory.getRaumschiff("1")));
 
-        // Zerstoerer erstellen 5 Lebenspunkte
-        RaumSchiff Zerstoerer1 = SchiffFactory.getRaumschiff("5");
+        //Bomber erstellen mit 2 Lebenspunkten
+        HashHangar.put(6, Objects.requireNonNull(SchiffFactory.getRaumschiff("2")));
+        HashHangar.put(7, Objects.requireNonNull(SchiffFactory.getRaumschiff("2")));
+        HashHangar.put(8, Objects.requireNonNull(SchiffFactory.getRaumschiff("2")));
+        HashHangar.put(9, Objects.requireNonNull(SchiffFactory.getRaumschiff("2")));
 
-        System.out.println(Feld1.toString());
+        //Fregatte erstellen mit 4 Lebenspunkten
+        HashHangar.put(10, Objects.requireNonNull(SchiffFactory.getRaumschiff("4")));
+        HashHangar.put(11, Objects.requireNonNull(SchiffFactory.getRaumschiff("4")));
 
-        Feld1.zielenZumSchiffeSetzen(Jaeger1.getLaenge());
-        System.out.println(Feld1.toString());
+        //Zerstörer erstellen mit 5 Lebenspunkten
+        HashHangar.put(12, Objects.requireNonNull(SchiffFactory.getRaumschiff("5")));
 
-        Feld1.zielenZumSchiffeSetzen(Zerstoerer1.getLaenge());
-        System.out.println(Feld1.toString());
+        //Zur Berechnung um die Treffer zu Zählen wer der Gewinner ist.
+        int CounterSpieler1 = 0;
+        int CounterSpieler2 = 0;
+        int BenötigteTrefferZumGewinnen = 26;
 
-        Feld1.zielenZumSchiessen();
-        System.out.println(Feld1.toString());
-        System.out.println("\n jetzt kommt das Feld mit Kriegsnebel: \n\n");
-        Feld1_1.Kriegsnebel();
-        Feld1_1.toString();
+        int DerzeitigeSchiffslänge = 0;
+
+
+        /**
+         * SchiffeSetzen Spieler 1
+         */
+        for (int i = 1; i == 12; i++) {
+            DerzeitigeSchiffslänge = HashHangar.get(i).getLaenge();
+            System.out.println(Feld1.toString());
+            Feld1.zielenZumSchiffeSetzen(DerzeitigeSchiffslänge);
+        }
+        Feld1.BereitAbfrage(Feld1);
+
+        /**
+         * SchiffeSetzen Spieler 2
+         */
+        for (int i = 1; i == 12; i++) {
+            DerzeitigeSchiffslänge = HashHangar.get(i).getLaenge();
+            System.out.println(Feld2.toString());
+            Feld2.zielenZumSchiffeSetzen(DerzeitigeSchiffslänge);
+        }
+        Feld2.BereitAbfrage(Feld2);
+
+
+
+
+
 
 
 

@@ -179,6 +179,27 @@ public class Feld {
         }
     }
 
+    // ----------------------------------------------------------------------------------------------
+
+    public void BereitAbfrage(Feld feld) {
+
+        int BereitStatus = 0;
+
+        log.info("Sind sie Bereit?\n" +
+                "1 für Bereit\n" +
+                "2 für nicht Bereit");
+
+        Scanner BereitScanner = new Scanner(System.in);
+        String BereitString = BereitScanner.nextLine();
+        BereitStatus = Integer.parseInt(BereitString);
+
+        if (BereitStatus == 2) {
+            BereitAbfrage(feld);
+            System.out.println(feld.toString());
+        }
+
+    }
+
     @Override
     public String toString() {
         for (int j = 0; j < 10; j++) {
