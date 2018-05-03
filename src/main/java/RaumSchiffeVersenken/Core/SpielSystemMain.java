@@ -67,7 +67,7 @@ public class SpielSystemMain extends Application {
         /**
          * SchiffeSetzen Spieler 1
          */
-        for (int i = 1; i == 12; i++) {
+        for (int i = 1; i <= 12; i++) {
             DerzeitigeSchiffslänge = HashHangar.get(i).getLaenge();
             System.out.println(Feld1.toString());
             Feld1.zielenZumSchiffeSetzen(DerzeitigeSchiffslänge);
@@ -93,6 +93,7 @@ public class SpielSystemMain extends Application {
 
 
         // TODO: 20.04.2018 Versuchen die 2. Map zu zeigen mit einem Fog of War
+
 
 
 
