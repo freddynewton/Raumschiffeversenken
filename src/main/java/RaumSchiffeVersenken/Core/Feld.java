@@ -3,6 +3,7 @@ package RaumSchiffeVersenken.Core;
 import java.util.Scanner;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.function.ToDoubleBiFunction;
 
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
@@ -134,6 +135,7 @@ public class Feld {
         }
     }
 
+    // TODO: 03.05.2018 Überarbeitung von SchiffsRichtung und nicht der Doppelt schiffsetzung auf einer Zelle
     public void schiffSetzen(int yAchseBeschuss, int xAchseBeschuss, int SchiffsRichtung, int SchiffsLänge) {
         this.xAchseBeschuss = xAchseBeschuss;
         this.yAchseBeschuss = yAchseBeschuss;
