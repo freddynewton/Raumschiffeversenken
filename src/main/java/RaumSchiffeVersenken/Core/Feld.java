@@ -247,9 +247,9 @@ public class Feld {
             for (int i = 0; i < 10; i++) {
                 if (mapGroesse[j][i] == 6) {
                     if (SpielerNummer == 1) {
-                        CounterSpieler1++;
-                    } else if (SpielerNummer == 2) {
                         CounterSpieler2++;
+                    } else if (SpielerNummer == 2) {
+                        CounterSpieler1++;
                     }
 
                 }
@@ -266,7 +266,6 @@ public class Feld {
             RevanceStatus = Integer.parseInt(BereitString);
 
             if (RevanceStatus == 1) {
-
             } else if (RevanceStatus == 2) {
                 System.exit(0);
             }
