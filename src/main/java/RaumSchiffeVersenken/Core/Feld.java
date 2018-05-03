@@ -17,6 +17,9 @@ public class Feld {
     public int SchiffsRichtung;
     // 1 für x Achse und 2 für y Achse
     public int SchiffsLänge;
+    public int CounterSpieler1 = 0;
+    public int CounterSpieler2 = 0;
+    public int BenötigteTrefferZumGewinnen = 26;
 
     Lock lock = new ReentrantLock();
 
@@ -187,7 +190,8 @@ public class Feld {
 
         log.info("Sind sie Bereit?\n" +
                 "1 für Bereit\n" +
-                "2 für nicht Bereit");
+                "2 für nicht Bereit\n" +
+                "Hier: ");
 
         Scanner BereitScanner = new Scanner(System.in);
         String BereitString = BereitScanner.nextLine();
@@ -199,6 +203,65 @@ public class Feld {
         }
 
     }
+
+    //-------------------------------------------------------------------------------------------------
+// TODO: 03.05.2018 Auf Jar-Datei warten um die App neu zu starten in dem Revance
+    public void TrefferZaehler(Feld feld, int SpielerNummer) {
+        this.CounterSpieler1 = CounterSpieler1;
+        this.CounterSpieler2 = CounterSpieler2;
+        this.BenötigteTrefferZumGewinnen = BenötigteTrefferZumGewinnen;
+        this.mapGroesse = mapGroesse;
+        int RevanceStatus;
+
+
+        for (int j = 0; j < 10; j++) {
+            for (int i = 0; i < 10; i++) {
+                if (mapGroesse[j][i] == 6) {
+                    if (SpielerNummer == 1) {
+                        CounterSpieler1++;
+                    } else if (SpielerNummer == 2) {
+                        CounterSpieler2++;
+                    }
+
+                }
+            }
+        }
+        if (CounterSpieler1 == BenötigteTrefferZumGewinnen) {
+            System.out.println("Spieler 1 hat gewonnen!\n" +
+                    "Möchten sie eine Revance?\n" +
+                    "1 für Ja\n" +
+                    "2 für Nein\n" +
+                    "Hier: ");
+            Scanner RevanceScanner = new Scanner(System.in);
+            String BereitString = RevanceScanner.nextLine();
+            RevanceStatus = Integer.parseInt(BereitString);
+
+            if (RevanceStatus == 1) {
+
+            } else if (RevanceStatus == 2) {
+                System.exit(0);
+            }
+
+        } else if (CounterSpieler2 == BenötigteTrefferZumGewinnen) {
+
+            System.out.println("Spieler 2 hat gewonnen!\n" +
+                    "Möchten sie eine Revance?\n" +
+                    "1 für Ja\n" +
+                    "2 für Nein\n" +
+                    "Hier: ");
+            Scanner RevanceScanner = new Scanner(System.in);
+            String BereitString = RevanceScanner.nextLine();
+            RevanceStatus = Integer.parseInt(BereitString);
+
+            if (RevanceStatus == 1) {
+
+            } else if (RevanceStatus == 2) {
+                System.exit(0);
+            }
+
+        }
+    }
+
 
     @Override
     public String toString() {
