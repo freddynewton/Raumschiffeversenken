@@ -1,29 +1,17 @@
 package RaumSchiffeVersenken.Core;
 
-
-import RaumSchiffeVersenken.Core.SchiffsArten.Jaeger;
 import RaumSchiffeVersenken.Interface.RaumSchiff;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.util.*;
-
 import static javafx.application.Application.launch;
 
-public class SpielSystemMain extends Application {
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/FXML/sample.fxml"));
-        primaryStage.setTitle("Raumschiffeversenken");
-        primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.show();
-    }
+public class SpielSystemMain {
 
     public static void main(String[] args) {
-        launch(args);
 
         // Spieler 1 Spielfeld erstellt
         Feld Feld1 = new Feld(10, 10);

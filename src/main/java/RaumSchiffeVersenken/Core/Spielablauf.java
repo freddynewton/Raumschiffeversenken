@@ -2,12 +2,8 @@ package RaumSchiffeVersenken.Core;
 
 
 import RaumSchiffeVersenken.Interface.RaumSchiff;
-
-
 import java.util.HashMap;
 import java.util.Objects;
-
-
 import RaumSchiffeVersenken.Core.SchiffsArten.Jaeger;
 import RaumSchiffeVersenken.Interface.RaumSchiff;
 import javafx.application.Application;
@@ -15,7 +11,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.util.*;
 
 public class Spielablauf {
@@ -28,7 +23,6 @@ public class Spielablauf {
     public String start() {
         System.out.println("Los gehts!");
         System.out.println("Spieler 1 beginnt:\n");
-
 
         Feld_Spieler1.toString();
 
@@ -60,7 +54,6 @@ public class Spielablauf {
         SchiffsMap.put(6, Objects.requireNonNull(SchiffFactory.getRaumschiff("2")));
         SchiffsMap.put(7, Objects.requireNonNull(SchiffFactory.getRaumschiff("2")));
         SchiffsMap.put(8, Objects.requireNonNull(SchiffFactory.getRaumschiff("2")));
-        SchiffsMap.put(9, Objects.requireNonNull(SchiffFactory.getRaumschiff("2")));
 
         //Fregatte erstellen mit 4 Lebenspunkten
         SchiffsMap.put(10, Objects.requireNonNull(SchiffFactory.getRaumschiff("4")));
@@ -69,13 +62,11 @@ public class Spielablauf {
         //Zerstörer erstellen mit 5 Lebenspunkten
         SchiffsMap.put(12, Objects.requireNonNull(SchiffFactory.getRaumschiff("5")));
 
-
         for (int i = 1; i <= 12; i++) {
             DerzeitigeSchiffslänge = SchiffsMap.get(i).getLaenge();
             Feld_Spieler2.zielenZumSchiffeSetzen(DerzeitigeSchiffslänge);
             Feld_Spieler2.toString();
         }
-
 
         Feld_Spieler1.toString();
         System.out.println();
@@ -83,9 +74,7 @@ public class Spielablauf {
 
         Feld_Spieler1.BereitAbfrage(Feld_Spieler1);
 
-
     }
-
 
     public static void main(String[] args) {
         Spielablauf s = new Spielablauf();
@@ -94,8 +83,6 @@ public class Spielablauf {
 
         s.SchiffeSetzen();
 
-
     }
-
 
 }
