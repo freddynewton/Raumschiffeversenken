@@ -4,7 +4,6 @@ import java.util.Scanner;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.function.ToDoubleBiFunction;
-
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 

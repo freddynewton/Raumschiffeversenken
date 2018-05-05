@@ -1,19 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
-   <center>
-      <VBox prefHeight="686.0" prefWidth="437.0" BorderPane.alignment="CENTER">
-         <children>
-            <HBox prefHeight="47.0" prefWidth="437.0">
-               <children>
-                  <Label text="Spieler1 Flotte" />
-               </children>
-            </HBox>
-         </children></VBox>
-   </center>
-</BorderPane>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="360.0" stylesheets="@gestaltung.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+
+      <Label text="Gegnerfeld">
+         <VBox.margin>
+            <Insets left="64.0" right="64.0" top="16.0" />
+         </VBox.margin>
+      </Label>
+
+      <Pane prefHeight="232.0">
+         <VBox.margin>
+            <Insets left="64.0" right="64.0" />
+         </VBox.margin>
+      </Pane>
+
+      <Label text="Dein Feld">
+         <VBox.margin>
+            <Insets left="64.0" right="64.0" top="16.0" />
+         </VBox.margin>
+      </Label>
+
+      <Pane prefHeight="232.0">
+         <VBox.margin>
+            <Insets left="64.0" right="64.0" />
+         </VBox.margin>
+      </Pane>
+
+      <Label text="Textausgabe">
+         <VBox.margin>
+            <Insets left="64.0" right="64.0" />
+         </VBox.margin>
+      </Label>
+
+   </children>
+</VBox>
