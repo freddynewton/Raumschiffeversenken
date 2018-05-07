@@ -68,19 +68,20 @@ public class Spielablauf {
         for (int i = 1; i <= 12; i++) {
             RaumSchiff schiff = SchiffsMap.get(i);
             DerzeitigeSchiffslänge = schiff.getLaenge();
+            derzeitigerSchiffSetzer(i, SchiffsMap);
             Feld_Spieler1.zielenZumSchiffeSetzen(DerzeitigeSchiffslänge);
             Feld_Spieler1.toString();
+
         }
 
         Feld_Spieler1.toString();
         Feld_Spieler1.BereitAbfrage(Feld_Spieler1);
-        //System.out.println();
-        //Feld_Spieler2.toString();
 
 
 
         for (int i = 1; i <= 12; i++) {
             DerzeitigeSchiffslänge = SchiffsMap.get(i).getLaenge();
+            derzeitigerSchiffSetzer(i, SchiffsMap);
             Feld_Spieler2.zielenZumSchiffeSetzen(DerzeitigeSchiffslänge);
             Feld_Spieler2.toString();
         }
@@ -129,12 +130,25 @@ public class Spielablauf {
             Feld_Spieler2.TrefferZaehler(Feld_Spieler2, 2);
             Feld_Spieler1.TrefferZaehler(Feld_Spieler1, 1);
         }
-
-
-
-
-
     }
 
+    public String derzeitigerSchiffSetzer(int i, HashMap map) {
+        RaumSchiff schiff = (RaumSchiff) map.get(i);
+        DerzeitigeSchiffslänge = schiff.getLaenge();
+        String DerzeitigerSchiffsName = "";
+
+        if (DerzeitigeSchiffslänge == 1) {
+            DerzeitigerSchiffsName = "Jäger";
+        } else if (DerzeitigeSchiffslänge == 2) {
+            DerzeitigerSchiffsName = "Bomber";
+        } else if (DerzeitigeSchiffslänge == 4) {
+            DerzeitigerSchiffsName = "Fregatte";
+        } else if (DerzeitigeSchiffslänge == 5) {
+            DerzeitigerSchiffsName = "Zertörer";
+        }
+
+        return "Jetzt wird das Schiff: " + DerzeitigerSchiffsName + "\n" +
+                "Es hat die Länge: " + DerzeitigeSchiffslänge + "\n";
+    }
 
 }
