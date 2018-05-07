@@ -56,6 +56,7 @@ public class Spielablauf {
         SchiffsMap.put(6, Objects.requireNonNull(SchiffFactory.getRaumschiff("2")));
         SchiffsMap.put(7, Objects.requireNonNull(SchiffFactory.getRaumschiff("2")));
         SchiffsMap.put(8, Objects.requireNonNull(SchiffFactory.getRaumschiff("2")));
+        SchiffsMap.put(9, Objects.requireNonNull(SchiffFactory.getRaumschiff("2")));
 
         //Fregatte erstellen mit 4 Lebenspunkten
         SchiffsMap.put(10, Objects.requireNonNull(SchiffFactory.getRaumschiff("4")));
@@ -65,7 +66,8 @@ public class Spielablauf {
         SchiffsMap.put(12, Objects.requireNonNull(SchiffFactory.getRaumschiff("5")));
 
         for (int i = 1; i <= 12; i++) {
-            DerzeitigeSchiffslänge = SchiffsMap.get(i).getLaenge();
+            RaumSchiff schiff = SchiffsMap.get(i);
+            DerzeitigeSchiffslänge = schiff.getLaenge();
             Feld_Spieler1.zielenZumSchiffeSetzen(DerzeitigeSchiffslänge);
             Feld_Spieler1.toString();
         }

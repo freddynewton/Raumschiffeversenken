@@ -181,7 +181,7 @@ public class Feld {
                 log.info("Bitte eine andere Zelle wählen da hier schon ein Schiff steht\n" +
                         "------------------------------------------------------------------\n" +
                         "\n");
-                SchiffErfolgreichSetzen = false;
+
                 zielenZumSchiffeSetzen(SchiffsLänge);
             }
         } catch (Exception ex2) {
@@ -191,7 +191,6 @@ public class Feld {
             System.out.println("Bitte eine andere Zelle wählen da hier schon ein Schiff steht\n" +
                     "------------------------------------------------------------------\n" +
                     "\n");
-            SchiffErfolgreichSetzen = false;
             zielenZumSchiffeSetzen(SchiffsLänge);
         }
     }
