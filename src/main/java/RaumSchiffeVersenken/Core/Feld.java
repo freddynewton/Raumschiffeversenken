@@ -254,6 +254,7 @@ public class Feld {
                 }
             }
         }
+
         if (CounterSpieler1 == BenötigteTrefferZumGewinnen) {
             System.out.println("Spieler 1 hat gewonnen!\n" +
                     "Möchten sie eine Revance?\n" +
