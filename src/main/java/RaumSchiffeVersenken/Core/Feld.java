@@ -15,7 +15,6 @@ public class Feld {
     public int xAchseBeschuss;
     public int yAchseBeschuss;
     public int SchiffsRichtung;
-    // 1 für x Achse und 2 für y Achse
     public int SchiffsLänge;
     public int CounterSpieler1 = 0;
     public int CounterSpieler2 = 0;
@@ -134,7 +133,6 @@ public class Feld {
         }
     }
 
-    // TODO: 03.05.2018 Überarbeitung von SchiffsRichtung und nicht der Doppelt schiffsetzung auf einer Zelle
     public void schiffSetzen(int yAchseBeschuss, int xAchseBeschuss, int SchiffsRichtung, int SchiffsLänge) {
         this.xAchseBeschuss = xAchseBeschuss;
         this.yAchseBeschuss = yAchseBeschuss;
@@ -181,7 +179,7 @@ public class Feld {
                 log.info("Bitte eine andere Zelle wählen da hier schon ein Schiff steht\n" +
                         "------------------------------------------------------------------\n" +
                         "\n");
-                SchiffErfolgreichSetzen = false;
+
                 zielenZumSchiffeSetzen(SchiffsLänge);
             }
         } catch (Exception ex2) {
@@ -191,7 +189,6 @@ public class Feld {
             System.out.println("Bitte eine andere Zelle wählen da hier schon ein Schiff steht\n" +
                     "------------------------------------------------------------------\n" +
                     "\n");
-            SchiffErfolgreichSetzen = false;
             zielenZumSchiffeSetzen(SchiffsLänge);
         }
     }
@@ -233,7 +230,9 @@ public class Feld {
     }
 
     //-------------------------------------------------------------------------------------------------
-// TODO: 03.05.2018 Auf Jar-Datei warten um die App neu zu starten in dem Revance
+
+
+    // TODO: 03.05.2018 Auf Jar-Datei warten um die App neu zu starten in dem Revance
     public void TrefferZaehler(Feld feld, int SpielerNummer) {
         this.CounterSpieler1 = CounterSpieler1;
         this.CounterSpieler2 = CounterSpieler2;
@@ -254,6 +253,7 @@ public class Feld {
                 }
             }
         }
+
         if (CounterSpieler1 == BenötigteTrefferZumGewinnen) {
             System.out.println("Spieler 1 hat gewonnen!\n" +
                     "Möchten sie eine Revance?\n" +
