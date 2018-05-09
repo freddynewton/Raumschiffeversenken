@@ -74,7 +74,7 @@ public class Spielablauf {
 
         }
 
-        Feld_Spieler1.toString();
+
         Feld_Spieler1.BereitAbfrage(Feld_Spieler1);
 
 
@@ -86,7 +86,6 @@ public class Spielablauf {
             Feld_Spieler2.toString();
         }
 
-        Feld_Spieler2.toString();
         Feld_Spieler2.BereitAbfrage(Feld_Spieler2);
     }
 
@@ -147,8 +146,9 @@ public class Spielablauf {
             DerzeitigerSchiffsName = "Zertörer";
         }
 
-        System.out.println("Derzeitiger Schiffstyp: " + DerzeitigerSchiffsName + "\n" +
+        System.out.println("\nDerzeitiger Schiffstyp: " + DerzeitigerSchiffsName + "\n" +
                 "Es hat die Länge: " + DerzeitigeSchiffslänge + "\n");
+
         return "";
     }
 
