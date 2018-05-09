@@ -147,8 +147,9 @@ public class Spielablauf {
             DerzeitigerSchiffsName = "Zertörer";
         }
 
-        return "Jetzt wird das Schiff: " + DerzeitigerSchiffsName + "\n" +
-                "Es hat die Länge: " + DerzeitigeSchiffslänge + "\n";
+        System.out.println("Derzeitiger Schiffstyp: " + DerzeitigerSchiffsName + "\n" +
+                "Es hat die Länge: " + DerzeitigeSchiffslänge + "\n");
+        return "";
     }
 
 }
