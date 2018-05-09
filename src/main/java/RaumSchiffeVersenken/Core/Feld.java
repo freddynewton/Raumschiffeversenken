@@ -78,6 +78,9 @@ public class Feld {
         try {
             if (mapGroesse[xAchseBeschuss][yAchseBeschuss] == 0 || mapGroesse[xAchseBeschuss][yAchseBeschuss] == 5) {
                 mapGroesse[xAchseBeschuss][yAchseBeschuss] += 1;
+                if (mapGroesse[xAchseBeschuss][yAchseBeschuss] == 6) {
+                    zielenZumSchiessen();
+                }
             } else {
                 log.info("Bitte eine andere Zelle wählen da hier schon attackiert wurde\n" +
                         "------------------------------------------------------------------\n" +

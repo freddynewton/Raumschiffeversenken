@@ -71,7 +71,6 @@ public class Spielablauf {
             derzeitigerSchiffSetzer(i, SchiffsMap);
             Feld_Spieler1.zielenZumSchiffeSetzen(DerzeitigeSchiffslänge);
             Feld_Spieler1.toString();
-
         }
 
 
