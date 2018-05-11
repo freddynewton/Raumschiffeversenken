@@ -1,4 +1,5 @@
 #textAusgabe {
-    -fx-border-color: black;
+    -fx-border-color: darkgrey;
     -fx-border-width: 1px;
+    -fx-background-color: white;
 }

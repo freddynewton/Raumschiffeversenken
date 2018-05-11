@@ -42,7 +42,7 @@ public class GUIController implements Initializable {
         //die for-Schleifen befüllen beide Spielfelder mit Grafiken
         for (int y = 0; y < feldSpalte; y++) {
             for (int x = 0; x < feldReihe; x++) {
-                Image feldGrafik = new Image("File:images/weltraum.png");
+                Image feldGrafik = new Image("images/weltraum.png");
                 ImageView grafik = new ImageView();
                 grafik.setFitWidth(24);
                 grafik.setFitHeight(24);
@@ -53,7 +53,7 @@ public class GUIController implements Initializable {
 
         for (int y = 0; y < feldSpalte; y++) {
             for (int x = 0; x < feldReihe; x++) {
-                Image feldGrafik = new Image("File:images/weltraum.png");
+                Image feldGrafik = new Image("images/weltraum.png");
                 ImageView grafik = new ImageView();
                 grafik.setFitWidth(24);
                 grafik.setFitHeight(24);
