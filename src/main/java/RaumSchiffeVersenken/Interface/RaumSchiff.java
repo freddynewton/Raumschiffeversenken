@@ -2,33 +2,33 @@ package RaumSchiffeVersenken.Interface;
 
 public interface RaumSchiff {
 
-    public static enum RaumschiffsArten {
-        JAGER,
+    static enum RaumschiffsArten {
+        JAEGER,
+        BOMBER,
         FREGATTE,
-        ZERSTOERER,
-        KREUZER;
+        ZERSTOERER;
 
         RaumschiffsArten() {
         }
     }
 
-    public int getLaenge();
+    int getLaenge();
 
-    public void setLaenge();
+    void setLaenge(int laenge);
 
-    public int getLebensPunkte();
+    int getLebensPunkte();
 
-    public void setLebensPunkte();
+    void setLebensPunkte(int lebensPunkte);
 
-    public int getxKoordinaten();
+    int getxKoordinaten();
 
-    public void setxKoordinaten();
+    void setxKoordinaten(int xKoordinaten);
 
-    public int getyKoordinaten();
+    int getyKoordinaten();
 
-    public void setyKoordinaten();
+    void setyKoordinaten(int yKoordinaten);
 
-    public void zielenZumSchiffeSetzen();
+    void zielenZumSchiffeSetzen();
 
-    public void schiffSetzen();
+    void schiffSetzen();
 }

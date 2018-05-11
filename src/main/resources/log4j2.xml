@@ -11,7 +11,7 @@
     <Loggers>
 
         <!-- You my want to define class or package level per-logger rules -->
-        <Logger name="RaumSchiffeVersenken.App" level="debug">
+        <Logger name="RSV.App" level="debug">
             <AppenderRef ref="A1"/>
         </Logger>
         <Root level="info">
