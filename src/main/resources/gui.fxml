@@ -10,7 +10,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="640" minWidth="360" prefHeight="640.0" prefWidth="360.0"
       stylesheets="@gestaltung.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="RaumSchiffeVersenken.Core.GUISteuerung">
+      fx:controller="RaumSchiffeVersenken.Core.GUISteuerungFX">
     <children>
 
       <Label text="Gegnerfeld">

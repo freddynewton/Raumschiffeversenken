@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
 import java.util.function.DoubleToLongFunction;
 
 
-public class GUISteuerung implements Initializable {
+public class GUISteuerungFX implements Initializable {
 
     //referentziert GUI-Elemente der FXML-Datei
     @FXML
@@ -34,7 +34,7 @@ public class GUISteuerung implements Initializable {
         int feldReihe = 10;
 
         feldgrafikAktualisieren(feldSpalte, feldReihe);
-        //GUISteuerung.textAusgabeSteuerung("Geht los!", textAusgabe);
+        //GUISteuerungFX.textAusgabeSteuerung("Geht los!", textAusgabe);
 
         //starte die Spielablauf-Klasse im Hintergrund
         SpielablaufFX s = new SpielablaufFX();

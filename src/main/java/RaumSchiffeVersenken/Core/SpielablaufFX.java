@@ -15,11 +15,11 @@ public class SpielablaufFX {
     Feld Feld_Spieler2 = new Feld(10, 10);
 
 
-    //Die Spieleinstruktionen werden im Textfeld des GUI über eine Methode in der GUISteuerung ausgegeben
+    //Die Spieleinstruktionen werden im Textfeld des GUI über eine Methode in der GUISteuerungFX ausgegeben
     public String start(TextFlow textAusgabe) {
 
-        GUISteuerung.textAusgabeSteuerung("Spieler 1: Setze jetzt Deine Schiffe!", textAusgabe);
-        GUISteuerung.textAusgabeSteuerung("\n4 Jäger mit der Länge 1" + "\n2 Bomber mit der Länge 2" + "\n1 Fregatte mit der Länge 4" + "\n1 Zerstörer mit der Länge 5", textAusgabe);
+        GUISteuerungFX.textAusgabeSteuerung("Spieler 1: Setze jetzt Deine Schiffe!", textAusgabe);
+        GUISteuerungFX.textAusgabeSteuerung("\n4 Jäger mit der Länge 1" + "\n2 Bomber mit der Länge 2" + "\n1 Fregatte mit der Länge 4" + "\n1 Zerstörer mit der Länge 5", textAusgabe);
 
         return "Start";
     }
