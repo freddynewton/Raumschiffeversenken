@@ -24,7 +24,6 @@ public class SpielablaufFX {
         return "Start";
     }
 
-
     public void SchiffeSetzenAblauf() {
 
         HashMap<Integer, RaumSchiff> SchiffsMap = new HashMap<>();
@@ -34,17 +33,13 @@ public class SpielablaufFX {
         SchiffsMap.put(2, Objects.requireNonNull(SchiffFactory.getRaumschiff("1")));
         SchiffsMap.put(3, Objects.requireNonNull(SchiffFactory.getRaumschiff("1")));
         SchiffsMap.put(4, Objects.requireNonNull(SchiffFactory.getRaumschiff("1")));
-        SchiffsMap.put(5, Objects.requireNonNull(SchiffFactory.getRaumschiff("1")));
 
         //Bomber erstellen mit 2 Lebenspunkten
         SchiffsMap.put(6, Objects.requireNonNull(SchiffFactory.getRaumschiff("2")));
         SchiffsMap.put(7, Objects.requireNonNull(SchiffFactory.getRaumschiff("2")));
-        SchiffsMap.put(8, Objects.requireNonNull(SchiffFactory.getRaumschiff("2")));
-        SchiffsMap.put(9, Objects.requireNonNull(SchiffFactory.getRaumschiff("2")));
 
         //Fregatte erstellen mit 4 Lebenspunkten
         SchiffsMap.put(10, Objects.requireNonNull(SchiffFactory.getRaumschiff("4")));
-        SchiffsMap.put(11, Objects.requireNonNull(SchiffFactory.getRaumschiff("4")));
 
         //Zerstörer erstellen mit 5 Lebenspunkten
         SchiffsMap.put(12, Objects.requireNonNull(SchiffFactory.getRaumschiff("5")));
@@ -57,10 +52,7 @@ public class SpielablaufFX {
             Feld_Spieler1.toString();
         }
 
-
         Feld_Spieler1.BereitAbfrage(Feld_Spieler1);
-
-
 
         for (int i = 1; i <= 12; i++) {
             derzeitigeSchiffslänge = SchiffsMap.get(i).getLaenge();
@@ -71,7 +63,6 @@ public class SpielablaufFX {
 
         Feld_Spieler2.BereitAbfrage(Feld_Spieler2);
     }
-
 
     public void SchiessenAblauf() {
 
@@ -105,9 +96,7 @@ public class SpielablaufFX {
             Kopie_Feld_Spieler1 = Feld_Spieler1;
             Kopie_Feld_Spieler1.Kriegsnebel();
 
-
             Feld_Spieler2.BereitAbfrage(Kopie_Feld_Spieler1);
-
 
             Feld_Spieler2.TrefferZaehler(Feld_Spieler2, 2);
             Feld_Spieler1.TrefferZaehler(Feld_Spieler1, 1);

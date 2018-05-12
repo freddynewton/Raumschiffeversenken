@@ -27,14 +27,18 @@ public class GUISteuerungFX implements Initializable {
     @FXML
     private TextFlow textAusgabe;
 
-    //Initialisierung des Fensters direkt nach dessen Start führt GUI-Methoden aus
+    /**
+     * Die initialisierung des Fensters direkt vor dessen Aufrufen, verknüpft das GUI mit der Logik.
+     *
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         int feldSpalte = 10;
         int feldReihe = 10;
 
         feldgrafikAktualisieren(feldSpalte, feldReihe);
-        //GUISteuerungFX.textAusgabeSteuerung("Geht los!", textAusgabe);
 
         //starte die Spielablauf-Klasse im Hintergrund
         SpielablaufFX s = new SpielablaufFX();
@@ -43,6 +47,12 @@ public class GUISteuerungFX implements Initializable {
         //s.SchiessenAblauf();
     }
 
+    /**
+     * Die Spielfelder werden mit der Feld-Klasse verknüpft und im Spielefenster grafisch dargestellt
+     *
+     * @param feldSpalte
+     * @param feldReihe
+     */
     public void feldgrafikAktualisieren(int feldSpalte, int feldReihe) {
 
         //die for-Schleifen befüllen beide Spielfelder mit Grafiken
@@ -69,6 +79,13 @@ public class GUISteuerungFX implements Initializable {
         }
     }
 
+    /**
+     * Die Methode steuert die Textausgabe über das TextFlow-Feld unten im Fenster. Ihr kann Text als String übergeben
+     * werden.
+     *
+     * @param textAusgabeText
+     * @param textAusgabe
+     */
     public static void textAusgabeSteuerung(String textAusgabeText, TextFlow textAusgabe) {
 
         //erstellt ein Textelement für das Textfeld

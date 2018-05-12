@@ -12,6 +12,12 @@ import java.io.IOException;
 
 public class SpielSystemMainFX extends Application{
 
+    /**
+     * Die Szene im Spielefenster wird hier mit der FXML-Datei und der CSS-Datei verknüpft.
+     *
+     * @param spielefenster
+     * @throws IOException
+     */
     @Override
     public void start(Stage spielefenster) throws IOException {
         FXMLLoader loader = new FXMLLoader();
@@ -24,6 +30,11 @@ public class SpielSystemMainFX extends Application{
         spielefenster.show();
      }
 
+    /**
+     * Die Main-Methode ruft das Fenster (Stage) auf, nachdem es initialisiert wurde.
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         launch(args);
     }

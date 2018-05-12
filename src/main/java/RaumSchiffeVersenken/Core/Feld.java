@@ -3,7 +3,7 @@ package RaumSchiffeVersenken.Core;
 import java.util.Scanner;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-import java.util.function.ToDoubleBiFunction;
+
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -18,7 +18,7 @@ public class Feld {
     public int SchiffsLänge;
     public int CounterSpieler1 = 0;
     public int CounterSpieler2 = 0;
-    public int BenötigteTrefferZumGewinnen = 26;
+    public int BenoetigteTrefferZumGewinnen = 26;
 
     Lock lock = new ReentrantLock();
 
@@ -239,7 +239,7 @@ public class Feld {
     public void TrefferZaehler(Feld feld, int SpielerNummer) {
         this.CounterSpieler1 = CounterSpieler1;
         this.CounterSpieler2 = CounterSpieler2;
-        this.BenötigteTrefferZumGewinnen = BenötigteTrefferZumGewinnen;
+        this.BenoetigteTrefferZumGewinnen = BenoetigteTrefferZumGewinnen;
         this.mapGroesse = mapGroesse;
         int RevanceStatus;
 
@@ -257,7 +257,7 @@ public class Feld {
             }
         }
 
-        if (CounterSpieler1 == BenötigteTrefferZumGewinnen) {
+        if (CounterSpieler1 == BenoetigteTrefferZumGewinnen) {
             System.out.println("Spieler 1 hat gewonnen!\n" +
                     "Möchten sie eine Revance?\n" +
                     "1 für Ja\n" +
@@ -272,7 +272,7 @@ public class Feld {
                 System.exit(0);
             }
 
-        } else if (CounterSpieler2 == BenötigteTrefferZumGewinnen) {
+        } else if (CounterSpieler2 == BenoetigteTrefferZumGewinnen) {
 
             System.out.println("Spieler 2 hat gewonnen!\n" +
                     "Möchten sie eine Revance?\n" +
