@@ -10,19 +10,22 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.function.DoubleToLongFunction;
 
-public class GUIController implements Initializable {
+
+public class GUISteuerung implements Initializable {
 
     //referentziert GUI-Elemente der FXML-Datei
-    @FXML private GridPane spielfeld1;
+    @FXML
+    private GridPane spielfeld1;
 
-    @FXML private GridPane spielfeld2;
+    @FXML
+    private GridPane spielfeld2;
 
-    @FXML private TextFlow textAusgabe;
+    @FXML
+    private TextFlow textAusgabe;
 
     //Initialisierung des Fensters direkt nach dessen Start führt GUI-Methoden aus
     @Override
@@ -30,14 +33,17 @@ public class GUIController implements Initializable {
         int feldSpalte = 10;
         int feldReihe = 10;
 
-        //erstellt ein Textelement für das Textfeld
-        Text text1 = new Text("Willkommen zu Raumschiffe Versenken! \nSpieler 1 beginnt.");
+        feldgrafikAktualisieren(feldSpalte, feldReihe);
+        //GUISteuerung.textAusgabeSteuerung("Geht los!", textAusgabe);
 
-        //erstellt Liste der Textfeld-Elemente
-        ObservableList list = textAusgabe.getChildren();
+        //starte die Spielablauf-Klasse im Hintergrund
+        SpielablaufFX s = new SpielablaufFX();
+        s.start(textAusgabe);
+        //s.SchiffeSetzenAblauf();
+        //s.SchiessenAblauf();
+    }
 
-        //Textkoeper wird dem Textfeld hizugefügt
-        list.addAll(text1);
+    public void feldgrafikAktualisieren(int feldSpalte, int feldReihe) {
 
         //die for-Schleifen befüllen beide Spielfelder mit Grafiken
         for (int y = 0; y < feldSpalte; y++) {
@@ -47,7 +53,7 @@ public class GUIController implements Initializable {
                 grafik.setFitWidth(24);
                 grafik.setFitHeight(24);
                 grafik.setImage(feldGrafik);
-                spielfeld1.add(grafik,x,y);
+                spielfeld1.add(grafik, x, y);
             }
         }
 
@@ -58,12 +64,22 @@ public class GUIController implements Initializable {
                 grafik.setFitWidth(24);
                 grafik.setFitHeight(24);
                 grafik.setImage(feldGrafik);
-                spielfeld2.add(grafik,x,y);
+                spielfeld2.add(grafik, x, y);
             }
         }
-
-        //Methoden aus anderen Klassen implementieren
-        //Spielablauf spielablauf = new Spielablauf();
-        //spielablauf.SchiffeSetzen();
     }
+
+    public static void textAusgabeSteuerung(String textAusgabeText, TextFlow textAusgabe) {
+
+        //erstellt ein Textelement für das Textfeld
+        Text text1 = new Text(textAusgabeText);
+
+        //erstellt Liste der Textfeld-Elemente
+        ObservableList liste = textAusgabe.getChildren();
+
+        //Textkoeper wird dem Textfeld hizugefügt
+        liste.addAll(text1);
+
+    }
+
 }
