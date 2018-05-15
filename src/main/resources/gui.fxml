@@ -2,15 +2,13 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.TextFlow?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="640" minWidth="360" prefHeight="640.0" prefWidth="360.0"
-      stylesheets="@gestaltung.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="RaumSchiffeVersenken.Core.GUISteuerungFX">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="640" minWidth="360" prefHeight="640.0" prefWidth="360.0" stylesheets="@gestaltung.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RaumSchiffeVersenken.Core.GUISteuerungFX">
     <children>
 
       <Label text="Gegnerfeld">
@@ -85,11 +83,11 @@
          </VBox.margin>
       </GridPane>
 
-      <TextFlow fx:id="textAusgabe" prefHeight="80.0">
+      <TextField fx:id="textAusgabe" minHeight="60.0">
          <VBox.margin>
             <Insets left="60.0" right="60.0" top="8.0" />
          </VBox.margin>
-      </TextFlow>
+      </TextField>
 
    </children>
 </VBox>

@@ -2,6 +2,7 @@ package RaumSchiffeVersenken.Core;
 
 
 import RaumSchiffeVersenken.Interface.RaumSchiff;
+import javafx.scene.control.TextField;
 import javafx.scene.text.TextFlow;
 import java.util.HashMap;
 import java.util.Objects;
@@ -16,7 +17,7 @@ public class SpielablaufFX {
 
 
     //Die Spieleinstruktionen werden im Textfeld des GUI über eine Methode in der GUISteuerungFX ausgegeben
-    public String start(TextFlow textAusgabe) {
+    public String start(TextField textAusgabe) {
 
         GUISteuerungFX.textAusgabeSteuerung("Spieler 1: Setze jetzt Deine Schiffe!", textAusgabe);
         GUISteuerungFX.textAusgabeSteuerung("\n4 Jäger mit der Länge 1" + "\n2 Bomber mit der Länge 2" + "\n1 Fregatte mit der Länge 4" + "\n1 Zerstörer mit der Länge 5", textAusgabe);
@@ -70,8 +71,8 @@ public class SpielablaufFX {
         Feld Kopie_Feld_Spieler2 = new Feld(10, 10);
         Kopie_Feld_Spieler1 = Feld_Spieler1;
         Kopie_Feld_Spieler2 = Feld_Spieler2;
-        Kopie_Feld_Spieler1.Kriegsnebel();
-        Kopie_Feld_Spieler2.Kriegsnebel();
+        Kopie_Feld_Spieler1.kriegsnebel();
+        Kopie_Feld_Spieler2.kriegsnebel();
 
         for (int i = 0; i <= 99; i++) {
             System.out.println("Dein Feld:\n");
@@ -81,7 +82,7 @@ public class SpielablaufFX {
             System.out.println("\nSpieler 1 ist dran mit Schiessen\n");
             Feld_Spieler2.zielenZumSchiessen();
             Kopie_Feld_Spieler2 = Feld_Spieler2;
-            Kopie_Feld_Spieler2.Kriegsnebel();
+            Kopie_Feld_Spieler2.kriegsnebel();
 
 
             Feld_Spieler1.BereitAbfrage(Kopie_Feld_Spieler2);
@@ -94,7 +95,7 @@ public class SpielablaufFX {
             System.out.println("\nSpieler 2 ist dran mit Schiessen\n");
             Feld_Spieler1.zielenZumSchiessen();
             Kopie_Feld_Spieler1 = Feld_Spieler1;
-            Kopie_Feld_Spieler1.Kriegsnebel();
+            Kopie_Feld_Spieler1.kriegsnebel();
 
             Feld_Spieler2.BereitAbfrage(Kopie_Feld_Spieler1);
 

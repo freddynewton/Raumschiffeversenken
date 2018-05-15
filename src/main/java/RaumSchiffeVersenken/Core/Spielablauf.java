@@ -10,8 +10,8 @@ import java.util.Objects;
 public class Spielablauf {
 
     int DerzeitigeSchiffslänge = 0;
-    Feld Feld_Spieler1 = new Feld(10, 10);
-    Feld Feld_Spieler2 = new Feld(10, 10);
+    public static Feld Feld_Spieler1 = new Feld(10, 10);
+    public static Feld Feld_Spieler2 = new Feld(10, 10);
 
 
     public String start() {

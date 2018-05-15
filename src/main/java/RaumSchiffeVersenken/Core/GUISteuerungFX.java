@@ -10,9 +10,13 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.function.DoubleToLongFunction;
+
+import static RaumSchiffeVersenken.Core.Spielablauf.Feld_Spieler1;
+import static RaumSchiffeVersenken.Core.Spielablauf.Feld_Spieler2;
 
 
 public class GUISteuerungFX implements Initializable {
@@ -25,7 +29,7 @@ public class GUISteuerungFX implements Initializable {
     private GridPane spielfeld2;
 
     @FXML
-    private TextFlow textAusgabe;
+    private TextField textAusgabe;
 
     /**
      * Die initialisierung des Fensters direkt vor dessen Aufrufen, verknüpft das GUI mit der Logik.
@@ -38,7 +42,7 @@ public class GUISteuerungFX implements Initializable {
         int feldSpalte = 10;
         int feldReihe = 10;
 
-        feldgrafikAktualisieren(feldSpalte, feldReihe);
+        feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler1, Feld_Spieler2);
 
         //starte die Spielablauf-Klasse im Hintergrund
         SpielablaufFX s = new SpielablaufFX();
@@ -53,49 +57,98 @@ public class GUISteuerungFX implements Initializable {
      * @param feldSpalte
      * @param feldReihe
      */
-    public void feldgrafikAktualisieren(int feldSpalte, int feldReihe) {
+    public void feldgrafikAktualisieren(int feldSpalte, int feldReihe, Feld feld, Feld kopieFeld) {
 
         //die for-Schleifen befüllen beide Spielfelder mit Grafiken
         for (int y = 0; y < feldSpalte; y++) {
             for (int x = 0; x < feldReihe; x++) {
                 Image feldGrafik = new Image("images/weltraum.png");
-                ImageView grafik = new ImageView();
-                grafik.setFitWidth(24);
-                grafik.setFitHeight(24);
-                grafik.setImage(feldGrafik);
-                spielfeld1.add(grafik, x, y);
+                Image raumschiffGrafik = new Image("images/raumschiff.png");
+                Image danebenGrafik = new Image("images/daneben.png");
+                Image trefferGrafik = new Image("images/treffer.png");
+
+                if (feld.mapGroesse[x][y] == 0) {
+                    ImageView grafik = new ImageView();
+                    grafik.setFitWidth(24);
+                    grafik.setFitHeight(24);
+                    grafik.setImage(feldGrafik);
+                    spielfeld1.add(grafik, x, y);
+                }
+                else if (feld.mapGroesse[x][y] == 1) {
+                    ImageView grafik = new ImageView();
+                    grafik.setFitWidth(24);
+                    grafik.setFitHeight(24);
+                    grafik.setImage(danebenGrafik);
+                    spielfeld1.add(grafik, x, y);
+                }
+                else if (feld.mapGroesse[x][y] == 5) {
+                    ImageView grafik = new ImageView();
+                    grafik.setFitWidth(24);
+                    grafik.setFitHeight(24);
+                    grafik.setImage(raumschiffGrafik);
+                    spielfeld1.add(grafik, x, y);
+                }
+                else if (feld.mapGroesse[x][y] == 6) {
+                    ImageView grafik = new ImageView();
+                    grafik.setFitWidth(24);
+                    grafik.setFitHeight(24);
+                    grafik.setImage(trefferGrafik);
+                    spielfeld1.add(grafik, x, y);
+                }
             }
         }
 
         for (int y = 0; y < feldSpalte; y++) {
             for (int x = 0; x < feldReihe; x++) {
                 Image feldGrafik = new Image("images/weltraum.png");
-                ImageView grafik = new ImageView();
-                grafik.setFitWidth(24);
-                grafik.setFitHeight(24);
-                grafik.setImage(feldGrafik);
-                spielfeld2.add(grafik, x, y);
+                Image raumschiffGrafik = new Image("images/raumschiff.png");
+                Image danebenGrafik = new Image("images/daneben.png");
+                Image trefferGrafik = new Image("images/treffer.png");
+
+                if (kopieFeld.mapGroesse[x][y] == 0) {
+                    ImageView grafik = new ImageView();
+                    grafik.setFitWidth(24);
+                    grafik.setFitHeight(24);
+                    grafik.setImage(feldGrafik);
+                    spielfeld2.add(grafik, x, y);
+                }
+                else if (kopieFeld.mapGroesse[x][y] == 1) {
+                    ImageView grafik = new ImageView();
+                    grafik.setFitWidth(24);
+                    grafik.setFitHeight(24);
+                    grafik.setImage(danebenGrafik);
+                    spielfeld2.add(grafik, x, y);
+                }
+                else if (kopieFeld.mapGroesse[x][y] == 5) {
+                    ImageView grafik = new ImageView();
+                    grafik.setFitWidth(24);
+                    grafik.setFitHeight(24);
+                    grafik.setImage(raumschiffGrafik);
+                    spielfeld2.add(grafik, x, y);
+                }
+                else if (kopieFeld.mapGroesse[x][y] == 6) {
+                    ImageView grafik = new ImageView();
+                    grafik.setFitWidth(24);
+                    grafik.setFitHeight(24);
+                    grafik.setImage(trefferGrafik);
+                    spielfeld2.add(grafik, x, y);
+                }
             }
         }
     }
 
     /**
-     * Die Methode steuert die Textausgabe über das TextFlow-Feld unten im Fenster. Ihr kann Text als String übergeben
+     * Die Methode steuert die Textausgabe über das TextField-Feld unten im Fenster. Ihr kann Text als String übergeben
      * werden.
      *
      * @param textAusgabeText
      * @param textAusgabe
      */
-    public static void textAusgabeSteuerung(String textAusgabeText, TextFlow textAusgabe) {
+    public static void textAusgabeSteuerung(String textAusgabeText, TextField textAusgabe) {
 
         //erstellt ein Textelement für das Textfeld
         Text text1 = new Text(textAusgabeText);
-
-        //erstellt Liste der Textfeld-Elemente
-        ObservableList liste = textAusgabe.getChildren();
-
-        //Textkoeper wird dem Textfeld hizugefügt
-        liste.addAll(text1);
+        textAusgabe.setText(textAusgabeText);
 
     }
 
