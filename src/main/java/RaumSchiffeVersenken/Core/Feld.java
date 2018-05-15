@@ -43,6 +43,23 @@ public class Feld {
         }
     }
 
+    /**
+     * Constructor Copy
+     *
+     * @param feld
+     */
+    public Feld(Feld feld) {
+        this.xAchse = feld.xAchse;
+        this.yAchse = feld.yAchse;
+        this.mapGroesse = new int[xAchse][yAchse];
+
+        for (int y = 0; y < yAchse; y++) {
+            for (int x = 0; x < xAchse; x++) {
+                mapGroesse[x][y] = feld.mapGroesse[x][y];
+            }
+        }
+    }
+
     //--------------------------------------------------------------------------------------------------------------------
     // TODO: 20.04.2018 Lock und finally hinzufügen bei allen Methoden
     public void zielenZumSchiessen() {
@@ -79,6 +96,7 @@ public class Feld {
             if (mapGroesse[xAchseBeschuss][yAchseBeschuss] == 0 || mapGroesse[xAchseBeschuss][yAchseBeschuss] == 5) {
                 mapGroesse[xAchseBeschuss][yAchseBeschuss] += 1;
                 if (mapGroesse[xAchseBeschuss][yAchseBeschuss] == 6) {
+                    log.info("GETROFFEN! Sie dürfen nochmal!\n");
                     zielenZumSchiessen();
                 }
             } else {
@@ -198,8 +216,8 @@ public class Feld {
 
     // ----------------------------------------------------------------------------------------------
 
-    public void Kriegsnebel() {
-        this.mapGroesse = mapGroesse;
+
+    public void kriegsnebel() {
 
         for (int j = 0; j < 10; j++) {
             for (int i = 0; i < 10; i++) {

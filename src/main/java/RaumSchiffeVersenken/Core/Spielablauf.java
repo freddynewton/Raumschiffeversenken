@@ -6,14 +6,6 @@ import RaumSchiffeVersenken.Interface.RaumSchiff;
 
 import java.util.HashMap;
 import java.util.Objects;
-import RaumSchiffeVersenken.Core.SchiffsArten.Jaeger;
-import RaumSchiffeVersenken.Interface.RaumSchiff;
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import java.util.*;
 
 public class Spielablauf {
 
@@ -77,7 +69,7 @@ public class Spielablauf {
         Feld_Spieler1.BereitAbfrage(Feld_Spieler1);
 
 
-
+        Feld_Spieler2.toString();
         for (int i = 1; i <= 12; i++) {
             DerzeitigeSchiffslänge = SchiffsMap.get(i).getLaenge();
             derzeitigerSchiffSetzer(i, SchiffsMap);
@@ -91,44 +83,47 @@ public class Spielablauf {
 
     public void SchiessenAblauf() {
 
-        Feld Kopie_Feld_Spieler1 = new Feld(10, 10);
-        Feld Kopie_Feld_Spieler2 = new Feld(10, 10);
-        Kopie_Feld_Spieler1 = Feld_Spieler1;
-        Kopie_Feld_Spieler2 = Feld_Spieler2;
-        Kopie_Feld_Spieler1.Kriegsnebel();
-        Kopie_Feld_Spieler2.Kriegsnebel();
 
         for (int i = 0; i <= 99; i++) {
+            Feld Kopie_Feld_Spieler1 = new Feld(Feld_Spieler1);
+            Feld Kopie_Feld_Spieler2 = new Feld(Feld_Spieler2);
+            Kopie_Feld_Spieler1.kriegsnebel();
+            Kopie_Feld_Spieler2.kriegsnebel();
+
+
+            // Spieler 1 Schießablauf
             System.out.println("Dein Feld:\n");
             Feld_Spieler1.toString();
             System.out.println("\nDas Gegnerfeld:\n");
             Kopie_Feld_Spieler2.toString();
             System.out.println("\nSpieler 1 ist dran mit Schiessen\n");
             Feld_Spieler2.zielenZumSchiessen();
-            Kopie_Feld_Spieler2 = Feld_Spieler2;
-            Kopie_Feld_Spieler2.Kriegsnebel();
-
 
             Feld_Spieler1.BereitAbfrage(Kopie_Feld_Spieler2);
 
 
+            // Spieler 2 Schießablauf
             System.out.println("Dein Feld:\n");
             Feld_Spieler2.toString();
             System.out.println("\nDas Gegnerfeld:\n");
             Kopie_Feld_Spieler1.toString();
             System.out.println("\nSpieler 2 ist dran mit Schiessen\n");
             Feld_Spieler1.zielenZumSchiessen();
-            Kopie_Feld_Spieler1 = Feld_Spieler1;
-            Kopie_Feld_Spieler1.Kriegsnebel();
 
 
             Feld_Spieler2.BereitAbfrage(Kopie_Feld_Spieler1);
+
 
 
             Feld_Spieler2.TrefferZaehler(Feld_Spieler2, 2);
             Feld_Spieler1.TrefferZaehler(Feld_Spieler1, 1);
         }
     }
+
+    // --------------------------------------------------------------------------------
+
+
+
 
     public String derzeitigerSchiffSetzer(int i, HashMap map) {
         RaumSchiff schiff = (RaumSchiff) map.get(i);
@@ -150,5 +145,11 @@ public class Spielablauf {
 
         return "";
     }
+
+
+    // ----------------------------------------------------------------------------------
+
+
+
 
 }
