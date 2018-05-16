@@ -20,7 +20,7 @@ public class SpielablaufFX {
     public String start(TextField textAusgabe) {
 
         GUISteuerungFX.textAusgabeSteuerung("Spieler 1: Setze jetzt Deine Schiffe!", textAusgabe);
-        GUISteuerungFX.textAusgabeSteuerung("\n4 Jäger mit der Länge 1" + "\n2 Bomber mit der Länge 2" + "\n1 Fregatte mit der Länge 4" + "\n1 Zerstörer mit der Länge 5", textAusgabe);
+        //GUISteuerungFX.textAusgabeSteuerung("\n4 Jäger mit der Länge 1" + "\n2 Bomber mit der Länge 2" + "\n1 Fregatte mit der Länge 4" + "\n1 Zerstörer mit der Länge 5", textAusgabe);
 
         return "Start";
     }

@@ -58,14 +58,15 @@ public class GUISteuerungFX implements Initializable {
      * @param feldReihe
      */
     public void feldgrafikAktualisieren(int feldSpalte, int feldReihe, Feld feld, Feld kopieFeld) {
+        Image feldGrafik = new Image("images/weltraum.png");
+        Image raumschiffGrafik = new Image("images/raumschiff.png");
+        Image danebenGrafik = new Image("images/daneben.png");
+        Image trefferGrafik = new Image("images/treffer.png");
+
 
         //die for-Schleifen befüllen beide Spielfelder mit Grafiken
         for (int y = 0; y < feldSpalte; y++) {
             for (int x = 0; x < feldReihe; x++) {
-                Image feldGrafik = new Image("images/weltraum.png");
-                Image raumschiffGrafik = new Image("images/raumschiff.png");
-                Image danebenGrafik = new Image("images/daneben.png");
-                Image trefferGrafik = new Image("images/treffer.png");
 
                 if (feld.mapGroesse[x][y] == 0) {
                     ImageView grafik = new ImageView();
@@ -97,10 +98,6 @@ public class GUISteuerungFX implements Initializable {
 
         for (int y = 0; y < feldSpalte; y++) {
             for (int x = 0; x < feldReihe; x++) {
-                Image feldGrafik = new Image("images/weltraum.png");
-                Image raumschiffGrafik = new Image("images/raumschiff.png");
-                Image danebenGrafik = new Image("images/daneben.png");
-                Image trefferGrafik = new Image("images/treffer.png");
 
                 if (kopieFeld.mapGroesse[x][y] == 0) {
                     ImageView grafik = new ImageView();

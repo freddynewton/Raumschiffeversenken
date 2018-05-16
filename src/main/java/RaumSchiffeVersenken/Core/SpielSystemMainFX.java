@@ -18,7 +18,7 @@ public class SpielSystemMainFX extends Application{
      */
     @Override
     public void start(Stage spielefenster) throws IOException {
-        Parent quelle = FXMLLoader.load(getClass().getClassLoader().getResource("/fxml/gui.fxml"));
+        Parent quelle = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/gui.fxml"));
         Scene szene1 = new Scene(quelle);
 
         szene1.getStylesheets().add("gestaltung.css");
