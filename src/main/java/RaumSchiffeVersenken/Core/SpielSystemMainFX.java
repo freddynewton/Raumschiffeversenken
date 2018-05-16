@@ -18,15 +18,14 @@ public class SpielSystemMainFX extends Application{
      */
     @Override
     public void start(Stage spielefenster) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("gui.fxml"));
-        Parent fenster = loader.load();
-        Scene szene1 = new Scene(fenster);
+        Parent quelle = FXMLLoader.load(getClass().getClassLoader().getResource("/fxml/gui.fxml"));
+        Scene szene1 = new Scene(quelle);
+
         szene1.getStylesheets().add("gestaltung.css");
 
         spielefenster.setScene(szene1);
         spielefenster.show();
-     }
+    }
 
     /**
      * Die Main-Methode ruft das Fenster (Stage) auf, nachdem es initialisiert wurde.

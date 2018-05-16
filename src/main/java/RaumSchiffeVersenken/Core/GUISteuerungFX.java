@@ -73,22 +73,19 @@ public class GUISteuerungFX implements Initializable {
                     grafik.setFitHeight(24);
                     grafik.setImage(feldGrafik);
                     spielfeld1.add(grafik, x, y);
-                }
-                else if (feld.mapGroesse[x][y] == 1) {
+                } else if (feld.mapGroesse[x][y] == 1) {
                     ImageView grafik = new ImageView();
                     grafik.setFitWidth(24);
                     grafik.setFitHeight(24);
                     grafik.setImage(danebenGrafik);
                     spielfeld1.add(grafik, x, y);
-                }
-                else if (feld.mapGroesse[x][y] == 5) {
+                } else if (feld.mapGroesse[x][y] == 5) {
                     ImageView grafik = new ImageView();
                     grafik.setFitWidth(24);
                     grafik.setFitHeight(24);
                     grafik.setImage(raumschiffGrafik);
                     spielfeld1.add(grafik, x, y);
-                }
-                else if (feld.mapGroesse[x][y] == 6) {
+                } else if (feld.mapGroesse[x][y] == 6) {
                     ImageView grafik = new ImageView();
                     grafik.setFitWidth(24);
                     grafik.setFitHeight(24);
@@ -111,22 +108,19 @@ public class GUISteuerungFX implements Initializable {
                     grafik.setFitHeight(24);
                     grafik.setImage(feldGrafik);
                     spielfeld2.add(grafik, x, y);
-                }
-                else if (kopieFeld.mapGroesse[x][y] == 1) {
+                } else if (kopieFeld.mapGroesse[x][y] == 1) {
                     ImageView grafik = new ImageView();
                     grafik.setFitWidth(24);
                     grafik.setFitHeight(24);
                     grafik.setImage(danebenGrafik);
                     spielfeld2.add(grafik, x, y);
-                }
-                else if (kopieFeld.mapGroesse[x][y] == 5) {
+                } else if (kopieFeld.mapGroesse[x][y] == 5) {
                     ImageView grafik = new ImageView();
                     grafik.setFitWidth(24);
                     grafik.setFitHeight(24);
                     grafik.setImage(raumschiffGrafik);
                     spielfeld2.add(grafik, x, y);
-                }
-                else if (kopieFeld.mapGroesse[x][y] == 6) {
+                } else if (kopieFeld.mapGroesse[x][y] == 6) {
                     ImageView grafik = new ImageView();
                     grafik.setFitWidth(24);
                     grafik.setFitHeight(24);
@@ -149,7 +143,6 @@ public class GUISteuerungFX implements Initializable {
         //erstellt ein Textelement für das Textfeld
         Text text1 = new Text(textAusgabeText);
         textAusgabe.setText(textAusgabeText);
-
     }
 
 }
