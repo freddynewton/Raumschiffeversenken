@@ -3,3 +3,19 @@
     -fx-border-width: 1px;
     -fx-background-color: white;
 }
+
+#hbox1 {
+    -fx-background-color: grey;
+}
+
+#hbox2 {
+    -fx-background-color: grey;
+}
+
+#label1 {
+    -fx-text-fill: white;
+}
+
+#label2 {
+    -fx-text-fill: white;
+}

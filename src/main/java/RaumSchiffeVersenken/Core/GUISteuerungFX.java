@@ -10,7 +10,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.function.DoubleToLongFunction;
@@ -138,7 +137,7 @@ public class GUISteuerungFX implements Initializable {
     public static void textAusgabeSteuerung(String textAusgabeText, TextField textAusgabe) {
 
         //erstellt ein Textelement für das Textfeld
-        Text text1 = new Text(textAusgabeText);
+        //Text text1 = new Text(textAusgabeText);
         textAusgabe.setText(textAusgabeText);
     }
 
