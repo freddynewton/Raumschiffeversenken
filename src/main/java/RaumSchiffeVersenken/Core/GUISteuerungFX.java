@@ -138,7 +138,7 @@ public class GUISteuerungFX implements Initializable {
     public static void textAusgabeSteuerung(String textAusgabeText, TextField textAusgabe) {
 
         //erstellt ein Textelement für das Textfeld
-        Text text1 = new Text(textAusgabeText);
+        //Text text1 = new Text(textAusgabeText);
         textAusgabe.setText(textAusgabeText);
     }
 
