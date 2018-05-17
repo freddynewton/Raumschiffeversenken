@@ -321,4 +321,12 @@ public class Feld {
         }
         return "";
     }
+
+    /** Für Test relevant
+     *
+     * @return
+     */
+    public int[][] getMapGroesse() {
+        return mapGroesse;
+    }
 }

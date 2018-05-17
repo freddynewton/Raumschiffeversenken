@@ -14,13 +14,32 @@ public class FeldTest {
 
     @Test
     public void zielenZumSchiffeSetzen() throws Exception {
-        //Assert.assertEquals("Bitte nur zwischen 0-9 jeweils in der X-Achse und Y-Achse und Bei der Schiffsrichtung nur 1 & 2", yAchseBeschuss > 2,);
+
 
     }
 
     @Test
     public void schiffSetzen() throws Exception {
-        Assert.assertFalse("Bitte eine andere Zelle wählen da hier schon ein Schiff steht",false);
+        //Feld[][] mapGroesse = new Feld[10][10];
+        Feld play = new Feld(10, 10);
+
+        play.schiffSetzen(0,0,2,3);
+        int[][] result = play.getMapGroesse();
+        int[][] expectedArray =  {{5,5,5,0,0,0,0,0,0,0},
+                                  {0,0,0,0,0,0,0,0,0,0},
+                                  {0,0,0,0,0,0,0,0,0,0},
+                                  {0,0,0,0,0,0,0,0,0,0},
+                                  {0,0,0,0,0,0,0,0,0,0},
+                                  {0,0,0,0,0,0,0,0,0,0},
+                                  {0,0,0,0,0,0,0,0,0,0},
+                                  {0,0,0,0,0,0,0,0,0,0},
+                                  {0,0,0,0,0,0,0,0,0,0},
+                                  {0,0,0,0,0,0,0,0,0,0}};
+
+        Assert.assertArrayEquals(expectedArray,result);
+
+
+
 
     }
 
