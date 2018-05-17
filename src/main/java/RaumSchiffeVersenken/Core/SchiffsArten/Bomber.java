@@ -8,6 +8,7 @@ public class Bomber implements RaumSchiff {
     private int LebensPunkte = 2;
     private int xKoordinaten;
     private int yKoordinaten;
+    private int Schiffsrichtung;
 
     @Override
     public int getLaenge() {
@@ -55,5 +56,15 @@ public class Bomber implements RaumSchiff {
     @Override
     public void schiffSetzen() {
 
+    }
+
+    @Override
+    public int getSchiffsrichtung() {
+        return Schiffsrichtung;
+    }
+
+    @Override
+    public void setSchiffsrichtung(int schiffsrichtung) {
+        Schiffsrichtung = schiffsrichtung;
     }
 }
