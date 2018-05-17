@@ -8,6 +8,7 @@ public class Jaeger implements RaumSchiff {
     private int LebensPunkte = 1;
     private int xKoordinaten;
     private int yKoordinaten;
+    private int Schiffsrichtung;
 
     @Override
     public int getLaenge() {
@@ -56,6 +57,16 @@ public class Jaeger implements RaumSchiff {
 
     @Override
     public void schiffSetzen() {
+
+    }
+
+    @Override
+    public int getSchiffsrichtung() {
+        return Schiffsrichtung;
+    }
+
+    @Override
+    public void setSchiffsrichtung(int Schiffsrichtung) {
 
     }
 }

@@ -31,4 +31,8 @@ public interface RaumSchiff {
     void zielenZumSchiffeSetzen();
 
     void schiffSetzen();
+
+    int getSchiffsrichtung();
+
+    void setSchiffsrichtung(int Schiffsrichtung);
 }

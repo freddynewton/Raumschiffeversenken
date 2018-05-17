@@ -8,6 +8,7 @@ public class Fregatte implements RaumSchiff {
     private int LebensPunkte = 4;
     private int xKoordinaten;
     private int yKoordinaten;
+    private int Schiffsrichtung;
 
     @Override
     public int getLaenge() {
@@ -54,6 +55,16 @@ public class Fregatte implements RaumSchiff {
 
     @Override
     public void schiffSetzen() {
+
+    }
+
+    @Override
+    public int getSchiffsrichtung() {
+        return Schiffsrichtung;
+    }
+
+    @Override
+    public void setSchiffsrichtung(int Schiffsrichtung) {
 
     }
 }

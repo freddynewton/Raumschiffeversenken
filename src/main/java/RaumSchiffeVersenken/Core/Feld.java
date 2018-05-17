@@ -1,9 +1,11 @@
 package RaumSchiffeVersenken.Core;
 
+import java.util.HashMap;
 import java.util.Scanner;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+import RaumSchiffeVersenken.Interface.RaumSchiff;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
