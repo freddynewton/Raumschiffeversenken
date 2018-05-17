@@ -14,8 +14,6 @@ public class FeldTest {
 
     @Test
     public void zielenZumSchiffeSetzen() throws Exception {
-
-
     }
 
     @Test

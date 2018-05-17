@@ -7,6 +7,9 @@ import RaumSchiffeVersenken.Interface.RaumSchiff;
 import java.util.HashMap;
 import java.util.Objects;
 
+/**
+ *
+ */
 public class Spielablauf {
 
     int DerzeitigeSchiffslänge = 0;
@@ -32,7 +35,9 @@ public class Spielablauf {
         return "Start";
     }
 
-
+    /**
+     *
+     */
     public void SchiffeSetzenAblauf() {
 
         HashMap<Integer, RaumSchiff> SchiffsMap = new HashMap<>();
@@ -80,7 +85,9 @@ public class Spielablauf {
         Feld_Spieler2.BereitAbfrage(Feld_Spieler2);
     }
 
-
+    /**
+     *
+     */
     public void SchiessenAblauf() {
 
 
@@ -114,7 +121,6 @@ public class Spielablauf {
             Feld_Spieler2.BereitAbfrage(Kopie_Feld_Spieler1);
 
 
-
             Feld_Spieler2.TrefferZaehler(Feld_Spieler2, 2);
             Feld_Spieler1.TrefferZaehler(Feld_Spieler1, 1);
         }
@@ -123,8 +129,11 @@ public class Spielablauf {
     // --------------------------------------------------------------------------------
 
 
-
-
+    /**
+     * @param i
+     * @param map
+     * @return
+     */
     public String derzeitigerSchiffSetzer(int i, HashMap map) {
         RaumSchiff schiff = (RaumSchiff) map.get(i);
         DerzeitigeSchiffslänge = schiff.getLaenge();
@@ -148,8 +157,6 @@ public class Spielablauf {
 
 
     // ----------------------------------------------------------------------------------
-
-
 
 
 }

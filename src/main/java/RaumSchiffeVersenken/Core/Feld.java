@@ -24,6 +24,9 @@ public class Feld {
 
     Lock lock = new ReentrantLock();
 
+    /**
+     *
+     */
     private static final Logger log = LogManager.getLogger(Feld.class);
 
     /**
@@ -64,6 +67,10 @@ public class Feld {
 
     //--------------------------------------------------------------------------------------------------------------------
     // TODO: 20.04.2018 Lock und finally hinzufügen bei allen Methoden
+
+    /**
+     *
+     */
     public void zielenZumSchiessen() {
 
         try {
@@ -90,6 +97,11 @@ public class Feld {
         }
     }
 
+
+    /**
+     * @param yAchseBeschuss
+     * @param xAchseBeschuss
+     */
     public void schießen(int yAchseBeschuss, int xAchseBeschuss) {
         this.xAchseBeschuss = xAchseBeschuss;
         this.yAchseBeschuss = yAchseBeschuss;
@@ -121,6 +133,10 @@ public class Feld {
 
     //---------------------------------------------------------------------------------------------------------------------
 
+    /**
+     *
+     * @param SchiffsLänge
+     */
     public void zielenZumSchiffeSetzen(int SchiffsLänge) {
         this.SchiffsLänge = SchiffsLänge;
 
@@ -156,6 +172,13 @@ public class Feld {
         }
     }
 
+    /**
+     *
+     * @param yAchseBeschuss
+     * @param xAchseBeschuss
+     * @param SchiffsRichtung
+     * @param SchiffsLänge
+     */
     public void schiffSetzen(int yAchseBeschuss, int xAchseBeschuss, int SchiffsRichtung, int SchiffsLänge) {
         this.xAchseBeschuss = xAchseBeschuss;
         this.yAchseBeschuss = yAchseBeschuss;
@@ -218,7 +241,9 @@ public class Feld {
 
     // ----------------------------------------------------------------------------------------------
 
-
+    /**
+     *
+     */
     public void kriegsnebel() {
 
         for (int j = 0; j < 10; j++) {
@@ -232,6 +257,10 @@ public class Feld {
 
     // ----------------------------------------------------------------------------------------------
 
+    /**
+     *
+     * @param feld
+     */
     public void BereitAbfrage(Feld feld) {
 
         int BereitStatus = 0;
@@ -256,6 +285,12 @@ public class Feld {
 
 
     // TODO: 03.05.2018 Auf Jar-Datei warten um die App neu zu starten in dem Revance
+
+    /**
+     *
+     * @param feld
+     * @param SpielerNummer
+     */
     public void TrefferZaehler(Feld feld, int SpielerNummer) {
         this.CounterSpieler1 = CounterSpieler1;
         this.CounterSpieler2 = CounterSpieler2;
@@ -312,7 +347,10 @@ public class Feld {
         }
     }
 
-
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         for (int j = 0; j < 10; j++) {
