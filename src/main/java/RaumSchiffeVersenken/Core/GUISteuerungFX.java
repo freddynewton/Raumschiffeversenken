@@ -47,7 +47,7 @@ public class GUISteuerungFX implements Initializable {
         //starte die Spielablauf-Klasse im Hintergrund
         SpielablaufFX s = new SpielablaufFX();
         s.start(textAusgabe);
-        //s.SchiffeSetzenAblauf();
+        //s.SchiffeSetzenAblaufManuel();
         //s.SchiessenAblauf();
     }
 
