@@ -1,16 +1,18 @@
 package RaumSchiffeVersenken.Core;
 
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.function.DoubleToLongFunction;
@@ -67,62 +69,60 @@ public class GUISteuerungFX implements Initializable {
         //die for-Schleifen befüllen beide Spielfelder mit Grafiken
         for (int y = 0; y < feldSpalte; y++) {
             for (int x = 0; x < feldReihe; x++) {
+                ImageView grafikFeld1 = new ImageView();
+                grafikFeld1.setFitWidth(24);
+                grafikFeld1.setFitHeight(24);
+                grafikFeld1.setId(""+x+y);
+
+                grafikFeld1.setOnMouseClicked(new EventHandler<MouseEvent>(){
+                    @Override
+                    public void handle(MouseEvent event) {
+                        grafikFeld1.setImage(danebenGrafik);
+                    }
+                });
 
                 if (feld.mapGroesse[x][y] == 0) {
-                    ImageView grafik = new ImageView();
-                    grafik.setFitWidth(24);
-                    grafik.setFitHeight(24);
-                    grafik.setImage(feldGrafik);
-                    spielfeld1.add(grafik, x, y);
+                    grafikFeld1.setImage(feldGrafik);
+                    spielfeld1.add(grafikFeld1, x, y);
                 } else if (feld.mapGroesse[x][y] == 1) {
-                    ImageView grafik = new ImageView();
-                    grafik.setFitWidth(24);
-                    grafik.setFitHeight(24);
-                    grafik.setImage(danebenGrafik);
-                    spielfeld1.add(grafik, x, y);
+                    grafikFeld1.setImage(danebenGrafik);
+                    spielfeld1.add(grafikFeld1, x, y);
                 } else if (feld.mapGroesse[x][y] == 5) {
-                    ImageView grafik = new ImageView();
-                    grafik.setFitWidth(24);
-                    grafik.setFitHeight(24);
-                    grafik.setImage(raumschiffGrafik);
-                    spielfeld1.add(grafik, x, y);
+                    grafikFeld1.setImage(raumschiffGrafik);
+                    spielfeld1.add(grafikFeld1, x, y);
                 } else if (feld.mapGroesse[x][y] == 6) {
-                    ImageView grafik = new ImageView();
-                    grafik.setFitWidth(24);
-                    grafik.setFitHeight(24);
-                    grafik.setImage(trefferGrafik);
-                    spielfeld1.add(grafik, x, y);
+                    grafikFeld1.setImage(trefferGrafik);
+                    spielfeld1.add(grafikFeld1, x, y);
                 }
             }
         }
 
         for (int y = 0; y < feldSpalte; y++) {
             for (int x = 0; x < feldReihe; x++) {
+                ImageView grafikFeld2 = new ImageView();
+                grafikFeld2.setFitWidth(24);
+                grafikFeld2.setFitHeight(24);
+                grafikFeld2.setId(""+x+y);
+
+                grafikFeld2.setOnMouseClicked(new EventHandler<MouseEvent>(){
+                    @Override
+                    public void handle(MouseEvent event) {
+                        grafikFeld2.setImage(danebenGrafik);
+                    }
+                });
 
                 if (kopieFeld.mapGroesse[x][y] == 0) {
-                    ImageView grafik = new ImageView();
-                    grafik.setFitWidth(24);
-                    grafik.setFitHeight(24);
-                    grafik.setImage(feldGrafik);
-                    spielfeld2.add(grafik, x, y);
+                    grafikFeld2.setImage(feldGrafik);
+                    spielfeld2.add(grafikFeld2, x, y);
                 } else if (kopieFeld.mapGroesse[x][y] == 1) {
-                    ImageView grafik = new ImageView();
-                    grafik.setFitWidth(24);
-                    grafik.setFitHeight(24);
-                    grafik.setImage(danebenGrafik);
-                    spielfeld2.add(grafik, x, y);
+                    grafikFeld2.setImage(danebenGrafik);
+                    spielfeld2.add(grafikFeld2, x, y);
                 } else if (kopieFeld.mapGroesse[x][y] == 5) {
-                    ImageView grafik = new ImageView();
-                    grafik.setFitWidth(24);
-                    grafik.setFitHeight(24);
-                    grafik.setImage(raumschiffGrafik);
-                    spielfeld2.add(grafik, x, y);
+                    grafikFeld2.setImage(raumschiffGrafik);
+                    spielfeld2.add(grafikFeld2, x, y);
                 } else if (kopieFeld.mapGroesse[x][y] == 6) {
-                    ImageView grafik = new ImageView();
-                    grafik.setFitWidth(24);
-                    grafik.setFitHeight(24);
-                    grafik.setImage(trefferGrafik);
-                    spielfeld2.add(grafik, x, y);
+                    grafikFeld2.setImage(trefferGrafik);
+                    spielfeld2.add(grafikFeld2, x, y);
                 }
             }
         }
@@ -141,5 +141,4 @@ public class GUISteuerungFX implements Initializable {
         //Text text1 = new Text(textAusgabeText);
         textAusgabe.setText(textAusgabeText);
     }
-
 }
