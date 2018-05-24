@@ -72,12 +72,14 @@ public class GUISteuerungFX implements Initializable {
                 ImageView grafikFeld1 = new ImageView();
                 grafikFeld1.setFitWidth(24);
                 grafikFeld1.setFitHeight(24);
-                grafikFeld1.setId(""+x+y);
+                grafikFeld1.setId(""+x+"|"+y);
 
                 grafikFeld1.setOnMouseClicked(new EventHandler<MouseEvent>(){
                     @Override
                     public void handle(MouseEvent event) {
                         grafikFeld1.setImage(danebenGrafik);
+                        System.out.println("Feld: " + grafikFeld1.getId());
+                        GUISteuerungFX.textAusgabeSteuerung("Feld: " + grafikFeld1.getId(), textAusgabe);
                     }
                 });
 
@@ -102,12 +104,14 @@ public class GUISteuerungFX implements Initializable {
                 ImageView grafikFeld2 = new ImageView();
                 grafikFeld2.setFitWidth(24);
                 grafikFeld2.setFitHeight(24);
-                grafikFeld2.setId(""+x+y);
+                grafikFeld2.setId(""+x+"|"+y);
 
                 grafikFeld2.setOnMouseClicked(new EventHandler<MouseEvent>(){
                     @Override
                     public void handle(MouseEvent event) {
                         grafikFeld2.setImage(danebenGrafik);
+                        System.out.println("Feld: " + grafikFeld2.getId());
+                        GUISteuerungFX.textAusgabeSteuerung("Feld: " + grafikFeld2.getId(), textAusgabe);
                     }
                 });
 

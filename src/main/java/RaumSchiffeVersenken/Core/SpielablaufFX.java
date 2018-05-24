@@ -19,7 +19,7 @@ public class SpielablaufFX {
     //Die Spieleinstruktionen werden im Textfeld des GUI über eine Methode in der GUISteuerungFX ausgegeben
     public String start(TextField textAusgabe) {
 
-        GUISteuerungFX.textAusgabeSteuerung("Spieler 1: Setze jetzt Deine Schiffe!", textAusgabe);
+        GUISteuerungFX.textAusgabeSteuerung("Spieler 1: Klicke auf ein Feld um zu schießen!", textAusgabe);
         //GUISteuerungFX.textAusgabeSteuerung("\n4 Jäger mit der Länge 1" + "\n2 Bomber mit der Länge 2" + "\n1 Fregatte mit der Länge 4" + "\n1 Zerstörer mit der Länge 5", textAusgabe);
 
         return "Start";
@@ -84,9 +84,7 @@ public class SpielablaufFX {
             Kopie_Feld_Spieler2 = Feld_Spieler2;
             Kopie_Feld_Spieler2.kriegsnebel();
 
-
             Feld_Spieler1.BereitAbfrage(Kopie_Feld_Spieler2);
-
 
             System.out.println("Dein Feld:\n");
             Feld_Spieler2.toString();
