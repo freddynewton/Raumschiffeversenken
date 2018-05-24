@@ -6,7 +6,12 @@ import RaumSchiffeVersenken.Interface.RaumSchiff;
 
 import java.util.HashMap;
 import java.util.Objects;
+import java.util.Random;
+import java.util.Scanner;
 
+/**
+ *
+ */
 public class Spielablauf {
 
     int DerzeitigeSchiffslänge = 0;
@@ -32,8 +37,10 @@ public class Spielablauf {
         return "Start";
     }
 
-
-    public void SchiffeSetzenAblauf() {
+    /**
+     *
+     */
+    public void SchiffeSetzenAblaufManuel() {
 
         HashMap<Integer, RaumSchiff> SchiffsMap = new HashMap<>();
 
@@ -57,30 +64,67 @@ public class Spielablauf {
         //Zerstörer erstellen mit 5 Lebenspunkten
         SchiffsMap.put(12, Objects.requireNonNull(SchiffFactory.getRaumschiff("5")));
 
-        for (int i = 1; i <= 12; i++) {
-            RaumSchiff schiff = SchiffsMap.get(i);
-            DerzeitigeSchiffslänge = schiff.getLaenge();
-            derzeitigerSchiffSetzer(i, SchiffsMap);
-            Feld_Spieler1.zielenZumSchiffeSetzen(DerzeitigeSchiffslänge);
-            Feld_Spieler1.toString();
+        System.out.println("Möchten sie ihre Schiffe Random per AI gesetzt haben oder Manuel?\n" +
+                "Random: 1\n" +
+                "Manuel: 2\n" +
+                "Hier: ");
+        Scanner RMentscheidung = new Scanner(System.in);
+        String rmString = RMentscheidung.nextLine();
+        int rmInt = Integer.parseInt(rmString);
+
+
+        if (rmInt == 1) {
+            int Counter = 0;
+            for (int i = 1; i <= 12; i++) {
+                RaumSchiff schiff = SchiffsMap.get(i);
+                DerzeitigeSchiffslänge = schiff.getLaenge();
+                randomSchiffeSetzen(Feld_Spieler1, DerzeitigeSchiffslänge, Counter);
+            }
+
+        } else {
+            for (int i = 1; i <= 12; i++) {
+                RaumSchiff schiff = SchiffsMap.get(i);
+                DerzeitigeSchiffslänge = schiff.getLaenge();
+                derzeitigerSchiffSetzer(i, SchiffsMap);
+                Feld_Spieler1.zielenZumSchiffeSetzen(DerzeitigeSchiffslänge);
+                Feld_Spieler1.toString();
+            }
         }
-
-
         Feld_Spieler1.BereitAbfrage(Feld_Spieler1);
 
 
-        Feld_Spieler2.toString();
-        for (int i = 1; i <= 12; i++) {
-            DerzeitigeSchiffslänge = SchiffsMap.get(i).getLaenge();
-            derzeitigerSchiffSetzer(i, SchiffsMap);
-            Feld_Spieler2.zielenZumSchiffeSetzen(DerzeitigeSchiffslänge);
-            Feld_Spieler2.toString();
-        }
+        System.out.println("Möchten sie ihre Schiffe Random per AI gesetzt haben oder Manuel?\n" +
+                "Random: 1\n" +
+                "Manuel: 2\n" +
+                "Hier: ");
+        Scanner RMentscheidung2 = new Scanner(System.in);
+        String rmString2 = RMentscheidung2.nextLine();
+        int rmInt2 = Integer.parseInt(rmString2);
 
+        if (rmInt2 == 1) {
+            int Counter = 0;
+            for (int i = 1; i <= 12; i++) {
+                RaumSchiff schiff = SchiffsMap.get(i);
+                DerzeitigeSchiffslänge = schiff.getLaenge();
+                randomSchiffeSetzen(Feld_Spieler2, DerzeitigeSchiffslänge, Counter);
+            }
+
+
+        } else {
+            Feld_Spieler2.toString();
+            for (int i = 1; i <= 12; i++) {
+                DerzeitigeSchiffslänge = SchiffsMap.get(i).getLaenge();
+                derzeitigerSchiffSetzer(i, SchiffsMap);
+                Feld_Spieler2.zielenZumSchiffeSetzen(DerzeitigeSchiffslänge);
+                Feld_Spieler2.toString();
+            }
+        }
         Feld_Spieler2.BereitAbfrage(Feld_Spieler2);
     }
 
-
+    /**
+     *
+     */
     public void SchiessenAblauf() {
 
 
@@ -114,7 +158,6 @@ public class Spielablauf {
             Feld_Spieler2.BereitAbfrage(Kopie_Feld_Spieler1);
 
 
-
             Feld_Spieler2.TrefferZaehler(Feld_Spieler2, 2);
             Feld_Spieler1.TrefferZaehler(Feld_Spieler1, 1);
         }
@@ -123,8 +166,11 @@ public class Spielablauf {
     // --------------------------------------------------------------------------------
 
 
-
-
+    /**
+     * @param i
+     * @param map
+     * @return
+     */
     public String derzeitigerSchiffSetzer(int i, HashMap map) {
         RaumSchiff schiff = (RaumSchiff) map.get(i);
         DerzeitigeSchiffslänge = schiff.getLaenge();
@@ -150,6 +196,19 @@ public class Spielablauf {
     // ----------------------------------------------------------------------------------
 
 
+    public String randomSchiffeSetzen(Feld feld, int SchiffTypsLaenge, int Counter) {
 
+        Random randomGenerator = new Random();
+
+        int randomX = randomGenerator.nextInt(10);
+        int randomY = randomGenerator.nextInt(10);
+        int randomRichtung = randomGenerator.nextInt(2) + 1;
+
+
+        feld.schiffSetzenAutomatisch(randomY, randomX, randomRichtung, SchiffTypsLaenge);
+
+
+        return "";
+    }
 
 }

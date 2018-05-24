@@ -14,8 +14,6 @@ public class FeldTest {
 
     @Test
     public void zielenZumSchiffeSetzen() throws Exception {
-
-
     }
 
     @Test
@@ -23,7 +21,7 @@ public class FeldTest {
         //Feld[][] mapGroesse = new Feld[10][10];
         Feld play = new Feld(10, 10);
 
-        play.schiffSetzen(0,0,2,3);
+        play.schiffSetzenManuel(0, 0, 2, 3);
         int[][] result = play.getMapGroesse();
         int[][] expectedArray =  {{5,5,5,0,0,0,0,0,0,0},
                                   {0,0,0,0,0,0,0,0,0,0},

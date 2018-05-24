@@ -1,11 +1,9 @@
 package RaumSchiffeVersenken.Core;
 
-import java.util.HashMap;
 import java.util.Scanner;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-import RaumSchiffeVersenken.Interface.RaumSchiff;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -24,6 +22,9 @@ public class Feld {
 
     Lock lock = new ReentrantLock();
 
+    /**
+     *Logger erstellung.
+     */
     private static final Logger log = LogManager.getLogger(Feld.class);
 
     /**
@@ -64,6 +65,13 @@ public class Feld {
 
     //--------------------------------------------------------------------------------------------------------------------
     // TODO: 20.04.2018 Lock und finally hinzufügen bei allen Methoden
+
+    /**
+     * Hier werden mit Scanner die jeweilige X-Achse und Y-Achse Koordinate abgefragt und
+     * und Kontrolliert ob sie im Array sind und übergibt die Werte dann zur
+     * schießen() methode
+     *
+     */
     public void zielenZumSchiessen() {
 
         try {
@@ -90,6 +98,11 @@ public class Feld {
         }
     }
 
+
+    /**
+     * @param yAchseBeschuss
+     * @param xAchseBeschuss
+     */
     public void schießen(int yAchseBeschuss, int xAchseBeschuss) {
         this.xAchseBeschuss = xAchseBeschuss;
         this.yAchseBeschuss = yAchseBeschuss;
@@ -121,6 +134,10 @@ public class Feld {
 
     //---------------------------------------------------------------------------------------------------------------------
 
+    /**
+     *
+     * @param SchiffsLänge
+     */
     public void zielenZumSchiffeSetzen(int SchiffsLänge) {
         this.SchiffsLänge = SchiffsLänge;
 
@@ -144,7 +161,7 @@ public class Feld {
             yAchseBeschuss = Integer.parseInt(scanyString);
 
             if (yAchseBeschuss < 10 && yAchseBeschuss >= 0 && xAchseBeschuss < 10 && xAchseBeschuss >= 0) {
-                schiffSetzen(xAchseBeschuss, yAchseBeschuss, SchiffsRichtung, SchiffsLänge);
+                schiffSetzenManuel(xAchseBeschuss, yAchseBeschuss, SchiffsRichtung, SchiffsLänge);
             } else {
                 log.info("Bitte nur zwischen 0-9 jeweils in der X-Achse und Y-Achse und Bei der Schiffsrichtung nur 1 & 2");
                 zielenZumSchiffeSetzen(SchiffsLänge);
@@ -156,7 +173,14 @@ public class Feld {
         }
     }
 
-    public void schiffSetzen(int yAchseBeschuss, int xAchseBeschuss, int SchiffsRichtung, int SchiffsLänge) {
+    /**
+     *
+     * @param yAchseBeschuss
+     * @param xAchseBeschuss
+     * @param SchiffsRichtung
+     * @param SchiffsLänge
+     */
+    public void schiffSetzenManuel(int yAchseBeschuss, int xAchseBeschuss, int SchiffsRichtung, int SchiffsLänge) {
         this.xAchseBeschuss = xAchseBeschuss;
         this.yAchseBeschuss = yAchseBeschuss;
         this.SchiffsRichtung = SchiffsRichtung;
@@ -216,9 +240,72 @@ public class Feld {
         }
     }
 
+
+    public void schiffSetzenAutomatisch(int yAchseBeschuss, int xAchseBeschuss, int SchiffsRichtung, int SchiffsLänge) {
+        this.xAchseBeschuss = xAchseBeschuss;
+        this.yAchseBeschuss = yAchseBeschuss;
+        this.SchiffsRichtung = SchiffsRichtung;
+        this.SchiffsLänge = SchiffsLänge;
+        boolean SchiffErfolgreichSetzen = false;
+        int SchiffsLängeCounter = 0;
+
+        try {
+
+            if (SchiffsRichtung == 1) {
+                for (int i = 0; i < SchiffsLänge; i++) {
+                    log.info("mapGroesse[xAchseBeschuss + i][yAchseBeschuss] == 0" + (mapGroesse[xAchseBeschuss + i][yAchseBeschuss] == 0));
+                    log.info("mapGroesse[xAchseBeschuss + i][yAchseBeschuss] != 5" + (mapGroesse[xAchseBeschuss + i][yAchseBeschuss] != 5));
+                    if (mapGroesse[xAchseBeschuss + i][yAchseBeschuss] == 0 && mapGroesse[xAchseBeschuss + i][yAchseBeschuss] != 5) {
+                        SchiffsLängeCounter++;
+                    }
+                }
+            } else if (SchiffsRichtung == 2) {
+                for (int i = 0; i < SchiffsLänge; i++) {
+                    log.info("mapGroesse[xAchseBeschuss][yAchseBeschuss + 1] == 0" + (mapGroesse[xAchseBeschuss][yAchseBeschuss + i] == 0));
+                    log.info("mapGroesse[xAchseBeschuss][yAchseBeschuss + 1] != 5" + (mapGroesse[xAchseBeschuss][yAchseBeschuss + i] != 5));
+                    if (mapGroesse[xAchseBeschuss][yAchseBeschuss + i] == 0 && mapGroesse[xAchseBeschuss][yAchseBeschuss + i] != 5) {
+                        SchiffsLängeCounter++;
+                    }
+                }
+            }
+
+            if (SchiffsLängeCounter == SchiffsLänge) {
+                SchiffErfolgreichSetzen = true;
+            }
+
+            if (SchiffErfolgreichSetzen == true) {
+                if (SchiffsRichtung == 1) {
+                    for (int i = 0; i < SchiffsLänge; i++) {
+                        mapGroesse[xAchseBeschuss + i][yAchseBeschuss] += 5;
+                    }
+                } else if (SchiffsRichtung == 2) {
+                    for (int i = 0; i < SchiffsLänge; i++) {
+                        mapGroesse[xAchseBeschuss][yAchseBeschuss + i] += 5;
+                    }
+                }
+            } else {
+                log.info("Bitte eine andere Zelle wählen da hier schon ein Schiff steht 'else'\n" +
+                        "------------------------------------------------------------------\n" +
+                        "\n");
+
+                schiffSetzenAutomatisch(yAchseBeschuss, xAchseBeschuss, SchiffsRichtung, SchiffsLänge);
+            }
+        } catch (Exception ex4) {
+            log.error("Bitte eine andere Zelle wählen da hier schon ein Schiff steht 'catch'\n" +
+                    "------------------------------------------------------------------\n" +
+                    "\n", ex4);
+            System.out.println("Bitte eine andere Zelle wählen da hier schon ein Schiff steht\n" +
+                    "------------------------------------------------------------------\n" +
+                    "\n");
+            schiffSetzenAutomatisch(yAchseBeschuss, xAchseBeschuss, SchiffsRichtung, SchiffsLänge);
+        }
+    }
+
     // ----------------------------------------------------------------------------------------------
 
-
+    /**
+     *
+     */
     public void kriegsnebel() {
 
         for (int j = 0; j < 10; j++) {
@@ -232,6 +319,10 @@ public class Feld {
 
     // ----------------------------------------------------------------------------------------------
 
+    /**
+     *
+     * @param feld
+     */
     public void BereitAbfrage(Feld feld) {
 
         int BereitStatus = 0;
@@ -256,6 +347,12 @@ public class Feld {
 
 
     // TODO: 03.05.2018 Auf Jar-Datei warten um die App neu zu starten in dem Revance
+
+    /**
+     *
+     * @param feld
+     * @param SpielerNummer
+     */
     public void TrefferZaehler(Feld feld, int SpielerNummer) {
         this.CounterSpieler1 = CounterSpieler1;
         this.CounterSpieler2 = CounterSpieler2;
@@ -312,7 +409,10 @@ public class Feld {
         }
     }
 
-
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         for (int j = 0; j < 10; j++) {
