@@ -6,8 +6,8 @@ import RaumSchiffeVersenken.Interface.RaumSchiff;
 
 import java.util.HashMap;
 import java.util.Objects;
-import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  *
@@ -74,11 +74,20 @@ public class Spielablauf {
 
 
         if (rmInt == 1) {
-            int Counter = 0;
-            for (int i = 1; i <= 12; i++) {
-                RaumSchiff schiff = SchiffsMap.get(i);
-                DerzeitigeSchiffslänge = schiff.getLaenge();
-                randomSchiffeSetzen(Feld_Spieler1, DerzeitigeSchiffslänge, Counter);
+
+            try {
+                for (int i = 1; i <= 12; i++) {
+                    RaumSchiff schiff = SchiffsMap.get(i);
+                    DerzeitigeSchiffslänge = schiff.getLaenge();
+                    boolean stand = randomSchiffeSetzen(Feld_Spieler1, DerzeitigeSchiffslänge);
+
+                    if (!stand) {
+                        i -= 1;
+                    }
+                }
+                Feld_Spieler1.toString();
+            } catch (Exception ex) {
+                throw ex;
             }
 
         } else {
@@ -90,6 +99,7 @@ public class Spielablauf {
                 Feld_Spieler1.toString();
             }
         }
+
         Feld_Spieler1.BereitAbfrage(Feld_Spieler1);
 
 
@@ -102,11 +112,19 @@ public class Spielablauf {
         int rmInt2 = Integer.parseInt(rmString2);
 
         if (rmInt2 == 1) {
-            int Counter = 0;
-            for (int i = 1; i <= 12; i++) {
-                RaumSchiff schiff = SchiffsMap.get(i);
-                DerzeitigeSchiffslänge = schiff.getLaenge();
-                randomSchiffeSetzen(Feld_Spieler2, DerzeitigeSchiffslänge, Counter);
+            try {
+                for (int i = 1; i <= 12; i++) {
+                    RaumSchiff schiff = SchiffsMap.get(i);
+                    DerzeitigeSchiffslänge = schiff.getLaenge();
+                    boolean stand = randomSchiffeSetzen(Feld_Spieler2, DerzeitigeSchiffslänge);
+
+                    if (!stand) {
+                        i -= 1;
+                    }
+                }
+                Feld_Spieler2.toString();
+            } catch (Exception ex) {
+                throw ex;
             }
 
 
@@ -196,19 +214,22 @@ public class Spielablauf {
     // ----------------------------------------------------------------------------------
 
 
-    public String randomSchiffeSetzen(Feld feld, int SchiffTypsLaenge, int Counter) {
+    private boolean randomSchiffeSetzen(Feld feld, int SchiffTypsLaenge) {
 
+
+        int randomX = ThreadLocalRandom.current().nextInt(10);
+        int randomY = ThreadLocalRandom.current().nextInt(10);
+        int randomRichtung = ThreadLocalRandom.current().nextInt(2) + 1;
+
+        /*
         Random randomGenerator = new Random();
-
         int randomX = randomGenerator.nextInt(10);
         int randomY = randomGenerator.nextInt(10);
         int randomRichtung = randomGenerator.nextInt(2) + 1;
+         */
 
 
-        feld.schiffSetzenAutomatisch(randomY, randomX, randomRichtung, SchiffTypsLaenge);
-
-
-        return "";
+        return feld.schiffSetzenAutomatisch(randomY, randomX, randomRichtung, SchiffTypsLaenge);
     }
 
 }

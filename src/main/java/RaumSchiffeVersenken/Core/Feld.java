@@ -241,7 +241,7 @@ public class Feld {
     }
 
 
-    public void schiffSetzenAutomatisch(int yAchseBeschuss, int xAchseBeschuss, int SchiffsRichtung, int SchiffsLänge) {
+    public boolean schiffSetzenAutomatisch(int yAchseBeschuss, int xAchseBeschuss, int SchiffsRichtung, int SchiffsLänge) {
         this.xAchseBeschuss = xAchseBeschuss;
         this.yAchseBeschuss = yAchseBeschuss;
         this.SchiffsRichtung = SchiffsRichtung;
@@ -273,33 +273,33 @@ public class Feld {
                 SchiffErfolgreichSetzen = true;
             }
 
-            if (SchiffErfolgreichSetzen == true) {
+            if (SchiffErfolgreichSetzen) {
                 if (SchiffsRichtung == 1) {
                     for (int i = 0; i < SchiffsLänge; i++) {
                         mapGroesse[xAchseBeschuss + i][yAchseBeschuss] += 5;
                     }
+
                 } else if (SchiffsRichtung == 2) {
                     for (int i = 0; i < SchiffsLänge; i++) {
                         mapGroesse[xAchseBeschuss][yAchseBeschuss + i] += 5;
                     }
+
                 }
             } else {
                 log.info("Bitte eine andere Zelle wählen da hier schon ein Schiff steht 'else'\n" +
                         "------------------------------------------------------------------\n" +
                         "\n");
 
-                schiffSetzenAutomatisch(yAchseBeschuss, xAchseBeschuss, SchiffsRichtung, SchiffsLänge);
             }
         } catch (Exception ex4) {
             log.error("Bitte eine andere Zelle wählen da hier schon ein Schiff steht 'catch'\n" +
                     "------------------------------------------------------------------\n" +
                     "\n", ex4);
-            System.out.println("Bitte eine andere Zelle wählen da hier schon ein Schiff steht\n" +
-                    "------------------------------------------------------------------\n" +
-                    "\n");
-            schiffSetzenAutomatisch(yAchseBeschuss, xAchseBeschuss, SchiffsRichtung, SchiffsLänge);
+
         }
+        return SchiffErfolgreichSetzen;
     }
+
 
     // ----------------------------------------------------------------------------------------------
 
