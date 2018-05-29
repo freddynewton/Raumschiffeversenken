@@ -2,24 +2,36 @@ package RaumSchiffeVersenken.Core;
 
 
 import RaumSchiffeVersenken.Interface.RaumSchiff;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 import java.util.HashMap;
 import java.util.Objects;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  *
  */
 public class Spielablauf {
 
+    Lock lock = new ReentrantLock();
+
+    /**
+     * Logger erstellung.
+     */
+    private static final Logger log = LogManager.getLogger(Spielablauf.class);
+
     private int DerzeitigeSchiffslänge = 0;
     public static Feld Feld_Spieler1 = new Feld(10, 10);
     public static Feld Feld_Spieler2 = new Feld(10, 10);
 
 
-    public String start() {
+    public void start() {
+        log.info("start() print standard Nachricht");
         System.out.println("Los gehts!");
         System.out.println("Spieler 1 beginnt:\n");
 
@@ -34,7 +46,7 @@ public class Spielablauf {
         System.out.println("Schiffe zu setzen:\n" + "5 Jäger mit der Länge 1\n" + "4 Bomber mit der Länge 2\n" +
                 "2 Fregatten mit der Länge 4\n" + "1 Zerstörer mit der Länge 5\n");
 
-        return "Start";
+
     }
 
     /**
@@ -43,33 +55,49 @@ public class Spielablauf {
     public void SchiffeSetzenAblauf() {
 
         HashMap<Integer, RaumSchiff> SchiffsMap = new HashMap<>();
+        log.info("HashMap<Integer, RaumSchiff> SchiffsMap = new HashMap<>()" + SchiffsMap);
 
         // Jaeger erstellen mit 1 Lebenspunkt
+        log.info("Jager 1" + SchiffsMap.put(1, Objects.requireNonNull(SchiffFactory.getRaumschiff("1"))));
+        log.info("Jager 2" + SchiffsMap.put(2, Objects.requireNonNull(SchiffFactory.getRaumschiff("1"))));
+        log.info("Jager 3" + SchiffsMap.put(3, Objects.requireNonNull(SchiffFactory.getRaumschiff("1"))));
+        log.info("Jager 4" + SchiffsMap.put(4, Objects.requireNonNull(SchiffFactory.getRaumschiff("1"))));
+        log.info("Jager 5" + SchiffsMap.put(5, Objects.requireNonNull(SchiffFactory.getRaumschiff("1"))));
         SchiffsMap.put(1, Objects.requireNonNull(SchiffFactory.getRaumschiff("1")));
         SchiffsMap.put(2, Objects.requireNonNull(SchiffFactory.getRaumschiff("1")));
         SchiffsMap.put(3, Objects.requireNonNull(SchiffFactory.getRaumschiff("1")));
         SchiffsMap.put(4, Objects.requireNonNull(SchiffFactory.getRaumschiff("1")));
         SchiffsMap.put(5, Objects.requireNonNull(SchiffFactory.getRaumschiff("1")));
 
+
         //Bomber erstellen mit 2 Lebenspunkten
+        log.info("Bomber 1" + SchiffsMap.put(6, Objects.requireNonNull(SchiffFactory.getRaumschiff("2"))));
+        log.info("Bomber 2" + SchiffsMap.put(7, Objects.requireNonNull(SchiffFactory.getRaumschiff("2"))));
+        log.info("Bomber 3" + SchiffsMap.put(8, Objects.requireNonNull(SchiffFactory.getRaumschiff("2"))));
+        log.info("Bomber 4" + SchiffsMap.put(9, Objects.requireNonNull(SchiffFactory.getRaumschiff("2"))));
         SchiffsMap.put(6, Objects.requireNonNull(SchiffFactory.getRaumschiff("2")));
         SchiffsMap.put(7, Objects.requireNonNull(SchiffFactory.getRaumschiff("2")));
         SchiffsMap.put(8, Objects.requireNonNull(SchiffFactory.getRaumschiff("2")));
         SchiffsMap.put(9, Objects.requireNonNull(SchiffFactory.getRaumschiff("2")));
 
+
         //Fregatte erstellen mit 4 Lebenspunkten
+        log.info("Fregatte 1" + SchiffsMap.put(10, Objects.requireNonNull(SchiffFactory.getRaumschiff("4"))));
+        log.info("Fregatte 2" + SchiffsMap.put(11, Objects.requireNonNull(SchiffFactory.getRaumschiff("4"))));
         SchiffsMap.put(10, Objects.requireNonNull(SchiffFactory.getRaumschiff("4")));
         SchiffsMap.put(11, Objects.requireNonNull(SchiffFactory.getRaumschiff("4")));
 
+
         //Zerstörer erstellen mit 5 Lebenspunkten
+        log.info("Zerstörer" + SchiffsMap.put(12, Objects.requireNonNull(SchiffFactory.getRaumschiff("5"))));
         SchiffsMap.put(12, Objects.requireNonNull(SchiffFactory.getRaumschiff("5")));
+
 
         spieler1SchiffeSetzenAblauf(SchiffsMap);
 
         spiler2SchiffeSetzenAblauf(SchiffsMap);
 
     }
-
 
 
     /**
@@ -80,10 +108,14 @@ public class Spielablauf {
 
         for (int i = 0; i <= 99; i++) {
             Feld Kopie_Feld_Spieler1 = new Feld(Feld_Spieler1);
+            log.info("Kopie erstellung Feld_Spieler1" + Kopie_Feld_Spieler1);
             Feld Kopie_Feld_Spieler2 = new Feld(Feld_Spieler2);
+            log.info("Kopie erstellung Feld_Spieler2" + Kopie_Feld_Spieler2);
+
             Kopie_Feld_Spieler1.kriegsnebel();
             Kopie_Feld_Spieler2.kriegsnebel();
-
+            log.info("Kopie Kriegsnebel Feld_Spieler1" + Kopie_Feld_Spieler1);
+            log.info("Kopie Kriegsnebel Feld_Spieler2" + Kopie_Feld_Spieler2);
 
             // Spieler 1 Schießablauf
             System.out.println("Dein Feld:\n");

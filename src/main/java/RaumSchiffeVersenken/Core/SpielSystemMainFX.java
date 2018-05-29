@@ -1,9 +1,11 @@
 package RaumSchiffeVersenken.Core;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import java.io.IOException;
 
@@ -25,6 +27,13 @@ public class SpielSystemMainFX extends Application{
 
         spielefenster.setScene(szene1);
         spielefenster.show();
+
+        szene1.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                System.out.println("mouse click detected! "+event.getSource());
+            }
+        });
     }
 
     /**

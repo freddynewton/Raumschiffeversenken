@@ -8,7 +8,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
