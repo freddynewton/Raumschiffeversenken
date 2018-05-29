@@ -3,7 +3,6 @@ package RaumSchiffeVersenken.Core;
 
 import RaumSchiffeVersenken.Interface.RaumSchiff;
 import javafx.scene.control.TextField;
-import javafx.scene.text.TextFlow;
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -16,11 +15,11 @@ public class SpielablaufFX {
     Feld Feld_Spieler2 = new Feld(10, 10);
 
 
-    //Die Spieleinstruktionen werden im Textfeld des GUI über eine Methode in der GUISteuerungFX ausgegeben
+    //Die Spieleinstruktionen werden im Textfeld des GUI über eine Methode in der GUISpielFX ausgegeben
     public String start(TextField textAusgabe) {
 
-        GUISteuerungFX.textAusgabeSteuerung("Spieler 1: Klicke auf ein Feld um zu schießen!", textAusgabe);
-        //GUISteuerungFX.textAusgabeSteuerung("\n4 Jäger mit der Länge 1" + "\n2 Bomber mit der Länge 2" + "\n1 Fregatte mit der Länge 4" + "\n1 Zerstörer mit der Länge 5", textAusgabe);
+        GUISpielFX.textAusgabeSteuerung("Spieler 1: Klicke auf ein Feld um zu schießen!", textAusgabe);
+        //GUISpielFX.textAusgabeSteuerung("\n4 Jäger mit der Länge 1" + "\n2 Bomber mit der Länge 2" + "\n1 Fregatte mit der Länge 4" + "\n1 Zerstörer mit der Länge 5", textAusgabe);
 
         return "Start";
     }

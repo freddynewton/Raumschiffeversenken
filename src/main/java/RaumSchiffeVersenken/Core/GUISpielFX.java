@@ -1,8 +1,6 @@
 package RaumSchiffeVersenken.Core;
 
-import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
@@ -10,18 +8,15 @@ import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.control.Button;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
+
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.function.DoubleToLongFunction;
 
 import static RaumSchiffeVersenken.Core.Spielablauf.Feld_Spieler1;
 import static RaumSchiffeVersenken.Core.Spielablauf.Feld_Spieler2;
 
 
-public class GUISteuerungFX implements Initializable {
+public class GUISpielFX implements Initializable {
 
     //referentziert GUI-Elemente der FXML-Datei
     @FXML
@@ -79,7 +74,7 @@ public class GUISteuerungFX implements Initializable {
                     public void handle(MouseEvent event) {
                         grafikFeld1.setImage(danebenGrafik);
                         System.out.println("Feld: " + grafikFeld1.getId());
-                        GUISteuerungFX.textAusgabeSteuerung("Feld: " + grafikFeld1.getId(), textAusgabe);
+                        GUISpielFX.textAusgabeSteuerung("Feld: " + grafikFeld1.getId(), textAusgabe);
                     }
                 });
 
@@ -111,7 +106,7 @@ public class GUISteuerungFX implements Initializable {
                     public void handle(MouseEvent event) {
                         grafikFeld2.setImage(danebenGrafik);
                         System.out.println("Feld: " + grafikFeld2.getId());
-                        GUISteuerungFX.textAusgabeSteuerung("Feld: " + grafikFeld2.getId(), textAusgabe);
+                        GUISpielFX.textAusgabeSteuerung("Feld: " + grafikFeld2.getId(), textAusgabe);
                     }
                 });
 
