@@ -14,7 +14,7 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class Spielablauf {
 
-    int DerzeitigeSchiffslänge = 0;
+    private int DerzeitigeSchiffslänge = 0;
     public static Feld Feld_Spieler1 = new Feld(10, 10);
     public static Feld Feld_Spieler2 = new Feld(10, 10);
 
@@ -40,7 +40,7 @@ public class Spielablauf {
     /**
      *
      */
-    public void SchiffeSetzenAblaufManuel() {
+    public void SchiffeSetzenAblauf() {
 
         HashMap<Integer, RaumSchiff> SchiffsMap = new HashMap<>();
 
@@ -64,81 +64,13 @@ public class Spielablauf {
         //Zerstörer erstellen mit 5 Lebenspunkten
         SchiffsMap.put(12, Objects.requireNonNull(SchiffFactory.getRaumschiff("5")));
 
-        System.out.println("Möchten sie ihre Schiffe Random per AI gesetzt haben oder Manuel?\n" +
-                "Random: 1\n" +
-                "Manuel: 2\n" +
-                "Hier: ");
-        Scanner RMentscheidung = new Scanner(System.in);
-        String rmString = RMentscheidung.nextLine();
-        int rmInt = Integer.parseInt(rmString);
+        spieler1SchiffeSetzenAblauf(SchiffsMap);
 
+        spiler2SchiffeSetzenAblauf(SchiffsMap);
 
-        if (rmInt == 1) {
-
-            try {
-                for (int i = 1; i <= 12; i++) {
-                    RaumSchiff schiff = SchiffsMap.get(i);
-                    DerzeitigeSchiffslänge = schiff.getLaenge();
-                    boolean stand = randomSchiffeSetzen(Feld_Spieler1, DerzeitigeSchiffslänge);
-
-                    if (!stand) {
-                        i -= 1;
-                    }
-                }
-                Feld_Spieler1.toString();
-            } catch (Exception ex) {
-                throw ex;
-            }
-
-        } else {
-            for (int i = 1; i <= 12; i++) {
-                RaumSchiff schiff = SchiffsMap.get(i);
-                DerzeitigeSchiffslänge = schiff.getLaenge();
-                derzeitigerSchiffSetzer(i, SchiffsMap);
-                Feld_Spieler1.zielenZumSchiffeSetzen(DerzeitigeSchiffslänge);
-                Feld_Spieler1.toString();
-            }
-        }
-
-        Feld_Spieler1.BereitAbfrage(Feld_Spieler1);
-
-
-        System.out.println("Möchten sie ihre Schiffe Random per AI gesetzt haben oder Manuel?\n" +
-                "Random: 1\n" +
-                "Manuel: 2\n" +
-                "Hier: ");
-        Scanner RMentscheidung2 = new Scanner(System.in);
-        String rmString2 = RMentscheidung2.nextLine();
-        int rmInt2 = Integer.parseInt(rmString2);
-
-        if (rmInt2 == 1) {
-            try {
-                for (int i = 1; i <= 12; i++) {
-                    RaumSchiff schiff = SchiffsMap.get(i);
-                    DerzeitigeSchiffslänge = schiff.getLaenge();
-                    boolean stand = randomSchiffeSetzen(Feld_Spieler2, DerzeitigeSchiffslänge);
-
-                    if (!stand) {
-                        i -= 1;
-                    }
-                }
-                Feld_Spieler2.toString();
-            } catch (Exception ex) {
-                throw ex;
-            }
-
-
-        } else {
-            Feld_Spieler2.toString();
-            for (int i = 1; i <= 12; i++) {
-                DerzeitigeSchiffslänge = SchiffsMap.get(i).getLaenge();
-                derzeitigerSchiffSetzer(i, SchiffsMap);
-                Feld_Spieler2.zielenZumSchiffeSetzen(DerzeitigeSchiffslänge);
-                Feld_Spieler2.toString();
-            }
-        }
-        Feld_Spieler2.BereitAbfrage(Feld_Spieler2);
     }
+
+
 
     /**
      *
@@ -213,8 +145,7 @@ public class Spielablauf {
 
     // ----------------------------------------------------------------------------------
 
-
-    private boolean randomSchiffeSetzen(Feld feld, int SchiffTypsLaenge) {
+    public boolean randomSchiffeSetzen(Feld feld, int SchiffTypsLaenge) {
 
 
         int randomX = ThreadLocalRandom.current().nextInt(10);
@@ -232,4 +163,94 @@ public class Spielablauf {
         return feld.schiffSetzenAutomatisch(randomY, randomX, randomRichtung, SchiffTypsLaenge);
     }
 
+
+    // ------------------------------------------------------------------------------------
+
+
+    public String spieler1SchiffeSetzenAblauf(HashMap SchiffsMap) {
+
+
+        System.out.println("Möchten sie ihre Schiffe Random per AI gesetzt haben oder Manuel?\n" +
+                "Random: 1\n" +
+                "Manuel: 2\n" +
+                "Hier: ");
+        Scanner RMentscheidung = new Scanner(System.in);
+        String rmString = RMentscheidung.nextLine();
+        int rmInt = Integer.parseInt(rmString);
+
+
+        if (rmInt == 1) {
+
+            try {
+                for (int i = 1; i <= 12; i++) {
+                    RaumSchiff schiff = (RaumSchiff) SchiffsMap.get(i);
+                    DerzeitigeSchiffslänge = schiff.getLaenge();
+                    boolean stand = randomSchiffeSetzen(Feld_Spieler1, DerzeitigeSchiffslänge);
+
+                    if (!stand) {
+                        i -= 1;
+                    }
+                }
+                Feld_Spieler1.toString();
+            } catch (Exception ex) {
+                throw ex;
+            }
+
+        } else {
+            for (int i = 1; i <= 12; i++) {
+                RaumSchiff schiff = (RaumSchiff) SchiffsMap.get(i);
+                DerzeitigeSchiffslänge = schiff.getLaenge();
+                derzeitigerSchiffSetzer(i, SchiffsMap);
+                Feld_Spieler1.zielenZumSchiffeSetzen(DerzeitigeSchiffslänge);
+                Feld_Spieler1.toString();
+            }
+        }
+
+        Feld_Spieler1.BereitAbfrage(Feld_Spieler1);
+
+
+        return "";
+    }
+
+    public String spiler2SchiffeSetzenAblauf(HashMap SchiffsMap) {
+
+        System.out.println("Möchten sie ihre Schiffe Random per AI gesetzt haben oder Manuel?\n" +
+                "Random: 1\n" +
+                "Manuel: 2\n" +
+                "Hier: ");
+        Scanner RMentscheidung2 = new Scanner(System.in);
+        String rmString2 = RMentscheidung2.nextLine();
+        int rmInt2 = Integer.parseInt(rmString2);
+
+        if (rmInt2 == 1) {
+            try {
+                for (int i = 1; i <= 12; i++) {
+                    RaumSchiff schiff = (RaumSchiff) SchiffsMap.get(i);
+                    DerzeitigeSchiffslänge = schiff.getLaenge();
+                    boolean stand = randomSchiffeSetzen(Feld_Spieler2, DerzeitigeSchiffslänge);
+
+                    if (!stand) {
+                        i -= 1;
+                    }
+                }
+                Feld_Spieler2.toString();
+            } catch (Exception ex) {
+                throw ex;
+            }
+
+
+        } else {
+            Feld_Spieler2.toString();
+            for (int i = 1; i <= 12; i++) {
+                RaumSchiff schiff = (RaumSchiff) SchiffsMap.get(i);
+                DerzeitigeSchiffslänge = schiff.getLaenge();
+                derzeitigerSchiffSetzer(i, SchiffsMap);
+                Feld_Spieler2.zielenZumSchiffeSetzen(DerzeitigeSchiffslänge);
+                Feld_Spieler2.toString();
+            }
+        }
+        Feld_Spieler2.BereitAbfrage(Feld_Spieler2);
+
+        return "";
+    }
 }

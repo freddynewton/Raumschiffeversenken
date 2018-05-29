@@ -9,7 +9,7 @@ public class SpielSystemMain {
         Spielablauf s = new Spielablauf();
 
         s.start();
-        s.SchiffeSetzenAblaufManuel();
+        s.SchiffeSetzenAblauf();
         s.SchiessenAblauf();
     }
 }

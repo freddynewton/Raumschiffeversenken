@@ -385,6 +385,7 @@ public class Feld {
             RevanceStatus = Integer.parseInt(BereitString);
 
             if (RevanceStatus == 1) {
+
             } else if (RevanceStatus == 2) {
                 System.exit(0);
             }
