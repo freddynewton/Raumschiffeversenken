@@ -1,7 +1,9 @@
-package RaumSchiffeVersenken.Core;
+package RaumSchiffeVersenken.Core.Logic;
 
 
-import RaumSchiffeVersenken.Interface.RaumSchiff;
+import RaumSchiffeVersenken.Core.Feld;
+import RaumSchiffeVersenken.Interface_Factory.RaumSchiff;
+import RaumSchiffeVersenken.Interface_Factory.SchiffFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

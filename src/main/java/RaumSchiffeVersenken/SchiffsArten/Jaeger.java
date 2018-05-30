@@ -1,6 +1,6 @@
-package RaumSchiffeVersenken.Core.SchiffsArten;
+package RaumSchiffeVersenken.SchiffsArten;
 
-import RaumSchiffeVersenken.Interface.RaumSchiff;
+import RaumSchiffeVersenken.Interface_Factory.RaumSchiff;
 
 public class Jaeger implements RaumSchiff {
 

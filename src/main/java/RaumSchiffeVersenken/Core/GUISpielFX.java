@@ -11,8 +11,8 @@ import javafx.scene.layout.GridPane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static RaumSchiffeVersenken.Core.Spielablauf.Feld_Spieler1;
-import static RaumSchiffeVersenken.Core.Spielablauf.Feld_Spieler2;
+import static RaumSchiffeVersenken.Core.Logic.Spielablauf.Feld_Spieler1;
+import static RaumSchiffeVersenken.Core.Logic.Spielablauf.Feld_Spieler2;
 
 
 public class GUISpielFX implements Initializable {
