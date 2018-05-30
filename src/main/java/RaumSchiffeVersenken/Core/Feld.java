@@ -350,10 +350,12 @@ public class Feld {
 
         int BereitStatus = 0;
 
+        /*
         log.info("Sind sie Bereit?\n" +
                 "1 für Bereit\n" +
                 "2 für nicht Bereit\n" +
                 "Hier: ");
+       */
         System.out.println("Sind sie Bereit?\n" +
                 "1 für Bereit\n" +
                 "2 für nicht Bereit\n" +
@@ -455,7 +457,7 @@ public class Feld {
     public String toString() {
         for (int j = 0; j < 10; j++) {
             for (int i = 0; i < 10; i++) {
-                log.info("Feld wurde ausgeprintet!");
+                //log.info("Feld wurde ausgeprintet!");
                 System.out.print(mapGroesse[j][i] + " ");
             }
             System.out.println();

@@ -1,10 +1,10 @@
-package RaumSchiffeVersenken.Core;
+package RaumSchiffeVersenken.Interface_Factory;
 
-import RaumSchiffeVersenken.Core.SchiffsArten.Bomber;
-import RaumSchiffeVersenken.Core.SchiffsArten.Jaeger;
-import RaumSchiffeVersenken.Core.SchiffsArten.Zerstoerer;
-import RaumSchiffeVersenken.Core.SchiffsArten.Fregatte;
-import RaumSchiffeVersenken.Interface.RaumSchiff;
+import RaumSchiffeVersenken.Core.Feld;
+import RaumSchiffeVersenken.SchiffsArten.Bomber;
+import RaumSchiffeVersenken.SchiffsArten.Jaeger;
+import RaumSchiffeVersenken.SchiffsArten.Zerstoerer;
+import RaumSchiffeVersenken.SchiffsArten.Fregatte;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -17,7 +17,7 @@ public class SchiffFactory {
     Lock lock = new ReentrantLock();
 
     /**
-     *Logger erstellung.
+     * Logger erstellung.
      */
     private static final Logger log = LogManager.getLogger(Feld.class);
 
@@ -27,7 +27,6 @@ public class SchiffFactory {
      * @return je nach Kriterium ein Schiff
      */
     public static RaumSchiff getRaumschiff(String kriterium) {
-
 
 
         if (kriterium.equals("1")) {

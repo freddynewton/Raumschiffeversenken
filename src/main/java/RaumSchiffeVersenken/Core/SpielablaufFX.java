@@ -1,7 +1,8 @@
 package RaumSchiffeVersenken.Core;
 
 
-import RaumSchiffeVersenken.Interface.RaumSchiff;
+import RaumSchiffeVersenken.Interface_Factory.RaumSchiff;
+import RaumSchiffeVersenken.Interface_Factory.SchiffFactory;
 import javafx.scene.control.TextField;
 import java.util.HashMap;
 import java.util.Objects;

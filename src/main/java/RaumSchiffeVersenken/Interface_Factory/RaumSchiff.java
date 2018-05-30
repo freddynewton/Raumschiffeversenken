@@ -1,4 +1,4 @@
-package RaumSchiffeVersenken.Interface;
+package RaumSchiffeVersenken.Interface_Factory;
 
 public interface RaumSchiff {
 

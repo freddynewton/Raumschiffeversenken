@@ -1,6 +1,6 @@
-package RaumSchiffeVersenken.Core.SchiffsArten;
+package RaumSchiffeVersenken.SchiffsArten;
 
-import RaumSchiffeVersenken.Interface.RaumSchiff;
+import RaumSchiffeVersenken.Interface_Factory.RaumSchiff;
 
 public class Bomber implements RaumSchiff {
 
@@ -26,7 +26,9 @@ public class Bomber implements RaumSchiff {
     }
 
     @Override
-    public void setLebensPunkte(int LebensPunkte) { this.LebensPunkte = LebensPunkte; }
+    public void setLebensPunkte(int LebensPunkte) {
+        this.LebensPunkte = LebensPunkte;
+    }
 
     @Override
     public int getxKoordinaten() {

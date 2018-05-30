@@ -1,11 +1,11 @@
-package RaumSchiffeVersenken.Core.SchiffsArten;
+package RaumSchiffeVersenken.SchiffsArten;
 
-import RaumSchiffeVersenken.Interface.RaumSchiff;
+import RaumSchiffeVersenken.Interface_Factory.RaumSchiff;
 
-public class Zerstoerer implements RaumSchiff {
+public class Fregatte implements RaumSchiff {
 
-    private int laenge = 5;
-    private int LebensPunkte = 5;
+    private int laenge = 4;
+    private int LebensPunkte = 4;
     private int xKoordinaten;
     private int yKoordinaten;
     private int Schiffsrichtung;
@@ -26,7 +26,9 @@ public class Zerstoerer implements RaumSchiff {
     }
 
     @Override
-    public void setLebensPunkte(int LebensPunkte) { this.LebensPunkte = LebensPunkte; }
+    public void setLebensPunkte(int LebensPunkte) {
+        this.LebensPunkte = LebensPunkte;
+    }
 
     @Override
     public int getxKoordinaten() {
@@ -60,7 +62,7 @@ public class Zerstoerer implements RaumSchiff {
 
     @Override
     public int getSchiffsrichtung() {
-        return 0;
+        return Schiffsrichtung;
     }
 
     @Override
