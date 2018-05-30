@@ -76,11 +76,13 @@ public class Feld {
 
         try {
             log.info("Bitte den gewünschten X-Achsenwert eingeben: ");
+            System.out.println("Bitte den gewünschten X-Achsenwert eingeben: ");
             Scanner scanx = new Scanner(System.in);
             String scanxString = scanx.nextLine();
             xAchseBeschuss = Integer.parseInt(scanxString);
 
             log.info("Bitte den gewünschten Y-Achsenwert eingeben: ");
+            System.out.println("Bitte den gewünschten Y-Achsenwert eingeben: ");
             Scanner scany = new Scanner(System.in);
             String scanyString = scany.nextLine();
             yAchseBeschuss = Integer.parseInt(scanyString);
@@ -89,6 +91,7 @@ public class Feld {
                 schießen(xAchseBeschuss, yAchseBeschuss);
             } else {
                 log.info("Bitte nur zwischen 0-9 jeweils in der X-Achse und Y-Achse");
+                System.out.println("Bitte nur zwischen 0-9 jeweils in der X-Achse und Y-Achse");
                 zielenZumSchiessen();
             }
         } catch (Exception ex1) {
@@ -112,10 +115,14 @@ public class Feld {
                 mapGroesse[xAchseBeschuss][yAchseBeschuss] += 1;
                 if (mapGroesse[xAchseBeschuss][yAchseBeschuss] == 6) {
                     log.info("GETROFFEN! Sie dürfen nochmal!\n");
+                    System.out.println("GETROFFEN! Sie dürfen nochmal!");
                     zielenZumSchiessen();
                 }
             } else {
                 log.info("Bitte eine andere Zelle wählen da hier schon attackiert wurde\n" +
+                        "------------------------------------------------------------------\n" +
+                        "\n");
+                System.out.println("Bitte eine andere Zelle wählen da hier schon attackiert wurde\n" +
                         "------------------------------------------------------------------\n" +
                         "\n");
                 zielenZumSchiessen();
@@ -146,16 +153,22 @@ public class Feld {
                     "1 für die yAchse entlang\n" +
                     "2 für die xAchse entlang\n" +
                     "Hier:  ");
+            System.out.println("Bitte geben sie ein in welcher Richtung sie das Schiff haben möchten\n" +
+                    "1 für die yAchse entlang\n" +
+                    "2 für die xAchse entlang\n" +
+                    "Hier:  ");
             Scanner scanr = new Scanner(System.in);
             String scanrString = scanr.nextLine();
             SchiffsRichtung = Integer.parseInt(scanrString);
 
             log.info("Bitte den gewünschten X-Achsenwert eingeben: ");
+            System.out.println("Bitte den gewünschten X-Achsenwert eingeben: ");
             Scanner scanx = new Scanner(System.in);
             String scanxString = scanx.nextLine();
             xAchseBeschuss = Integer.parseInt(scanxString);
 
             log.info("Bitte den gewünschten Y-Achsenwert eingeben: ");
+            System.out.println("Bitte den gewünschten Y-Achsenwert eingeben: ");
             Scanner scany = new Scanner(System.in);
             String scanyString = scany.nextLine();
             yAchseBeschuss = Integer.parseInt(scanyString);
@@ -164,6 +177,7 @@ public class Feld {
                 schiffSetzenManuel(xAchseBeschuss, yAchseBeschuss, SchiffsRichtung, SchiffsLänge);
             } else {
                 log.info("Bitte nur zwischen 0-9 jeweils in der X-Achse und Y-Achse und Bei der Schiffsrichtung nur 1 & 2");
+                System.out.println("Bitte nur zwischen 0-9 jeweils in der X-Achse und Y-Achse und Bei der Schiffsrichtung nur 1 & 2");
                 zielenZumSchiffeSetzen(SchiffsLänge);
             }
         } catch (Exception ex1) {
@@ -224,6 +238,9 @@ public class Feld {
                 }
             } else {
                 log.info("Bitte eine andere Zelle wählen da hier schon ein Schiff steht\n" +
+                        "------------------------------------------------------------------\n" +
+                        "\n");
+                System.out.println("Bitte eine andere Zelle wählen da hier schon ein Schiff steht\n" +
                         "------------------------------------------------------------------\n" +
                         "\n");
 
@@ -289,12 +306,18 @@ public class Feld {
                 log.info("Bitte eine andere Zelle wählen da hier schon ein Schiff steht 'else'\n" +
                         "------------------------------------------------------------------\n" +
                         "\n");
+                System.out.println("Bitte eine andere Zelle wählen da hier schon ein Schiff steht 'else'\n" +
+                        "------------------------------------------------------------------\n" +
+                        "\n");
 
             }
         } catch (Exception ex4) {
             log.error("Bitte eine andere Zelle wählen da hier schon ein Schiff steht 'catch'\n" +
                     "------------------------------------------------------------------\n" +
                     "\n", ex4);
+            System.out.println("Bitte eine andere Zelle wählen da hier schon ein Schiff steht 'catch'\n" +
+                    "------------------------------------------------------------------\n" +
+                    "\n");
 
         }
         return SchiffErfolgreichSetzen;
@@ -328,6 +351,10 @@ public class Feld {
         int BereitStatus = 0;
 
         log.info("Sind sie Bereit?\n" +
+                "1 für Bereit\n" +
+                "2 für nicht Bereit\n" +
+                "Hier: ");
+        System.out.println("Sind sie Bereit?\n" +
                 "1 für Bereit\n" +
                 "2 für nicht Bereit\n" +
                 "Hier: ");
@@ -375,6 +402,11 @@ public class Feld {
         }
 
         if (CounterSpieler1 == BenoetigteTrefferZumGewinnen) {
+            log.info("Spieler 1 hat gewonnen!\n" +
+                    "Möchten sie eine Revance?\n" +
+                    "1 für Ja\n" +
+                    "2 für Nein\n" +
+                    "Hier: ");
             System.out.println("Spieler 1 hat gewonnen!\n" +
                     "Möchten sie eine Revance?\n" +
                     "1 für Ja\n" +
@@ -392,6 +424,11 @@ public class Feld {
 
         } else if (CounterSpieler2 == BenoetigteTrefferZumGewinnen) {
 
+            log.info("Spieler 2 hat gewonnen!\n" +
+                    "Möchten sie eine Revance?\n" +
+                    "1 für Ja\n" +
+                    "2 für Nein\n" +
+                    "Hier: ");
             System.out.println("Spieler 2 hat gewonnen!\n" +
                     "Möchten sie eine Revance?\n" +
                     "1 für Ja\n" +
@@ -418,6 +455,7 @@ public class Feld {
     public String toString() {
         for (int j = 0; j < 10; j++) {
             for (int i = 0; i < 10; i++) {
+                log.info("Feld wurde ausgeprintet!");
                 System.out.print(mapGroesse[j][i] + " ");
             }
             System.out.println();
