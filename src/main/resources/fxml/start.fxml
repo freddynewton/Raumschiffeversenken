@@ -5,10 +5,10 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.StackPane?>
 
-<StackPane maxHeight="800.0" maxWidth="600.0" minHeight="800.0" minWidth="600.0" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RaumSchiffeVersenken.Core.GUIStartFX">
+<StackPane fx:id="stackpane" maxHeight="800.0" maxWidth="600.0" minHeight="800.0" minWidth="600.0" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RaumSchiffeVersenken.Core.GUIStartFX">
    <children>
 
-       <ImageView fx:id="titelanimation" fitHeight="500.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="false" smooth="false" StackPane.alignment="CENTER">
+       <ImageView fx:id="titelanimation" fitHeight="500.0" fitWidth="500.0" onMouseClicked="#szeneWechsel" pickOnBounds="true" preserveRatio="false" smooth="false" StackPane.alignment="CENTER">
          <image>
             <Image url="@../images/titelanimation.gif" />
          </image>
