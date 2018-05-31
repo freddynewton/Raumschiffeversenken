@@ -3,6 +3,7 @@ package RaumSchiffeVersenken.Core;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
@@ -10,7 +11,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import static RaumSchiffeVersenken.Core.Logic.Spielablauf.Feld_Spieler1;
 import static RaumSchiffeVersenken.Core.Logic.Spielablauf.Feld_Spieler2;
 
@@ -25,7 +25,7 @@ public class GUISpielFX implements Initializable {
     private GridPane spielfeld2;
 
     @FXML
-    private TextField textAusgabe;
+    private Label textAusgabe;
 
     /**
      * Die initialisierung des Fensters direkt vor dessen Aufrufen, verknüpft das GUI mit der Logik.
@@ -43,8 +43,6 @@ public class GUISpielFX implements Initializable {
         //starte die Spielablauf-Klasse im Hintergrund
         SpielablaufFX s = new SpielablaufFX();
         s.start(textAusgabe);
-        //s.SchiffeSetzenAblauf();
-        //s.SchiessenAblauf();
     }
 
     /**
@@ -64,8 +62,8 @@ public class GUISpielFX implements Initializable {
         for (int y = 0; y < feldSpalte; y++) {
             for (int x = 0; x < feldReihe; x++) {
                 ImageView grafikFeld1 = new ImageView();
-                grafikFeld1.setFitWidth(24);
-                grafikFeld1.setFitHeight(24);
+                grafikFeld1.setFitWidth(50);
+                grafikFeld1.setFitHeight(50);
                 grafikFeld1.setId(""+x+"|"+y);
 
                 grafikFeld1.setOnMouseClicked(new EventHandler<MouseEvent>(){
@@ -96,18 +94,9 @@ public class GUISpielFX implements Initializable {
         for (int y = 0; y < feldSpalte; y++) {
             for (int x = 0; x < feldReihe; x++) {
                 ImageView grafikFeld2 = new ImageView();
-                grafikFeld2.setFitWidth(24);
-                grafikFeld2.setFitHeight(24);
+                grafikFeld2.setFitWidth(15);
+                grafikFeld2.setFitHeight(15);
                 grafikFeld2.setId(""+x+"|"+y);
-
-                grafikFeld2.setOnMouseClicked(new EventHandler<MouseEvent>(){
-                    @Override
-                    public void handle(MouseEvent event) {
-                        grafikFeld2.setImage(danebenGrafik);
-                        System.out.println("Feld: " + grafikFeld2.getId());
-                        GUISpielFX.textAusgabeSteuerung("Feld: " + grafikFeld2.getId(), textAusgabe);
-                    }
-                });
 
                 if (kopieFeld.mapGroesse[x][y] == 0) {
                     grafikFeld2.setImage(feldGrafik);
@@ -133,10 +122,9 @@ public class GUISpielFX implements Initializable {
      * @param textAusgabeText
      * @param textAusgabe
      */
-    public static void textAusgabeSteuerung(String textAusgabeText, TextField textAusgabe) {
+    public static void textAusgabeSteuerung(String textAusgabeText, Label textAusgabe) {
 
         //erstellt ein Textelement für das Textfeld
-        //Text text1 = new Text(textAusgabeText);
         textAusgabe.setText(textAusgabeText);
     }
 }
