@@ -1,6 +1,5 @@
 package RaumSchiffeVersenken.Core.Logic;
 
-
 import RaumSchiffeVersenken.Core.Feld;
 import RaumSchiffeVersenken.Interface_Factory.RaumSchiff;
 import RaumSchiffeVersenken.Interface_Factory.SchiffFactory;
@@ -12,6 +11,7 @@ import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+
 
 /**
  *
@@ -136,7 +136,6 @@ public class Spielablauf {
 
     // --------------------------------------------------------------------------------
 
-
     /**
      * @param i
      * @param map
@@ -162,7 +161,6 @@ public class Spielablauf {
 
         return "";
     }
-
 
     // ----------------------------------------------------------------------------------
 

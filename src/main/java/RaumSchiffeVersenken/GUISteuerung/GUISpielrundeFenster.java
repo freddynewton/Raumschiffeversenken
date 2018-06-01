@@ -1,5 +1,7 @@
-package RaumSchiffeVersenken.Core;
+package RaumSchiffeVersenken.GUISteuerung;
 
+import RaumSchiffeVersenken.Core.Feld;
+import RaumSchiffeVersenken.Core.SpielablaufFX;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +23,8 @@ import static RaumSchiffeVersenken.Core.Logic.Spielablauf.Feld_Spieler2;
 
 
 public class GUISpielrundeFenster implements Initializable {
+
+    private boolean spielfeldAktiv = true;
 
     //referentziert GUI-Elemente der FXML-Datei
     @FXML
@@ -60,6 +64,7 @@ public class GUISpielrundeFenster implements Initializable {
         int feldSpalte = 10;
         int feldReihe = 10;
 
+        //führt die Methode zum Bau des Spielfeldes auf
         feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler1, Feld_Spieler2);
 
         //starte die Spielablauf-Klasse im Hintergrund
@@ -86,17 +91,31 @@ public class GUISpielrundeFenster implements Initializable {
                 ImageView grafikFeld1 = new ImageView();
                 grafikFeld1.setFitWidth(50);
                 grafikFeld1.setFitHeight(50);
-                grafikFeld1.setId(""+(x+1)+"|"+(y+1));
+                grafikFeld1.setId(""+(x)+(y));
 
-                grafikFeld1.setOnMouseClicked(new EventHandler<MouseEvent>(){
-                    @Override
-                    public void handle(MouseEvent event) {
-                        feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler1, Feld_Spieler2);
-                        grafikFeld1.setImage(danebenGrafik);
-                        System.out.println("Feld: " + grafikFeld1.getId());
-                        GUISpielrundeFenster.textAusgabeSteuerung("Feld: " + grafikFeld1.getId(), textAusgabe);
-                    }
-                });
+                if (spielfeldAktiv == true) {
+                    grafikFeld1.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                        @Override
+                        public void handle(MouseEvent event) {
+                            if (feld.mapGroesse[Character.getNumericValue(grafikFeld1.getId().charAt(0))][Character.getNumericValue(grafikFeld1.getId().charAt(1))] == 0) {
+                                grafikFeld1.setImage(danebenGrafik);
+                                feld.mapGroesse[Character.getNumericValue(grafikFeld1.getId().charAt(0))][Character.getNumericValue(grafikFeld1.getId().charAt(1))] = 1;
+                                GUISpielrundeFenster.textAusgabeSteuerung("Daneben!", textAusgabe);
+                                spielfeldAktiv = false;
+                                //Button zum Weiterspielen muss jetzt hier erscheinen (vorher deaktivieren)
+                                feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler1, Feld_Spieler2);
+                            } else if (feld.mapGroesse[Character.getNumericValue(grafikFeld1.getId().charAt(0))][Character.getNumericValue(grafikFeld1.getId().charAt(1))] == 5) {
+                                grafikFeld1.setImage(trefferGrafik);
+                                feld.mapGroesse[Character.getNumericValue(grafikFeld1.getId().charAt(0))][Character.getNumericValue(grafikFeld1.getId().charAt(1))] = 6;
+                                GUISpielrundeFenster.textAusgabeSteuerung("Treffer!", textAusgabe);
+
+                                feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler1, Feld_Spieler2);
+                            } else {
+                                GUISpielrundeFenster.textAusgabeSteuerung("Nicht möglich!", textAusgabe);
+                            }
+                        }
+                    });
+                }
 
                 if (feld.mapGroesse[x][y] == 0) {
                     grafikFeld1.setImage(feldGrafik);

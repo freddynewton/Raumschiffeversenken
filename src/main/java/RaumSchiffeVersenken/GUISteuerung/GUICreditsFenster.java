@@ -1,4 +1,4 @@
-package RaumSchiffeVersenken.Core;
+package RaumSchiffeVersenken.GUISteuerung;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,16 +12,16 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class GUISpielerwechselFenster implements Initializable {
+public class GUICreditsFenster implements Initializable {
 
     @FXML
     private VBox vbox;
 
     @FXML
-    private void szeneWechsel() throws IOException {
+    private void oeffneStartFenster() throws IOException {
         try {
             Stage spielefenster = (Stage) vbox.getScene().getWindow();
-            Parent quelle = FXMLLoader.load(getClass().getResource("/fxml/spielrundeFenster.fxml"));
+            Parent quelle = FXMLLoader.load(getClass().getResource("/fxml/startFenster.fxml"));
             Scene szene2 = new Scene(quelle);
             spielefenster.setScene(szene2);
             szene2.getStylesheets().add("/gestaltung.css");

@@ -11,7 +11,7 @@ public class Feld {
 
     int xAchse;
     int yAchse;
-    int[][] mapGroesse;
+    public int[][] mapGroesse;
     public int xAchseBeschuss;
     public int yAchseBeschuss;
     public int SchiffsRichtung;
@@ -37,7 +37,6 @@ public class Feld {
         this.xAchse = xAchse;
         this.yAchse = yAchse;
         this.mapGroesse = new int[xAchse][yAchse];
-
 
         for (int y = 0; y < yAchse; y++) {
             for (int x = 0; x < xAchse; x++) {

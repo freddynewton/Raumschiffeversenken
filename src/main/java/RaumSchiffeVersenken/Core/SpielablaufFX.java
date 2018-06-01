@@ -1,5 +1,6 @@
 package RaumSchiffeVersenken.Core;
 
+import RaumSchiffeVersenken.GUISteuerung.GUISpielrundeFenster;
 import javafx.scene.control.Label;
 
 
@@ -14,7 +15,7 @@ public class SpielablaufFX {
     //Die Spieleinstruktionen werden im Textfeld des GUI über eine Methode in der GUISpielrundeFenster ausgegeben
     public String start(Label textAusgabe) {
 
-        GUISpielrundeFenster.textAusgabeSteuerung("Ziele auf ein Feld!", textAusgabe);
+        GUISpielrundeFenster.textAusgabeSteuerung("Schieße auf ein Feld!", textAusgabe);
 
         return "Start";
     }

@@ -1,4 +1,4 @@
-package RaumSchiffeVersenken.Core;
+package RaumSchiffeVersenken.GUISteuerung;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
