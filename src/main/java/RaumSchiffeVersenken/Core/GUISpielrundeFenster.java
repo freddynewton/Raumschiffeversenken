@@ -2,20 +2,26 @@ package RaumSchiffeVersenken.Core;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import static RaumSchiffeVersenken.Core.Logic.Spielablauf.Feld_Spieler1;
 import static RaumSchiffeVersenken.Core.Logic.Spielablauf.Feld_Spieler2;
 
 
-public class GUISpielFX implements Initializable {
+public class GUISpielrundeFenster implements Initializable {
 
     //referentziert GUI-Elemente der FXML-Datei
     @FXML
@@ -26,6 +32,26 @@ public class GUISpielFX implements Initializable {
 
     @FXML
     private Label textAusgabe;
+
+    @FXML
+    private Button weiterKnopf;
+
+    @FXML
+    private VBox spielefensterVBox;
+
+    @FXML
+    private void szeneWechsel() throws IOException {
+        try {
+            Stage spielefenster = (Stage) spielefensterVBox.getScene().getWindow();
+            Parent quelle = FXMLLoader.load(getClass().getResource("/fxml/spielerwechselFenster.fxml"));
+            Scene szene2 = new Scene(quelle);
+            spielefenster.setScene(szene2);
+            szene2.getStylesheets().add("/gestaltung.css");
+            spielefenster.setFullScreen(false);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * Die initialisierung des Fensters direkt vor dessen Aufrufen, verknüpft das GUI mit der Logik.
@@ -64,14 +90,15 @@ public class GUISpielFX implements Initializable {
                 ImageView grafikFeld1 = new ImageView();
                 grafikFeld1.setFitWidth(50);
                 grafikFeld1.setFitHeight(50);
-                grafikFeld1.setId(""+x+"|"+y);
+                grafikFeld1.setId(""+(x+1)+"|"+(y+1));
 
                 grafikFeld1.setOnMouseClicked(new EventHandler<MouseEvent>(){
                     @Override
                     public void handle(MouseEvent event) {
+                        feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler1, Feld_Spieler2);
                         grafikFeld1.setImage(danebenGrafik);
                         System.out.println("Feld: " + grafikFeld1.getId());
-                        GUISpielFX.textAusgabeSteuerung("Feld: " + grafikFeld1.getId(), textAusgabe);
+                        GUISpielrundeFenster.textAusgabeSteuerung("Feld: " + grafikFeld1.getId(), textAusgabe);
                     }
                 });
 
