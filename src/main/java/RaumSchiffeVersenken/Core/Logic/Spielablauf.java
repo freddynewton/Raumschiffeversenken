@@ -6,8 +6,6 @@ import RaumSchiffeVersenken.Interface_Factory.RaumSchiff;
 import RaumSchiffeVersenken.Interface_Factory.SchiffFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-
 import java.util.HashMap;
 import java.util.Objects;
 import java.util.Scanner;
@@ -47,8 +45,6 @@ public class Spielablauf {
 
         System.out.println("Schiffe zu setzen:\n" + "5 Jäger mit der Länge 1\n" + "4 Bomber mit der Länge 2\n" +
                 "2 Fregatten mit der Länge 4\n" + "1 Zerstörer mit der Länge 5\n");
-
-
     }
 
     /**
@@ -71,7 +67,6 @@ public class Spielablauf {
         SchiffsMap.put(4, Objects.requireNonNull(SchiffFactory.getRaumschiff("1")));
         SchiffsMap.put(5, Objects.requireNonNull(SchiffFactory.getRaumschiff("1")));
 
-
         //Bomber erstellen mit 2 Lebenspunkten
         log.info("Bomber 1" + SchiffsMap.put(6, Objects.requireNonNull(SchiffFactory.getRaumschiff("2"))));
         log.info("Bomber 2" + SchiffsMap.put(7, Objects.requireNonNull(SchiffFactory.getRaumschiff("2"))));
@@ -82,23 +77,19 @@ public class Spielablauf {
         SchiffsMap.put(8, Objects.requireNonNull(SchiffFactory.getRaumschiff("2")));
         SchiffsMap.put(9, Objects.requireNonNull(SchiffFactory.getRaumschiff("2")));
 
-
         //Fregatte erstellen mit 4 Lebenspunkten
         log.info("Fregatte 1" + SchiffsMap.put(10, Objects.requireNonNull(SchiffFactory.getRaumschiff("4"))));
         log.info("Fregatte 2" + SchiffsMap.put(11, Objects.requireNonNull(SchiffFactory.getRaumschiff("4"))));
         SchiffsMap.put(10, Objects.requireNonNull(SchiffFactory.getRaumschiff("4")));
         SchiffsMap.put(11, Objects.requireNonNull(SchiffFactory.getRaumschiff("4")));
 
-
         //Zerstörer erstellen mit 5 Lebenspunkten
         log.info("Zerstörer" + SchiffsMap.put(12, Objects.requireNonNull(SchiffFactory.getRaumschiff("5"))));
         SchiffsMap.put(12, Objects.requireNonNull(SchiffFactory.getRaumschiff("5")));
 
-
         spieler1SchiffeSetzenAblauf(SchiffsMap);
 
-        spiler2SchiffeSetzenAblauf(SchiffsMap);
-
+        spieler2SchiffeSetzenAblauf(SchiffsMap);
     }
 
 
@@ -106,7 +97,6 @@ public class Spielablauf {
      *
      */
     public void SchiessenAblauf() {
-
 
         for (int i = 0; i <= 99; i++) {
             Feld Kopie_Feld_Spieler1 = new Feld(Feld_Spieler1);
@@ -129,7 +119,6 @@ public class Spielablauf {
 
             Feld_Spieler1.BereitAbfrage(Kopie_Feld_Spieler2);
 
-
             // Spieler 2 Schießablauf
             System.out.println("Dein Feld:\n");
             Feld_Spieler2.toString();
@@ -138,9 +127,7 @@ public class Spielablauf {
             System.out.println("\nSpieler 2 ist dran mit Schiessen\n");
             Feld_Spieler1.zielenZumSchiessen();
 
-
             Feld_Spieler2.BereitAbfrage(Kopie_Feld_Spieler1);
-
 
             Feld_Spieler2.TrefferZaehler(Feld_Spieler2, 2);
             Feld_Spieler1.TrefferZaehler(Feld_Spieler1, 1);
@@ -181,7 +168,6 @@ public class Spielablauf {
 
     public boolean randomSchiffeSetzen(Feld feld, int SchiffTypsLaenge) {
 
-
         int randomX = ThreadLocalRandom.current().nextInt(10);
         int randomY = ThreadLocalRandom.current().nextInt(10);
         int randomRichtung = ThreadLocalRandom.current().nextInt(2) + 1;
@@ -193,13 +179,10 @@ public class Spielablauf {
         int randomRichtung = randomGenerator.nextInt(2) + 1;
          */
 
-
         return feld.schiffSetzenAutomatisch(randomY, randomX, randomRichtung, SchiffTypsLaenge);
     }
 
-
     // ------------------------------------------------------------------------------------
-
 
     public String spieler1SchiffeSetzenAblauf(HashMap SchiffsMap) {
 
@@ -211,7 +194,6 @@ public class Spielablauf {
         Scanner RMentscheidung = new Scanner(System.in);
         String rmString = RMentscheidung.nextLine();
         int rmInt = Integer.parseInt(rmString);
-
 
         if (rmInt == 1) {
 
@@ -242,11 +224,10 @@ public class Spielablauf {
 
         Feld_Spieler1.BereitAbfrage(Feld_Spieler1);
 
-
         return "";
     }
 
-    public String spiler2SchiffeSetzenAblauf(HashMap SchiffsMap) {
+    public String spieler2SchiffeSetzenAblauf(HashMap SchiffsMap) {
 
         System.out.println("Möchten sie ihre Schiffe Random per AI gesetzt haben oder Manuel?\n" +
                 "Random: 1\n" +
@@ -271,7 +252,6 @@ public class Spielablauf {
             } catch (Exception ex) {
                 throw ex;
             }
-
 
         } else {
             Feld_Spieler2.toString();

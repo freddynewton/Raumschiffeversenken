@@ -5,7 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
@@ -15,12 +15,12 @@ import java.util.ResourceBundle;
 public class GUISpielerwechselFenster implements Initializable {
 
     @FXML
-    private StackPane stackpane;
+    private VBox vbox;
 
     @FXML
     private void szeneWechsel() throws IOException {
         try {
-            Stage spielefenster = (Stage) stackpane.getScene().getWindow();
+            Stage spielefenster = (Stage) vbox.getScene().getWindow();
             Parent quelle = FXMLLoader.load(getClass().getResource("/fxml/spielrundeFenster.fxml"));
             Scene szene2 = new Scene(quelle);
             spielefenster.setScene(szene2);

@@ -3,9 +3,9 @@ package RaumSchiffeVersenken.Core;
 import java.util.Scanner;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
+
 
 public class Feld {
 
@@ -101,7 +101,6 @@ public class Feld {
         }
     }
 
-
     /**
      * @param yAchseBeschuss
      * @param xAchseBeschuss
@@ -137,7 +136,6 @@ public class Feld {
             zielenZumSchiessen();
         }
     }
-
 
     //---------------------------------------------------------------------------------------------------------------------
 
@@ -257,7 +255,6 @@ public class Feld {
         }
     }
 
-
     public boolean schiffSetzenAutomatisch(int yAchseBeschuss, int xAchseBeschuss, int SchiffsRichtung, int SchiffsLänge) {
         this.xAchseBeschuss = xAchseBeschuss;
         this.yAchseBeschuss = yAchseBeschuss;
@@ -322,7 +319,6 @@ public class Feld {
         }
         return SchiffErfolgreichSetzen;
     }
-
 
     // ----------------------------------------------------------------------------------------------
 
