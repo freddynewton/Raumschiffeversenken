@@ -108,7 +108,7 @@ public class GUISpielrundeFenster implements Initializable {
                     grafikFeld1.setImage(danebenGrafik);
                     spielfeld1.add(grafikFeld1, x, y);
                 } else if (großesFeld.mapGroesse[x][y] == 5) {
-                    grafikFeld1.setImage(raumschiffGrafik);
+                    grafikFeld1.setImage(feldGrafik);
                     spielfeld1.add(grafikFeld1, x, y);
                 } else if (großesFeld.mapGroesse[x][y] == 6) {
                     grafikFeld1.setImage(trefferGrafik);
