@@ -44,26 +44,28 @@ public class GUISpielrundeFenster implements Initializable {
     @FXML
     private void szeneWechsel() throws IOException {
         try {
-            if (spielerAktiv == "1") {
-                spielerAktiv = "2";
-            } else {
-                spielerAktiv = "1";
-            }
+            if (!spielfeldAktiv) {
+                if (spielerAktiv == "1") {
+                    spielerAktiv = "2";
+                } else {
+                    spielerAktiv = "1";
+                }
 
-            if (spieler1Leben == 0 | spieler2Leben == 0) {
-                Stage spielefenster = (Stage) spielefensterVBox.getScene().getWindow();
-                Parent quelle = FXMLLoader.load(getClass().getResource("/fxml/spielendeFenster.fxml"));
-                Scene szene2 = new Scene(quelle);
-                spielefenster.setScene(szene2);
-                szene2.getStylesheets().add("/gestaltung.css");
-                spielefenster.setFullScreen(false);
-            } else {
-                Stage spielefenster = (Stage) spielefensterVBox.getScene().getWindow();
-                Parent quelle = FXMLLoader.load(getClass().getResource("/fxml/spielerwechselFenster.fxml"));
-                Scene szene2 = new Scene(quelle);
-                spielefenster.setScene(szene2);
-                szene2.getStylesheets().add("/gestaltung.css");
-                spielefenster.setFullScreen(false);
+                if (spieler1Leben == 0 | spieler2Leben == 0) {
+                    Stage spielefenster = (Stage) spielefensterVBox.getScene().getWindow();
+                    Parent quelle = FXMLLoader.load(getClass().getResource("/fxml/spielendeFenster.fxml"));
+                    Scene szene2 = new Scene(quelle);
+                    spielefenster.setScene(szene2);
+                    szene2.getStylesheets().add("/gestaltung.css");
+                    spielefenster.setFullScreen(false);
+                } else {
+                    Stage spielefenster = (Stage) spielefensterVBox.getScene().getWindow();
+                    Parent quelle = FXMLLoader.load(getClass().getResource("/fxml/spielerwechselFenster.fxml"));
+                    Scene szene2 = new Scene(quelle);
+                    spielefenster.setScene(szene2);
+                    szene2.getStylesheets().add("/gestaltung.css");
+                    spielefenster.setFullScreen(false);
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -139,8 +141,8 @@ public class GUISpielrundeFenster implements Initializable {
         for (int y = 0; y < feldSpalte; y++) {
             for (int x = 0; x < feldReihe; x++) {
                 ImageView grafikFeld2 = new ImageView();
-                grafikFeld2.setFitWidth(15);
-                grafikFeld2.setFitHeight(15);
+                //grafikFeld2.setFitWidth(15);
+                //grafikFeld2.setFitHeight(15);
                 grafikFeld2.setId(""+x+"|"+y);
 
                 if (kleinesFeld.mapGroesse[x][y] == 0) {

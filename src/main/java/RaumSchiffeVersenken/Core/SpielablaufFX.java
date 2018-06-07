@@ -7,7 +7,6 @@ import RaumSchiffeVersenken.Interface_Factory.SchiffFactory;
 import javafx.scene.control.Label;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.util.HashMap;
 import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
@@ -82,72 +81,6 @@ public class SpielablaufFX {
         spieler2SchiffeSetzenAblauf(SchiffsMap, 1);
     }
 
-
-    /**
-     *
-     */
-    public void SchiessenAblauf() {
-        GUISpielrundeFenster gui = new GUISpielrundeFenster();
-
-        for (int i = 0; i <= 99; i++) {
-            Feld Kopie_Feld_Spieler1 = new Feld(Feld_Spieler1);
-            log.info("Kopie erstellung Feld_Spieler1" + Kopie_Feld_Spieler1);
-            Feld Kopie_Feld_Spieler2 = new Feld(Feld_Spieler2);
-            log.info("Kopie erstellung Feld_Spieler2" + Kopie_Feld_Spieler2);
-
-            Kopie_Feld_Spieler1.kriegsnebel();
-            Kopie_Feld_Spieler2.kriegsnebel();
-            log.info("Kopie Kriegsnebel Feld_Spieler1" + Kopie_Feld_Spieler1);
-            log.info("Kopie Kriegsnebel Feld_Spieler2" + Kopie_Feld_Spieler2);
-
-            // TODO: 07.06.2018 Feld aktualisieren spieler1 kopie_feld_spieler2
-            gui.feldgrafikAktualisieren(10, 10, Kopie_Feld_Spieler2, Feld_Spieler1);
-
-            // Spieler 1 Schießablauf
-
-            // TODO: 07.06.2018 Georgs grafik klick gui änderung EVENT HÄNDLER
-            //Feld_Spieler2.schießen();
-
-            // TODO: 07.06.2018 Fensterwechsel zu spieler n+1
-            // TODO: 07.06.2018 Feld aktualisieren spieler2 kopiespieler1
-            // Spieler 2 Schießablauf
-            // TODO: 07.06.2018 Georgs grafik klick gui änderung EVENT HÄNDLER
-            Feld_Spieler1.zielenZumSchiessen();
-
-
-            Feld_Spieler2.TrefferZaehler(Feld_Spieler2, 2);
-            Feld_Spieler1.TrefferZaehler(Feld_Spieler1, 1);
-        }
-    }
-
-    // --------------------------------------------------------------------------------
-
-    /**
-     * @param i
-     * @param map
-     * @return
-     */
-    public String derzeitigerSchiffSetzer(int i, HashMap map) {
-        RaumSchiff schiff = (RaumSchiff) map.get(i);
-        DerzeitigeSchiffslänge = schiff.getLaenge();
-        String DerzeitigerSchiffsName = "";
-
-        if (DerzeitigeSchiffslänge == 1) {
-            DerzeitigerSchiffsName = "Jäger";
-        } else if (DerzeitigeSchiffslänge == 2) {
-            DerzeitigerSchiffsName = "Bomber";
-        } else if (DerzeitigeSchiffslänge == 4) {
-            DerzeitigerSchiffsName = "Fregatte";
-        } else if (DerzeitigeSchiffslänge == 5) {
-            DerzeitigerSchiffsName = "Zertörer";
-        }
-
-        System.out.println("\nDerzeitiger Schiffstyp: " + DerzeitigerSchiffsName + "\n" +
-                "Es hat die Länge: " + DerzeitigeSchiffslänge + "\n");
-
-        return "";
-    }
-
     // ----------------------------------------------------------------------------------
 
     public boolean randomSchiffeSetzen(Feld feld, int SchiffTypsLaenge) {
@@ -163,60 +96,37 @@ public class SpielablaufFX {
 
     public String spieler1SchiffeSetzenAblauf(HashMap SchiffsMap, int rmInt) {
 
-        if (rmInt == 1) {
-
-            try {
-                for (int i = 1; i <= 12; i++) {
-                    RaumSchiff schiff = (RaumSchiff) SchiffsMap.get(i);
-                    DerzeitigeSchiffslänge = schiff.getLaenge();
-                    boolean stand = randomSchiffeSetzen(Feld_Spieler1, DerzeitigeSchiffslänge);
-
-                    if (!stand) {
-                        i -= 1;
-                    }
-                }
-            } catch (Exception ex) {
-                throw ex;
-            }
-
-        } else {
+        try {
             for (int i = 1; i <= 12; i++) {
                 RaumSchiff schiff = (RaumSchiff) SchiffsMap.get(i);
                 DerzeitigeSchiffslänge = schiff.getLaenge();
-                derzeitigerSchiffSetzer(i, SchiffsMap);
-                Feld_Spieler1.zielenZumSchiffeSetzen(DerzeitigeSchiffslänge);
-            }
-        }
+                boolean stand = randomSchiffeSetzen(Feld_Spieler1, DerzeitigeSchiffslänge);
 
+                if (!stand) {
+                    i -= 1;
+                }
+            }
+        } catch (Exception ex) {
+            throw ex;
+        }
         return "";
     }
 
     public String spieler2SchiffeSetzenAblauf(HashMap SchiffsMap, int rmInt2) {
 
-        if (rmInt2 == 1) {
-            try {
-                for (int i = 1; i <= 12; i++) {
-                    RaumSchiff schiff = (RaumSchiff) SchiffsMap.get(i);
-                    DerzeitigeSchiffslänge = schiff.getLaenge();
-                    boolean stand = randomSchiffeSetzen(Feld_Spieler2, DerzeitigeSchiffslänge);
-
-                    if (!stand) {
-                        i -= 1;
-                    }
-                }
-            } catch (Exception ex) {
-                throw ex;
-            }
-
-        } else {
+        try {
             for (int i = 1; i <= 12; i++) {
                 RaumSchiff schiff = (RaumSchiff) SchiffsMap.get(i);
                 DerzeitigeSchiffslänge = schiff.getLaenge();
-                derzeitigerSchiffSetzer(i, SchiffsMap);
-                Feld_Spieler2.zielenZumSchiffeSetzen(DerzeitigeSchiffslänge);
-            }
-        }
+                boolean stand = randomSchiffeSetzen(Feld_Spieler2, DerzeitigeSchiffslänge);
 
+                if (!stand) {
+                    i -= 1;
+                }
+            }
+        } catch (Exception ex) {
+            throw ex;
+        }
         return "";
     }
 }
