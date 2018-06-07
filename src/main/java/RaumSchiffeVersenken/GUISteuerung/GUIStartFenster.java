@@ -15,6 +15,12 @@ import java.util.ResourceBundle;
 
 public class GUIStartFenster implements Initializable {
 
+    public static String spielerAktiv = "1";
+
+    public static int spieler1Leben = 26;
+
+    public static int spieler2Leben = 26;
+
     @FXML
     private VBox vbox;
 
@@ -22,7 +28,7 @@ public class GUIStartFenster implements Initializable {
     private void starteSpiel() throws IOException {
         try {
             Stage spielefenster = (Stage) vbox.getScene().getWindow();
-            Parent quelle = FXMLLoader.load(getClass().getResource("/fxml/spielrundeFenster.fxml"));
+            Parent quelle = FXMLLoader.load(getClass().getResource("/fxml/spielerwechselFenster.fxml"));
             Scene szene2 = new Scene(quelle);
             spielefenster.setScene(szene2);
             szene2.getStylesheets().add("/gestaltung.css");

@@ -5,17 +5,26 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static RaumSchiffeVersenken.GUISteuerung.GUIStartFenster.spieler1Leben;
+import static RaumSchiffeVersenken.GUISteuerung.GUIStartFenster.spieler2Leben;
+import static RaumSchiffeVersenken.GUISteuerung.GUIStartFenster.spielerAktiv;
+
 
 public class GUISpielerwechselFenster implements Initializable {
 
     @FXML
     private VBox vbox;
+
+    @FXML
+    private Label aktiverSpielerLabel;
 
     @FXML
     private void szeneWechsel() throws IOException {
@@ -33,6 +42,7 @@ public class GUISpielerwechselFenster implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        aktiverSpielerLabel.setText("Spieler " + spielerAktiv + " ist an der Reihe!");
     }
 
 }

@@ -18,15 +18,15 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import static RaumSchiffeVersenken.Core.SpielablaufFX.Feld_Spieler1;
 import static RaumSchiffeVersenken.Core.SpielablaufFX.Feld_Spieler2;
-
+import static RaumSchiffeVersenken.GUISteuerung.GUIStartFenster.spielerAktiv;
+import static RaumSchiffeVersenken.GUISteuerung.GUIStartFenster.spieler1Leben;
+import static RaumSchiffeVersenken.GUISteuerung.GUIStartFenster.spieler2Leben;
 
 public class GUISpielrundeFenster implements Initializable {
 
     private boolean spielfeldAktiv = true;
-
 
     //referentziert GUI-Elemente der FXML-Datei
     @FXML
@@ -44,12 +44,27 @@ public class GUISpielrundeFenster implements Initializable {
     @FXML
     private void szeneWechsel() throws IOException {
         try {
-            Stage spielefenster = (Stage) spielefensterVBox.getScene().getWindow();
-            Parent quelle = FXMLLoader.load(getClass().getResource("/fxml/spielerwechselFenster.fxml"));
-            Scene szene2 = new Scene(quelle);
-            spielefenster.setScene(szene2);
-            szene2.getStylesheets().add("/gestaltung.css");
-            spielefenster.setFullScreen(false);
+            if (spielerAktiv == "1") {
+                spielerAktiv = "2";
+            } else {
+                spielerAktiv = "1";
+            }
+
+            if (spieler1Leben == 0 | spieler2Leben == 0) {
+                Stage spielefenster = (Stage) spielefensterVBox.getScene().getWindow();
+                Parent quelle = FXMLLoader.load(getClass().getResource("/fxml/spielendeFenster.fxml"));
+                Scene szene2 = new Scene(quelle);
+                spielefenster.setScene(szene2);
+                szene2.getStylesheets().add("/gestaltung.css");
+                spielefenster.setFullScreen(false);
+            } else {
+                Stage spielefenster = (Stage) spielefensterVBox.getScene().getWindow();
+                Parent quelle = FXMLLoader.load(getClass().getResource("/fxml/spielerwechselFenster.fxml"));
+                Scene szene2 = new Scene(quelle);
+                spielefenster.setScene(szene2);
+                szene2.getStylesheets().add("/gestaltung.css");
+                spielefenster.setFullScreen(false);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -69,8 +84,12 @@ public class GUISpielrundeFenster implements Initializable {
         SpielablaufFX sfx = new SpielablaufFX();
 
 
-        //führt die Methode zum Bau des Spielfeldes auf
-        feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler2, Feld_Spieler1);
+        //führt die Methode zum Bau des Spielfeldes auf je nachdem welcher Spieler gerade dran ist
+        if (spielerAktiv == "1") {
+            feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler2, Feld_Spieler1);
+        } else {
+            feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler1, Feld_Spieler2);
+        }
 
         //starte die Spielablauf-Klasse im Hintergrund
         sfx.start(textAusgabe);
@@ -164,14 +183,26 @@ public class GUISpielrundeFenster implements Initializable {
 
                     GUISpielrundeFenster.textAusgabeSteuerung("Daneben!", textAusgabe);
                     spielfeldAktiv = false;
+
                     //Button zum Weiterspielen muss jetzt hier erscheinen (vorher deaktivieren)
-                    feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler2, Feld_Spieler1);
+
+                    if (spielerAktiv == "1") {
+                        feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler2, Feld_Spieler1);
+                    } else {
+                        feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler1, Feld_Spieler2);
+                    }
                 } else if (feld.mapGroesse[Character.getNumericValue(grafikFeld1.getId().charAt(0))][Character.getNumericValue(grafikFeld1.getId().charAt(1))] == 5) {
                     grafikFeld1.setImage(trefferGrafik);
                     feld.mapGroesse[Character.getNumericValue(grafikFeld1.getId().charAt(0))][Character.getNumericValue(grafikFeld1.getId().charAt(1))] = 6;
                     GUISpielrundeFenster.textAusgabeSteuerung("Treffer!", textAusgabe);
 
-                    feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler2, Feld_Spieler1);
+                    if (spielerAktiv == "1") {
+                        feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler2, Feld_Spieler1);
+                        spieler2Leben -= 1;
+                    } else {
+                        feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler1, Feld_Spieler2);
+                        spieler1Leben -= 1;
+                    }
                 } else {
                     GUISpielrundeFenster.textAusgabeSteuerung("Nicht möglich!", textAusgabe);
                 }

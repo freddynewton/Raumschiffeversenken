@@ -13,7 +13,8 @@
 <VBox fx:id="spielefensterVBox" alignment="CENTER" maxHeight="800.0" maxWidth="600.0" minHeight="800.0" minWidth="600.0" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RaumSchiffeVersenken.GUISteuerung.GUISpielrundeFenster">
    <children>
 
-      <GridPane fx:id="spielfeld1" gridLinesVisible="true" maxHeight="600.0" maxWidth="600.0" minHeight="600.0" minWidth="600.0" prefHeight="600.0" prefWidth="600.0">
+       <GridPane fx:id="spielfeld1" maxHeight="600.0" maxWidth="600.0" minHeight="600.0" minWidth="600.0"
+                 prefHeight="600.0" prefWidth="600.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -46,7 +47,8 @@
        <HBox alignment="CENTER">
          <children>
 
-            <GridPane fx:id="spielfeld2" gridLinesVisible="true" maxHeight="150.0" maxWidth="150.0" minHeight="150.0" minWidth="150.0" prefHeight="150.0" prefWidth="150.0">
+             <GridPane fx:id="spielfeld2" maxHeight="150.0" maxWidth="150.0" minHeight="150.0" minWidth="150.0"
+                       prefHeight="150.0" prefWidth="150.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -83,7 +85,8 @@
                </padding>
                <children>
 
-                  <GridPane gridLinesVisible="true" maxHeight="150.0" maxWidth="300.0" minHeight="150.0" minWidth="300.0" prefHeight="150.0" prefWidth="300.0">
+                   <GridPane maxHeight="150.0" maxWidth="300.0" minHeight="150.0" minWidth="300.0" prefHeight="150.0"
+                             prefWidth="300.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
