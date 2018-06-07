@@ -302,19 +302,11 @@ public class Feld {
                 log.info("Bitte eine andere Zelle wählen da hier schon ein Schiff steht 'else'\n" +
                         "------------------------------------------------------------------\n" +
                         "\n");
-                System.out.println("Bitte eine andere Zelle wählen da hier schon ein Schiff steht 'else'\n" +
-                        "------------------------------------------------------------------\n" +
-                        "\n");
-
             }
         } catch (Exception ex4) {
             log.error("Bitte eine andere Zelle wählen da hier schon ein Schiff steht 'catch'\n" +
                     "------------------------------------------------------------------\n" +
                     "\n", ex4);
-            System.out.println("Bitte eine andere Zelle wählen da hier schon ein Schiff steht 'catch'\n" +
-                    "------------------------------------------------------------------\n" +
-                    "\n");
-
         }
         return SchiffErfolgreichSetzen;
     }

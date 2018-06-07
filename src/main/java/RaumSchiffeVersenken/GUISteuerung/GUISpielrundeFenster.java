@@ -18,13 +18,15 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import static RaumSchiffeVersenken.Core.Logic.Spielablauf.Feld_Spieler1;
-import static RaumSchiffeVersenken.Core.Logic.Spielablauf.Feld_Spieler2;
+
+import static RaumSchiffeVersenken.Core.SpielablaufFX.Feld_Spieler1;
+import static RaumSchiffeVersenken.Core.SpielablaufFX.Feld_Spieler2;
 
 
 public class GUISpielrundeFenster implements Initializable {
 
     private boolean spielfeldAktiv = true;
+
 
     //referentziert GUI-Elemente der FXML-Datei
     @FXML
@@ -64,12 +66,14 @@ public class GUISpielrundeFenster implements Initializable {
         int feldSpalte = 10;
         int feldReihe = 10;
 
+        SpielablaufFX sfx = new SpielablaufFX();
+
+
         //führt die Methode zum Bau des Spielfeldes auf
-        feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler1, Feld_Spieler2);
+        feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler2, Feld_Spieler1);
 
         //starte die Spielablauf-Klasse im Hintergrund
-        SpielablaufFX s = new SpielablaufFX();
-        s.start(textAusgabe);
+        sfx.start(textAusgabe);
     }
 
     /**
@@ -78,7 +82,7 @@ public class GUISpielrundeFenster implements Initializable {
      * @param feldSpalte
      * @param feldReihe
      */
-    public void feldgrafikAktualisieren(int feldSpalte, int feldReihe, Feld feld, Feld kopieFeld) {
+    public void feldgrafikAktualisieren(int feldSpalte, int feldReihe, Feld großesFeld, Feld kleinesFeld) {
         Image feldGrafik = new Image("images/weltraum.png");
         Image raumschiffGrafik = new Image("images/raumschiff.png");
         Image danebenGrafik = new Image("images/daneben.png");
@@ -93,40 +97,20 @@ public class GUISpielrundeFenster implements Initializable {
                 grafikFeld1.setFitHeight(50);
                 grafikFeld1.setId(""+(x)+(y));
 
-                if (spielfeldAktiv == true) {
-                    grafikFeld1.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                        @Override
-                        public void handle(MouseEvent event) {
-                            if (feld.mapGroesse[Character.getNumericValue(grafikFeld1.getId().charAt(0))][Character.getNumericValue(grafikFeld1.getId().charAt(1))] == 0) {
-                                grafikFeld1.setImage(danebenGrafik);
-                                feld.mapGroesse[Character.getNumericValue(grafikFeld1.getId().charAt(0))][Character.getNumericValue(grafikFeld1.getId().charAt(1))] = 1;
-                                GUISpielrundeFenster.textAusgabeSteuerung("Daneben!", textAusgabe);
-                                spielfeldAktiv = false;
-                                //Button zum Weiterspielen muss jetzt hier erscheinen (vorher deaktivieren)
-                                feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler1, Feld_Spieler2);
-                            } else if (feld.mapGroesse[Character.getNumericValue(grafikFeld1.getId().charAt(0))][Character.getNumericValue(grafikFeld1.getId().charAt(1))] == 5) {
-                                grafikFeld1.setImage(trefferGrafik);
-                                feld.mapGroesse[Character.getNumericValue(grafikFeld1.getId().charAt(0))][Character.getNumericValue(grafikFeld1.getId().charAt(1))] = 6;
-                                GUISpielrundeFenster.textAusgabeSteuerung("Treffer!", textAusgabe);
-
-                                feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler1, Feld_Spieler2);
-                            } else {
-                                GUISpielrundeFenster.textAusgabeSteuerung("Nicht möglich!", textAusgabe);
-                            }
-                        }
-                    });
+                if (spielfeldAktiv) {
+                    klickevent(großesFeld, grafikFeld1, danebenGrafik, trefferGrafik, feldSpalte, feldReihe);
                 }
 
-                if (feld.mapGroesse[x][y] == 0) {
+                if (großesFeld.mapGroesse[x][y] == 0) {
                     grafikFeld1.setImage(feldGrafik);
                     spielfeld1.add(grafikFeld1, x, y);
-                } else if (feld.mapGroesse[x][y] == 1) {
+                } else if (großesFeld.mapGroesse[x][y] == 1) {
                     grafikFeld1.setImage(danebenGrafik);
                     spielfeld1.add(grafikFeld1, x, y);
-                } else if (feld.mapGroesse[x][y] == 5) {
+                } else if (großesFeld.mapGroesse[x][y] == 5) {
                     grafikFeld1.setImage(raumschiffGrafik);
                     spielfeld1.add(grafikFeld1, x, y);
-                } else if (feld.mapGroesse[x][y] == 6) {
+                } else if (großesFeld.mapGroesse[x][y] == 6) {
                     grafikFeld1.setImage(trefferGrafik);
                     spielfeld1.add(grafikFeld1, x, y);
                 }
@@ -140,16 +124,16 @@ public class GUISpielrundeFenster implements Initializable {
                 grafikFeld2.setFitHeight(15);
                 grafikFeld2.setId(""+x+"|"+y);
 
-                if (kopieFeld.mapGroesse[x][y] == 0) {
+                if (kleinesFeld.mapGroesse[x][y] == 0) {
                     grafikFeld2.setImage(feldGrafik);
                     spielfeld2.add(grafikFeld2, x, y);
-                } else if (kopieFeld.mapGroesse[x][y] == 1) {
+                } else if (kleinesFeld.mapGroesse[x][y] == 1) {
                     grafikFeld2.setImage(danebenGrafik);
                     spielfeld2.add(grafikFeld2, x, y);
-                } else if (kopieFeld.mapGroesse[x][y] == 5) {
+                } else if (kleinesFeld.mapGroesse[x][y] == 5) {
                     grafikFeld2.setImage(raumschiffGrafik);
                     spielfeld2.add(grafikFeld2, x, y);
-                } else if (kopieFeld.mapGroesse[x][y] == 6) {
+                } else if (kleinesFeld.mapGroesse[x][y] == 6) {
                     grafikFeld2.setImage(trefferGrafik);
                     spielfeld2.add(grafikFeld2, x, y);
                 }
@@ -168,5 +152,30 @@ public class GUISpielrundeFenster implements Initializable {
 
         //erstellt ein Textelement für das Label
         textAusgabe.setText(textAusgabeText);
+    }
+
+    public void klickevent(Feld feld, ImageView grafikFeld1, Image danebenGrafik, Image trefferGrafik, int feldSpalte, int feldReihe) {
+        grafikFeld1.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (feld.mapGroesse[Character.getNumericValue(grafikFeld1.getId().charAt(0))][Character.getNumericValue(grafikFeld1.getId().charAt(1))] == 0) {
+                    grafikFeld1.setImage(danebenGrafik);
+                    feld.mapGroesse[Character.getNumericValue(grafikFeld1.getId().charAt(0))][Character.getNumericValue(grafikFeld1.getId().charAt(1))] = 1;
+
+                    GUISpielrundeFenster.textAusgabeSteuerung("Daneben!", textAusgabe);
+                    spielfeldAktiv = false;
+                    //Button zum Weiterspielen muss jetzt hier erscheinen (vorher deaktivieren)
+                    feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler2, Feld_Spieler1);
+                } else if (feld.mapGroesse[Character.getNumericValue(grafikFeld1.getId().charAt(0))][Character.getNumericValue(grafikFeld1.getId().charAt(1))] == 5) {
+                    grafikFeld1.setImage(trefferGrafik);
+                    feld.mapGroesse[Character.getNumericValue(grafikFeld1.getId().charAt(0))][Character.getNumericValue(grafikFeld1.getId().charAt(1))] = 6;
+                    GUISpielrundeFenster.textAusgabeSteuerung("Treffer!", textAusgabe);
+
+                    feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler2, Feld_Spieler1);
+                } else {
+                    GUISpielrundeFenster.textAusgabeSteuerung("Nicht möglich!", textAusgabe);
+                }
+            }
+        });
     }
 }

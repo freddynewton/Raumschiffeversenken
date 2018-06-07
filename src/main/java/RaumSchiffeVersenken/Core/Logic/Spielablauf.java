@@ -26,8 +26,9 @@ public class Spielablauf {
     private static final Logger log = LogManager.getLogger(Spielablauf.class);
 
     private int DerzeitigeSchiffslänge = 0;
-    public static Feld Feld_Spieler1 = new Feld(10, 10);
-    public static Feld Feld_Spieler2 = new Feld(10, 10);
+
+    private Feld Feld_Spieler1 = new Feld(10, 10);
+    private Feld Feld_Spieler2 = new Feld(10, 10);
 
 
     public void start() {

@@ -31,7 +31,17 @@
             <Insets bottom="25.0" left="50.0" right="50.0" />
          </padding>
       </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="50.0" maxWidth="270.0" minHeight="50.0" minWidth="270.0" prefHeight="50.0" prefWidth="270.0" text="Freddy Newton" wrapText="true">
+      <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="50.0" maxWidth="270.0" minHeight="50.0"
+             minWidth="270.0" prefHeight="50.0" prefWidth="270.0" text="Fred Newton Akdogan" wrapText="true">
+         <font>
+            <Font name="Corbel" size="22.0" />
+         </font>
+         <padding>
+            <Insets bottom="25.0"/>
+         </padding>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="50.0" maxWidth="270.0" minHeight="50.0"
+             minWidth="270.0" prefHeight="50.0" prefWidth="270.0" text="Rajan Serafi" wrapText="true">
          <font>
             <Font name="Corbel" size="22.0" />
          </font>
@@ -39,15 +49,8 @@
             <Insets bottom="25.0" left="50.0" right="50.0" />
          </padding>
       </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="50.0" maxWidth="270.0" minHeight="50.0" minWidth="270.0" prefHeight="50.0" prefWidth="270.0" text="Rayan Serafi" wrapText="true">
-         <font>
-            <Font name="Corbel" size="22.0" />
-         </font>
-         <padding>
-            <Insets bottom="25.0" left="50.0" right="50.0" />
-         </padding>
-      </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="50.0" maxWidth="270.0" minHeight="50.0" minWidth="270.0" prefHeight="50.0" prefWidth="270.0" text="Gerog Habermann" wrapText="true">
+      <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="50.0" maxWidth="270.0" minHeight="50.0"
+             minWidth="270.0" prefHeight="50.0" prefWidth="270.0" text="Georg Habermann" wrapText="true">
          <font>
             <Font name="Corbel" size="22.0" />
          </font>
