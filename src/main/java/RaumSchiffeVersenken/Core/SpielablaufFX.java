@@ -1,12 +1,13 @@
 package RaumSchiffeVersenken.Core;
 
-import RaumSchiffeVersenken.Core.Logic.Spielablauf;
+import RaumSchiffeVersenken.Entwicklungskonsole.Spielablauf;
 import RaumSchiffeVersenken.GUISteuerung.GUISpielrundeFenster;
 import RaumSchiffeVersenken.Interface_Factory.RaumSchiff;
 import RaumSchiffeVersenken.Interface_Factory.SchiffFactory;
 import javafx.scene.control.Label;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 import java.util.HashMap;
 import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
@@ -27,8 +28,12 @@ public class SpielablaufFX {
     public static Feld Feld_Spieler1 = new Feld(10, 10);
     public static Feld Feld_Spieler2 = new Feld(10, 10);
 
-
-    //Die Spieleinstruktionen werden im Textfeld des GUI über eine Methode in der GUISpielrundeFenster ausgegeben
+    /**
+     * Die Spieleinstruktionen werden im Textfeld des GUI über eine Methode in der GUISpielrundeFenster ausgegeben
+     *
+     * @param textAusgabe
+     * @return
+     */
     public String start(Label textAusgabe) {
 
         GUISpielrundeFenster.textAusgabeSteuerung("Schieße auf ein Feld!", textAusgabe);
@@ -81,8 +86,11 @@ public class SpielablaufFX {
         spieler2SchiffeSetzenAblauf(SchiffsMap, 1);
     }
 
-    // ----------------------------------------------------------------------------------
-
+    /**
+     * @param feld
+     * @param SchiffTypsLaenge
+     * @return
+     */
     public boolean randomSchiffeSetzen(Feld feld, int SchiffTypsLaenge) {
 
         int randomX = ThreadLocalRandom.current().nextInt(10);
@@ -92,8 +100,11 @@ public class SpielablaufFX {
         return feld.schiffSetzenAutomatisch(randomY, randomX, randomRichtung, SchiffTypsLaenge);
     }
 
-    // ------------------------------------------------------------------------------------
-
+    /**
+     * @param SchiffsMap
+     * @param rmInt
+     * @return
+     */
     public String spieler1SchiffeSetzenAblauf(HashMap SchiffsMap, int rmInt) {
 
         try {
@@ -112,6 +123,11 @@ public class SpielablaufFX {
         return "";
     }
 
+    /**
+     * @param SchiffsMap
+     * @param rmInt2
+     * @return
+     */
     public String spieler2SchiffeSetzenAblauf(HashMap SchiffsMap, int rmInt2) {
 
         try {

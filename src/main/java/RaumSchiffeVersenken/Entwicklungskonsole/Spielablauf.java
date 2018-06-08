@@ -1,10 +1,11 @@
-package RaumSchiffeVersenken.Core.Logic;
+package RaumSchiffeVersenken.Entwicklungskonsole;
 
 import RaumSchiffeVersenken.Core.Feld;
 import RaumSchiffeVersenken.Interface_Factory.RaumSchiff;
 import RaumSchiffeVersenken.Interface_Factory.SchiffFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 import java.util.HashMap;
 import java.util.Objects;
 import java.util.Scanner;
@@ -165,6 +166,12 @@ public class Spielablauf {
 
     // ----------------------------------------------------------------------------------
 
+    /**
+     *
+     * @param feld
+     * @param SchiffTypsLaenge
+     * @return
+     */
     public boolean randomSchiffeSetzen(Feld feld, int SchiffTypsLaenge) {
 
         int randomX = ThreadLocalRandom.current().nextInt(10);
@@ -183,6 +190,11 @@ public class Spielablauf {
 
     // ------------------------------------------------------------------------------------
 
+    /**
+     *
+     * @param SchiffsMap
+     * @return
+     */
     public String spieler1SchiffeSetzenAblauf(HashMap SchiffsMap) {
 
 
@@ -226,6 +238,11 @@ public class Spielablauf {
         return "";
     }
 
+    /**
+     *
+     * @param SchiffsMap
+     * @return
+     */
     public String spieler2SchiffeSetzenAblauf(HashMap SchiffsMap) {
 
         System.out.println("Möchten sie ihre Schiffe Random per AI gesetzt haben oder Manuel?\n" +

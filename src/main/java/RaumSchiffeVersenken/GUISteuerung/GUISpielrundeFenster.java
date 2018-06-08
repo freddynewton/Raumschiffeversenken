@@ -15,14 +15,17 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import static RaumSchiffeVersenken.Core.SpielablaufFX.Feld_Spieler1;
 import static RaumSchiffeVersenken.Core.SpielablaufFX.Feld_Spieler2;
 import static RaumSchiffeVersenken.GUISteuerung.GUIStartFenster.spielerAktiv;
 import static RaumSchiffeVersenken.GUISteuerung.GUIStartFenster.spieler1Leben;
 import static RaumSchiffeVersenken.GUISteuerung.GUIStartFenster.spieler2Leben;
+
 
 public class GUISpielrundeFenster implements Initializable {
 
@@ -41,6 +44,9 @@ public class GUISpielrundeFenster implements Initializable {
     @FXML
     private VBox spielefensterVBox;
 
+    /**
+     * @throws IOException
+     */
     @FXML
     private void szeneWechsel() throws IOException {
         try {
@@ -116,7 +122,7 @@ public class GUISpielrundeFenster implements Initializable {
                 ImageView grafikFeld1 = new ImageView();
                 grafikFeld1.setFitWidth(50);
                 grafikFeld1.setFitHeight(50);
-                grafikFeld1.setId(""+(x)+(y));
+                grafikFeld1.setId("" + (x) + (y));
 
                 if (spielfeldAktiv) {
                     klickevent(großesFeld, grafikFeld1, danebenGrafik, trefferGrafik, feldSpalte, feldReihe);
@@ -141,9 +147,7 @@ public class GUISpielrundeFenster implements Initializable {
         for (int y = 0; y < feldSpalte; y++) {
             for (int x = 0; x < feldReihe; x++) {
                 ImageView grafikFeld2 = new ImageView();
-                //grafikFeld2.setFitWidth(15);
-                //grafikFeld2.setFitHeight(15);
-                grafikFeld2.setId(""+x+"|"+y);
+                grafikFeld2.setId("" + x + "|" + y);
 
                 if (kleinesFeld.mapGroesse[x][y] == 0) {
                     grafikFeld2.setImage(feldGrafik);
@@ -175,6 +179,14 @@ public class GUISpielrundeFenster implements Initializable {
         textAusgabe.setText(textAusgabeText);
     }
 
+    /**
+     * @param feld
+     * @param grafikFeld1
+     * @param danebenGrafik
+     * @param trefferGrafik
+     * @param feldSpalte
+     * @param feldReihe
+     */
     public void klickevent(Feld feld, ImageView grafikFeld1, Image danebenGrafik, Image trefferGrafik, int feldSpalte, int feldReihe) {
         grafikFeld1.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override

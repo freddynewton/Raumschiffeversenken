@@ -3,6 +3,7 @@ package RaumSchiffeVersenken.Core;
 import java.util.Scanner;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -23,7 +24,7 @@ public class Feld {
     Lock lock = new ReentrantLock();
 
     /**
-     *Logger erstellung.
+     * Logger erstellung.
      */
     private static final Logger log = LogManager.getLogger(Feld.class);
 
@@ -69,7 +70,6 @@ public class Feld {
      * Hier werden mit Scanner die jeweilige X-Achse und Y-Achse Koordinate abgefragt und
      * und Kontrolliert ob sie im Array sind und übergibt die Werte dann zur
      * schießen() methode
-     *
      */
     public void zielenZumSchiessen() {
 
@@ -139,7 +139,6 @@ public class Feld {
     //---------------------------------------------------------------------------------------------------------------------
 
     /**
-     *
      * @param SchiffsLänge
      */
     public void zielenZumSchiffeSetzen(int SchiffsLänge) {
@@ -185,7 +184,6 @@ public class Feld {
     }
 
     /**
-     *
      * @param yAchseBeschuss
      * @param xAchseBeschuss
      * @param SchiffsRichtung
@@ -200,7 +198,6 @@ public class Feld {
         int SchiffsLängeCounter = 0;
 
         try {
-
             if (SchiffsRichtung == 1) {
                 for (int i = 0; i < SchiffsLänge; i++) {
                     log.info("mapGroesse[xAchseBeschuss + i][yAchseBeschuss] == 0" + (mapGroesse[xAchseBeschuss + i][yAchseBeschuss] == 0));
@@ -254,6 +251,13 @@ public class Feld {
         }
     }
 
+    /**
+     * @param yAchseBeschuss
+     * @param xAchseBeschuss
+     * @param SchiffsRichtung
+     * @param SchiffsLänge
+     * @return
+     */
     public boolean schiffSetzenAutomatisch(int yAchseBeschuss, int xAchseBeschuss, int SchiffsRichtung, int SchiffsLänge) {
         this.xAchseBeschuss = xAchseBeschuss;
         this.yAchseBeschuss = yAchseBeschuss;
@@ -330,7 +334,6 @@ public class Feld {
     // ----------------------------------------------------------------------------------------------
 
     /**
-     *
      * @param feld
      */
     public void BereitAbfrage(Feld feld) {
@@ -365,7 +368,6 @@ public class Feld {
     // TODO: 03.05.2018 Auf Jar-Datei warten um die App neu zu starten in dem Revance
 
     /**
-     *
      * @param feld
      * @param SpielerNummer
      */
@@ -437,7 +439,6 @@ public class Feld {
     }
 
     /**
-     *
      * @return
      */
     @Override
@@ -452,7 +453,8 @@ public class Feld {
         return "";
     }
 
-    /** Für Test relevant
+    /**
+     * Für Test relevant
      *
      * @return
      */

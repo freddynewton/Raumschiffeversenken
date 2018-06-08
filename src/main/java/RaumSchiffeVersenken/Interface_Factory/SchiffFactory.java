@@ -7,6 +7,7 @@ import RaumSchiffeVersenken.SchiffsArten.Zerstoerer;
 import RaumSchiffeVersenken.SchiffsArten.Fregatte;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 

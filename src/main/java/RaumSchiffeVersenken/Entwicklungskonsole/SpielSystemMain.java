@@ -1,10 +1,11 @@
-package RaumSchiffeVersenken.Core;
-
-import RaumSchiffeVersenken.Core.Logic.Spielablauf;
+package RaumSchiffeVersenken.Entwicklungskonsole;
 
 
 public class SpielSystemMain {
 
+    /**
+     * @param args
+     */
     public static void main(String[] args) {
 
         Spielablauf s = new Spielablauf();

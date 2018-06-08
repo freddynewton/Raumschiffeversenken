@@ -5,10 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 
 
-public class SpielSystemMainFX extends Application{
+public class SpielSystemMainFX extends Application {
 
     /**
      * Die Szene im Spielefenster wird hier mit der FXML-Datei und der CSS-Datei verknüpft.

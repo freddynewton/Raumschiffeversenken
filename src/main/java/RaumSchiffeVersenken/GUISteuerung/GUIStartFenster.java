@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -24,9 +25,14 @@ public class GUIStartFenster implements Initializable {
     @FXML
     private VBox vbox;
 
+    /**
+     * @throws IOException
+     */
     @FXML
     private void starteSpiel() throws IOException {
         try {
+            SpielablaufFX sfx = new SpielablaufFX();
+            sfx.SchiffeSetzenAblauf();
             Stage spielefenster = (Stage) vbox.getScene().getWindow();
             Parent quelle = FXMLLoader.load(getClass().getResource("/fxml/spielerwechselFenster.fxml"));
             Scene szene2 = new Scene(quelle);
@@ -38,6 +44,9 @@ public class GUIStartFenster implements Initializable {
         }
     }
 
+    /**
+     * @throws IOException
+     */
     @FXML
     private void oeffneCredits() throws IOException {
         try {
@@ -52,16 +61,22 @@ public class GUIStartFenster implements Initializable {
         }
     }
 
+    /**
+     * @throws IOException
+     */
     @FXML
     private void beendeSpiel() throws IOException {
         Stage spielefenster = (Stage) vbox.getScene().getWindow();
         spielefenster.close();
     }
 
+    /**
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        SpielablaufFX sfx = new SpielablaufFX();
-        sfx.SchiffeSetzenAblauf();
+
     }
 
 }
