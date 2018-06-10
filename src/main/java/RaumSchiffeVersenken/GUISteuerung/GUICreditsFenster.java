@@ -15,6 +15,8 @@ import java.util.ResourceBundle;
 
 public class GUICreditsFenster implements Initializable {
 
+    GUIKlangSteuerung guiKlangSteuerung = new GUIKlangSteuerung();
+
     @FXML
     private VBox vbox;
 
@@ -24,6 +26,7 @@ public class GUICreditsFenster implements Initializable {
     @FXML
     private void oeffneStartFenster() throws IOException {
         try {
+            guiKlangSteuerung.knopfDruecken();
             Stage spielefenster = (Stage) vbox.getScene().getWindow();
             Parent quelle = FXMLLoader.load(getClass().getResource("/fxml/startFenster.fxml"));
             Scene szene2 = new Scene(quelle);
@@ -43,4 +46,11 @@ public class GUICreditsFenster implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
     }
 
+    /**
+     *
+     */
+    @FXML
+    private void knopfZielen() {
+        guiKlangSteuerung.knopfZielen();
+    }
 }

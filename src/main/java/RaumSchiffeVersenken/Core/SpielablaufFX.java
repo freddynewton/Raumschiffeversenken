@@ -1,10 +1,8 @@
 package RaumSchiffeVersenken.Core;
 
 import RaumSchiffeVersenken.Entwicklungskonsole.Spielablauf;
-import RaumSchiffeVersenken.GUISteuerung.GUISpielrundeFenster;
 import RaumSchiffeVersenken.Interface_Factory.RaumSchiff;
 import RaumSchiffeVersenken.Interface_Factory.SchiffFactory;
-import javafx.scene.control.Label;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

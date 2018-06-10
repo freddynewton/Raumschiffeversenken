@@ -2,10 +2,13 @@ package RaumSchiffeVersenken.GUISteuerung;
 
 import RaumSchiffeVersenken.Core.Feld;
 import RaumSchiffeVersenken.Core.SpielablaufFX;
+import javafx.animation.Animation;
+import javafx.animation.TranslateTransition;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -15,6 +18,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
@@ -31,7 +35,8 @@ public class GUISpielrundeFenster implements Initializable {
 
     private boolean spielfeldAktiv = true;
 
-    //referentziert GUI-Elemente der FXML-Datei
+    GUIKlangSteuerung guiKlangSteuerung = new GUIKlangSteuerung();
+
     @FXML
     private GridPane spielfeld1;
 
@@ -51,6 +56,8 @@ public class GUISpielrundeFenster implements Initializable {
     private void szeneWechsel() throws IOException {
         try {
             if (!spielfeldAktiv) {
+                guiKlangSteuerung.knopfDruecken();
+
                 if (spielerAktiv == "1") {
                     spielerAktiv = "2";
                 } else {
@@ -110,6 +117,9 @@ public class GUISpielrundeFenster implements Initializable {
      * @param feldReihe
      */
     public void feldgrafikAktualisieren(int feldSpalte, int feldReihe, Feld großesFeld, Feld kleinesFeld) {
+        spielfeld1.getChildren().clear();
+        spielfeld2.getChildren().clear();
+
         Image feldGrafikGroß = new Image("bilder/weltraumGroß.png");
         Image danebenGrafikGroß = new Image("bilder/danebenGroß.png");
         Image trefferGrafikGroß = new Image("bilder/trefferGroß.png");
@@ -226,5 +236,28 @@ public class GUISpielrundeFenster implements Initializable {
                 }
             }
         });
+    }
+
+    private static TranslateTransition tt;
+
+    public static TranslateTransition schuetteln(Node node) {
+        if (tt == null || tt.getNode() != node) {
+            tt = new TranslateTransition(Duration.millis(50), node);
+        }
+        tt.setByX(10f);
+        tt.setCycleCount(2);
+        tt.setAutoReverse(true);
+        if (tt.getStatus() == Animation.Status.STOPPED) {
+            tt.playFromStart();
+        }
+        return tt;
+    }
+
+    /**
+     *
+     */
+    @FXML
+    private void knopfZielen() {
+        guiKlangSteuerung.knopfZielen();
     }
 }

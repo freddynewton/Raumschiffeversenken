@@ -8,11 +8,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
 <VBox fx:id="spielefensterVBox" alignment="CENTER" maxHeight="800.0" maxWidth="600.0" minHeight="800.0" minWidth="600.0"
-      prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="RaumSchiffeVersenken.GUISteuerung.GUISpielrundeFenster">
+      prefHeight="800.0" prefWidth="600.0" styleClass="hintergrund" xmlns="http://javafx.com/javafx/8.0.121"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="RaumSchiffeVersenken.GUISteuerung.GUISpielrundeFenster">
     <children>
 
         <GridPane fx:id="spielfeld1" maxHeight="600.0" maxWidth="600.0" minHeight="600.0" minWidth="600.0"
@@ -99,17 +98,17 @@
                             <children>
 
                                 <Label fx:id="textAusgabe" alignment="CENTER" maxHeight="75.0" maxWidth="300.0"
-                                       minHeight="75.0" minWidth="300.0" prefHeight="75.0" prefWidth="300.0" text="TEXT"
-                                       styleClass="label">
+                                       minHeight="75.0" minWidth="300.0" prefHeight="75.0" prefWidth="300.0"
+                                       styleClass="label" text="TEXT">
                                     <padding>
                                         <Insets left="50.0" right="50.0"/>
                                     </padding>
                                 </Label>
 
                                 <Button fx:id="weiterKnopf" maxHeight="75.0" maxWidth="300.0" minHeight="75.0"
-                                        minWidth="300.0" mnemonicParsing="false" onMouseClicked="#szeneWechsel"
-                                        prefHeight="75.0" prefWidth="300.0" styleClass="buttons" text="WEITER"
-                                        GridPane.rowIndex="1">
+                                        minWidth="300.0" mnemonicParsing="false" onAction="#szeneWechsel"
+                                        onMouseEntered="#knopfZielen" prefHeight="75.0" prefWidth="300.0"
+                                        styleClass="buttons" text="WEITER" GridPane.rowIndex="1">
                                     <padding>
                                         <Insets left="50.0" right="50.0"/>
                                     </padding>

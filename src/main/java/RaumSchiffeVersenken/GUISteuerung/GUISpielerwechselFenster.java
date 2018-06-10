@@ -19,6 +19,8 @@ import static RaumSchiffeVersenken.GUISteuerung.GUIStartFenster.spielerAktiv;
 
 public class GUISpielerwechselFenster implements Initializable {
 
+    GUIKlangSteuerung guiKlangSteuerung = new GUIKlangSteuerung();
+
     @FXML
     private VBox vbox;
 
@@ -53,4 +55,11 @@ public class GUISpielerwechselFenster implements Initializable {
         aktiverSpielerLabel.setText("SPIELER " + spielerAktiv + " IST AN DER REIHE!");
     }
 
+    /**
+     *
+     */
+    @FXML
+    private void knopfZielen() {
+        guiKlangSteuerung.knopfZielen();
+    }
 }
