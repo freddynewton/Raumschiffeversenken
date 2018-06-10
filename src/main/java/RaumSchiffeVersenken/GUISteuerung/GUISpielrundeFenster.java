@@ -210,9 +210,10 @@ public class GUISpielrundeFenster implements Initializable {
                     feld.mapGroesse[Character.getNumericValue(grafikFeld1.getId().charAt(0))][Character.getNumericValue(grafikFeld1.getId().charAt(1))] = 1;
 
                     GUISpielrundeFenster.textAusgabeSteuerung("DANEBEN!", textAusgabe);
-                    spielfeldAktiv = false;
 
-                    //Button zum Weiterspielen muss jetzt hier erscheinen (vorher deaktivieren)
+                    guiKlangSteuerung.blaster();
+
+                    spielfeldAktiv = false;
 
                     if (spielerAktiv == "1") {
                         feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler2, Feld_Spieler1);
@@ -223,6 +224,12 @@ public class GUISpielrundeFenster implements Initializable {
                     grafikFeld1.setImage(trefferGrafikGroß);
                     feld.mapGroesse[Character.getNumericValue(grafikFeld1.getId().charAt(0))][Character.getNumericValue(grafikFeld1.getId().charAt(1))] = 6;
                     GUISpielrundeFenster.textAusgabeSteuerung("TREFFER!", textAusgabe);
+
+                    guiKlangSteuerung.blaster();
+
+                    guiKlangSteuerung.explosion();
+
+                    schuetteln(spielfeld1);
 
                     if (spielerAktiv == "1") {
                         feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler2, Feld_Spieler1);

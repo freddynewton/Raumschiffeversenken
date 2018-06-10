@@ -34,6 +34,7 @@ public class GUISpielerwechselFenster implements Initializable {
     @FXML
     private void szeneWechsel() throws IOException {
         try {
+            guiKlangSteuerung.knopfDruecken();
             Stage spielefenster = (Stage) vbox.getScene().getWindow();
             Parent quelle = FXMLLoader.load(getClass().getResource("/fxml/spielrundeFenster.fxml"));
             Scene szene2 = new Scene(quelle);
