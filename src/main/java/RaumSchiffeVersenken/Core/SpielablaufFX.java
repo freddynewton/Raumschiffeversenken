@@ -59,7 +59,7 @@ public class SpielablaufFX {
         SchiffsMap.put(9, Objects.requireNonNull(SchiffFactory.getRaumschiff("4")));
 
         //Zerstörer erstellen mit 5 Lebenspunkten
-        log.info("Zerstörer" + SchiffsMap.put(12, Objects.requireNonNull(SchiffFactory.getRaumschiff("5"))));
+        log.info("Zerstörer" + SchiffsMap.put(10, Objects.requireNonNull(SchiffFactory.getRaumschiff("5"))));
         SchiffsMap.put(10, Objects.requireNonNull(SchiffFactory.getRaumschiff("5")));
 
         spieler1SchiffeSetzenAblauf(SchiffsMap, 1);
