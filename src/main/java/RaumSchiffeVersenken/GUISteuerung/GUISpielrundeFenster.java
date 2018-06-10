@@ -110,10 +110,10 @@ public class GUISpielrundeFenster implements Initializable {
      * @param feldReihe
      */
     public void feldgrafikAktualisieren(int feldSpalte, int feldReihe, Feld großesFeld, Feld kleinesFeld) {
-        Image feldGrafik = new Image("images/weltraum.png");
-        Image raumschiffGrafik = new Image("images/raumschiff.png");
-        Image danebenGrafik = new Image("images/daneben.png");
-        Image trefferGrafik = new Image("images/treffer.png");
+        Image feldGrafik = new Image("bilder/weltraum.png");
+        Image raumschiffGrafik = new Image("bilder/raumschiff.png");
+        Image danebenGrafik = new Image("bilder/daneben.png");
+        Image trefferGrafik = new Image("bilder/treffer.png");
 
 
         //die for-Schleifen befüllen beide Spielfelder mit Grafiken

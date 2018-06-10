@@ -1,8 +1,9 @@
-#textAusgabe {
+/*#textAusgabe {
     -fx-border-color: darkgrey;
     -fx-border-width: 1px;
     -fx-background-color: white;
 }
+*/
 
 #hbox1 {
     -fx-background-color: grey;
