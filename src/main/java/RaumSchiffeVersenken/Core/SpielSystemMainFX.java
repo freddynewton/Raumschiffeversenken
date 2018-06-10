@@ -30,8 +30,8 @@ public class SpielSystemMainFX extends Application {
         //spielefenster.setFullScreen(true);
 
         //spielt die titelmusik in einer Endlosschleife!
-        String musicFile = "src/main/resources/musik/titelmusik.mp3";
-        Media titelmusik = new Media(new File(musicFile).toURI().toString());
+        String musikDatei = "src/main/resources/musik/titelmusik.mp3";
+        Media titelmusik = new Media(new File(musikDatei).toURI().toString());
         AudioClip musikSpieler = new AudioClip(titelmusik.getSource());
         musikSpieler.setCycleCount(AudioClip.INDEFINITE);
         musikSpieler.play();

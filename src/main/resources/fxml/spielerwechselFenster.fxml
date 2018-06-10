@@ -6,23 +6,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="vbox" alignment="CENTER" maxHeight="800.0" maxWidth="600.0" minHeight="800.0" minWidth="600.0"
-      prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="RaumSchiffeVersenken.GUISteuerung.GUISpielerwechselFenster">
+<VBox fx:id="vbox" alignment="CENTER" maxHeight="800.0" maxWidth="600.0" minHeight="800.0" minWidth="600.0" prefHeight="800.0" prefWidth="600.0" styleClass="hintergrund" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RaumSchiffeVersenken.GUISteuerung.GUISpielerwechselFenster">
     <children>
 
-        <Label fx:id="aktiverSpielerLabel" alignment="CENTER" maxHeight="75.0" maxWidth="300.0" minHeight="75.0"
-               minWidth="300.0" prefHeight="75.0" prefWidth="300.0" text="SPIELER X IST AN DER REIHE."
-               styleClass="label">
+        <Label fx:id="aktiverSpielerLabel" alignment="CENTER" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" prefHeight="75.0" prefWidth="300.0" styleClass="label" text="SPIELER X IST AN DER REIHE.">
             <font>
-                <Font name="Corbel" size="22.0"/>
+                <Font name="Corbel" size="22.0" />
             </font>
         </Label>
 
-        <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false"
-                onMouseClicked="#szeneWechsel" prefHeight="75.0" prefWidth="300.0" text="WEITER" styleClass="buttons">
+        <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#szeneWechsel" onMouseEntered="#knopfZielen" onMousePressed="#knopfDruecken" prefHeight="75.0" prefWidth="300.0" styleClass="buttons" text="WEITER">
             <padding>
-                <Insets left="50.0" right="50.0"/>
+                <Insets left="50.0" right="50.0" />
             </padding>
         </Button>
 

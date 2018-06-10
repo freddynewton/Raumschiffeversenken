@@ -4,8 +4,8 @@ import RaumSchiffeVersenken.Interface_Factory.RaumSchiff;
 
 public class Jaeger implements RaumSchiff {
 
-    private int laenge = 1;
-    private int LebensPunkte = 1;
+    private int laenge = 2;
+    private int LebensPunkte = 2;
     private int xKoordinaten;
     private int yKoordinaten;
     private int Schiffsrichtung;

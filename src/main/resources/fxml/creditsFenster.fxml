@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="vbox" alignment="CENTER" maxHeight="800.0" maxWidth="600.0" minHeight="800.0" minWidth="600.0" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RaumSchiffeVersenken.GUISteuerung.GUICreditsFenster">
+<VBox fx:id="vbox" alignment="CENTER" maxHeight="800.0" maxWidth="600.0" minHeight="800.0" minWidth="600.0" prefHeight="800.0" prefWidth="600.0" styleClass="hintergrund" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RaumSchiffeVersenken.GUISteuerung.GUICreditsFenster">
     <children>
 
         <ImageView fx:id="titelanimation" fitHeight="370.0" fitWidth="500.0" onMouseClicked="#oeffneStartFenster" pickOnBounds="true" preserveRatio="false" smooth="false" StackPane.alignment="CENTER">
@@ -48,7 +48,7 @@
             </padding>
         </Label>
 
-        <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onMouseClicked="#oeffneStartFenster" prefHeight="75.0" prefWidth="300.0" styleClass="buttons" text="ZURÜCK">
+        <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#oeffneStartFenster" onMouseEntered="#knopfZielen" onMousePressed="#knopfDruecken" prefHeight="75.0" prefWidth="300.0" styleClass="buttons" text="ZURÜCK">
             <VBox.margin>
                 <Insets left="150.0" right="150.0" />
             </VBox.margin>

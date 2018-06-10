@@ -22,6 +22,8 @@ public class GUIStartFenster implements Initializable {
 
     public static int spieler2Leben = 26;
 
+    GUIKlangSteuerung guiKlangSteuerung = new GUIKlangSteuerung();
+
     @FXML
     private VBox vbox;
 
@@ -79,4 +81,19 @@ public class GUIStartFenster implements Initializable {
 
     }
 
+    /**
+     *
+     */
+    @FXML
+    private void knopfZielen() {
+        guiKlangSteuerung.knopfZielen();
+    }
+
+    /**
+     *
+     */
+    @FXML
+    private void knopfDruecken() {
+        guiKlangSteuerung.knopfDruecken();
+    }
 }

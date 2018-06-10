@@ -16,6 +16,8 @@ import static RaumSchiffeVersenken.GUISteuerung.GUIStartFenster.spieler2Leben;
 
 public class GUISpielendeFenster implements Initializable {
 
+    GUIKlangSteuerung guiKlangSteuerung = new GUIKlangSteuerung();
+
     @FXML
     private VBox vbox;
 
@@ -44,5 +46,21 @@ public class GUISpielendeFenster implements Initializable {
         } else if (spieler2Leben == 0) {
             siegesNachricht.setText("SPIELER 1 HAT GEWONNEN!");
         }
+    }
+
+    /**
+     *
+     */
+    @FXML
+    private void knopfZielen() {
+        guiKlangSteuerung.knopfZielen();
+    }
+
+    /**
+     *
+     */
+    @FXML
+    private void knopfDruecken() {
+        guiKlangSteuerung.knopfDruecken();
     }
 }

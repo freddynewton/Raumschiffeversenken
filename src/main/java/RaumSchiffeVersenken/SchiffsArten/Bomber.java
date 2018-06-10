@@ -4,8 +4,8 @@ import RaumSchiffeVersenken.Interface_Factory.RaumSchiff;
 
 public class Bomber implements RaumSchiff {
 
-    private int laenge = 2;
-    private int LebensPunkte = 2;
+    private int laenge = 3;
+    private int LebensPunkte = 3;
     private int xKoordinaten;
     private int yKoordinaten;
     private int Schiffsrichtung;

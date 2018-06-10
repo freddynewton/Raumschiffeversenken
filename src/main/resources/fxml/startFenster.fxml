@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="vbox" alignment="CENTER" maxHeight="800.0" maxWidth="600.0" minHeight="800.0" minWidth="600.0" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RaumSchiffeVersenken.GUISteuerung.GUIStartFenster">
+<VBox fx:id="vbox" alignment="CENTER" maxHeight="800.0" maxWidth="600.0" minHeight="800.0" minWidth="600.0" prefHeight="800.0" prefWidth="600.0" styleClass="hintergrund" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RaumSchiffeVersenken.GUISteuerung.GUIStartFenster">
    <children>
 
        <ImageView fx:id="titelanimation" fitHeight="370.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="false" smooth="false" StackPane.alignment="CENTER">
@@ -22,19 +22,19 @@
             <Insets left="50.0" right="50.0" />
          </VBox.margin></ImageView>
 
-      <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onMouseClicked="#starteSpiel" prefHeight="75.0" prefWidth="300.0" text="START" styleClass="buttons">
+      <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#starteSpiel" onMouseEntered="#knopfZielen" onMousePressed="#knopfDruecken" prefHeight="75.0" prefWidth="300.0" styleClass="buttons" text="START">
          <VBox.margin>
             <Insets bottom="25.0" left="150.0" right="150.0" />
          </VBox.margin>
       </Button>
 
-      <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onMouseClicked="#oeffneCredits" prefHeight="75.0" prefWidth="300.0" text="CREDITS" styleClass="buttons">
+      <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#oeffneCredits" onMouseEntered="#knopfZielen" onMousePressed="#knopfDruecken" prefHeight="75.0" prefWidth="300.0" styleClass="buttons" text="CREDITS">
          <VBox.margin>
             <Insets bottom="25.0" />
          </VBox.margin>
       </Button>
        
-      <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onMouseClicked="#beendeSpiel" prefHeight="75.0" prefWidth="300.0" text="ENDE" styleClass="buttons">
+      <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#beendeSpiel" onMouseEntered="#knopfZielen" onMousePressed="#knopfDruecken" prefHeight="75.0" prefWidth="300.0" styleClass="buttons" text="ENDE">
          <VBox.margin>
             <Insets />
          </VBox.margin>

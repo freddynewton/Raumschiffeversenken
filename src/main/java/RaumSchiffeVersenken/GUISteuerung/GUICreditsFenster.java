@@ -15,6 +15,8 @@ import java.util.ResourceBundle;
 
 public class GUICreditsFenster implements Initializable {
 
+    GUIKlangSteuerung guiKlangSteuerung = new GUIKlangSteuerung();
+
     @FXML
     private VBox vbox;
 
@@ -43,4 +45,19 @@ public class GUICreditsFenster implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
     }
 
+    /**
+     *
+     */
+    @FXML
+    private void knopfZielen() {
+        guiKlangSteuerung.knopfZielen();
+    }
+
+    /**
+     *
+     */
+    @FXML
+    private void knopfDruecken() {
+        guiKlangSteuerung.knopfDruecken();
+    }
 }
