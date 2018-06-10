@@ -56,6 +56,8 @@ public class GUISpielrundeFenster implements Initializable {
     private void szeneWechsel() throws IOException {
         try {
             if (!spielfeldAktiv) {
+                guiKlangSteuerung.knopfDruecken();
+
                 if (spielerAktiv == "1") {
                     spielerAktiv = "2";
                 } else {
@@ -245,15 +247,13 @@ public class GUISpielrundeFenster implements Initializable {
     private static TranslateTransition tt;
 
     public static TranslateTransition schuetteln(Node node) {
-        if (tt == null || tt.getNode() != node)
-        {
+        if (tt == null || tt.getNode() != node) {
             tt = new TranslateTransition(Duration.millis(50), node);
         }
         tt.setByX(10f);
         tt.setCycleCount(2);
         tt.setAutoReverse(true);
-        if (tt.getStatus() == Animation.Status.STOPPED)
-        {
+        if (tt.getStatus() == Animation.Status.STOPPED) {
             tt.playFromStart();
         }
         return tt;
@@ -265,13 +265,5 @@ public class GUISpielrundeFenster implements Initializable {
     @FXML
     private void knopfZielen() {
         guiKlangSteuerung.knopfZielen();
-    }
-
-    /**
-     *
-     */
-    @FXML
-    private void knopfDruecken() {
-        guiKlangSteuerung.knopfDruecken();
     }
 }

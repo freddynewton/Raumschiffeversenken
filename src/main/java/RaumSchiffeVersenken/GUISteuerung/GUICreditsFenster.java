@@ -26,6 +26,7 @@ public class GUICreditsFenster implements Initializable {
     @FXML
     private void oeffneStartFenster() throws IOException {
         try {
+            guiKlangSteuerung.knopfDruecken();
             Stage spielefenster = (Stage) vbox.getScene().getWindow();
             Parent quelle = FXMLLoader.load(getClass().getResource("/fxml/startFenster.fxml"));
             Scene szene2 = new Scene(quelle);
@@ -51,13 +52,5 @@ public class GUICreditsFenster implements Initializable {
     @FXML
     private void knopfZielen() {
         guiKlangSteuerung.knopfZielen();
-    }
-
-    /**
-     *
-     */
-    @FXML
-    private void knopfDruecken() {
-        guiKlangSteuerung.knopfDruecken();
     }
 }

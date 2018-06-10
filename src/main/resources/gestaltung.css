@@ -13,9 +13,14 @@
 }
 
 .buttons:hover {
-    -fx-background-color: #666666;
+    -fx-background-color: #333333;
     -fx-background-color: rgba(102, 102, 102, 0.5);
     -fx-text-fill: #CCCCCC;
+}
+
+.buttons:focused {
+    -fx-border-color: white;
+    -fx-border-width: 1px;
 }
 
 .hintergrund {

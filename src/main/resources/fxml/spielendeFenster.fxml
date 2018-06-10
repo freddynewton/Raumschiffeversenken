@@ -14,7 +14,7 @@
             </font>
         </Label>
 
-        <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#spielEnde" onMouseEntered="#knopfZielen" onMousePressed="#knopfDruecken" prefHeight="75.0" prefWidth="300.0" styleClass="buttons" text="ENDE">
+        <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#spielEnde" onMouseEntered="#knopfZielen" prefHeight="75.0" prefWidth="300.0" styleClass="buttons" text="ENDE">
             <font>
                 <Font name="Corbel" size="22.0" />
             </font>

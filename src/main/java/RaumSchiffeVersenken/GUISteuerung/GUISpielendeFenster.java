@@ -25,17 +25,16 @@ public class GUISpielendeFenster implements Initializable {
     private Label siegesNachricht;
 
     /**
-     *
      * @throws IOException
      */
     @FXML
     private void spielEnde() throws IOException {
+        guiKlangSteuerung.knopfDruecken();
         Stage spielefenster = (Stage) vbox.getScene().getWindow();
         spielefenster.close();
     }
 
     /**
-     *
      * @param location
      * @param resources
      */
@@ -54,13 +53,5 @@ public class GUISpielendeFenster implements Initializable {
     @FXML
     private void knopfZielen() {
         guiKlangSteuerung.knopfZielen();
-    }
-
-    /**
-     *
-     */
-    @FXML
-    private void knopfDruecken() {
-        guiKlangSteuerung.knopfDruecken();
     }
 }

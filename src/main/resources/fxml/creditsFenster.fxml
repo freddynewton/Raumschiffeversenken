@@ -48,7 +48,7 @@
             </padding>
         </Label>
 
-        <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#oeffneStartFenster" onMouseEntered="#knopfZielen" onMousePressed="#knopfDruecken" prefHeight="75.0" prefWidth="300.0" styleClass="buttons" text="ZURÜCK">
+        <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#oeffneStartFenster" onMouseEntered="#knopfZielen" prefHeight="75.0" prefWidth="300.0" styleClass="buttons" text="ZURÜCK">
             <VBox.margin>
                 <Insets left="150.0" right="150.0" />
             </VBox.margin>

@@ -22,19 +22,19 @@
             <Insets left="50.0" right="50.0" />
          </VBox.margin></ImageView>
 
-      <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#starteSpiel" onMouseEntered="#knopfZielen" onMousePressed="#knopfDruecken" prefHeight="75.0" prefWidth="300.0" styleClass="buttons" text="START">
+      <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#starteSpiel" onMouseEntered="#knopfZielen" prefHeight="75.0" prefWidth="300.0" styleClass="buttons" text="START">
          <VBox.margin>
             <Insets bottom="25.0" left="150.0" right="150.0" />
          </VBox.margin>
       </Button>
 
-      <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#oeffneCredits" onMouseEntered="#knopfZielen" onMousePressed="#knopfDruecken" prefHeight="75.0" prefWidth="300.0" styleClass="buttons" text="CREDITS">
+      <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#oeffneCredits" onMouseEntered="#knopfZielen" prefHeight="75.0" prefWidth="300.0" styleClass="buttons" text="CREDITS">
          <VBox.margin>
             <Insets bottom="25.0" />
          </VBox.margin>
       </Button>
        
-      <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#beendeSpiel" onMouseEntered="#knopfZielen" onMousePressed="#knopfDruecken" prefHeight="75.0" prefWidth="300.0" styleClass="buttons" text="ENDE">
+      <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#beendeSpiel" onMouseEntered="#knopfZielen" prefHeight="75.0" prefWidth="300.0" styleClass="buttons" text="ENDE">
          <VBox.margin>
             <Insets />
          </VBox.margin>

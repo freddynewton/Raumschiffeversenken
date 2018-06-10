@@ -33,6 +33,7 @@ public class GUIStartFenster implements Initializable {
     @FXML
     private void starteSpiel() throws IOException {
         try {
+            guiKlangSteuerung.knopfDruecken();
             SpielablaufFX sfx = new SpielablaufFX();
             sfx.SchiffeSetzenAblauf();
             Stage spielefenster = (Stage) vbox.getScene().getWindow();
@@ -52,6 +53,7 @@ public class GUIStartFenster implements Initializable {
     @FXML
     private void oeffneCredits() throws IOException {
         try {
+            guiKlangSteuerung.knopfDruecken();
             Stage spielefenster = (Stage) vbox.getScene().getWindow();
             Parent quelle = FXMLLoader.load(getClass().getResource("/fxml/creditsFenster.fxml"));
             Scene szene2 = new Scene(quelle);
@@ -68,6 +70,7 @@ public class GUIStartFenster implements Initializable {
      */
     @FXML
     private void beendeSpiel() throws IOException {
+        guiKlangSteuerung.knopfDruecken();
         Stage spielefenster = (Stage) vbox.getScene().getWindow();
         spielefenster.close();
     }
@@ -87,13 +90,5 @@ public class GUIStartFenster implements Initializable {
     @FXML
     private void knopfZielen() {
         guiKlangSteuerung.knopfZielen();
-    }
-
-    /**
-     *
-     */
-    @FXML
-    private void knopfDruecken() {
-        guiKlangSteuerung.knopfDruecken();
     }
 }
