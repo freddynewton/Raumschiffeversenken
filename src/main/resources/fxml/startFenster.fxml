@@ -16,7 +16,7 @@
         <ImageView fx:id="titelanimation" fitHeight="370.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="false"
                    smooth="false" StackPane.alignment="CENTER">
             <image>
-                <Image url="@../bilder/titelGrafik.png"/>
+                <Image url="@../bilder/titel.png"/>
             </image>
             <viewport>
                 <Rectangle2D height="370.0" width="500.0"/>
