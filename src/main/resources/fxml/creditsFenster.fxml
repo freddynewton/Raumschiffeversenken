@@ -8,65 +8,51 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
 <VBox fx:id="vbox" alignment="CENTER" maxHeight="800.0" maxWidth="600.0" minHeight="800.0" minWidth="600.0" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RaumSchiffeVersenken.GUISteuerung.GUICreditsFenster">
-   <children>
+    <children>
 
-       <ImageView fx:id="titelanimation" fitHeight="370.0" fitWidth="500.0" onMouseClicked="#oeffneStartFenster" pickOnBounds="true" preserveRatio="false" smooth="false" StackPane.alignment="CENTER">
-         <image>
-            <Image url="@../bilder/titel.png" />
-         </image>
-         <viewport>
-            <Rectangle2D height="370.0" width="500.0" />
-         </viewport>
-         <VBox.margin>
-            <Insets left="50.0" right="50.0" />
-         </VBox.margin></ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="50.0" maxWidth="270.0" minHeight="50.0" minWidth="270.0" prefHeight="50.0" prefWidth="270.0" text="Jolanda Jerg" wrapText="true">
-         <font>
-            <Font name="Corbel" size="22.0" />
-         </font>
-         <padding>
-            <Insets bottom="25.0" left="50.0" right="50.0" />
-         </padding>
-      </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="50.0" maxWidth="270.0" minHeight="50.0"
-             minWidth="270.0" prefHeight="50.0" prefWidth="270.0" text="Fred Newton Akdogan" wrapText="true">
-         <font>
-            <Font name="Corbel" size="22.0" />
-         </font>
-         <padding>
-            <Insets bottom="25.0"/>
-         </padding>
-      </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="50.0" maxWidth="270.0" minHeight="50.0"
-             minWidth="270.0" prefHeight="50.0" prefWidth="270.0" text="Rajan Serafi" wrapText="true">
-         <font>
-            <Font name="Corbel" size="22.0" />
-         </font>
-         <padding>
-            <Insets bottom="25.0" left="50.0" right="50.0" />
-         </padding>
-      </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="50.0" maxWidth="270.0" minHeight="50.0"
-             minWidth="270.0" prefHeight="50.0" prefWidth="270.0" text="Georg Habermann" wrapText="true">
-         <font>
-            <Font name="Corbel" size="22.0" />
-         </font>
-         <padding>
-            <Insets bottom="25.0" left="50.0" right="50.0" />
-         </padding>
-      </Label>
+        <ImageView fx:id="titelanimation" fitHeight="370.0" fitWidth="500.0" onMouseClicked="#oeffneStartFenster" pickOnBounds="true" preserveRatio="false" smooth="false" StackPane.alignment="CENTER">
+            <image>
+                <Image url="@../bilder/titel.png" />
+            </image>
+            <viewport>
+                <Rectangle2D height="370.0" width="500.0" />
+            </viewport>
+            <VBox.margin>
+                <Insets left="50.0" right="50.0" />
+            </VBox.margin>
+        </ImageView>
 
-      <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onMouseClicked="#oeffneStartFenster" prefHeight="75.0" prefWidth="300.0" text="Zurück">
-         <font>
-            <Font name="Corbel" size="22.0" />
-         </font>
-         <VBox.margin>
-            <Insets left="150.0" right="150.0" />
-         </VBox.margin>
-      </Button>
+        <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="50.0" maxWidth="300.0" minHeight="50.0" minWidth="300.0" prefHeight="50.0" prefWidth="300.0" styleClass="label" text="JOLANDA JERG" wrapText="true">
+            <padding>
+                <Insets bottom="25.0" left="50.0" right="50.0" />
+            </padding>
+        </Label>
 
-   </children>
+        <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="50.0" maxWidth="300.0" minHeight="50.0" minWidth="300.0" prefHeight="50.0" prefWidth="300.0" styleClass="label" text="FRED NEWTON AKDOGAN" wrapText="true">
+            <padding>
+                <Insets bottom="25.0" />
+            </padding>
+        </Label>
+
+        <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="50.0" maxWidth="300.0" minHeight="50.0" minWidth="300.0" prefHeight="50.0" prefWidth="300.0" styleClass="label" text="RAJAN SERAFI" wrapText="true">
+            <padding>
+                <Insets bottom="25.0" left="50.0" right="50.0" />
+            </padding>
+        </Label>
+
+        <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="50.0" maxWidth="300.0" minHeight="50.0" minWidth="300.0" prefHeight="50.0" prefWidth="300.0" styleClass="label" text="GEORG HABERMANN" wrapText="true">
+            <padding>
+                <Insets bottom="25.0" left="50.0" right="50.0" />
+            </padding>
+        </Label>
+
+        <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onMouseClicked="#oeffneStartFenster" prefHeight="75.0" prefWidth="300.0" styleClass="buttons" text="ZURÜCK">
+            <VBox.margin>
+                <Insets left="150.0" right="150.0" />
+            </VBox.margin>
+        </Button>
+
+    </children>
 </VBox>

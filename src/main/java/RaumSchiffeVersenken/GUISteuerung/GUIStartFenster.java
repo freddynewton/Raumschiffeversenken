@@ -7,11 +7,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -41,7 +38,7 @@ public class GUIStartFenster implements Initializable {
             Scene szene2 = new Scene(quelle);
             spielefenster.setScene(szene2);
             szene2.getStylesheets().add("/gestaltung.css");
-            spielefenster.setFullScreen(false);
+            //spielefenster.setFullScreen(true);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -58,7 +55,7 @@ public class GUIStartFenster implements Initializable {
             Scene szene2 = new Scene(quelle);
             spielefenster.setScene(szene2);
             szene2.getStylesheets().add("/gestaltung.css");
-            spielefenster.setFullScreen(false);
+            //spielefenster.setFullScreen(true);
         } catch (IOException e) {
             e.printStackTrace();
         }

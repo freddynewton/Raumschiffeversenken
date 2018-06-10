@@ -37,7 +37,7 @@ public class GUISpielerwechselFenster implements Initializable {
             Scene szene2 = new Scene(quelle);
             spielefenster.setScene(szene2);
             szene2.getStylesheets().add("/gestaltung.css");
-            spielefenster.setFullScreen(false);
+            //spielefenster.setFullScreen(true);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -50,7 +50,7 @@ public class GUISpielerwechselFenster implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        aktiverSpielerLabel.setText("Spieler " + spielerAktiv + " ist an der Reihe!");
+        aktiverSpielerLabel.setText("SPIELER " + spielerAktiv + " IST AN DER REIHE!");
     }
 
 }

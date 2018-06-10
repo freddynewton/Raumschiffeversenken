@@ -5,22 +5,24 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="vbox" alignment="CENTER" maxHeight="800.0" maxWidth="600.0" minHeight="800.0" minWidth="600.0" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RaumSchiffeVersenken.GUISteuerung.GUISpielendeFenster">
-   <children>
-      <Label fx:id="siegesNachricht" alignment="CENTER" maxHeight="75.0" maxWidth="300.0" minHeight="75.0"
-             minWidth="300.0" prefHeight="75.0" prefWidth="300.0" text="Spieler X hat gewonnen!">
-         <font>
-            <Font name="Corbel" size="22.0" />
-         </font>
+<VBox fx:id="vbox" alignment="CENTER" maxHeight="800.0" maxWidth="600.0" minHeight="800.0" minWidth="600.0"
+      prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="RaumSchiffeVersenken.GUISteuerung.GUISpielendeFenster">
+    <children>
 
-      </Label>
+        <Label fx:id="siegesNachricht" alignment="CENTER" maxHeight="75.0" maxWidth="300.0" minHeight="75.0"
+               minWidth="300.0" prefHeight="75.0" prefWidth="300.0" text="SPIELER X HAT GEWONNEN!" styleClass="label">
+            <font>
+                <Font name="Corbel" size="22.0"/>
+            </font>
+        </Label>
 
-      <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false"
-              onMouseClicked="#spielEnde" prefHeight="75.0" prefWidth="300.0" text="Ende">
-         <font>
-            <Font name="Corbel" size="22.0" />
-         </font>
-      </Button>
+        <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false"
+                onMouseClicked="#spielEnde" prefHeight="75.0" prefWidth="300.0" text="ENDE" styleClass="buttons">
+            <font>
+                <Font name="Corbel" size="22.0"/>
+            </font>
+        </Button>
 
-   </children>
+    </children>
 </VBox>

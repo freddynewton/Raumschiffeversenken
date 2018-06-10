@@ -40,9 +40,9 @@ public class GUISpielendeFenster implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         if (spieler1Leben == 0) {
-            siegesNachricht.setText("Spieler 2 hat gewonnen!");
+            siegesNachricht.setText("SPIELER 2 HAT GEWONNEN!");
         } else if (spieler2Leben == 0) {
-            siegesNachricht.setText("Spieler 1 hat gewonnen!");
+            siegesNachricht.setText("SPIELER 1 HAT GEWONNEN!");
         }
     }
 }

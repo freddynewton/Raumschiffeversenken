@@ -29,7 +29,7 @@ public class GUICreditsFenster implements Initializable {
             Scene szene2 = new Scene(quelle);
             spielefenster.setScene(szene2);
             szene2.getStylesheets().add("/gestaltung.css");
-            spielefenster.setFullScreen(false);
+            //spielefenster.setFullScreen(true);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -6,7 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -28,11 +27,13 @@ public class SpielSystemMainFX extends Application {
         szene1.getStylesheets().add("gestaltung.css");
         spielefenster.setScene(szene1);
         spielefenster.show();
-        spielefenster.setFullScreen(false);
+        //spielefenster.setFullScreen(true);
 
+        //spielt die titelmusik in einer Endlosschleife!
         String musicFile = "src/main/resources/musik/titelmusik.mp3";
         Media titelmusik = new Media(new File(musicFile).toURI().toString());
         AudioClip musikSpieler = new AudioClip(titelmusik.getSource());
+        musikSpieler.setCycleCount(AudioClip.INDEFINITE);
         musikSpieler.play();
     }
 

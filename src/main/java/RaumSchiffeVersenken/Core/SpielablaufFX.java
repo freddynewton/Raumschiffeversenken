@@ -29,19 +29,6 @@ public class SpielablaufFX {
     public static Feld Feld_Spieler2 = new Feld(10, 10);
 
     /**
-     * Die Spieleinstruktionen werden im Textfeld des GUI über eine Methode in der GUISpielrundeFenster ausgegeben
-     *
-     * @param textAusgabe
-     * @return
-     */
-    public String start(Label textAusgabe) {
-
-        GUISpielrundeFenster.textAusgabeSteuerung("Schieße auf ein Feld!", textAusgabe);
-
-        return "Start";
-    }
-
-    /**
      *
      */
     public void SchiffeSetzenAblauf() {
