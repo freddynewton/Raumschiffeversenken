@@ -16,7 +16,7 @@ public class GUIKlangSteuerung {
     }
 
     public void knopfDruecken() {
-        String musikDatei = "src/main/resources/geräusche/knopfDruecken.wav";
+        String musikDatei = "src/main/resources/geräusche/knopfDrücken.wav";
         Media knopfZielen = new Media(new File(musikDatei).toURI().toString());
         AudioClip musikSpieler = new AudioClip(knopfZielen.getSource());
         musikSpieler.play();
