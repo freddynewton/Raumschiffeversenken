@@ -194,6 +194,8 @@ public class GUISpielrundeFenster implements Initializable {
     }
 
     /**
+     * Dieser Event-Handler beinhalted die Funktionen des Spielfeldes.
+     *
      * @param feld
      * @param grafikFeld1
      * @param danebenGrafikGroß
@@ -225,9 +227,27 @@ public class GUISpielrundeFenster implements Initializable {
                     feld.mapGroesse[Character.getNumericValue(grafikFeld1.getId().charAt(0))][Character.getNumericValue(grafikFeld1.getId().charAt(1))] = 6;
                     GUISpielrundeFenster.textAusgabeSteuerung("TREFFER!", textAusgabe);
 
-                    guiKlangSteuerung.blaster();
 
-                    guiKlangSteuerung.explosion();
+                    Thread t1 = new Thread() {
+                        public void run() {
+                            guiKlangSteuerung.blaster();
+                        }
+                    };
+
+                    Thread t2 = new Thread() {
+                        public void run() {
+                            guiKlangSteuerung.explosion();
+                        }
+                    };
+
+                    try {
+                        t1.start();
+                        t2.start();
+                        t1.join();
+                        t2.join();
+                    } catch (InterruptedException e) {
+                        System.out.println("Interrupted exception");
+                    }
 
                     schuetteln(spielfeld1);
 
@@ -247,6 +267,10 @@ public class GUISpielrundeFenster implements Initializable {
 
     private static TranslateTransition tt;
 
+    /**
+     * @param node
+     * @return
+     */
     public static TranslateTransition schuetteln(Node node) {
         if (tt == null || tt.getNode() != node) {
             tt = new TranslateTransition(Duration.millis(50), node);
