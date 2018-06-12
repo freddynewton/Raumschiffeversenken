@@ -295,7 +295,6 @@ public class Feld {
                     for (int i = 0; i < SchiffsLänge; i++) {
                         mapGroesse[xAchseBeschuss + i][yAchseBeschuss] += 5;
                     }
-
                 } else if (SchiffsRichtung == 2) {
                     for (int i = 0; i < SchiffsLänge; i++) {
                         mapGroesse[xAchseBeschuss][yAchseBeschuss + i] += 5;

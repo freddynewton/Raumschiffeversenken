@@ -19,6 +19,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,6 +34,8 @@ import static RaumSchiffeVersenken.GUISteuerung.GUIStartFenster.spieler2Leben;
 
 
 public class GUISpielrundeFenster implements Initializable {
+
+    private static final Logger log = LogManager.getLogger(GUISpielrundeFenster.class);
 
     private boolean spielfeldAktiv = true;
 
@@ -246,7 +250,7 @@ public class GUISpielrundeFenster implements Initializable {
                         t1.join();
                         t2.join();
                     } catch (InterruptedException e) {
-                        System.out.println("Interrupted exception");
+                        log.error("Interrupted exception");
                     }
 
                     schuetteln(spielfeld1);

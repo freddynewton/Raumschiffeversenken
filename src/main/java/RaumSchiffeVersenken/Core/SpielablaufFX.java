@@ -66,9 +66,31 @@ public class SpielablaufFX {
         log.info("Zerstörer" + SchiffsMap.put(12, Objects.requireNonNull(SchiffFactory.getRaumschiff("5"))));
         SchiffsMap.put(12, Objects.requireNonNull(SchiffFactory.getRaumschiff("5")));
 
-        spieler1SchiffeSetzenAblauf(SchiffsMap, 1);
 
-        spieler2SchiffeSetzenAblauf(SchiffsMap, 1);
+        Thread t1 = new Thread() {
+            public void run() {
+                spieler1SchiffeSetzenAblauf(SchiffsMap, 1);
+            }
+        };
+
+        Thread t2 = new Thread() {
+            public void run() {
+                spieler2SchiffeSetzenAblauf(SchiffsMap, 1);
+            }
+        };
+
+        try {
+            t1.start();
+            t2.start();
+            t1.join();
+            t2.join();
+        } catch (InterruptedException e) {
+            log.error("Interrupted exception");
+        }
+
+
+
+
     }
 
     /**
