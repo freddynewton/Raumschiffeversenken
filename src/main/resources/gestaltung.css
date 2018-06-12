@@ -25,5 +25,5 @@
 
 .hintergrund {
     -fx-background-color: #333333;
-    -fx-background-image:url("/bilder/hintergrund.png");
+    -fx-background-image: url("/bilder/hintergrundGrafik.png");
 }
