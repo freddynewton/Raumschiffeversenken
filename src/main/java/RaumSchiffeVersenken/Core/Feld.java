@@ -183,6 +183,8 @@ public class Feld {
         }
     }
 
+    // TODO: 14.06.2018 doppelten code eleganter lösen (variablen)
+
     /**
      * @param yAchseBeschuss
      * @param xAchseBeschuss
@@ -358,7 +360,6 @@ public class Feld {
             BereitAbfrage(feld);
             System.out.println(feld.toString());
         }
-
     }
 
     //-------------------------------------------------------------------------------------------------
@@ -376,7 +377,6 @@ public class Feld {
         this.BenoetigteTrefferZumGewinnen = BenoetigteTrefferZumGewinnen;
         this.mapGroesse = mapGroesse;
         int RevanceStatus;
-
 
         for (int j = 0; j < 10; j++) {
             for (int i = 0; i < 10; i++) {

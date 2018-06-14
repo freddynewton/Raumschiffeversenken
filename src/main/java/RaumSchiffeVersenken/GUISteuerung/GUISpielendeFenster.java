@@ -25,7 +25,6 @@ public class GUISpielendeFenster implements Initializable {
     private Label siegesNachricht;
 
     /**
-     *
      * @throws IOException
      */
     @FXML
@@ -35,7 +34,6 @@ public class GUISpielendeFenster implements Initializable {
     }
 
     /**
-     *
      * @param location
      * @param resources
      */

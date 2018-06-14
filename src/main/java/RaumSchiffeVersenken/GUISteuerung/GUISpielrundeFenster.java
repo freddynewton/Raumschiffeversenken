@@ -114,6 +114,7 @@ public class GUISpielrundeFenster implements Initializable {
         GUISpielrundeFenster.textAusgabeSteuerung("ZIELE AUF EIN FELD!", textAusgabe);
     }
 
+    // TODO: 14.06.2018 doppelten code eleganter lösen (variablen)
     /**
      * Die Spielfelder werden mit der Feld-Klasse verknüpft und im Spielefenster grafisch dargestellt
      *
