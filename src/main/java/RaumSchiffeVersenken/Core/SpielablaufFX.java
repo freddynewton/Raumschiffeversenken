@@ -64,13 +64,13 @@ public class SpielablaufFX {
 
         Thread t1 = new Thread() {
             public void run() {
-                spieler1SchiffeSetzenAblauf(SchiffsMap, 1);
+                spielerSchiffeSetzenAblauf(Feld_Spieler1,SchiffsMap, 1);
             }
         };
 
         Thread t2 = new Thread() {
             public void run() {
-                spieler2SchiffeSetzenAblauf(SchiffsMap, 1);
+                spielerSchiffeSetzenAblauf(Feld_Spieler2, SchiffsMap, 1);
             }
         };
 
@@ -107,38 +107,13 @@ public class SpielablaufFX {
      * @param rmInt
      * @return
      */
-    public String spieler1SchiffeSetzenAblauf(HashMap SchiffsMap, int rmInt) {
+    public String spielerSchiffeSetzenAblauf(Feld Feld_Spieler, HashMap SchiffsMap, int rmInt) {
 
         try {
             for (int i = 1; i <= 12; i++) {
                 RaumSchiff schiff = (RaumSchiff) SchiffsMap.get(i);
                 DerzeitigeSchiffslänge = schiff.getLaenge();
-                boolean stand = randomSchiffeSetzen(Feld_Spieler1, DerzeitigeSchiffslänge);
-
-                if (!stand) {
-                    i -= 1;
-                }
-            }
-        } catch (Exception ex) {
-            throw ex;
-        }
-        return "";
-    }
-
-    /**
-     *
-     *
-     * @param SchiffsMap
-     * @param rmInt2
-     * @return
-     */
-    public String spieler2SchiffeSetzenAblauf(HashMap SchiffsMap, int rmInt2) {
-
-        try {
-            for (int i = 1; i <= 12; i++) {
-                RaumSchiff schiff = (RaumSchiff) SchiffsMap.get(i);
-                DerzeitigeSchiffslänge = schiff.getLaenge();
-                boolean stand = randomSchiffeSetzen(Feld_Spieler2, DerzeitigeSchiffslänge);
+                boolean stand = randomSchiffeSetzen(Feld_Spieler, DerzeitigeSchiffslänge);
 
                 if (!stand) {
                     i -= 1;
@@ -150,3 +125,4 @@ public class SpielablaufFX {
         return "";
     }
 }
+
