@@ -16,7 +16,7 @@ public class Feld {
     public int xAchseBeschuss;
     public int yAchseBeschuss;
     public int SchiffsRichtung;
-    public int SchiffsLänge;
+    public int SchiffsLaenge;
     public int CounterSpieler1 = 0;
     public int CounterSpieler2 = 0;
     public int BenoetigteTrefferZumGewinnen = 26;
@@ -31,8 +31,8 @@ public class Feld {
     /**
      * 10x10 Matrix 100 Felder mit Zahlen von 0-99 mit 0 gefüllt
      *
-     * @param xAchse
-     * @param yAchse
+     * @param xAchse Länge
+     * @param yAchse Länge
      */
     public Feld(int xAchse, int yAchse) {
         this.xAchse = xAchse;
@@ -49,7 +49,7 @@ public class Feld {
     /**
      * Constructor Copy
      *
-     * @param feld
+     * @param feld überhabe 2D-Array damit eine Copie erstellt wird.
      */
     public Feld(Feld feld) {
         this.xAchse = feld.xAchse;
@@ -69,7 +69,7 @@ public class Feld {
     /**
      * Hier werden mit Scanner die jeweilige X-Achse und Y-Achse Koordinate abgefragt und
      * und Kontrolliert ob sie im Array sind und übergibt die Werte dann zur
-     * schießen() methode
+     * schiessen() methode
      */
     public void zielenZumSchiessen() {
 
@@ -87,7 +87,7 @@ public class Feld {
             yAchseBeschuss = Integer.parseInt(scanyString);
 
             if (yAchseBeschuss < 10 && yAchseBeschuss >= 0 && xAchseBeschuss < 10 && xAchseBeschuss >= 0) {
-                schießen(xAchseBeschuss, yAchseBeschuss);
+                schiessen(xAchseBeschuss, yAchseBeschuss);
             } else {
                 log.info("Bitte nur zwischen 0-9 jeweils in der X-Achse und Y-Achse");
                 System.out.println("Bitte nur zwischen 0-9 jeweils in der X-Achse und Y-Achse");
@@ -101,10 +101,10 @@ public class Feld {
     }
 
     /**
-     * @param yAchseBeschuss
-     * @param xAchseBeschuss
+     * @param yAchseBeschuss yAchse Grad beim beschuss
+     * @param xAchseBeschuss xAchse Grad beim beschuss
      */
-    public void schießen(int yAchseBeschuss, int xAchseBeschuss) {
+    public void schiessen(int yAchseBeschuss, int xAchseBeschuss) {
         this.xAchseBeschuss = xAchseBeschuss;
         this.yAchseBeschuss = yAchseBeschuss;
 
@@ -139,10 +139,10 @@ public class Feld {
     //---------------------------------------------------------------------------------------------------------------------
 
     /**
-     * @param SchiffsLänge
+     * @param SchiffsLaenge SchiffsLänge die zum Setzen benötigt wird
      */
-    public void zielenZumSchiffeSetzen(int SchiffsLänge) {
-        this.SchiffsLänge = SchiffsLänge;
+    public void zielenZumSchiffeSetzen(int SchiffsLaenge) {
+        this.SchiffsLaenge = SchiffsLaenge;
 
         try {
             log.info("Bitte geben sie ein in welcher Richtung sie das Schiff haben möchten\n" +
@@ -170,65 +170,65 @@ public class Feld {
             yAchseBeschuss = Integer.parseInt(scanyString);
 
             if (yAchseBeschuss < 10 && yAchseBeschuss >= 0 && xAchseBeschuss < 10 && xAchseBeschuss >= 0) {
-                schiffSetzenManuel(xAchseBeschuss, yAchseBeschuss, SchiffsRichtung, SchiffsLänge);
+                schiffSetzenManuel(xAchseBeschuss, yAchseBeschuss, SchiffsRichtung, SchiffsLaenge);
             } else {
                 log.info("Bitte nur zwischen 0-9 jeweils in der X-Achse und Y-Achse und Bei der Schiffsrichtung nur 1 & 2");
                 System.out.println("Bitte nur zwischen 0-9 jeweils in der X-Achse und Y-Achse und Bei der Schiffsrichtung nur 1 & 2");
-                zielenZumSchiffeSetzen(SchiffsLänge);
+                zielenZumSchiffeSetzen(SchiffsLaenge);
             }
         } catch (Exception ex1) {
             log.error("Bitte nur zwischen 0-9 jeweils in der X-Achse und Y-Achse und Bei der Schiffsrichtung nur 1 & 2", ex1);
             System.out.println("Bitte nur zwischen 0-9 jeweils in der X-Achse und Y-Achse und Bei der Schiffsrichtung nur 1 & 2");
-            zielenZumSchiffeSetzen(SchiffsLänge);
+            zielenZumSchiffeSetzen(SchiffsLaenge);
         }
     }
 
     // TODO: 14.06.2018 doppelten code eleganter lösen (variablen)
 
     /**
-     * @param yAchseBeschuss
-     * @param xAchseBeschuss
-     * @param SchiffsRichtung
-     * @param SchiffsLänge
+     * @param yAchseBeschuss :)
+     * @param xAchseBeschuss :)
+     * @param SchiffsRichtung :)
+     * @param SchiffsLaenge :)
      */
-    public void schiffSetzenManuel(int yAchseBeschuss, int xAchseBeschuss, int SchiffsRichtung, int SchiffsLänge) {
+    public void schiffSetzenManuel(int yAchseBeschuss, int xAchseBeschuss, int SchiffsRichtung, int SchiffsLaenge) {
         this.xAchseBeschuss = xAchseBeschuss;
         this.yAchseBeschuss = yAchseBeschuss;
         this.SchiffsRichtung = SchiffsRichtung;
-        this.SchiffsLänge = SchiffsLänge;
+        this.SchiffsLaenge = SchiffsLaenge;
         boolean SchiffErfolgreichSetzen = false;
-        int SchiffsLängeCounter = 0;
+        int SchiffsLaengeCounter = 0;
 
         try {
             if (SchiffsRichtung == 1) {
-                for (int i = 0; i < SchiffsLänge; i++) {
+                for (int i = 0; i < SchiffsLaenge; i++) {
                     log.info("mapGroesse[xAchseBeschuss + i][yAchseBeschuss] == 0" + (mapGroesse[xAchseBeschuss + i][yAchseBeschuss] == 0));
                     log.info("mapGroesse[xAchseBeschuss + i][yAchseBeschuss] != 5" + (mapGroesse[xAchseBeschuss + i][yAchseBeschuss] != 5));
                     if (mapGroesse[xAchseBeschuss + i][yAchseBeschuss] == 0 && mapGroesse[xAchseBeschuss + i][yAchseBeschuss] != 5) {
-                        SchiffsLängeCounter++;
+                        SchiffsLaengeCounter++;
                     }
                 }
             } else if (SchiffsRichtung == 2) {
-                for (int i = 0; i < SchiffsLänge; i++) {
+                for (int i = 0; i < SchiffsLaenge; i++) {
                     log.info("mapGroesse[xAchseBeschuss][yAchseBeschuss + 1] == 0" + (mapGroesse[xAchseBeschuss][yAchseBeschuss + i] == 0));
                     log.info("mapGroesse[xAchseBeschuss][yAchseBeschuss + 1] != 5" + (mapGroesse[xAchseBeschuss][yAchseBeschuss + i] != 5));
                     if (mapGroesse[xAchseBeschuss][yAchseBeschuss + i] == 0 && mapGroesse[xAchseBeschuss][yAchseBeschuss + i] != 5) {
-                        SchiffsLängeCounter++;
+                        SchiffsLaengeCounter++;
                     }
                 }
             }
 
-            if (SchiffsLängeCounter == SchiffsLänge) {
+            if (SchiffsLaengeCounter == SchiffsLaenge) {
                 SchiffErfolgreichSetzen = true;
             }
 
-            if (SchiffErfolgreichSetzen == true) {
+            if (SchiffErfolgreichSetzen) {
                 if (SchiffsRichtung == 1) {
-                    for (int i = 0; i < SchiffsLänge; i++) {
+                    for (int i = 0; i < SchiffsLaenge; i++) {
                         mapGroesse[xAchseBeschuss + i][yAchseBeschuss] += 5;
                     }
                 } else if (SchiffsRichtung == 2) {
-                    for (int i = 0; i < SchiffsLänge; i++) {
+                    for (int i = 0; i < SchiffsLaenge; i++) {
                         mapGroesse[xAchseBeschuss][yAchseBeschuss + i] += 5;
                     }
                 }
@@ -240,7 +240,7 @@ public class Feld {
                         "------------------------------------------------------------------\n" +
                         "\n");
 
-                zielenZumSchiffeSetzen(SchiffsLänge);
+                zielenZumSchiffeSetzen(SchiffsLaenge);
             }
         } catch (Exception ex2) {
             log.error("Bitte eine andere Zelle wählen da hier schon ein Schiff steht\n" +
@@ -249,56 +249,56 @@ public class Feld {
             System.out.println("Bitte eine andere Zelle wählen da hier schon ein Schiff steht\n" +
                     "------------------------------------------------------------------\n" +
                     "\n");
-            zielenZumSchiffeSetzen(SchiffsLänge);
+            zielenZumSchiffeSetzen(SchiffsLaenge);
         }
     }
 
     /**
-     * @param yAchseBeschuss
-     * @param xAchseBeschuss
-     * @param SchiffsRichtung
-     * @param SchiffsLänge
-     * @return
+     * @param yAchseBeschuss :)
+     * @param xAchseBeschuss :)
+     * @param SchiffsRichtung :)
+     * @param SchiffsLaenge :)
+     * @return :)
      */
-    public boolean schiffSetzenAutomatisch(int yAchseBeschuss, int xAchseBeschuss, int SchiffsRichtung, int SchiffsLänge) {
+    public boolean schiffSetzenAutomatisch(int yAchseBeschuss, int xAchseBeschuss, int SchiffsRichtung, int SchiffsLaenge) {
         this.xAchseBeschuss = xAchseBeschuss;
         this.yAchseBeschuss = yAchseBeschuss;
         this.SchiffsRichtung = SchiffsRichtung;
-        this.SchiffsLänge = SchiffsLänge;
+        this.SchiffsLaenge = SchiffsLaenge;
         boolean SchiffErfolgreichSetzen = false;
-        int SchiffsLängeCounter = 0;
+        int SchiffsLaengeCounter = 0;
 
         try {
 
             if (SchiffsRichtung == 1) {
-                for (int i = 0; i < SchiffsLänge; i++) {
+                for (int i = 0; i < SchiffsLaenge; i++) {
                     log.info("mapGroesse[xAchseBeschuss + i][yAchseBeschuss] == 0" + (mapGroesse[xAchseBeschuss + i][yAchseBeschuss] == 0));
                     log.info("mapGroesse[xAchseBeschuss + i][yAchseBeschuss] != 5" + (mapGroesse[xAchseBeschuss + i][yAchseBeschuss] != 5));
                     if (mapGroesse[xAchseBeschuss + i][yAchseBeschuss] == 0 && mapGroesse[xAchseBeschuss + i][yAchseBeschuss] != 5) {
-                        SchiffsLängeCounter++;
+                        SchiffsLaengeCounter++;
                     }
                 }
             } else if (SchiffsRichtung == 2) {
-                for (int i = 0; i < SchiffsLänge; i++) {
+                for (int i = 0; i < SchiffsLaenge; i++) {
                     log.info("mapGroesse[xAchseBeschuss][yAchseBeschuss + 1] == 0" + (mapGroesse[xAchseBeschuss][yAchseBeschuss + i] == 0));
                     log.info("mapGroesse[xAchseBeschuss][yAchseBeschuss + 1] != 5" + (mapGroesse[xAchseBeschuss][yAchseBeschuss + i] != 5));
                     if (mapGroesse[xAchseBeschuss][yAchseBeschuss + i] == 0 && mapGroesse[xAchseBeschuss][yAchseBeschuss + i] != 5) {
-                        SchiffsLängeCounter++;
+                        SchiffsLaengeCounter++;
                     }
                 }
             }
 
-            if (SchiffsLängeCounter == SchiffsLänge) {
+            if (SchiffsLaengeCounter == SchiffsLaenge) {
                 SchiffErfolgreichSetzen = true;
             }
 
             if (SchiffErfolgreichSetzen) {
                 if (SchiffsRichtung == 1) {
-                    for (int i = 0; i < SchiffsLänge; i++) {
+                    for (int i = 0; i < SchiffsLaenge; i++) {
                         mapGroesse[xAchseBeschuss + i][yAchseBeschuss] += 5;
                     }
                 } else if (SchiffsRichtung == 2) {
-                    for (int i = 0; i < SchiffsLänge; i++) {
+                    for (int i = 0; i < SchiffsLaenge; i++) {
                         mapGroesse[xAchseBeschuss][yAchseBeschuss + i] += 5;
                     }
 
@@ -335,7 +335,7 @@ public class Feld {
     // ----------------------------------------------------------------------------------------------
 
     /**
-     * @param feld
+     * @param feld :)
      */
     public void BereitAbfrage(Feld feld) {
 
@@ -368,8 +368,8 @@ public class Feld {
     // TODO: 03.05.2018 Auf Jar-Datei warten um die App neu zu starten in dem Revance
 
     /**
-     * @param feld
-     * @param SpielerNummer
+     * @param feld :)
+     * @param SpielerNummer :)
      */
     public void TrefferZaehler(Feld feld, int SpielerNummer) {
         this.CounterSpieler1 = CounterSpieler1;
@@ -406,9 +406,7 @@ public class Feld {
             String BereitString = RevanceScanner.nextLine();
             RevanceStatus = Integer.parseInt(BereitString);
 
-            if (RevanceStatus == 1) {
-
-            } else if (RevanceStatus == 2) {
+            if (RevanceStatus == 2) {
                 System.exit(0);
             }
 
@@ -428,9 +426,7 @@ public class Feld {
             String BereitString = RevanceScanner.nextLine();
             RevanceStatus = Integer.parseInt(BereitString);
 
-            if (RevanceStatus == 1) {
-
-            } else if (RevanceStatus == 2) {
+            if (RevanceStatus == 2) {
                 System.exit(0);
             }
 
@@ -438,7 +434,7 @@ public class Feld {
     }
 
     /**
-     * @return
+     * @return :)
      */
     @Override
     public String toString() {
@@ -455,7 +451,7 @@ public class Feld {
     /**
      * Für Test relevant
      *
-     * @return
+     * @return mapGroesse
      */
     public int[][] getMapGroesse() {
         return mapGroesse;
