@@ -21,7 +21,7 @@ public class SpielablaufFX {
     public static Feld Feld_Spieler1 = new Feld(10, 10);
     public static Feld Feld_Spieler2 = new Feld(10, 10);
 
-    private int DerzeitigeSchiffslänge = 0;
+    private int DerzeitigeSchiffslaenge = 0;
 
     /**
      * <p>Die Methode SchiffeSetzenablauf definiert zuerst eine HashMap der unterschiedlichen Schiffsarten, welche für
@@ -87,9 +87,9 @@ public class SpielablaufFX {
     /**
      *
      *
-     * @param feld
-     * @param SchiffTypsLaenge
-     * @return
+     * @param feld :)
+     * @param SchiffTypsLaenge :)
+     * @return boolean ob es funktioniert hat mit dem Schiffe setzen
      */
     public boolean randomSchiffeSetzen(Feld feld, int SchiffTypsLaenge) {
 
@@ -102,51 +102,45 @@ public class SpielablaufFX {
 
     /**
      *
-     *
-     * @param SchiffsMap
-     * @param rmInt
-     * @return
+     * @param SchiffsMap :)
+     * @param rmInt :)
      */
-    public String spieler1SchiffeSetzenAblauf(HashMap SchiffsMap, int rmInt) {
+    public synchronized void spieler1SchiffeSetzenAblauf(HashMap SchiffsMap, int rmInt) {
 
         try {
             for (int i = 1; i <= 12; i++) {
                 RaumSchiff schiff = (RaumSchiff) SchiffsMap.get(i);
-                DerzeitigeSchiffslänge = schiff.getLaenge();
-                boolean stand = randomSchiffeSetzen(Feld_Spieler1, DerzeitigeSchiffslänge);
+                DerzeitigeSchiffslaenge = schiff.getLaenge();
+                boolean stand = randomSchiffeSetzen(Feld_Spieler1, DerzeitigeSchiffslaenge);
 
                 if (!stand) {
                     i -= 1;
                 }
             }
         } catch (Exception ex) {
+            log.error("Exception: " + ex);
             throw ex;
         }
-        return "";
     }
 
     /**
      *
-     *
-     * @param SchiffsMap
-     * @param rmInt2
-     * @return
+     * @param SchiffsMap :)
+     * @param rmInt2 :)
      */
-    public String spieler2SchiffeSetzenAblauf(HashMap SchiffsMap, int rmInt2) {
+    public synchronized void spieler2SchiffeSetzenAblauf(HashMap SchiffsMap, int rmInt2) {
 
         try {
             for (int i = 1; i <= 12; i++) {
-                RaumSchiff schiff = (RaumSchiff) SchiffsMap.get(i);
-                DerzeitigeSchiffslänge = schiff.getLaenge();
-                boolean stand = randomSchiffeSetzen(Feld_Spieler2, DerzeitigeSchiffslänge);
+                boolean stand = randomSchiffeSetzen(Feld_Spieler2, ((RaumSchiff) SchiffsMap.get(i)).getLaenge());
 
                 if (!stand) {
                     i -= 1;
                 }
             }
         } catch (Exception ex) {
+            log.error("Exception: " + ex);
             throw ex;
         }
-        return "";
     }
 }
