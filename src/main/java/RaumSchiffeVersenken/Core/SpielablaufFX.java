@@ -9,32 +9,31 @@ import org.apache.logging.log4j.Logger;
 import java.util.HashMap;
 import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
 
 public class SpielablaufFX {
 
-    Lock lock = new ReentrantLock();
-
     /**
-     * Logger erstellung.
+     * <p>Hier wird der Logger für die Klasse SpielablaufFX erstellt sowie alle Static-Variablen der Klasse.</p>
      */
     private static final Logger log = LogManager.getLogger(Spielablauf.class);
 
-    private int DerzeitigeSchiffslänge = 0;
     public static Feld Feld_Spieler1 = new Feld(10, 10);
     public static Feld Feld_Spieler2 = new Feld(10, 10);
 
+    private int DerzeitigeSchiffslänge = 0;
+
     /**
-     *
+     * <p>Die Methode SchiffeSetzenablauf definiert zuerst eine HashMap der unterschiedlichen Schiffsarten, welche für
+     * das Platzieren dieser auf dem Spielfeld bereitgestellt werden. Die einzelnen Schiffe werden über die Factory
+     * "SchiffFactory" generiert. Das anschließende platzieren der einzelnen Schiffe wird über zwei Threads,
+     * je einer für jede Spielerflotte, abgehandelt.</p>
      */
     public void SchiffeSetzenAblauf() {
 
         HashMap<Integer, RaumSchiff> SchiffsMap = new HashMap<>();
         log.info("HashMap<Integer, RaumSchiff> SchiffsMap = new HashMap<>()" + SchiffsMap);
 
-        // Jaeger erstellen mit 1 Lebenspunkt
         log.info("Jager 1" + SchiffsMap.put(1, Objects.requireNonNull(SchiffFactory.getRaumschiff("1"))));
         log.info("Jager 2" + SchiffsMap.put(2, Objects.requireNonNull(SchiffFactory.getRaumschiff("1"))));
         log.info("Jager 3" + SchiffsMap.put(3, Objects.requireNonNull(SchiffFactory.getRaumschiff("1"))));
@@ -46,7 +45,6 @@ public class SpielablaufFX {
         SchiffsMap.put(4, Objects.requireNonNull(SchiffFactory.getRaumschiff("1")));
         SchiffsMap.put(5, Objects.requireNonNull(SchiffFactory.getRaumschiff("1")));
 
-        //Bomber erstellen mit 2 Lebenspunkten
         log.info("Bomber 1" + SchiffsMap.put(6, Objects.requireNonNull(SchiffFactory.getRaumschiff("2"))));
         log.info("Bomber 2" + SchiffsMap.put(7, Objects.requireNonNull(SchiffFactory.getRaumschiff("2"))));
         log.info("Bomber 3" + SchiffsMap.put(8, Objects.requireNonNull(SchiffFactory.getRaumschiff("2"))));
@@ -56,16 +54,13 @@ public class SpielablaufFX {
         SchiffsMap.put(8, Objects.requireNonNull(SchiffFactory.getRaumschiff("2")));
         SchiffsMap.put(9, Objects.requireNonNull(SchiffFactory.getRaumschiff("2")));
 
-        //Fregatte erstellen mit 4 Lebenspunkten
         log.info("Fregatte 1" + SchiffsMap.put(10, Objects.requireNonNull(SchiffFactory.getRaumschiff("4"))));
         log.info("Fregatte 2" + SchiffsMap.put(11, Objects.requireNonNull(SchiffFactory.getRaumschiff("4"))));
         SchiffsMap.put(10, Objects.requireNonNull(SchiffFactory.getRaumschiff("4")));
         SchiffsMap.put(11, Objects.requireNonNull(SchiffFactory.getRaumschiff("4")));
 
-        //Zerstörer erstellen mit 5 Lebenspunkten
         log.info("Zerstörer" + SchiffsMap.put(12, Objects.requireNonNull(SchiffFactory.getRaumschiff("5"))));
         SchiffsMap.put(12, Objects.requireNonNull(SchiffFactory.getRaumschiff("5")));
-
 
         Thread t1 = new Thread() {
             public void run() {
@@ -87,13 +82,11 @@ public class SpielablaufFX {
         } catch (InterruptedException e) {
             log.error("Interrupted exception");
         }
-
-
-
-
     }
 
     /**
+     *
+     *
      * @param feld
      * @param SchiffTypsLaenge
      * @return
@@ -108,6 +101,8 @@ public class SpielablaufFX {
     }
 
     /**
+     *
+     *
      * @param SchiffsMap
      * @param rmInt
      * @return
@@ -131,6 +126,8 @@ public class SpielablaufFX {
     }
 
     /**
+     *
+     *
      * @param SchiffsMap
      * @param rmInt2
      * @return

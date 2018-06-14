@@ -11,11 +11,25 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 
-
+/**
+ * <p>Die Klasse SpielSystemMainFX definiert das Startfenster (Stage) und ruft es auf. Als Main-Klasse ist es die erste
+ * Klasse die gestartet wird und die über JavaFX definierte Szene in der erstellten Stage einstellt.</p>
+ * <p>
+ * <p>Die Reihenfolge der JavaFX Benutzeroberfläche bei der Anlage fnktioniert wie folgt:</p>
+ * <ul>
+ * <li>die SpieleSystemMainFX-Klasse erbt von Application</li>
+ * <li>die Start-Methode wird überschrieben</li>
+ * <li>die Stage wird über den FXML Loader festgelegt</li>
+ * <li>der Stage wird eine Szene hinzugefügt</li>
+ * <li>die Szene wird mit einer .css-Datei verknüpft</li>
+ * <li>die Szene wird gesetzt und schließlich die Stage gestartet</li>
+ * </ul>
+ */
 public class SpielSystemMainFX extends Application {
 
     /**
-     * Die Szene im Spielefenster wird hier mit der FXML-Datei und der CSS-Datei verknüpft.
+     * <p>Die Szene des Startinterfaces im Spielefenster wird hier mit der FXML-Datei und der CSS-Datei verknüpft und
+     * aufgerufen. Im zweiten Codeblock wird die Titelmusik über einen AudioClip in eier Endlosschleife abgespielt.</p>
      *
      * @param spielefenster
      * @throws IOException
@@ -27,9 +41,7 @@ public class SpielSystemMainFX extends Application {
         szene1.getStylesheets().add("gestaltung.css");
         spielefenster.setScene(szene1);
         spielefenster.show();
-        //spielefenster.setFullScreen(true);
 
-        //spielt die titelmusik in einer Endlosschleife!
         String musicFile = "src/main/resources/musik/titelmusik.mp3";
         Media titelmusik = new Media(new File(musicFile).toURI().toString());
         AudioClip musikSpieler = new AudioClip(titelmusik.getSource());
@@ -38,7 +50,7 @@ public class SpielSystemMainFX extends Application {
     }
 
     /**
-     * Die Main-Methode ruft das Fenster (Stage) auf, nachdem es initialisiert wurde.
+     * <p>Die Main-Methode ruft das Fenster (Stage) auf, nachdem es initialisiert wurde.</p>
      *
      * @param args
      */
