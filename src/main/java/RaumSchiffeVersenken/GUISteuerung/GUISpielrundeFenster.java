@@ -74,14 +74,12 @@ public class GUISpielrundeFenster implements Initializable {
                     Scene szene2 = new Scene(quelle);
                     spielefenster.setScene(szene2);
                     szene2.getStylesheets().add("/gestaltung.css");
-                    //spielefenster.setFullScreen(true);
                 } else {
                     Stage spielefenster = (Stage) spielefensterVBox.getScene().getWindow();
                     Parent quelle = FXMLLoader.load(getClass().getResource("/fxml/spielerwechselFenster.fxml"));
                     Scene szene2 = new Scene(quelle);
                     spielefenster.setScene(szene2);
                     szene2.getStylesheets().add("/gestaltung.css");
-                    //spielefenster.setFullScreen(true);
                 }
             }
         } catch (IOException e) {
@@ -102,19 +100,15 @@ public class GUISpielrundeFenster implements Initializable {
 
         SpielablaufFX sfx = new SpielablaufFX();
 
-
-        //führt die Methode zum Bau des Spielfeldes auf je nachdem welcher Spieler gerade dran ist
         if (spielerAktiv == "1") {
             feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler2, Feld_Spieler1);
         } else {
             feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler1, Feld_Spieler2);
         }
 
-        //starte die Spielablauf-Klasse im Hintergrund
         GUISpielrundeFenster.textAusgabeSteuerung("ZIELE AUF EIN FELD!", textAusgabe);
     }
 
-    // TODO: 14.06.2018 doppelten code eleganter lösen (variablen)
     /**
      * Die Spielfelder werden mit der Feld-Klasse verknüpft und im Spielefenster grafisch dargestellt
      *
@@ -128,60 +122,49 @@ public class GUISpielrundeFenster implements Initializable {
         Image feldGrafikGroß = new Image("bilder/weltraumGrafikGroß.png");
         Image danebenGrafikGroß = new Image("bilder/danebenGrafikGroß.png");
         Image trefferGrafikGroß = new Image("bilder/trefferGrafikGroß.png");
-
         Image feldGrafik = new Image("bilder/weltraumGrafik.png");
         Image raumschiffGrafik = new Image("bilder/raumschiffGrafik.png");
         Image danebenGrafik = new Image("bilder/danebenGrafik.png");
         Image trefferGrafik = new Image("bilder/trefferGrafik.png");
 
-
-        //die for-Schleifen befüllen beide Spielfelder mit Grafiken
         for (int y = 0; y < feldSpalte; y++) {
             for (int x = 0; x < feldReihe; x++) {
                 ImageView grafikFeld1 = new ImageView();
-                grafikFeld1.setId("" + x + y);
-                grafikFeld1.setFitHeight(50);
-                grafikFeld1.setFitWidth(50);
 
                 if (spielfeldAktiv) {
                     klickevent(großesFeld, grafikFeld1, danebenGrafikGroß, trefferGrafikGroß, feldSpalte, feldReihe);
                 }
 
-                if (großesFeld.mapGroesse[x][y] == 0) {
-                    grafikFeld1.setImage(feldGrafikGroß);
-                    spielfeld1.add(grafikFeld1, x, y);
-                } else if (großesFeld.mapGroesse[x][y] == 1) {
-                    grafikFeld1.setImage(danebenGrafikGroß);
-                    spielfeld1.add(grafikFeld1, x, y);
-                } else if (großesFeld.mapGroesse[x][y] == 5) {
-                    grafikFeld1.setImage(feldGrafikGroß);
-                    spielfeld1.add(grafikFeld1, x, y);
-                } else if (großesFeld.mapGroesse[x][y] == 6) {
-                    grafikFeld1.setImage(trefferGrafikGroß);
-                    spielfeld1.add(grafikFeld1, x, y);
-                }
+                arrayZeichner(spielfeld1, großesFeld, grafikFeld1, feldGrafikGroß, danebenGrafikGroß, feldGrafikGroß, trefferGrafikGroß, x, y, 50, 50);
             }
         }
 
         for (int y = 0; y < feldSpalte; y++) {
             for (int x = 0; x < feldReihe; x++) {
                 ImageView grafikFeld2 = new ImageView();
-                grafikFeld2.setId("" + x + y);
 
-                if (kleinesFeld.mapGroesse[x][y] == 0) {
-                    grafikFeld2.setImage(feldGrafik);
-                    spielfeld2.add(grafikFeld2, x, y);
-                } else if (kleinesFeld.mapGroesse[x][y] == 1) {
-                    grafikFeld2.setImage(danebenGrafik);
-                    spielfeld2.add(grafikFeld2, x, y);
-                } else if (kleinesFeld.mapGroesse[x][y] == 5) {
-                    grafikFeld2.setImage(raumschiffGrafik);
-                    spielfeld2.add(grafikFeld2, x, y);
-                } else if (kleinesFeld.mapGroesse[x][y] == 6) {
-                    grafikFeld2.setImage(trefferGrafik);
-                    spielfeld2.add(grafikFeld2, x, y);
-                }
+                arrayZeichner(spielfeld2, kleinesFeld, grafikFeld2, feldGrafik, danebenGrafik, raumschiffGrafik, trefferGrafik, x, y, 15, 15);
             }
+        }
+    }
+
+    public void arrayZeichner(GridPane spielfeld, Feld feld, ImageView grafikFeld, Image feldGrafik, Image danebenGrafik, Image raumschiffGrafik, Image trefferGrafik, int x, int y, int höhe, int breite) {
+        grafikFeld.setId("" + x + y);
+        grafikFeld.setFitHeight(höhe);
+        grafikFeld.setFitWidth(breite);
+
+        if (feld.mapGroesse[x][y] == 0) {
+            grafikFeld.setImage(feldGrafik);
+            spielfeld.add(grafikFeld, x, y);
+        } else if (feld.mapGroesse[x][y] == 1) {
+            grafikFeld.setImage(danebenGrafik);
+            spielfeld.add(grafikFeld, x, y);
+        } else if (feld.mapGroesse[x][y] == 5) {
+            grafikFeld.setImage(raumschiffGrafik);
+            spielfeld.add(grafikFeld, x, y);
+        } else if (feld.mapGroesse[x][y] == 6) {
+            grafikFeld.setImage(trefferGrafik);
+            spielfeld.add(grafikFeld, x, y);
         }
     }
 
@@ -193,8 +176,6 @@ public class GUISpielrundeFenster implements Initializable {
      * @param textAusgabe
      */
     public static void textAusgabeSteuerung(String textAusgabeText, Label textAusgabe) {
-
-        //erstellt ein Textelement für das Label
         textAusgabe.setText(textAusgabeText);
     }
 
@@ -232,27 +213,9 @@ public class GUISpielrundeFenster implements Initializable {
                     feld.mapGroesse[Character.getNumericValue(grafikFeld1.getId().charAt(0))][Character.getNumericValue(grafikFeld1.getId().charAt(1))] = 6;
                     GUISpielrundeFenster.textAusgabeSteuerung("TREFFER!", textAusgabe);
 
+                    guiKlangSteuerung.blaster();
 
-                    Thread t1 = new Thread() {
-                        public void run() {
-                            guiKlangSteuerung.blaster();
-                        }
-                    };
-
-                    Thread t2 = new Thread() {
-                        public void run() {
-                            guiKlangSteuerung.explosion();
-                        }
-                    };
-
-                    try {
-                        t1.start();
-                        t2.start();
-                        t1.join();
-                        t2.join();
-                    } catch (InterruptedException e) {
-                        log.error("Interrupted exception");
-                    }
+                    guiKlangSteuerung.explosion();
 
                     schuetteln(spielfeld1);
 

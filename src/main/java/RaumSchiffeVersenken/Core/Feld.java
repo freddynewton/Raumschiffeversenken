@@ -24,12 +24,12 @@ public class Feld {
     Lock lock = new ReentrantLock();
 
     /**
-     * Logger erstellung.
+     * <p>Erstellung des Loggers.</p>
      */
     private static final Logger log = LogManager.getLogger(Feld.class);
 
     /**
-     * 10x10 Matrix 100 Felder mit Zahlen von 0-99 mit 0 gefüllt
+     * <p>10x10 Matrix 100 Feldern wird mit Zahlen von 0-99 mit "0" gefüllt.</p>
      *
      * @param xAchse Länge
      * @param yAchse Länge
@@ -47,7 +47,7 @@ public class Feld {
     }
 
     /**
-     * Constructor Copy
+     * <p>Constructor Kopie für das Feld wird erstellt.</p>
      *
      * @param feld überhabe 2D-Array damit eine Copie erstellt wird.
      */
@@ -63,13 +63,10 @@ public class Feld {
         }
     }
 
-    //--------------------------------------------------------------------------------------------------------------------
-    // TODO: 20.04.2018 Lock und finally hinzufügen bei allen Methoden
-
     /**
-     * Hier werden mit Scanner die jeweilige X-Achse und Y-Achse Koordinate abgefragt und
+     * <p>Hier werden mit Scanner die jeweilige X-Achse und Y-Achse Koordinate abgefragt und
      * und Kontrolliert ob sie im Array sind und übergibt die Werte dann zur
-     * schiessen() methode
+     * schiessen() methode.</p>
      */
     public void zielenZumSchiessen() {
 
@@ -136,8 +133,6 @@ public class Feld {
         }
     }
 
-    //---------------------------------------------------------------------------------------------------------------------
-
     /**
      * @param SchiffsLaenge SchiffsLänge die zum Setzen benötigt wird
      */
@@ -186,10 +181,10 @@ public class Feld {
     // TODO: 14.06.2018 doppelten code eleganter lösen (variablen)
 
     /**
-     * @param yAchseBeschuss :)
-     * @param xAchseBeschuss :)
+     * @param yAchseBeschuss  :)
+     * @param xAchseBeschuss  :)
      * @param SchiffsRichtung :)
-     * @param SchiffsLaenge :)
+     * @param SchiffsLaenge   :)
      */
     public void schiffSetzenManuel(int yAchseBeschuss, int xAchseBeschuss, int SchiffsRichtung, int SchiffsLaenge) {
         this.xAchseBeschuss = xAchseBeschuss;
@@ -254,10 +249,10 @@ public class Feld {
     }
 
     /**
-     * @param yAchseBeschuss :)
-     * @param xAchseBeschuss :)
+     * @param yAchseBeschuss  :)
+     * @param xAchseBeschuss  :)
      * @param SchiffsRichtung :)
-     * @param SchiffsLaenge :)
+     * @param SchiffsLaenge   :)
      * @return :)
      */
     public boolean schiffSetzenAutomatisch(int yAchseBeschuss, int xAchseBeschuss, int SchiffsRichtung, int SchiffsLaenge) {
@@ -316,8 +311,6 @@ public class Feld {
         return SchiffErfolgreichSetzen;
     }
 
-    // ----------------------------------------------------------------------------------------------
-
     /**
      *
      */
@@ -331,8 +324,6 @@ public class Feld {
             }
         }
     }
-
-    // ----------------------------------------------------------------------------------------------
 
     /**
      * @param feld :)
@@ -362,13 +353,8 @@ public class Feld {
         }
     }
 
-    //-------------------------------------------------------------------------------------------------
-
-
-    // TODO: 03.05.2018 Auf Jar-Datei warten um die App neu zu starten in dem Revance
-
     /**
-     * @param feld :)
+     * @param feld          :)
      * @param SpielerNummer :)
      */
     public void TrefferZaehler(Feld feld, int SpielerNummer) {
