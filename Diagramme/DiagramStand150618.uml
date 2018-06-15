@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="844.6168010752689" y="511.0">RaumSchiffeVersenken.Interface_Factory.SchiffFactory</node>
+    <node x="853.1168010752689" y="254.0">RaumSchiffeVersenken.SchiffsArten.Zerstoerer</node>
+    <node x="776.8514784946236" y="0.0">RaumSchiffeVersenken.Interface_Factory.RaumSchiff</node>
+    <node x="603.1168010752689" y="265.5">RaumSchiffeVersenken.SchiffsArten.Bomber</node>
+    <node x="149.5" y="1352.0">RaumSchiffeVersenken.GUISteuerung.GUICreditsFenster</node>
+    <node x="0.0" y="1696.0">RaumSchiffeVersenken.GUISteuerung.GUISpielerwechselFenster</node>
+    <node x="1476.866801075269" y="0.0">RaumSchiffeVersenken.Core.SpielSystemMainFX</node>
+    <node x="621.0793010752689" y="1597.0">RaumSchiffeVersenken.GUISteuerung.GUISpielrundeFenster</node>
+    <node x="322.4181451612902" y="1045.5">RaumSchiffeVersenken.GUISteuerung.GUIKlangSteuerung</node>
+    <node x="323.07930107526886" y="1696.0">RaumSchiffeVersenken.GUISteuerung.GUISpielendeFenster</node>
+    <node x="1245.366801075269" y="1078.5">RaumSchiffeVersenken.Entwicklungskonsole.SpielSystemMain</node>
+    <node x="474.0" y="1297.0">RaumSchiffeVersenken.GUISteuerung.GUIStartFenster</node>
+    <node x="1122.866801075269" y="657.0">RaumSchiffeVersenken.Entwicklungskonsole.Spielablauf</node>
+    <node x="161.11680107526888" y="287.5">RaumSchiffeVersenken.Interface_Factory.RaumSchiff.RaumschiffsArten</node>
+    <node x="1103.116801075269" y="254.0">RaumSchiffeVersenken.SchiffsArten.Fregatte</node>
+    <node x="353.1168010752689" y="254.0">RaumSchiffeVersenken.SchiffsArten.Jaeger</node>
+    <node x="730.8668010752689" y="1001.0">RaumSchiffeVersenken.Core.SpielablaufFX</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="RaumSchiffeVersenken.Core.SpielablaufFX" target="RaumSchiffeVersenken.Entwicklungskonsole.Spielablauf">
+      <point x="117.0" y="-103.0" />
+      <point x="1023.3668010752689" y="976.0" />
+      <point x="1174.366801075269" y="976.0" />
+      <point x="-103.0" y="147.0" />
+    </edge>
+    <edge source="RaumSchiffeVersenken.Entwicklungskonsole.Spielablauf" target="RaumSchiffeVersenken.Interface_Factory.RaumSchiff">
+      <point x="77.25" y="-147.0" />
+      <point x="1354.616801075269" y="204.0" />
+      <point x="992.4764784946236" y="204.0" />
+      <point x="100.62500000000003" y="92.0" />
+    </edge>
+    <edge source="RaumSchiffeVersenken.SchiffsArten.Fregatte" target="RaumSchiffeVersenken.Interface_Factory.RaumSchiff">
+      <point x="0.0" y="-103.5" />
+      <point x="1218.116801075269" y="224.0" />
+      <point x="934.9764784946236" y="224.0" />
+      <point x="43.125" y="92.0" />
+    </edge>
+    <edge source="RaumSchiffeVersenken.GUISteuerung.GUISpielerwechselFenster" target="RaumSchiffeVersenken.GUISteuerung.GUIStartFenster">
+      <point x="92.66666666666674" y="-81.0" />
+      <point x="231.66666666666674" y="1577.0" />
+      <point x="520.3333333333334" y="1577.0" />
+      <point x="-92.66666666666663" y="125.0" />
+    </edge>
+    <edge source="RaumSchiffeVersenken.GUISteuerung.GUISpielrundeFenster" target="RaumSchiffeVersenken.Core.SpielablaufFX">
+      <point x="72.0" y="-180.0" />
+      <point x="873.0793010752689" y="1567.0" />
+      <point x="969.2418010752689" y="1567.0" />
+      <point x="969.2418010752689" y="1277.0" />
+      <point x="950.2418010752689" y="1277.0" />
+      <point x="43.875" y="103.0" />
+    </edge>
+    <edge source="RaumSchiffeVersenken.GUISteuerung.GUISpielendeFenster" target="RaumSchiffeVersenken.GUISteuerung.GUIKlangSteuerung">
+      <point x="-92.66666666666674" y="-81.0" />
+      <point x="369.4126344086021" y="1567.0" />
+      <point x="438.0" y="1567.0" />
+      <point x="438.0" y="1277.0" />
+      <point x="405.2181451612902" y="1277.0" />
+      <point x="-9.200000000000045" y="58.5" />
+    </edge>
+    <edge source="RaumSchiffeVersenken.Interface_Factory.SchiffFactory" target="RaumSchiffeVersenken.Interface_Factory.RaumSchiff">
+      <point x="98.79999999999995" y="-48.0" />
+      <point x="1066.9168010752687" y="491.0" />
+      <point x="1343.616801075269" y="491.0" />
+      <point x="1343.616801075269" y="214.0" />
+      <point x="963.7264784946236" y="214.0" />
+      <point x="71.87500000000003" y="92.0" />
+    </edge>
+    <edge source="RaumSchiffeVersenken.SchiffsArten.Zerstoerer" target="RaumSchiffeVersenken.Interface_Factory.RaumSchiff">
+      <point x="0.0" y="-103.5" />
+      <point x="968.1168010752689" y="234.0" />
+      <point x="906.2264784946236" y="234.0" />
+      <point x="14.375" y="92.0" />
+    </edge>
+    <edge source="RaumSchiffeVersenken.Interface_Factory.SchiffFactory" target="RaumSchiffeVersenken.SchiffsArten.Jaeger">
+      <point x="-98.80000000000007" y="-48.0" />
+      <point x="869.3168010752688" y="491.0" />
+      <point x="468.1168010752689" y="491.0" />
+      <point x="0.0" y="103.5" />
+    </edge>
+    <edge source="RaumSchiffeVersenken.Entwicklungskonsole.SpielSystemMain" target="RaumSchiffeVersenken.Entwicklungskonsole.Spielablauf">
+      <point x="41.75" y="-25.5" />
+      <point x="1370.616801075269" y="976.0" />
+      <point x="1380.366801075269" y="976.0" />
+      <point x="103.0" y="147.0" />
+    </edge>
+    <edge source="RaumSchiffeVersenken.Interface_Factory.SchiffFactory" target="RaumSchiffeVersenken.SchiffsArten.Bomber">
+      <point x="-49.40000000000009" y="-48.0" />
+      <point x="918.7168010752688" y="481.0" />
+      <point x="718.1168010752689" y="481.0" />
+      <point x="0.0" y="92.0" />
+    </edge>
+    <edge source="RaumSchiffeVersenken.Core.SpielablaufFX" target="RaumSchiffeVersenken.Interface_Factory.SchiffFactory">
+      <point x="0.0" y="-103.0" />
+      <point x="-61.75" y="48.0" />
+    </edge>
+    <edge source="RaumSchiffeVersenken.Interface_Factory.SchiffFactory" target="RaumSchiffeVersenken.SchiffsArten.Zerstoerer">
+      <point x="0.0" y="-48.0" />
+      <point x="0.0" y="103.5" />
+    </edge>
+    <edge source="RaumSchiffeVersenken.Core.SpielablaufFX" target="RaumSchiffeVersenken.Interface_Factory.RaumSchiff">
+      <point x="-117.0" y="-103.0" />
+      <point x="789.3668010752689" y="976.0" />
+      <point x="150.61680107526888" y="976.0" />
+      <point x="150.61680107526888" y="204.0" />
+      <point x="791.2264784946236" y="204.0" />
+      <point x="-100.625" y="92.0" />
+    </edge>
+    <edge source="RaumSchiffeVersenken.GUISteuerung.GUICreditsFenster" target="RaumSchiffeVersenken.GUISteuerung.GUIKlangSteuerung">
+      <point x="-69.5" y="-70.0" />
+      <point x="219.0" y="1267.0" />
+      <point x="368.4181451612902" y="1267.0" />
+      <point x="-46.0" y="58.5" />
+    </edge>
+    <edge source="RaumSchiffeVersenken.Interface_Factory.RaumSchiff.RaumschiffsArten" target="RaumSchiffeVersenken.Interface_Factory.RaumSchiff">
+      <point x="0.0" y="-70.0" />
+      <point x="247.11680107526888" y="214.0" />
+      <point x="819.9764784946236" y="214.0" />
+      <point x="-71.875" y="92.0" />
+    </edge>
+    <edge source="RaumSchiffeVersenken.GUISteuerung.GUISpielrundeFenster" target="RaumSchiffeVersenken.GUISteuerung.GUIStartFenster">
+      <point x="-144.0" y="-180.0" />
+      <point x="657.0793010752689" y="1577.0" />
+      <point x="705.6666666666667" y="1577.0" />
+      <point x="92.66666666666674" y="125.0" />
+    </edge>
+    <edge source="RaumSchiffeVersenken.GUISteuerung.GUISpielendeFenster" target="RaumSchiffeVersenken.GUISteuerung.GUIStartFenster">
+      <point x="92.66666666666674" y="-81.0" />
+      <point x="554.7459677419356" y="1577.0" />
+      <point x="613.0" y="1577.0" />
+      <point x="0.0" y="125.0" />
+    </edge>
+    <edge source="RaumSchiffeVersenken.Interface_Factory.SchiffFactory" target="RaumSchiffeVersenken.SchiffsArten.Fregatte">
+      <point x="49.39999999999998" y="-48.0" />
+      <point x="1017.5168010752689" y="481.0" />
+      <point x="1218.116801075269" y="481.0" />
+      <point x="0.0" y="103.5" />
+    </edge>
+    <edge source="RaumSchiffeVersenken.GUISteuerung.GUISpielerwechselFenster" target="RaumSchiffeVersenken.GUISteuerung.GUIKlangSteuerung">
+      <point x="-92.66666666666674" y="-81.0" />
+      <point x="46.33333333333326" y="1577.0" />
+      <point x="128.0" y="1577.0" />
+      <point x="128.0" y="1247.0" />
+      <point x="331.6181451612903" y="1247.0" />
+      <point x="-82.79999999999995" y="58.5" />
+    </edge>
+    <edge source="RaumSchiffeVersenken.SchiffsArten.Jaeger" target="RaumSchiffeVersenken.Interface_Factory.RaumSchiff">
+      <point x="0.0" y="-103.5" />
+      <point x="468.1168010752689" y="224.0" />
+      <point x="848.7264784946236" y="224.0" />
+      <point x="-43.125" y="92.0" />
+    </edge>
+    <edge source="RaumSchiffeVersenken.GUISteuerung.GUISpielrundeFenster" target="RaumSchiffeVersenken.GUISteuerung.GUIKlangSteuerung">
+      <point x="-72.0" y="-180.0" />
+      <point x="729.0793010752689" y="1577.0" />
+      <point x="790.0793010752689" y="1577.0" />
+      <point x="790.0793010752689" y="1237.0" />
+      <point x="478.8181451612903" y="1237.0" />
+      <point x="64.40000000000009" y="58.5" />
+    </edge>
+    <edge source="RaumSchiffeVersenken.GUISteuerung.GUIStartFenster" target="RaumSchiffeVersenken.GUISteuerung.GUIKlangSteuerung">
+      <point x="-34.75" y="-125.0" />
+      <point x="578.25" y="1247.0" />
+      <point x="460.4181451612902" y="1247.0" />
+      <point x="46.0" y="58.5" />
+    </edge>
+    <edge source="RaumSchiffeVersenken.SchiffsArten.Bomber" target="RaumSchiffeVersenken.Interface_Factory.RaumSchiff">
+      <point x="0.0" y="-92.0" />
+      <point x="718.1168010752689" y="234.0" />
+      <point x="877.4764784946236" y="234.0" />
+      <point x="-14.375" y="92.0" />
+    </edge>
+    <edge source="RaumSchiffeVersenken.GUISteuerung.GUIStartFenster" target="RaumSchiffeVersenken.Core.SpielablaufFX">
+      <point x="104.25" y="-125.0" />
+      <point x="717.25" y="1277.0" />
+      <point x="862.4918010752689" y="1277.0" />
+      <point x="-43.875" y="103.0" />
+    </edge>
+    <edge source="RaumSchiffeVersenken.Entwicklungskonsole.Spielablauf" target="RaumSchiffeVersenken.Interface_Factory.SchiffFactory">
+      <point x="-77.25" y="-147.0" />
+      <point x="1200.116801075269" y="632.0" />
+      <point x="1029.866801075269" y="632.0" />
+      <point x="61.75" y="48.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.6000000000000001" x="843.3333333333333" y="580.8333333333333" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Constructors</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
