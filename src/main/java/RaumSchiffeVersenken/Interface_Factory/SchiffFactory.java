@@ -1,6 +1,6 @@
 package RaumSchiffeVersenken.Interface_Factory;
 
-import RaumSchiffeVersenken.Entwicklungskonsole.Feld;
+import RaumSchiffeVersenken.Core.FeldFX;
 import RaumSchiffeVersenken.SchiffsArten.Bomber;
 import RaumSchiffeVersenken.SchiffsArten.Jaeger;
 import RaumSchiffeVersenken.SchiffsArten.Zerstoerer;
@@ -20,7 +20,7 @@ public class SchiffFactory {
     /**
      * Logger erstellung.
      */
-    private static final Logger log = LogManager.getLogger(Feld.class);
+    private static final Logger log = LogManager.getLogger(FeldFX.class);
 
 
     /**
