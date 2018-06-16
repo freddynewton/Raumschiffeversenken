@@ -15,11 +15,11 @@ public class Feld {
     public int[][] mapGroesse;
     public int xAchseBeschuss;
     public int yAchseBeschuss;
-    public int SchiffsRichtung;
+    public int schiffsRichtung;
     public int SchiffsLaenge;
-    public int CounterSpieler1 = 0;
-    public int CounterSpieler2 = 0;
-    public int BenoetigteTrefferZumGewinnen = 26;
+    public int counterSpieler1 = 0;
+    public int counterSpieler2 = 0;
+    public int benoetigteTrefferZumGewinnen = 26;
 
     Lock lock = new ReentrantLock();
 
@@ -150,7 +150,7 @@ public class Feld {
                     "Hier:  ");
             Scanner scanr = new Scanner(System.in);
             String scanrString = scanr.nextLine();
-            SchiffsRichtung = Integer.parseInt(scanrString);
+            schiffsRichtung = Integer.parseInt(scanrString);
 
             log.info("Bitte den gewünschten X-Achsenwert eingeben: ");
             System.out.println("Bitte den gewünschten X-Achsenwert eingeben: ");
@@ -165,7 +165,7 @@ public class Feld {
             yAchseBeschuss = Integer.parseInt(scanyString);
 
             if (yAchseBeschuss < 10 && yAchseBeschuss >= 0 && xAchseBeschuss < 10 && xAchseBeschuss >= 0) {
-                schiffSetzenManuel(xAchseBeschuss, yAchseBeschuss, SchiffsRichtung, SchiffsLaenge);
+                schiffSetzenManuel(xAchseBeschuss, yAchseBeschuss, schiffsRichtung, SchiffsLaenge);
             } else {
                 log.info("Bitte nur zwischen 0-9 jeweils in der X-Achse und Y-Achse und Bei der Schiffsrichtung nur 1 & 2");
                 System.out.println("Bitte nur zwischen 0-9 jeweils in der X-Achse und Y-Achse und Bei der Schiffsrichtung nur 1 & 2");
@@ -189,7 +189,7 @@ public class Feld {
     public void schiffSetzenManuel(int yAchseBeschuss, int xAchseBeschuss, int SchiffsRichtung, int SchiffsLaenge) {
         this.xAchseBeschuss = xAchseBeschuss;
         this.yAchseBeschuss = yAchseBeschuss;
-        this.SchiffsRichtung = SchiffsRichtung;
+        this.schiffsRichtung = SchiffsRichtung;
         this.SchiffsLaenge = SchiffsLaenge;
         boolean SchiffErfolgreichSetzen = false;
         int SchiffsLaengeCounter = 0;
@@ -258,13 +258,12 @@ public class Feld {
     public boolean schiffSetzenAutomatisch(int yAchseBeschuss, int xAchseBeschuss, int SchiffsRichtung, int SchiffsLaenge) {
         this.xAchseBeschuss = xAchseBeschuss;
         this.yAchseBeschuss = yAchseBeschuss;
-        this.SchiffsRichtung = SchiffsRichtung;
+        this.schiffsRichtung = SchiffsRichtung;
         this.SchiffsLaenge = SchiffsLaenge;
         boolean SchiffErfolgreichSetzen = false;
         int SchiffsLaengeCounter = 0;
 
         try {
-
             if (SchiffsRichtung == 1) {
                 for (int i = 0; i < SchiffsLaenge; i++) {
                     log.info("mapGroesse[xAchseBeschuss + i][yAchseBeschuss] == 0" + (mapGroesse[xAchseBeschuss + i][yAchseBeschuss] == 0));
@@ -358,9 +357,9 @@ public class Feld {
      * @param SpielerNummer :)
      */
     public void TrefferZaehler(Feld feld, int SpielerNummer) {
-        this.CounterSpieler1 = CounterSpieler1;
-        this.CounterSpieler2 = CounterSpieler2;
-        this.BenoetigteTrefferZumGewinnen = BenoetigteTrefferZumGewinnen;
+        this.counterSpieler1 = counterSpieler1;
+        this.counterSpieler2 = counterSpieler2;
+        this.benoetigteTrefferZumGewinnen = benoetigteTrefferZumGewinnen;
         this.mapGroesse = mapGroesse;
         int RevanceStatus;
 
@@ -368,16 +367,16 @@ public class Feld {
             for (int i = 0; i < 10; i++) {
                 if (mapGroesse[j][i] == 6) {
                     if (SpielerNummer == 1) {
-                        CounterSpieler2++;
+                        counterSpieler2++;
                     } else if (SpielerNummer == 2) {
-                        CounterSpieler1++;
+                        counterSpieler1++;
                     }
 
                 }
             }
         }
 
-        if (CounterSpieler1 == BenoetigteTrefferZumGewinnen) {
+        if (counterSpieler1 == benoetigteTrefferZumGewinnen) {
             log.info("Spieler 1 hat gewonnen!\n" +
                     "Möchten sie eine Revance?\n" +
                     "1 für Ja\n" +
@@ -396,7 +395,7 @@ public class Feld {
                 System.exit(0);
             }
 
-        } else if (CounterSpieler2 == BenoetigteTrefferZumGewinnen) {
+        } else if (counterSpieler2 == benoetigteTrefferZumGewinnen) {
 
             log.info("Spieler 2 hat gewonnen!\n" +
                     "Möchten sie eine Revance?\n" +
