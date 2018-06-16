@@ -101,8 +101,6 @@ public class SpielablaufFX {
         return feld.schiffSetzenAutomatisch(randomY, randomX, randomRichtung, SchiffTypsLaenge);
     }
 
-    // TODO: 14.06.2018 doppelten code eleganter lösen
-
     /**
      * @param schiffsMap
      * @param rmInt
