@@ -1,4 +1,4 @@
-package RaumSchiffeVersenken.Core;
+package RaumSchiffeVersenken.Entwicklungskonsole;
 
 import java.util.Scanner;
 import java.util.concurrent.locks.Lock;
@@ -264,6 +264,7 @@ public class Feld {
         int SchiffsLaengeCounter = 0;
 
         try {
+
             if (SchiffsRichtung == 1) {
                 for (int i = 0; i < SchiffsLaenge; i++) {
                     log.info("mapGroesse[xAchseBeschuss + i][yAchseBeschuss] == 0" + (mapGroesse[xAchseBeschuss + i][yAchseBeschuss] == 0));

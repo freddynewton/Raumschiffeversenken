@@ -1,6 +1,6 @@
 package RaumSchiffeVersenken.Interface_Factory;
 
-import RaumSchiffeVersenken.Core.Feld;
+import RaumSchiffeVersenken.Entwicklungskonsole.Feld;
 import RaumSchiffeVersenken.SchiffsArten.Bomber;
 import RaumSchiffeVersenken.SchiffsArten.Jaeger;
 import RaumSchiffeVersenken.SchiffsArten.Zerstoerer;

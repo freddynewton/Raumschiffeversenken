@@ -1,6 +1,5 @@
 package RaumSchiffeVersenken.Entwicklungskonsole;
 
-import RaumSchiffeVersenken.Core.Feld;
 import RaumSchiffeVersenken.Interface_Factory.RaumSchiff;
 import RaumSchiffeVersenken.Interface_Factory.SchiffFactory;
 import org.apache.logging.log4j.LogManager;

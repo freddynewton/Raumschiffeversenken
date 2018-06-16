@@ -1,6 +1,6 @@
 package RaumSchiffeVersenken.Core;
 
-import RaumSchiffeVersenken.Entwicklungskonsole.Spielablauf;
+
 import RaumSchiffeVersenken.Interface_Factory.RaumSchiff;
 import RaumSchiffeVersenken.Interface_Factory.SchiffFactory;
 import org.apache.logging.log4j.LogManager;
@@ -17,10 +17,10 @@ public class SpielablaufFX {
     /**
      * <p>Hier wird der Logger für die Klasse SpielablaufFX erstellt sowie alle Static-Variablen der Klasse.</p>
      */
-    private static final Logger log = LogManager.getLogger(Spielablauf.class);
+    private static final Logger log = LogManager.getLogger(SpielablaufFX.class);
 
-    public static Feld Feld_Spieler1 = new Feld(10, 10);
-    public static Feld Feld_Spieler2 = new Feld(10, 10);
+    public static FeldFX Feld_Spieler1 = new FeldFX(10, 10);
+    public static FeldFX Feld_Spieler2 = new FeldFX(10, 10);
 
     ReentrantLock variablenLock = new ReentrantLock();
 
@@ -92,7 +92,7 @@ public class SpielablaufFX {
      * @param SchiffTypsLaenge
      * @return
      */
-    public boolean randomSchiffeSetzen(Feld feld, int SchiffTypsLaenge) {
+    public boolean randomSchiffeSetzen(FeldFX feld, int SchiffTypsLaenge) {
 
         int randomX = ThreadLocalRandom.current().nextInt(10);
         int randomY = ThreadLocalRandom.current().nextInt(10);
@@ -106,7 +106,7 @@ public class SpielablaufFX {
      * @param rmInt
      * @return
      */
-    public String spielerSchiffeSetzenAblauf(Feld Feld_Spieler, HashMap schiffsMap, int rmInt) {
+    public String spielerSchiffeSetzenAblauf(FeldFX Feld_Spieler, HashMap schiffsMap, int rmInt) {
 
         try {
             variablenLock.lock();

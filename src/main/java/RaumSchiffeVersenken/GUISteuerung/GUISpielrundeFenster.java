@@ -1,6 +1,6 @@
 package RaumSchiffeVersenken.GUISteuerung;
 
-import RaumSchiffeVersenken.Core.Feld;
+import RaumSchiffeVersenken.Core.FeldFX;
 import RaumSchiffeVersenken.Core.SpielablaufFX;
 import javafx.animation.Animation;
 import javafx.animation.TranslateTransition;
@@ -115,7 +115,7 @@ public class GUISpielrundeFenster implements Initializable {
      * @param feldSpalte
      * @param feldReihe
      */
-    public void feldgrafikAktualisieren(int feldSpalte, int feldReihe, Feld großesFeld, Feld kleinesFeld) {
+    public void feldgrafikAktualisieren(int feldSpalte, int feldReihe, FeldFX großesFeld, FeldFX kleinesFeld) {
         spielfeld1.getChildren().clear();
         spielfeld2.getChildren().clear();
 
@@ -148,7 +148,7 @@ public class GUISpielrundeFenster implements Initializable {
         }
     }
 
-    public void arrayZeichner(GridPane spielfeld, Feld feld, ImageView grafikFeld, Image feldGrafik, Image danebenGrafik, Image raumschiffGrafik, Image trefferGrafik, int x, int y, int höhe, int breite) {
+    public void arrayZeichner(GridPane spielfeld, FeldFX feld, ImageView grafikFeld, Image feldGrafik, Image danebenGrafik, Image raumschiffGrafik, Image trefferGrafik, int x, int y, int höhe, int breite) {
         grafikFeld.setId("" + x + y);
         grafikFeld.setFitHeight(höhe);
         grafikFeld.setFitWidth(breite);
@@ -189,7 +189,7 @@ public class GUISpielrundeFenster implements Initializable {
      * @param feldSpalte
      * @param feldReihe
      */
-    public void klickevent(Feld feld, ImageView grafikFeld1, Image danebenGrafikGroß, Image trefferGrafikGroß, int feldSpalte, int feldReihe) {
+    public void klickevent(FeldFX feld, ImageView grafikFeld1, Image danebenGrafikGroß, Image trefferGrafikGroß, int feldSpalte, int feldReihe) {
         grafikFeld1.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
