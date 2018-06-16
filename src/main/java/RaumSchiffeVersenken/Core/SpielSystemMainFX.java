@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 
+
 /**
  * <p>Die Klasse SpielSystemMainFX definiert das Startfenster (Stage) und ruft es auf. Als Main-Klasse ist es die erste
  * Klasse die gestartet wird und die über JavaFX definierte Szene in der erstellten Stage einstellt.</p>

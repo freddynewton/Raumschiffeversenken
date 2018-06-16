@@ -1,8 +1,8 @@
 package RaumSchiffeVersenken.Core;
 
-import RaumSchiffeVersenken.Entwicklungskonsole.Feld;
 import org.junit.Assert;
 import org.junit.Test;
+
 
 public class FeldTest {
     @Test
@@ -19,10 +19,10 @@ public class FeldTest {
 
     @Test
     public void schiffSetzen() throws Exception {
-        //Feld[][] mapGroesse = new Feld[10][10];
-        Feld play = new Feld(10, 10);
+        //FeldFX[][] mapGroesse = new Feld[10][10];
+        FeldFX play = new FeldFX(10, 10);
 
-        play.schiffSetzenManuel(0, 0, 2, 3);
+        play.schiffSetzenAutomatisch(0, 0, 2, 3);
         int[][] result = play.getMapGroesse();
         int[][] expectedArray =  {{5,5,5,0,0,0,0,0,0,0},
                                   {0,0,0,0,0,0,0,0,0,0},
@@ -36,9 +36,6 @@ public class FeldTest {
                                   {0,0,0,0,0,0,0,0,0,0}};
 
         Assert.assertArrayEquals(expectedArray,result);
-
-
-
 
     }
 

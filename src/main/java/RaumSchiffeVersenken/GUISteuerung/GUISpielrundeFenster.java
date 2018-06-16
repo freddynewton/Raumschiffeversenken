@@ -1,7 +1,6 @@
 package RaumSchiffeVersenken.GUISteuerung;
 
 import RaumSchiffeVersenken.Core.FeldFX;
-import RaumSchiffeVersenken.Core.SpielablaufFX;
 import javafx.animation.Animation;
 import javafx.animation.TranslateTransition;
 import javafx.event.EventHandler;
@@ -34,7 +33,7 @@ import static RaumSchiffeVersenken.GUISteuerung.GUIStartFenster.spieler2Leben;
 
 
 public class GUISpielrundeFenster implements Initializable {
-
+    // TODO: 16.06.2018 Logger-Ausgabe bei Schießen
     private static final Logger log = LogManager.getLogger(GUISpielrundeFenster.class);
 
     private boolean spielfeldAktiv = true;
@@ -97,8 +96,6 @@ public class GUISpielrundeFenster implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         int feldSpalte = 10;
         int feldReihe = 10;
-
-        SpielablaufFX sfx = new SpielablaufFX();
 
         if (spielerAktiv == "1") {
             feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler2, Feld_Spieler1);
@@ -203,6 +200,8 @@ public class GUISpielrundeFenster implements Initializable {
 
                     spielfeldAktiv = false;
 
+                    log.info("Spieler " + spielerAktiv + " Schuss auf: " + Character.getNumericValue(grafikFeld1.getId().charAt(0)) + "|" + Character.getNumericValue(grafikFeld1.getId().charAt(1)) + ", Ergebnis: Daneben!");
+
                     if (spielerAktiv == "1") {
                         feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler2, Feld_Spieler1);
                     } else {
@@ -218,6 +217,8 @@ public class GUISpielrundeFenster implements Initializable {
                     guiKlangSteuerung.explosion();
 
                     schuetteln(spielfeld1);
+
+                    log.info("Spieler " + spielerAktiv + " Schuss auf: " + Character.getNumericValue(grafikFeld1.getId().charAt(0)) + "|" + Character.getNumericValue(grafikFeld1.getId().charAt(1)) + ", Ergebnis: Daneben!");
 
                     if (spielerAktiv == "1") {
                         feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler2, Feld_Spieler1);
