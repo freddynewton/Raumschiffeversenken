@@ -112,9 +112,9 @@ public class GUISpielrundeFenster implements Initializable {
         spielfeld1.getChildren().clear();
         spielfeld2.getChildren().clear();
 
-        Image feldGrafikGross = new Image("bilder/weltraumGrafikGross.png");
-        Image danebenGrafikGross = new Image("bilder/danebenGrafikGross.png");
-        Image trefferGrafikGross = new Image("bilder/trefferGrafikGross.png");
+        Image feldGrafikGross = new Image("bilder/weltraumGrafikGroß.png");
+        Image danebenGrafikGross = new Image("bilder/danebenGrafikGroß.png");
+        Image trefferGrafikGross = new Image("bilder/trefferGrafikGroß.png");
         Image feldGrafik = new Image("bilder/weltraumGrafik.png");
         Image raumschiffGrafik = new Image("bilder/raumschiffGrafik.png");
         Image danebenGrafik = new Image("bilder/danebenGrafik.png");
