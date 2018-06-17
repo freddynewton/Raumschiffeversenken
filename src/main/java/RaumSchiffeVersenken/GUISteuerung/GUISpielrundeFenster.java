@@ -3,7 +3,6 @@ package RaumSchiffeVersenken.GUISteuerung;
 import RaumSchiffeVersenken.Core.FeldFX;
 import javafx.animation.Animation;
 import javafx.animation.TranslateTransition;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,7 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -25,20 +23,18 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static RaumSchiffeVersenken.Core.SpielablaufFX.Feld_Spieler1;
-import static RaumSchiffeVersenken.Core.SpielablaufFX.Feld_Spieler2;
+import static RaumSchiffeVersenken.Core.SpielablaufFX.feldSpieler1;
+import static RaumSchiffeVersenken.Core.SpielablaufFX.feldSpieler2;
 import static RaumSchiffeVersenken.GUISteuerung.GUIStartFenster.spielerAktiv;
 import static RaumSchiffeVersenken.GUISteuerung.GUIStartFenster.spieler1Leben;
 import static RaumSchiffeVersenken.GUISteuerung.GUIStartFenster.spieler2Leben;
 
 
 public class GUISpielrundeFenster implements Initializable {
-    // TODO: 16.06.2018 Logger-Ausgabe bei Schießen
+
     private static final Logger log = LogManager.getLogger(GUISpielrundeFenster.class);
-
     private boolean spielfeldAktiv = true;
-
-    GUIKlangSteuerung guiKlangSteuerung = new GUIKlangSteuerung();
+    private GUIKlangSteuerung guiKlangSteuerung = new GUIKlangSteuerung();
 
     @FXML
     private GridPane spielfeld1;
@@ -53,15 +49,15 @@ public class GUISpielrundeFenster implements Initializable {
     private VBox spielefensterVBox;
 
     /**
-     * @throws IOException
+     *
      */
     @FXML
-    private void szeneWechsel() throws IOException {
+    private void szeneWechsel() {
         try {
             if (!spielfeldAktiv) {
                 guiKlangSteuerung.knopfDruecken();
 
-                if (spielerAktiv == "1") {
+                if (spielerAktiv.equals("1")) {
                     spielerAktiv = "2";
                 } else {
                     spielerAktiv = "1";
@@ -89,18 +85,18 @@ public class GUISpielrundeFenster implements Initializable {
     /**
      * Die initialisierung des Fensters direkt vor dessen Aufrufen, verknüpft das GUI mit der Logik.
      *
-     * @param location
-     * @param resources
+     * @param location  ist der uebergebene Pfad
+     * @param resources sind die benoetigten Ressourcen
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         int feldSpalte = 10;
         int feldReihe = 10;
 
-        if (spielerAktiv == "1") {
-            feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler2, Feld_Spieler1);
+        if (spielerAktiv.equals("1")) {
+            feldgrafikAktualisieren(feldSpalte, feldReihe, feldSpieler2, feldSpieler1);
         } else {
-            feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler1, Feld_Spieler2);
+            feldgrafikAktualisieren(feldSpalte, feldReihe, feldSpieler1, feldSpieler2);
         }
 
         GUISpielrundeFenster.textAusgabeSteuerung("ZIELE AUF EIN FELD!", textAusgabe);
@@ -109,16 +105,16 @@ public class GUISpielrundeFenster implements Initializable {
     /**
      * Die Spielfelder werden mit der Feld-Klasse verknüpft und im Spielefenster grafisch dargestellt
      *
-     * @param feldSpalte
-     * @param feldReihe
+     * @param feldSpalte vertikale Array-Richtung
+     * @param feldReihe  horizontale Array-Richtung
      */
-    public void feldgrafikAktualisieren(int feldSpalte, int feldReihe, FeldFX großesFeld, FeldFX kleinesFeld) {
+    private void feldgrafikAktualisieren(int feldSpalte, int feldReihe, FeldFX grossesFeld, FeldFX kleinesFeld) {
         spielfeld1.getChildren().clear();
         spielfeld2.getChildren().clear();
 
-        Image feldGrafikGroß = new Image("bilder/weltraumGrafikGroß.png");
-        Image danebenGrafikGroß = new Image("bilder/danebenGrafikGroß.png");
-        Image trefferGrafikGroß = new Image("bilder/trefferGrafikGroß.png");
+        Image feldGrafikGross = new Image("bilder/weltraumGrafikGross.png");
+        Image danebenGrafikGross = new Image("bilder/danebenGrafikGross.png");
+        Image trefferGrafikGross = new Image("bilder/trefferGrafikGross.png");
         Image feldGrafik = new Image("bilder/weltraumGrafik.png");
         Image raumschiffGrafik = new Image("bilder/raumschiffGrafik.png");
         Image danebenGrafik = new Image("bilder/danebenGrafik.png");
@@ -129,10 +125,10 @@ public class GUISpielrundeFenster implements Initializable {
                 ImageView grafikFeld1 = new ImageView();
 
                 if (spielfeldAktiv) {
-                    klickevent(großesFeld, grafikFeld1, danebenGrafikGroß, trefferGrafikGroß, feldSpalte, feldReihe);
+                    klickevent(grossesFeld, grafikFeld1, danebenGrafikGross, trefferGrafikGross, feldSpalte, feldReihe);
                 }
 
-                arrayZeichner(spielfeld1, großesFeld, grafikFeld1, feldGrafikGroß, danebenGrafikGroß, feldGrafikGroß, trefferGrafikGroß, x, y, 50, 50);
+                arrayZeichner(spielfeld1, grossesFeld, grafikFeld1, feldGrafikGross, danebenGrafikGross, feldGrafikGross, trefferGrafikGross, x, y, 50, 50);
             }
         }
 
@@ -145,9 +141,23 @@ public class GUISpielrundeFenster implements Initializable {
         }
     }
 
-    public void arrayZeichner(GridPane spielfeld, FeldFX feld, ImageView grafikFeld, Image feldGrafik, Image danebenGrafik, Image raumschiffGrafik, Image trefferGrafik, int x, int y, int höhe, int breite) {
+    /**
+     *
+     * @param spielfeld
+     * @param feld
+     * @param grafikFeld
+     * @param feldGrafik
+     * @param danebenGrafik
+     * @param raumschiffGrafik
+     * @param trefferGrafik
+     * @param x
+     * @param y
+     * @param hoehe
+     * @param breite
+     */
+    private void arrayZeichner(GridPane spielfeld, FeldFX feld, ImageView grafikFeld, Image feldGrafik, Image danebenGrafik, Image raumschiffGrafik, Image trefferGrafik, int x, int y, int hoehe, int breite) {
         grafikFeld.setId("" + x + y);
-        grafikFeld.setFitHeight(höhe);
+        grafikFeld.setFitHeight(hoehe);
         grafikFeld.setFitWidth(breite);
 
         if (feld.mapGroesse[x][y] == 0) {
@@ -169,67 +179,64 @@ public class GUISpielrundeFenster implements Initializable {
      * Die Methode steuert die Textausgabe über das TextField-Feld unten im Fenster. Ihr kann Text als String übergeben
      * werden.
      *
-     * @param textAusgabeText
-     * @param textAusgabe
+     * @param textAusgabeText der ausgebene Text
+     * @param textAusgabe     das zum Text gehoerige Label
      */
-    public static void textAusgabeSteuerung(String textAusgabeText, Label textAusgabe) {
+    private static void textAusgabeSteuerung(String textAusgabeText, Label textAusgabe) {
         textAusgabe.setText(textAusgabeText);
     }
 
     /**
      * Dieser Event-Handler beinhalted die Funktionen des Spielfeldes.
      *
-     * @param feld
-     * @param grafikFeld1
-     * @param danebenGrafikGroß
-     * @param trefferGrafikGroß
-     * @param feldSpalte
-     * @param feldReihe
+     * @param feld               das uebergebene Objekt des Spielfeldes
+     * @param grafikFeld1        die Grafik in der GridPane-Zelle
+     * @param danebenGrafikGross die Grafik fuer das Daneben-Schiessen
+     * @param trefferGrafikGross die GRafik fuer den Treffer
+     * @param feldSpalte         vertikale Array-Richtung
+     * @param feldReihe          horizontale Array-Richtung
      */
-    public void klickevent(FeldFX feld, ImageView grafikFeld1, Image danebenGrafikGroß, Image trefferGrafikGroß, int feldSpalte, int feldReihe) {
-        grafikFeld1.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                if (feld.mapGroesse[Character.getNumericValue(grafikFeld1.getId().charAt(0))][Character.getNumericValue(grafikFeld1.getId().charAt(1))] == 0) {
-                    grafikFeld1.setImage(danebenGrafikGroß);
-                    feld.mapGroesse[Character.getNumericValue(grafikFeld1.getId().charAt(0))][Character.getNumericValue(grafikFeld1.getId().charAt(1))] = 1;
+    private void klickevent(FeldFX feld, ImageView grafikFeld1, Image danebenGrafikGross, Image trefferGrafikGross, int feldSpalte, int feldReihe) {
+        grafikFeld1.setOnMouseClicked(event -> {
+            if (feld.mapGroesse[Character.getNumericValue(grafikFeld1.getId().charAt(0))][Character.getNumericValue(grafikFeld1.getId().charAt(1))] == 0) {
+                grafikFeld1.setImage(danebenGrafikGross);
+                feld.mapGroesse[Character.getNumericValue(grafikFeld1.getId().charAt(0))][Character.getNumericValue(grafikFeld1.getId().charAt(1))] = 1;
 
-                    GUISpielrundeFenster.textAusgabeSteuerung("DANEBEN!", textAusgabe);
+                GUISpielrundeFenster.textAusgabeSteuerung("DANEBEN!", textAusgabe);
 
-                    guiKlangSteuerung.blaster();
+                guiKlangSteuerung.blaster();
 
-                    spielfeldAktiv = false;
+                spielfeldAktiv = false;
 
-                    log.info("Spieler " + spielerAktiv + " Schuss auf: " + Character.getNumericValue(grafikFeld1.getId().charAt(0)) + "|" + Character.getNumericValue(grafikFeld1.getId().charAt(1)) + ", Ergebnis: Daneben!");
+                log.info("Spieler " + spielerAktiv + " Schuss auf: " + Character.getNumericValue(grafikFeld1.getId().charAt(0)) + "|" + Character.getNumericValue(grafikFeld1.getId().charAt(1)) + ", Ergebnis: Daneben!");
 
-                    if (spielerAktiv == "1") {
-                        feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler2, Feld_Spieler1);
-                    } else {
-                        feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler1, Feld_Spieler2);
-                    }
-                } else if (feld.mapGroesse[Character.getNumericValue(grafikFeld1.getId().charAt(0))][Character.getNumericValue(grafikFeld1.getId().charAt(1))] == 5) {
-                    grafikFeld1.setImage(trefferGrafikGroß);
-                    feld.mapGroesse[Character.getNumericValue(grafikFeld1.getId().charAt(0))][Character.getNumericValue(grafikFeld1.getId().charAt(1))] = 6;
-                    GUISpielrundeFenster.textAusgabeSteuerung("TREFFER!", textAusgabe);
-
-                    guiKlangSteuerung.blaster();
-
-                    guiKlangSteuerung.explosion();
-
-                    schuetteln(spielfeld1);
-
-                    log.info("Spieler " + spielerAktiv + " Schuss auf: " + Character.getNumericValue(grafikFeld1.getId().charAt(0)) + "|" + Character.getNumericValue(grafikFeld1.getId().charAt(1)) + ", Ergebnis: Daneben!");
-
-                    if (spielerAktiv == "1") {
-                        feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler2, Feld_Spieler1);
-                        spieler2Leben -= 1;
-                    } else {
-                        feldgrafikAktualisieren(feldSpalte, feldReihe, Feld_Spieler1, Feld_Spieler2);
-                        spieler1Leben -= 1;
-                    }
+                if (spielerAktiv.equals("1")) {
+                    feldgrafikAktualisieren(feldSpalte, feldReihe, feldSpieler2, feldSpieler1);
                 } else {
-                    GUISpielrundeFenster.textAusgabeSteuerung("NICHT MÖGLICH!", textAusgabe);
+                    feldgrafikAktualisieren(feldSpalte, feldReihe, feldSpieler1, feldSpieler2);
                 }
+            } else if (feld.mapGroesse[Character.getNumericValue(grafikFeld1.getId().charAt(0))][Character.getNumericValue(grafikFeld1.getId().charAt(1))] == 5) {
+                grafikFeld1.setImage(trefferGrafikGross);
+                feld.mapGroesse[Character.getNumericValue(grafikFeld1.getId().charAt(0))][Character.getNumericValue(grafikFeld1.getId().charAt(1))] = 6;
+                GUISpielrundeFenster.textAusgabeSteuerung("TREFFER!", textAusgabe);
+
+                guiKlangSteuerung.blaster();
+
+                guiKlangSteuerung.explosion();
+
+                schuetteln(spielfeld1);
+
+                log.info("Spieler " + spielerAktiv + " Schuss auf: " + Character.getNumericValue(grafikFeld1.getId().charAt(0)) + "|" + Character.getNumericValue(grafikFeld1.getId().charAt(1)) + ", Ergebnis: Daneben!");
+
+                if (spielerAktiv.equals("1")) {
+                    feldgrafikAktualisieren(feldSpalte, feldReihe, feldSpieler2, feldSpieler1);
+                    spieler2Leben -= 1;
+                } else {
+                    feldgrafikAktualisieren(feldSpalte, feldReihe, feldSpieler1, feldSpieler2);
+                    spieler1Leben -= 1;
+                }
+            } else {
+                GUISpielrundeFenster.textAusgabeSteuerung("NICHT MÖGLICH!", textAusgabe);
             }
         });
     }
@@ -237,10 +244,9 @@ public class GUISpielrundeFenster implements Initializable {
     private static TranslateTransition tt;
 
     /**
-     * @param node
-     * @return
+     * @param node ist das Kind-Element
      */
-    public static TranslateTransition schuetteln(Node node) {
+    private static void schuetteln(Node node) {
         if (tt == null || tt.getNode() != node) {
             tt = new TranslateTransition(Duration.millis(50), node);
         }
@@ -250,7 +256,6 @@ public class GUISpielrundeFenster implements Initializable {
         if (tt.getStatus() == Animation.Status.STOPPED) {
             tt.playFromStart();
         }
-        return tt;
     }
 
     /**

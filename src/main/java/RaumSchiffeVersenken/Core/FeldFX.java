@@ -32,41 +32,41 @@ public class FeldFX {
     /**
      * @param yAchseBeschuss  :)
      * @param xAchseBeschuss  :)
-     * @param SchiffsRichtung :)
-     * @param SchiffsLaenge   :)
+     * @param schiffsRichtung :)
+     * @param schiffsLaenge   :)
      * @return :)
      */
-    boolean schiffSetzenAutomatisch(int yAchseBeschuss, int xAchseBeschuss, int SchiffsRichtung, int SchiffsLaenge) {
-        boolean SchiffErfolgreichSetzen = false;
-        int SchiffsLaengeCounter = 0;
+    boolean schiffSetzenAutomatisch(int yAchseBeschuss, int xAchseBeschuss, int schiffsRichtung, int schiffsLaenge) {
+        boolean schiffErfolgreichSetzen = false;
+        int schiffsLaengeCounter = 0;
 
         try {
-            if (SchiffsRichtung == 1) {
-                for (int i = 0; i < SchiffsLaenge; i++) {
+            if (schiffsRichtung == 1) {
+                for (int i = 0; i < schiffsLaenge; i++) {
                     if (mapGroesse[xAchseBeschuss + i][yAchseBeschuss] == 0 && mapGroesse[xAchseBeschuss + i][yAchseBeschuss] != 5) {
-                        SchiffsLaengeCounter++;
+                        schiffsLaengeCounter++;
                     }
                 }
-            } else if (SchiffsRichtung == 2) {
-                for (int i = 0; i < SchiffsLaenge; i++) {
+            } else if (schiffsRichtung == 2) {
+                for (int i = 0; i < schiffsLaenge; i++) {
                     if (mapGroesse[xAchseBeschuss][yAchseBeschuss + i] == 0 && mapGroesse[xAchseBeschuss][yAchseBeschuss + i] != 5) {
-                        SchiffsLaengeCounter++;
+                        schiffsLaengeCounter++;
                     }
                 }
             }
 
-            if (SchiffsLaengeCounter == SchiffsLaenge) {
-                SchiffErfolgreichSetzen = true;
+            if (schiffsLaengeCounter == schiffsLaenge) {
+                schiffErfolgreichSetzen = true;
             }
 
-            if (SchiffErfolgreichSetzen) {
-                if (SchiffsRichtung == 1) {
-                    for (int i = 0; i < SchiffsLaenge; i++) {
+            if (schiffErfolgreichSetzen) {
+                if (schiffsRichtung == 1) {
+                    for (int i = 0; i < schiffsLaenge; i++) {
                         mapGroesse[xAchseBeschuss + i][yAchseBeschuss] += 5;
                         log.info("Schiff erfolgreich horizontal gesetzt.\n");
                     }
-                } else if (SchiffsRichtung == 2) {
-                    for (int i = 0; i < SchiffsLaenge; i++) {
+                } else if (schiffsRichtung == 2) {
+                    for (int i = 0; i < schiffsLaenge; i++) {
                         mapGroesse[xAchseBeschuss][yAchseBeschuss + i] += 5;
                         log.info("Schiff erfolgreich vertikal gesetzt.\n");
                     }
@@ -75,7 +75,7 @@ public class FeldFX {
         } catch (Exception ex4) {
             log.error("Schiff konnte nicht gesetzt werden (außerhalb des Feldes).\n", ex4);
         }
-        return SchiffErfolgreichSetzen;
+        return schiffErfolgreichSetzen;
     }
 
     /**
