@@ -6,7 +6,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -16,7 +15,7 @@ import static RaumSchiffeVersenken.GUISteuerung.GUIStartFenster.spieler2Leben;
 
 public class GUISpielendeFenster implements Initializable {
 
-    GUIKlangSteuerung guiKlangSteuerung = new GUIKlangSteuerung();
+    private GUIKlangSteuerung guiKlangSteuerung = new GUIKlangSteuerung();
 
     @FXML
     private VBox vbox;
@@ -24,18 +23,15 @@ public class GUISpielendeFenster implements Initializable {
     @FXML
     private Label siegesNachricht;
 
-    /**
-     * @throws IOException
-     */
     @FXML
-    private void spielEnde() throws IOException {
+    private void spielEnde() {
         Stage spielefenster = (Stage) vbox.getScene().getWindow();
         spielefenster.close();
     }
 
     /**
-     * @param location
-     * @param resources
+     * @param location  Dateipdfad
+     * @param resources verwendete Ressourcen
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -46,9 +42,6 @@ public class GUISpielendeFenster implements Initializable {
         }
     }
 
-    /**
-     *
-     */
     @FXML
     private void knopfZielen() {
         guiKlangSteuerung.knopfZielen();

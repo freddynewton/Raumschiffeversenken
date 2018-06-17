@@ -15,16 +15,13 @@ import java.util.ResourceBundle;
 
 public class GUICreditsFenster implements Initializable {
 
-    GUIKlangSteuerung guiKlangSteuerung = new GUIKlangSteuerung();
+    private GUIKlangSteuerung guiKlangSteuerung = new GUIKlangSteuerung();
 
     @FXML
     private VBox vbox;
 
-    /**
-     * @throws IOException
-     */
     @FXML
-    private void oeffneStartFenster() throws IOException {
+    private void oeffneStartFenster() {
         try {
             guiKlangSteuerung.knopfDruecken();
             Stage spielefenster = (Stage) vbox.getScene().getWindow();
@@ -38,16 +35,13 @@ public class GUICreditsFenster implements Initializable {
     }
 
     /**
-     * @param location
-     * @param resources
+     * @param location  Dateipdfad
+     * @param resources verwendete Ressourcen
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     }
 
-    /**
-     *
-     */
     @FXML
     private void knopfZielen() {
         guiKlangSteuerung.knopfZielen();

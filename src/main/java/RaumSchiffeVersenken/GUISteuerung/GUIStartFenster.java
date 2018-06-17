@@ -16,22 +16,19 @@ import java.util.ResourceBundle;
 
 public class GUIStartFenster implements Initializable {
 
-    public static String spielerAktiv = "1";
+    static String spielerAktiv = "1";
 
-    public static int spieler1Leben = 26;
+    static int spieler1Leben = 26;
 
-    public static int spieler2Leben = 26;
+    static int spieler2Leben = 26;
 
-    GUIKlangSteuerung guiKlangSteuerung = new GUIKlangSteuerung();
+    private GUIKlangSteuerung guiKlangSteuerung = new GUIKlangSteuerung();
 
     @FXML
     private VBox vbox;
 
-    /**
-     * @throws IOException
-     */
     @FXML
-    private void starteSpiel() throws IOException {
+    private void starteSpiel() {
         try {
             guiKlangSteuerung.knopfDruecken();
             SpielablaufFX sfx = new SpielablaufFX();
@@ -46,11 +43,8 @@ public class GUIStartFenster implements Initializable {
         }
     }
 
-    /**
-     * @throws IOException
-     */
     @FXML
-    private void oeffneCredits() throws IOException {
+    private void oeffneCredits() {
         try {
             guiKlangSteuerung.knopfDruecken();
             Stage spielefenster = (Stage) vbox.getScene().getWindow();
@@ -63,28 +57,22 @@ public class GUIStartFenster implements Initializable {
         }
     }
 
-    /**
-     * @throws IOException
-     */
     @FXML
-    private void beendeSpiel() throws IOException {
+    private void beendeSpiel() {
         guiKlangSteuerung.knopfDruecken();
         Stage spielefenster = (Stage) vbox.getScene().getWindow();
         spielefenster.close();
     }
 
     /**
-     * @param location
-     * @param resources
+     * @param location  Dateipfad
+     * @param resources verwendete Ressourcen
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
-
-    /**
-     *
-     */
+    
     @FXML
     private void knopfZielen() {
         guiKlangSteuerung.knopfZielen();

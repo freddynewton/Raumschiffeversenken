@@ -14,10 +14,10 @@ public class FeldFX {
     private static final Logger log = LogManager.getLogger(FeldFX.class);
 
     /**
-     * <p>10x10 Matrix 100 Feldern wird mit Zahlen von 0-99 mit "0" gefüllt.</p>
+     * <p>10x10 Matrix 100 Feldern wird mit Zahlen von 0-99 mit "0" gefuellt.</p>
      *
-     * @param xAchse Länge
-     * @param yAchse Länge
+     * @param xAchse Laenge
+     * @param yAchse Laenge
      */
     FeldFX(int xAchse, int yAchse) {
         this.mapGroesse = new int[xAchse][yAchse];
@@ -30,11 +30,11 @@ public class FeldFX {
     }
 
     /**
-     * @param yAchseBeschuss  :)
-     * @param xAchseBeschuss  :)
-     * @param schiffsRichtung :)
-     * @param schiffsLaenge   :)
-     * @return :)
+     * @param yAchseBeschuss  y-Koordinate des Schusses
+     * @param xAchseBeschuss  x-Koordinate des Schusses
+     * @param schiffsRichtung Ausrichtung des Schiffes
+     * @param schiffsLaenge   Laenge des Schiffes
+     * @return boolean
      */
     boolean schiffSetzenAutomatisch(int yAchseBeschuss, int xAchseBeschuss, int schiffsRichtung, int schiffsLaenge) {
         boolean schiffErfolgreichSetzen = false;
@@ -79,7 +79,7 @@ public class FeldFX {
     }
 
     /**
-     * Für Test relevant
+     * <p>Für Test relevant</p>
      *
      * @return mapGroesse
      */

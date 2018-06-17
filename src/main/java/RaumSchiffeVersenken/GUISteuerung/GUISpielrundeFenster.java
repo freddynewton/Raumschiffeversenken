@@ -142,18 +142,17 @@ public class GUISpielrundeFenster implements Initializable {
     }
 
     /**
-     *
-     * @param spielfeld
-     * @param feld
-     * @param grafikFeld
-     * @param feldGrafik
-     * @param danebenGrafik
-     * @param raumschiffGrafik
-     * @param trefferGrafik
-     * @param x
-     * @param y
-     * @param hoehe
-     * @param breite
+     * @param spielfeld        GridPane Spielfeld
+     * @param feld             Objekt der Feld-Klasse
+     * @param grafikFeld       ImageView Element
+     * @param feldGrafik       Grafik in der GridPane-Zelle
+     * @param danebenGrafik    Grafik von Daneben-Schuss
+     * @param raumschiffGrafik Grafik vom Raumschiff
+     * @param trefferGrafik    Grafik von einem Treffer
+     * @param x                X-Koordinate
+     * @param y                Y-Koordinate
+     * @param hoehe            Hoehe der Grafik
+     * @param breite           Breite der Grafik
      */
     private void arrayZeichner(GridPane spielfeld, FeldFX feld, ImageView grafikFeld, Image feldGrafik, Image danebenGrafik, Image raumschiffGrafik, Image trefferGrafik, int x, int y, int hoehe, int breite) {
         grafikFeld.setId("" + x + y);
