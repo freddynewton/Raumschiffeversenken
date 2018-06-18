@@ -225,7 +225,7 @@ public class GUISpielrundeFenster implements Initializable {
 
                 schuetteln(spielfeld1);
 
-                log.info("Spieler " + spielerAktiv + " Schuss auf: " + Character.getNumericValue(grafikFeld1.getId().charAt(0)) + "|" + Character.getNumericValue(grafikFeld1.getId().charAt(1)) + ", Ergebnis: Daneben!");
+                log.info("Spieler " + spielerAktiv + " Schuss auf: " + Character.getNumericValue(grafikFeld1.getId().charAt(0)) + "|" + Character.getNumericValue(grafikFeld1.getId().charAt(1)) + ", Ergebnis: Trefer!");
 
                 if (spielerAktiv.equals("1")) {
                     feldgrafikAktualisieren(feldSpalte, feldReihe, feldSpieler2, feldSpieler1);
