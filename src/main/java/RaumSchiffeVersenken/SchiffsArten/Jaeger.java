@@ -5,10 +5,10 @@ import RaumSchiffeVersenken.Interface_Factory.RaumSchiff;
 public class Jaeger implements RaumSchiff {
 
     private int laenge = 1;
-    private int LebensPunkte = 1;
+    private int lebensPunkte = 1;
     private int xKoordinaten;
     private int yKoordinaten;
-    private int Schiffsrichtung;
+    private int schiffsrichtung;
 
     @Override
     public int getLaenge() {
@@ -22,12 +22,12 @@ public class Jaeger implements RaumSchiff {
 
     @Override
     public int getLebensPunkte() {
-        return LebensPunkte;
+        return lebensPunkte;
     }
 
     @Override
     public void setLebensPunkte(int LebensPunkte) {
-        this.LebensPunkte = LebensPunkte;
+        this.lebensPunkte = LebensPunkte;
     }
 
     @Override
@@ -62,11 +62,11 @@ public class Jaeger implements RaumSchiff {
 
     @Override
     public int getSchiffsrichtung() {
-        return Schiffsrichtung;
+        return schiffsrichtung;
     }
 
     @Override
-    public void setSchiffsrichtung(int Schiffsrichtung) {
-
+    public void setSchiffsrichtung(int schiffsrichtung) {
+        this.schiffsrichtung = schiffsrichtung;
     }
 }

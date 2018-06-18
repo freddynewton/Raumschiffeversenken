@@ -5,10 +5,10 @@ import RaumSchiffeVersenken.Interface_Factory.RaumSchiff;
 public class Bomber implements RaumSchiff {
 
     private int laenge = 2;
-    private int LebensPunkte = 2;
+    private int lebensPunkte = 2;
     private int xKoordinaten;
     private int yKoordinaten;
-    private int Schiffsrichtung;
+    private int schiffsrichtung;
 
     @Override
     public int getLaenge() {
@@ -22,12 +22,12 @@ public class Bomber implements RaumSchiff {
 
     @Override
     public int getLebensPunkte() {
-        return LebensPunkte;
+        return lebensPunkte;
     }
 
     @Override
     public void setLebensPunkte(int LebensPunkte) {
-        this.LebensPunkte = LebensPunkte;
+        this.lebensPunkte = LebensPunkte;
     }
 
     @Override
@@ -52,21 +52,19 @@ public class Bomber implements RaumSchiff {
 
     @Override
     public void zielenZumSchiffeSetzen() {
-
     }
 
     @Override
     public void schiffSetzen() {
-
     }
 
     @Override
     public int getSchiffsrichtung() {
-        return Schiffsrichtung;
+        return schiffsrichtung;
     }
 
     @Override
     public void setSchiffsrichtung(int schiffsrichtung) {
-        Schiffsrichtung = schiffsrichtung;
+        this.schiffsrichtung = schiffsrichtung;
     }
 }

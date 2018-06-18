@@ -2,7 +2,7 @@ package RaumSchiffeVersenken.Interface_Factory;
 
 public interface RaumSchiff {
 
-    static enum RaumschiffsArten {
+    enum RaumschiffsArten {
         JAEGER,
         BOMBER,
         FREGATTE,
@@ -34,5 +34,5 @@ public interface RaumSchiff {
 
     int getSchiffsrichtung();
 
-    void setSchiffsrichtung(int Schiffsrichtung);
+    void setSchiffsrichtung(int schiffsrichtung);
 }

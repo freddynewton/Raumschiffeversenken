@@ -19,7 +19,7 @@ import static RaumSchiffeVersenken.GUISteuerung.GUIStartFenster.spielerAktiv;
 
 public class GUISpielerwechselFenster implements Initializable {
 
-    GUIKlangSteuerung guiKlangSteuerung = new GUIKlangSteuerung();
+    private GUIKlangSteuerung guiKlangSteuerung = new GUIKlangSteuerung();
 
     @FXML
     private VBox vbox;
@@ -27,11 +27,8 @@ public class GUISpielerwechselFenster implements Initializable {
     @FXML
     private Label aktiverSpielerLabel;
 
-    /**
-     * @throws IOException
-     */
     @FXML
-    private void szeneWechsel() throws IOException {
+    private void szeneWechsel() {
         try {
             guiKlangSteuerung.knopfDruecken();
             Stage spielefenster = (Stage) vbox.getScene().getWindow();
@@ -45,8 +42,8 @@ public class GUISpielerwechselFenster implements Initializable {
     }
 
     /**
-     * @param location
-     * @param resources
+     * @param location  Dateipfad
+     * @param resources verwendete Ressourcen
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {

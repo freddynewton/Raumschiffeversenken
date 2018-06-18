@@ -15,21 +15,21 @@ public class GUIKlangSteuerung {
         musikSpieler.play();
     }
 
-    public void knopfDruecken() {
+    void knopfDruecken() {
         String musikDatei = "src/main/resources/geräusche/knopfDrücken.wav";
         Media knopfZielen = new Media(new File(musikDatei).toURI().toString());
         AudioClip musikSpieler = new AudioClip(knopfZielen.getSource());
         musikSpieler.play();
     }
 
-    public void blaster() {
+    void blaster() {
         String musikDatei = "src/main/resources/geräusche/blaster.wav";
         Media knopfZielen = new Media(new File(musikDatei).toURI().toString());
         AudioClip musikSpieler = new AudioClip(knopfZielen.getSource());
         musikSpieler.play();
     }
 
-    public void explosion() {
+    void explosion() {
         String musikDatei = "src/main/resources/geräusche/explosion.wav";
         Media knopfZielen = new Media(new File(musikDatei).toURI().toString());
         AudioClip musikSpieler = new AudioClip(knopfZielen.getSource());

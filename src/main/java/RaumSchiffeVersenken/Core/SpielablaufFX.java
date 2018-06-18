@@ -1,6 +1,5 @@
 package RaumSchiffeVersenken.Core;
 
-import RaumSchiffeVersenken.Entwicklungskonsole.Spielablauf;
 import RaumSchiffeVersenken.Interface_Factory.RaumSchiff;
 import RaumSchiffeVersenken.Interface_Factory.SchiffFactory;
 import org.apache.logging.log4j.LogManager;
@@ -17,14 +16,10 @@ public class SpielablaufFX {
     /**
      * <p>Hier wird der Logger für die Klasse SpielablaufFX erstellt sowie alle Static-Variablen der Klasse.</p>
      */
-    private static final Logger log = LogManager.getLogger(Spielablauf.class);
-
-    public static Feld Feld_Spieler1 = new Feld(10, 10);
-    public static Feld Feld_Spieler2 = new Feld(10, 10);
-
-    ReentrantLock variablenLock = new ReentrantLock();
-
-    private int derzeitigeSchiffslänge = 0;
+    private static final Logger log = LogManager.getLogger(SpielablaufFX.class);
+    public static FeldFX feldSpieler1 = new FeldFX(10, 10);
+    public static FeldFX feldSpieler2 = new FeldFX(10, 10);
+    private ReentrantLock variablenLock = new ReentrantLock();
 
     /**
      * <p>Die Methode SchiffeSetzenablauf definiert zuerst eine HashMap der unterschiedlichen Schiffsarten, welche für
@@ -33,7 +28,6 @@ public class SpielablaufFX {
      * je einer für jede Spielerflotte, abgehandelt.</p>
      */
     public void SchiffeSetzenAblauf() {
-
         HashMap<Integer, RaumSchiff> schiffsMap = new HashMap<>();
         log.info("HashMap<Integer, RaumSchiff> schiffsMap = new HashMap<>()" + schiffsMap);
 
@@ -65,17 +59,9 @@ public class SpielablaufFX {
         log.info("Zerstörer" + schiffsMap.put(12, Objects.requireNonNull(SchiffFactory.getRaumschiff("5"))));
         schiffsMap.put(12, Objects.requireNonNull(SchiffFactory.getRaumschiff("5")));
 
-        Thread t1 = new Thread() {
-            public void run() {
-                spielerSchiffeSetzenAblauf(Feld_Spieler1, schiffsMap, 1);
-            }
-        };
+        Thread t1 = new Thread(() -> spielerSchiffeSetzenAblauf(feldSpieler1, schiffsMap));
 
-        Thread t2 = new Thread() {
-            public void run() {
-                spielerSchiffeSetzenAblauf(Feld_Spieler2, schiffsMap, 1);
-            }
-        };
+        Thread t2 = new Thread(() -> spielerSchiffeSetzenAblauf(feldSpieler2, schiffsMap));
 
         try {
             t1.start();
@@ -83,37 +69,37 @@ public class SpielablaufFX {
             t1.join();
             t2.join();
         } catch (InterruptedException e) {
-            log.error("Interrupted exception");
+            log.error("Interrupted exception bei dem Thread-Handling.");
         }
     }
 
     /**
-     * @param feld
-     * @param SchiffTypsLaenge
-     * @return
+     * <p>Errechnet die Zufallswerte für das automatische Schiffeplatzieren.</p>
+     *
+     * @param feld            das uebergebene Spielfeld
+     * @param schiffTypLaenge die Laenge des eingesetzten Schiffs
+     * @return boolean
      */
-    public boolean randomSchiffeSetzen(Feld feld, int SchiffTypsLaenge) {
+    private boolean randomSchiffeSetzen(FeldFX feld, int schiffTypLaenge) {
 
         int randomX = ThreadLocalRandom.current().nextInt(10);
         int randomY = ThreadLocalRandom.current().nextInt(10);
         int randomRichtung = ThreadLocalRandom.current().nextInt(2) + 1;
 
-        return feld.schiffSetzenAutomatisch(randomY, randomX, randomRichtung, SchiffTypsLaenge);
+        return feld.schiffSetzenAutomatisch(randomY, randomX, randomRichtung, schiffTypLaenge);
     }
 
     /**
-     * @param schiffsMap
-     * @param rmInt
-     * @return
+     * @param schiffsMap die HashMap mit der Schiffsliste
      */
-    public String spielerSchiffeSetzenAblauf(Feld Feld_Spieler, HashMap schiffsMap, int rmInt) {
+    private void spielerSchiffeSetzenAblauf(FeldFX feldSpieler, HashMap schiffsMap) {
 
         try {
             variablenLock.lock();
             for (int i = 1; i <= 12; i++) {
                 RaumSchiff schiff = (RaumSchiff) schiffsMap.get(i);
-                derzeitigeSchiffslänge = schiff.getLaenge();
-                boolean stand = randomSchiffeSetzen(Feld_Spieler, derzeitigeSchiffslänge);
+                int derzeitigeSchiffslaenge = schiff.getLaenge();
+                boolean stand = randomSchiffeSetzen(feldSpieler, derzeitigeSchiffslaenge);
 
                 if (!stand) {
                     i -= 1;
@@ -122,6 +108,5 @@ public class SpielablaufFX {
         } finally {
             variablenLock.unlock();
         }
-        return "";
     }
 }
