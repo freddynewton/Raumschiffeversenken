@@ -6,25 +6,22 @@ import org.junit.Test;
 
 public class FeldTest {
     @Test
-    public void zielenZumSchiessen() throws Exception {
-    }
+    public void feldErstellen() throws Exception {
+        FeldFX spielFeld1 = new FeldFX(10,10);
 
-    @Test
-    public void schießen() throws Exception {
-    }
+        int[][] erwartetesFeld =   {{0,0,0,0,0,0,0,0,0,0},
+                                    {0,0,0,0,0,0,0,0,0,0}};
 
-    @Test
-    public void zielenZumSchiffeSetzen() throws Exception {
+        Assert.assertNotEquals(spielFeld1, erwartetesFeld);
     }
 
     @Test
     public void schiffSetzen() throws Exception {
-        //FeldFX[][] mapGroesse = new Feld[10][10];
         FeldFX play = new FeldFX(10, 10);
 
         play.schiffSetzenAutomatisch(0, 0, 2, 3);
-        int[][] result = play.getMapGroesse();
-        int[][] expectedArray =  {{5,5,5,0,0,0,0,0,0,0},
+        int[][] ergebnis = play.getMapGroesse();
+        int[][] erwartetesFeld =  {{5,5,5,0,0,0,0,0,0,0},
                                   {0,0,0,0,0,0,0,0,0,0},
                                   {0,0,0,0,0,0,0,0,0,0},
                                   {0,0,0,0,0,0,0,0,0,0},
@@ -35,21 +32,14 @@ public class FeldTest {
                                   {0,0,0,0,0,0,0,0,0,0},
                                   {0,0,0,0,0,0,0,0,0,0}};
 
-        Assert.assertArrayEquals(expectedArray,result);
-
+        Assert.assertArrayEquals(erwartetesFeld,ergebnis);
     }
 
-    @Test
-    public void kriegsnebel() throws Exception {
+    // TODO: 21.06.2018 Negativtescht einfügen
+
+    @Test (expected = IllegalArgumentException.class)
+    public void feldNegativTest() throws Exception{
+        //FeldFX spielFeld1 = new FeldFX(10,10);
+
     }
-
-    @Test
-    public void bereitAbfrage() throws Exception {
-    }
-
-    @Test
-    public void trefferZaehler() throws Exception {
-    }
-
-
 }
