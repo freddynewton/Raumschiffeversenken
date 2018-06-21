@@ -88,7 +88,7 @@ public class SpielablaufFX {
 
         return feld.schiffSetzenAutomatisch(randomY, randomX, randomRichtung, schiffTypLaenge);
     }
-
+// TODO: 20.06.2018 Streams to the mehtod below
     /**
      * @param schiffsMap die HashMap mit der Schiffsliste
      */
