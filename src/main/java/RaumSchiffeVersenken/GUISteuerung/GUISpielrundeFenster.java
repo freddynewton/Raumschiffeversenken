@@ -181,7 +181,7 @@ public class GUISpielrundeFenster implements Initializable {
      * @param textAusgabeText der ausgebene Text
      * @param textAusgabe     das zum Text gehoerige Label
      */
-    private static void textAusgabeSteuerung(String textAusgabeText, Label textAusgabe) {
+    public static void textAusgabeSteuerung(String textAusgabeText, Label textAusgabe) {
         textAusgabe.setText(textAusgabeText);
     }
 

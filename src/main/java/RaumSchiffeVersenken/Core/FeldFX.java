@@ -62,17 +62,15 @@ public class FeldFX {
                 throw new EigeneException("Abtaster fehlschlag");
             }
 
-            if (schiffErfolgreichSetzen) {
-                if (schiffsRichtung == 1) {
-                    for (int i = 0; i < schiffsLaenge; i++) {
-                        mapGroesse[xAchseBeschuss + i][yAchseBeschuss] += 5;
-                        log.info("Schiff erfolgreich horizontal gesetzt.\n");
-                    }
-                } else if (schiffsRichtung == 2) {
-                    for (int i = 0; i < schiffsLaenge; i++) {
-                        mapGroesse[xAchseBeschuss][yAchseBeschuss + i] += 5;
-                        log.info("Schiff erfolgreich vertikal gesetzt.\n");
-                    }
+            if (schiffsRichtung == 1) {
+                for (int i = 0; i < schiffsLaenge; i++) {
+                    mapGroesse[xAchseBeschuss + i][yAchseBeschuss] += 5;
+                    log.info("Schiff erfolgreich horizontal gesetzt.\n");
+                }
+            } else if (schiffsRichtung == 2) {
+                for (int i = 0; i < schiffsLaenge; i++) {
+                    mapGroesse[xAchseBeschuss][yAchseBeschuss + i] += 5;
+                    log.info("Schiff erfolgreich vertikal gesetzt.\n");
                 }
             }
         } catch (Exception ex) {
