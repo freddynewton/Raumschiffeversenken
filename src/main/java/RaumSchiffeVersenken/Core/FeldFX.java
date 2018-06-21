@@ -58,6 +58,8 @@ public class FeldFX {
 
             if (schiffsLaengeCounter == schiffsLaenge) {
                 schiffErfolgreichSetzen = true;
+            } else {
+                throw new EigeneException("Abtaster fehlschlag");
             }
 
             if (schiffErfolgreichSetzen) {
@@ -73,9 +75,8 @@ public class FeldFX {
                     }
                 }
             }
-        } catch (Exception ex4) {
-            log.error("Schiff konnte nicht gesetzt werden (außerhalb des Feldes).\n", ex4);
-
+        } catch (Exception ex) {
+            log.info("Catchblock: Schiff wurde nicht gesetzt" + ex);
         }
         return schiffErfolgreichSetzen;
     }
