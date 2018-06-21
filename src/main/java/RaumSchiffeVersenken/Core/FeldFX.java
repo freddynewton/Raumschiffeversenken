@@ -1,5 +1,6 @@
 package RaumSchiffeVersenken.Core;
 
+import RaumSchiffeVersenken.Exception.EigeneException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -74,6 +75,7 @@ public class FeldFX {
             }
         } catch (Exception ex4) {
             log.error("Schiff konnte nicht gesetzt werden (außerhalb des Feldes).\n", ex4);
+
         }
         return schiffErfolgreichSetzen;
     }
