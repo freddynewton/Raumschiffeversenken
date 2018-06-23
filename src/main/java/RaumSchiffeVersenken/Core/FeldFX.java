@@ -76,7 +76,7 @@ public class FeldFX {
                 }
             }
         } catch (Exception ex) {
-            log.info("Catchblock: Schiff wurde nicht gesetzt" + ex);
+            log.error("Catchblock: Schiff wurde nicht gesetzt", ex);
         }
         return schiffErfolgreichSetzen;
     }

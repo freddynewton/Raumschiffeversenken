@@ -11,5 +11,4 @@ public class EigeneException extends java.lang.Exception {
         super(nachricht);
         log.error("Abtaster Fehlgeschlagen in der methode schiffSetzenAutomatisch() in der Klasse FeldFX. (Eigene Exception)");
     }
-
 }
