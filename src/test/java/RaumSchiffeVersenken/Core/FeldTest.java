@@ -1,9 +1,16 @@
 package RaumSchiffeVersenken.Core;
 
 import RaumSchiffeVersenken.GUISteuerung.GUISpielrundeFenster;
+import RaumSchiffeVersenken.Interface_Factory.RaumSchiff;
+import RaumSchiffeVersenken.Interface_Factory.SchiffFactory;
 import javafx.scene.control.Label;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Objects;
 
 import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.fail;
@@ -76,5 +83,26 @@ public class FeldTest {
         } catch (Throwable expected) {
             assertEquals(NullPointerException.class, expected.getClass());
         }
+    }
+
+    @Test
+    public void mapParallelStream() {
+
+        HashMap<Integer, RaumSchiff> schiffsMap = new HashMap<>();
+
+        int SchiffslaengeGesamt = 0;
+
+        schiffsMap.entrySet().parallelStream();
+        {
+            schiffsMap.put(1, Objects.requireNonNull(SchiffFactory.getRaumschiff("1")));
+            schiffsMap.put(2, Objects.requireNonNull(SchiffFactory.getRaumschiff("2")));
+            schiffsMap.put(3, Objects.requireNonNull(SchiffFactory.getRaumschiff("4")));
+            schiffsMap.put(4, Objects.requireNonNull(SchiffFactory.getRaumschiff("5")));
+
+            for (int i = 1; i < 5; i++) {
+                SchiffslaengeGesamt += schiffsMap.get(i).getLaenge();
+            }
+        }
+        assertEquals(12, SchiffslaengeGesamt);
     }
 }
