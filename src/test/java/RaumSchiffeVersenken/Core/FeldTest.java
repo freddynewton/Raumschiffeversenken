@@ -90,19 +90,21 @@ public class FeldTest {
 
         HashMap<Integer, RaumSchiff> schiffsMap = new HashMap<>();
 
-        int SchiffslaengeGesamt = 0;
+        int SchiffslaengeGesamt;
 
-        schiffsMap.entrySet().parallelStream();
-        {
+
+
             schiffsMap.put(1, Objects.requireNonNull(SchiffFactory.getRaumschiff("1")));
             schiffsMap.put(2, Objects.requireNonNull(SchiffFactory.getRaumschiff("2")));
             schiffsMap.put(3, Objects.requireNonNull(SchiffFactory.getRaumschiff("4")));
             schiffsMap.put(4, Objects.requireNonNull(SchiffFactory.getRaumschiff("5")));
 
-            for (int i = 1; i < 5; i++) {
-                SchiffslaengeGesamt += schiffsMap.get(i).getLaenge();
-            }
-        }
+        SchiffslaengeGesamt = schiffsMap
+                .entrySet()
+                .parallelStream()
+                .mapToInt(e -> e.getValue().getLaenge()).sum();
+
+
         assertEquals(12, SchiffslaengeGesamt);
     }
 }
