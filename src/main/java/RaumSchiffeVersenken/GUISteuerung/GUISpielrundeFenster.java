@@ -181,7 +181,7 @@ public class GUISpielrundeFenster implements Initializable {
      * @param textAusgabeText der ausgebene Text
      * @param textAusgabe     das zum Text gehoerige Label
      */
-    private static void textAusgabeSteuerung(String textAusgabeText, Label textAusgabe) {
+    public static void textAusgabeSteuerung(String textAusgabeText, Label textAusgabe) {
         textAusgabe.setText(textAusgabeText);
     }
 
@@ -225,7 +225,7 @@ public class GUISpielrundeFenster implements Initializable {
 
                 schuetteln(spielfeld1);
 
-                log.info("Spieler " + spielerAktiv + " Schuss auf: " + Character.getNumericValue(grafikFeld1.getId().charAt(0)) + "|" + Character.getNumericValue(grafikFeld1.getId().charAt(1)) + ", Ergebnis: Daneben!");
+                log.info("Spieler " + spielerAktiv + " Schuss auf: " + Character.getNumericValue(grafikFeld1.getId().charAt(0)) + "|" + Character.getNumericValue(grafikFeld1.getId().charAt(1)) + ", Ergebnis: Treffer!");
 
                 if (spielerAktiv.equals("1")) {
                     feldgrafikAktualisieren(feldSpalte, feldReihe, feldSpieler2, feldSpieler1);
