@@ -29,34 +29,33 @@ public class SpielablaufFX {
      */
     public void SchiffeSetzenAblauf() {
         HashMap<Integer, RaumSchiff> schiffsMap = new HashMap<>();
-        log.info("HashMap<Integer, RaumSchiff> schiffsMap = new HashMap<>()" + schiffsMap);
-
-        log.info("Jager 1" + schiffsMap.put(1, Objects.requireNonNull(SchiffFactory.getRaumschiff("1"))));
-        log.info("Jager 2" + schiffsMap.put(2, Objects.requireNonNull(SchiffFactory.getRaumschiff("1"))));
-        log.info("Jager 3" + schiffsMap.put(3, Objects.requireNonNull(SchiffFactory.getRaumschiff("1"))));
-        log.info("Jager 4" + schiffsMap.put(4, Objects.requireNonNull(SchiffFactory.getRaumschiff("1"))));
-        log.info("Jager 5" + schiffsMap.put(5, Objects.requireNonNull(SchiffFactory.getRaumschiff("1"))));
+        log.trace("HashMap<Integer, RaumSchiff> schiffsMap = new HashMap<>()", schiffsMap);
+        log.trace("Jager 1", schiffsMap.put(1, Objects.requireNonNull(SchiffFactory.getRaumschiff("1"))));
+        log.trace("Jager 2", schiffsMap.put(2, Objects.requireNonNull(SchiffFactory.getRaumschiff("1"))));
+        log.trace("Jager 3", schiffsMap.put(3, Objects.requireNonNull(SchiffFactory.getRaumschiff("1"))));
+        log.trace("Jager 4", schiffsMap.put(4, Objects.requireNonNull(SchiffFactory.getRaumschiff("1"))));
+        log.trace("Jager 5", schiffsMap.put(5, Objects.requireNonNull(SchiffFactory.getRaumschiff("1"))));
         schiffsMap.put(1, Objects.requireNonNull(SchiffFactory.getRaumschiff("1")));
         schiffsMap.put(2, Objects.requireNonNull(SchiffFactory.getRaumschiff("1")));
         schiffsMap.put(3, Objects.requireNonNull(SchiffFactory.getRaumschiff("1")));
         schiffsMap.put(4, Objects.requireNonNull(SchiffFactory.getRaumschiff("1")));
         schiffsMap.put(5, Objects.requireNonNull(SchiffFactory.getRaumschiff("1")));
 
-        log.info("Bomber 1" + schiffsMap.put(6, Objects.requireNonNull(SchiffFactory.getRaumschiff("2"))));
-        log.info("Bomber 2" + schiffsMap.put(7, Objects.requireNonNull(SchiffFactory.getRaumschiff("2"))));
-        log.info("Bomber 3" + schiffsMap.put(8, Objects.requireNonNull(SchiffFactory.getRaumschiff("2"))));
-        log.info("Bomber 4" + schiffsMap.put(9, Objects.requireNonNull(SchiffFactory.getRaumschiff("2"))));
+        log.trace("Bomber 1", schiffsMap.put(6, Objects.requireNonNull(SchiffFactory.getRaumschiff("2"))));
+        log.trace("Bomber 2", schiffsMap.put(7, Objects.requireNonNull(SchiffFactory.getRaumschiff("2"))));
+        log.trace("Bomber 3", schiffsMap.put(8, Objects.requireNonNull(SchiffFactory.getRaumschiff("2"))));
+        log.trace("Bomber 4", schiffsMap.put(9, Objects.requireNonNull(SchiffFactory.getRaumschiff("2"))));
         schiffsMap.put(6, Objects.requireNonNull(SchiffFactory.getRaumschiff("2")));
         schiffsMap.put(7, Objects.requireNonNull(SchiffFactory.getRaumschiff("2")));
         schiffsMap.put(8, Objects.requireNonNull(SchiffFactory.getRaumschiff("2")));
         schiffsMap.put(9, Objects.requireNonNull(SchiffFactory.getRaumschiff("2")));
 
-        log.info("Fregatte 1" + schiffsMap.put(10, Objects.requireNonNull(SchiffFactory.getRaumschiff("4"))));
-        log.info("Fregatte 2" + schiffsMap.put(11, Objects.requireNonNull(SchiffFactory.getRaumschiff("4"))));
+        log.trace("Fregatte 1", schiffsMap.put(10, Objects.requireNonNull(SchiffFactory.getRaumschiff("4"))));
+        log.trace("Fregatte 2", schiffsMap.put(11, Objects.requireNonNull(SchiffFactory.getRaumschiff("4"))));
         schiffsMap.put(10, Objects.requireNonNull(SchiffFactory.getRaumschiff("4")));
         schiffsMap.put(11, Objects.requireNonNull(SchiffFactory.getRaumschiff("4")));
 
-        log.info("Zerstörer" + schiffsMap.put(12, Objects.requireNonNull(SchiffFactory.getRaumschiff("5"))));
+        log.trace("Zerstörer", schiffsMap.put(12, Objects.requireNonNull(SchiffFactory.getRaumschiff("5"))));
         schiffsMap.put(12, Objects.requireNonNull(SchiffFactory.getRaumschiff("5")));
 
         Thread t1 = new Thread(() -> spielerSchiffeSetzenAblauf(feldSpieler1, schiffsMap));
@@ -88,7 +87,7 @@ public class SpielablaufFX {
 
         return feld.schiffSetzenAutomatisch(randomY, randomX, randomRichtung, schiffTypLaenge);
     }
-// TODO: 20.06.2018 Streams to the mehtod below
+
     /**
      * @param schiffsMap die HashMap mit der Schiffsliste
      */
@@ -96,6 +95,7 @@ public class SpielablaufFX {
 
         try {
             variablenLock.lock();
+
             for (int i = 1; i <= 12; i++) {
                 RaumSchiff schiff = (RaumSchiff) schiffsMap.get(i);
                 int derzeitigeSchiffslaenge = schiff.getLaenge();

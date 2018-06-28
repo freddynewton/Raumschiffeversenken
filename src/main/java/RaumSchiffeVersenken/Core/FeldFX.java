@@ -58,24 +58,23 @@ public class FeldFX {
 
             if (schiffsLaengeCounter == schiffsLaenge) {
                 schiffErfolgreichSetzen = true;
+            } else {
+                throw new EigeneException("Abtaster fehlschlag");
             }
 
-            if (schiffErfolgreichSetzen) {
-                if (schiffsRichtung == 1) {
-                    for (int i = 0; i < schiffsLaenge; i++) {
-                        mapGroesse[xAchseBeschuss + i][yAchseBeschuss] += 5;
-                        log.info("Schiff erfolgreich horizontal gesetzt.\n");
-                    }
-                } else if (schiffsRichtung == 2) {
-                    for (int i = 0; i < schiffsLaenge; i++) {
-                        mapGroesse[xAchseBeschuss][yAchseBeschuss + i] += 5;
-                        log.info("Schiff erfolgreich vertikal gesetzt.\n");
-                    }
+            if (schiffsRichtung == 1) {
+                for (int i = 0; i < schiffsLaenge; i++) {
+                    mapGroesse[xAchseBeschuss + i][yAchseBeschuss] += 5;
+                    log.info("Schiff erfolgreich horizontal gesetzt.\n");
+                }
+            } else if (schiffsRichtung == 2) {
+                for (int i = 0; i < schiffsLaenge; i++) {
+                    mapGroesse[xAchseBeschuss][yAchseBeschuss + i] += 5;
+                    log.info("Schiff erfolgreich vertikal gesetzt.\n");
                 }
             }
-        } catch (Exception ex4) {
-            log.error("Schiff konnte nicht gesetzt werden (außerhalb des Feldes).\n", ex4);
-
+        } catch (Exception ex) {
+            log.error("Catchblock: Schiff wurde nicht gesetzt", ex);
         }
         return schiffErfolgreichSetzen;
     }
