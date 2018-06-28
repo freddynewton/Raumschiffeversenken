@@ -1,6 +1,6 @@
 package RaumSchiffeVersenken.Core;
 
-import RaumSchiffeVersenken.Exception.EigeneException;
+import RaumSchiffeVersenken.Exception.AbtasterException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -59,7 +59,7 @@ public class FeldFX {
             if (schiffsLaengeCounter == schiffsLaenge) {
                 schiffErfolgreichSetzen = true;
             } else {
-                throw new EigeneException("Abtaster fehlschlag");
+                throw new AbtasterException("Abtaster fehlschlag");
             }
 
             if (schiffsRichtung == 1) {

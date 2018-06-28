@@ -4,11 +4,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 
-public class EigeneException extends java.lang.Exception {
+public class AbtasterException extends Exception {
 
-    private static final Logger log = LogManager.getLogger(EigeneException.class);
+    private static final Logger log = LogManager.getLogger(AbtasterException.class);
 
-    public EigeneException(String nachricht) {
+    public AbtasterException(String nachricht) {
         super(nachricht);
         log.error("Abtaster Fehlgeschlagen in der Methode schiffSetzenAutomatisch() in der Klasse FeldFX. (Eigene Exception)");
     }

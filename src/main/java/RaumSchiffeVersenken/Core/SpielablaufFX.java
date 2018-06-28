@@ -1,5 +1,6 @@
 package RaumSchiffeVersenken.Core;
 
+import RaumSchiffeVersenken.Exception.SchiffSetzenException;
 import RaumSchiffeVersenken.Interface_Factory.RaumSchiff;
 import RaumSchiffeVersenken.Interface_Factory.SchiffFactory;
 import org.apache.logging.log4j.LogManager;
@@ -27,7 +28,9 @@ public class SpielablaufFX {
      * "SchiffFactory" generiert. Das anschließende platzieren der einzelnen Schiffe wird über zwei Threads,
      * je einer für jede Spielerflotte, abgehandelt.</p>
      */
-    public void SchiffeSetzenAblauf() {
+    public void SchiffeSetzenAblauf() throws SchiffSetzenException {
+        int schiffSetzenControlleur;
+
         HashMap<Integer, RaumSchiff> schiffsMap = new HashMap<>();
         log.trace("HashMap<Integer, RaumSchiff> schiffsMap = new HashMap<>()", schiffsMap);
 
@@ -63,18 +66,28 @@ public class SpielablaufFX {
         schiffsMap.put(12, Objects.requireNonNull(SchiffFactory.getRaumschiff("5")));
         log.trace("Zerstörer", schiffsMap.put(12, Objects.requireNonNull(SchiffFactory.getRaumschiff("5"))));
 
-        Thread t1 = new Thread(() -> spielerSchiffeSetzenAblauf(feldSpieler1, schiffsMap));
+        schiffSetzenControlleur = schiffsMap
+                .entrySet()
+                .parallelStream()
+                .mapToInt(e -> e.getValue().getLaenge()).sum();
 
-        Thread t2 = new Thread(() -> spielerSchiffeSetzenAblauf(feldSpieler2, schiffsMap));
+        if (schiffSetzenControlleur == 26) {
+            Thread t1 = new Thread(() -> spielerSchiffeSetzenAblauf(feldSpieler1, schiffsMap));
 
-        try {
-            t1.start();
-            t2.start();
-            t1.join();
-            t2.join();
-        } catch (InterruptedException e) {
-            log.error("Interrupted exception bei dem Thread-Handling.");
+            Thread t2 = new Thread(() -> spielerSchiffeSetzenAblauf(feldSpieler2, schiffsMap));
+
+            try {
+                t1.start();
+                t2.start();
+                t1.join();
+                t2.join();
+            } catch (InterruptedException e) {
+                log.error("Interrupted exception bei dem Thread-Handling.");
+            }
+        } else {
+            throw new SchiffSetzenException("Schiffesetzen hat nicht funktioniert.");
         }
+
     }
 
     /**

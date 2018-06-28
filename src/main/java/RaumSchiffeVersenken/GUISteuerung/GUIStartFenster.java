@@ -1,6 +1,7 @@
 package RaumSchiffeVersenken.GUISteuerung;
 
 import RaumSchiffeVersenken.Core.SpielablaufFX;
+import RaumSchiffeVersenken.Exception.SchiffSetzenException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -32,7 +33,11 @@ public class GUIStartFenster implements Initializable {
         try {
             guiKlangSteuerung.knopfDruecken();
             SpielablaufFX sfx = new SpielablaufFX();
-            sfx.SchiffeSetzenAblauf();
+            try {
+                sfx.SchiffeSetzenAblauf();
+            } catch (SchiffSetzenException e) {
+                e.printStackTrace();
+            }
             Stage spielefenster = (Stage) vbox.getScene().getWindow();
             Parent quelle = FXMLLoader.load(getClass().getResource("/fxml/spielerwechselFenster.fxml"));
             Scene szene2 = new Scene(quelle);
