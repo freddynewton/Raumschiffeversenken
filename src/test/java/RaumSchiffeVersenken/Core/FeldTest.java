@@ -69,16 +69,11 @@ public class FeldTest {
     /**
      * Fuehrt einen Test durch, um eine Exception zu testen.
      */
-    @Test
+    @SuppressWarnings("unchecked")
+    @Test(expected = NullPointerException.class)
     public void exceptionTest() {
-        try {
-            FeldFX feldFX = null;
-            feldFX.getMapGroesse();
-
-            fail("NullPointerException!");
-        } catch (Throwable expected) {
-            assertEquals(NullPointerException.class, expected.getClass());
-        }
+        FeldFX feldFX = null;
+        feldFX.schiffSetzenAutomatisch(3,3,2,3);
     }
 
     /**
