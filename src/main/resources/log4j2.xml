@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration>
     <Appenders>
-        <File name="A1" fileName="A1.log" append="false">
+        <File name="A1" fileName="A1.log" immediateFlush="true" append="true">
             <PatternLayout pattern="%t %-5p %c{2} - %m%n"/>
         </File>
+        <File name="A2" fileName="A2.log" immediateFlush="true" append="true">
+            <PatternLayout pattern="%t %-5p %c{2} - %m%n"/>
+        </File>
+        <File name="A3" fileName="A3.log" immediateFlush="true" append="true">
+            <PatternLayout pattern="%t %-5p %c{2} - %m%n"/>
+        </File>
+
         <Console name="STDOUT" target="SYSTEM_OUT">
             <PatternLayout pattern="%d %-5p [%t] %C{2} (%F:%L) - %m%n"/>
         </Console>
@@ -13,6 +20,12 @@
         <!-- You my want to define class or package level per-logger rules -->
         <Logger name="RSV.App" level="debug">
             <AppenderRef ref="A1"/>
+        </Logger>
+        <Logger name="RSV.App" level="trace">
+            <AppenderRef ref="A2"/>
+        </Logger>
+        <Logger name="RSV.App" level="error">
+            <AppenderRef ref="A3"/>
         </Logger>
         <Root level="info">
             <AppenderRef ref="STDOUT"/>
