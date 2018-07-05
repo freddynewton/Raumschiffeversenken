@@ -1,5 +1,6 @@
 package RaumSchiffeVersenken.Core;
 
+import RaumSchiffeVersenken.Exception.AbtasterException;
 import RaumSchiffeVersenken.Exception.SchiffSetzenException;
 import RaumSchiffeVersenken.Interface_Factory.RaumSchiff;
 import RaumSchiffeVersenken.Interface_Factory.SchiffFactory;
@@ -72,14 +73,21 @@ public class SpielablaufFX {
                 .mapToInt(e -> e.getValue().getLaenge()).sum();
 
         if (schiffSetzenControlleur == 26) {
-            Thread t1 = new Thread(new Runnable() {
-                @Override
-                public void run() {
+            Thread t1 = new Thread(() -> {
+                try {
                     SpielablaufFX.this.spielerSchiffeSetzenAblauf(feldSpieler1, schiffsMap);
+                } catch (AbtasterException e) {
+                    e.printStackTrace();
                 }
             });
 
-            Thread t2 = new Thread(() -> spielerSchiffeSetzenAblauf(feldSpieler2, schiffsMap));
+            Thread t2 = new Thread(() -> {
+                try {
+                    spielerSchiffeSetzenAblauf(feldSpieler2, schiffsMap);
+                } catch (AbtasterException e) {
+                    e.printStackTrace();
+                }
+            });
 
             try {
                 t1.start();
@@ -102,7 +110,7 @@ public class SpielablaufFX {
      * @param schiffTypLaenge die Laenge des eingesetzten Schiffs
      * @return boolean
      */
-    private boolean randomSchiffeSetzen(FeldFX feld, int schiffTypLaenge) {
+    private boolean randomSchiffeSetzen(FeldFX feld, int schiffTypLaenge) throws AbtasterException {
 
         int randomX = ThreadLocalRandom.current().nextInt(10);
         int randomY = ThreadLocalRandom.current().nextInt(10);
@@ -114,7 +122,7 @@ public class SpielablaufFX {
     /**
      * @param schiffsMap die HashMap mit der Schiffsliste
      */
-    private void spielerSchiffeSetzenAblauf(FeldFX feldSpieler, HashMap schiffsMap) {
+    private void spielerSchiffeSetzenAblauf(FeldFX feldSpieler, HashMap schiffsMap) throws AbtasterException {
 
         try {
             variablenLock.lock();

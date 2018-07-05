@@ -1,6 +1,7 @@
 package RaumSchiffeVersenken.GUISteuerung;
 
 import RaumSchiffeVersenken.Core.SpielablaufFX;
+import RaumSchiffeVersenken.Exception.AbtasterException;
 import RaumSchiffeVersenken.Exception.SchiffSetzenException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

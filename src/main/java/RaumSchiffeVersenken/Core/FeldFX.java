@@ -37,7 +37,7 @@ public class FeldFX {
      * @param schiffsLaenge   Laenge des Schiffes
      * @return boolean
      */
-    boolean schiffSetzenAutomatisch(int yAchseBeschuss, int xAchseBeschuss, int schiffsRichtung, int schiffsLaenge) {
+    boolean schiffSetzenAutomatisch(int yAchseBeschuss, int xAchseBeschuss, int schiffsRichtung, int schiffsLaenge) throws AbtasterException {
         boolean schiffErfolgreichSetzen = false;
         int schiffsLaengeCounter = 0;
 

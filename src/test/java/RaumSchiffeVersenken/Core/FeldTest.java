@@ -1,5 +1,6 @@
 package RaumSchiffeVersenken.Core;
 
+import RaumSchiffeVersenken.Exception.AbtasterException;
 import RaumSchiffeVersenken.GUISteuerung.GUISpielrundeFenster;
 import RaumSchiffeVersenken.Interface_Factory.RaumSchiff;
 import RaumSchiffeVersenken.Interface_Factory.SchiffFactory;
@@ -36,7 +37,11 @@ public class FeldTest {
     public void schiffSetzen() {
         FeldFX spielFeld = new FeldFX(10, 10);
 
-        spielFeld.schiffSetzenAutomatisch(0, 0, 2, 3);
+        try {
+            spielFeld.schiffSetzenAutomatisch(0, 0, 2, 3);
+        } catch (AbtasterException e) {
+            e.printStackTrace();
+        }
         int[][] ergebnis = spielFeld.getMapGroesse();
         int[][] erwartetesFeld =
                 {{5, 5, 5, 0, 0, 0, 0, 0, 0, 0},
@@ -73,7 +78,11 @@ public class FeldTest {
     @Test(expected = NullPointerException.class)
     public void exceptionTest() {
         FeldFX feldFX = null;
-        feldFX.schiffSetzenAutomatisch(3,3,2,3);
+        try {
+            feldFX.schiffSetzenAutomatisch(3, 3, 2, 3);
+        } catch (AbtasterException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
