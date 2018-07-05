@@ -72,7 +72,12 @@ public class SpielablaufFX {
                 .mapToInt(e -> e.getValue().getLaenge()).sum();
 
         if (schiffSetzenControlleur == 26) {
-            Thread t1 = new Thread(() -> spielerSchiffeSetzenAblauf(feldSpieler1, schiffsMap));
+            Thread t1 = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    SpielablaufFX.this.spielerSchiffeSetzenAblauf(feldSpieler1, schiffsMap);
+                }
+            });
 
             Thread t2 = new Thread(() -> spielerSchiffeSetzenAblauf(feldSpieler2, schiffsMap));
 
